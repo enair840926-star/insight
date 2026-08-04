@@ -1,0 +1,40 @@
+name: 데이터 소스 접속 검증
+
+# GitHub 러너는 미국에 있다. 한국 사이트(네이버·DART·한국은행)가 해외 IP를
+# 막는지, 바이낸스가 미국 IP를 막는지(451)를 실제로 두들겨 본다.
+# 결과는 notes/probe-github.md 로 리포에 커밋된다.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/probe.py'
+      - '.github/workflows/probe.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - run: pip install requests
+
+      - name: 접속 검증
+        # 일부 소스가 막혀도 리포트는 남겨야 하므로 실패로 끝내지 않는다.
+        continue-on-error: true
+        run: python tools/probe.py --md notes/probe-github.md
+
+      - name: 결과 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add notes/probe-github.md
+          git diff --staged --quiet || git commit -m "접속 검증 결과 [skip ci]"
+          git push
