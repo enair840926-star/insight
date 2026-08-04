@@ -57,8 +57,15 @@ jobs:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
           TZ: Asia/Seoul
         run: |
-          python run.py ${{ github.event.inputs.markets || '--auto' }} \
-            --no-insight --no-deploy --publish
+          ARGS="${{ github.event.inputs.markets }}"
+          if [ -z "$ARGS" ] && [ "${{ github.event_name }}" = "push" ]; then
+            # 워크플로를 고쳤을 때의 스모크 테스트. 코인이 제일 빠르고,
+            # 미국 러너에서는 바이낸스가 막히므로 OKX 폴백까지 함께 탄다.
+            ARGS="coin"
+          fi
+          if [ -z "$ARGS" ]; then ARGS="--auto"; fi
+          echo "실행 인자: $ARGS"
+          python run.py $ARGS --no-insight --no-deploy --publish
 
       - name: 커밋
         run: |
