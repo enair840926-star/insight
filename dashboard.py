@@ -14,6 +14,8 @@ import os
 import sys
 import socket
 import datetime as dt
+
+from core import read
 from pathlib import Path
 
 # 주의: stdout 재설정은 모듈 최상단에 두면 안 된다.
@@ -290,11 +292,12 @@ def render_us(j):
                 f'<span>시총 {money_usd(s.get("market_cap"))}</span>'
                 f'<span>거래대금 {money_usd(s.get("turnover"))}</span>'
                 f'<span>20MA {pct(s.get("vs_ma20_pct"))}</span>'
-                f'<span>52주 {num(s.get("pos_52w"), 1)}</span>'
+                f'<span>52주 {esc(read.pos_52w(s.get("pos_52w")))}</span>'
                 f'<span>거래량 {num(s.get("volume_ratio"), 2)}배</span>'
                 f'</div></div>')
         h += card(f"선별 종목 {len(sel)}개", body,
-                  f"전종목 {j.get('select_stats', {}).get('total', 0):,}개에서 동적 선별")
+                  f"전종목 {j.get('select_stats', {}).get('total', 0):,}개에서 동적 선별 · "
+                  f"52주는 1년 가격 범위에서 지금 어디쯤인지")
 
     ea = j.get("earnings") or []
     if ea:
@@ -307,11 +310,21 @@ def render_us(j):
 
     ec = j.get("econ") or []
     if ec:
-        rows = [[esc((e.get("event") or "")[:34]), esc(e.get("actual") or "-"),
-                 esc(e.get("consensus") or "-"), esc(e.get("previous") or "-")]
-                for e in ec[:10]]
-        h += card("경제지표", rows_table(["지표", "실제", "예상", "이전"],
-                                       rows, ["l", "r", "r", "r"]))
+        rows = []
+        for e in ec[:10]:
+            surp, effect, cls = read.econ_surprise(
+                e.get("event"), e.get("actual"), e.get("consensus"))
+            # 예상과 얼마나 어긋났는지보다 '그래서 어떻게 읽히는지'가 먼저다
+            note = (f'<span class="{cls}">{esc(surp)}</span>' if surp else "")
+            if effect:
+                note += f'<br><span class="dim">{esc(effect)}</span>'
+            rows.append([esc((e.get("event") or "")[:30]),
+                         esc(e.get("actual") or "-"),
+                         esc(e.get("consensus") or "-"),
+                         note or '<span class="dim">-</span>'])
+        h += card("경제지표", rows_table(["지표", "실제", "예상", "해석"],
+                                       rows, ["l", "r", "r", "l"]),
+                  "예상과 다르면 시장이 어떻게 읽는지 함께 표시합니다")
 
     ns = j.get("news_stats") or {}
     sub = f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별"
@@ -332,12 +345,18 @@ def render_macro(j):
 
     yc = j.get("yield_curve") or []
     if yc:
-        rows = [[esc(c["label"]), f'{c["spread_bp"]:+,.1f}bp',
-                 esc(c.get("shape_move") or "-"),
-                 f'<span class="dim">{"역전" if c["inverted"] else ""}</span>']
-                for c in yc]
-        h += card("금리 커브", rows_table(["구간", "스프레드", "오늘", ""],
-                                        rows, ["l", "r", "r", "r"]))
+        rows = []
+        for c in yc:
+            mean = read.curve_meaning(c["label"], c.get("spread_bp"),
+                                      c.get("inverted"))
+            cls = "brk" if c.get("inverted") else "dim"
+            rows.append([esc(c["label"]), f'{c["spread_bp"]:+,.1f}bp',
+                         esc(read.curve_move(c.get("shape_move")) or "-"),
+                         f'<span class="{cls}">{esc(mean)}</span>'])
+        h += card("금리 커브", rows_table(["구간", "장단기 차이", "오늘 움직임", "의미"],
+                                        rows, ["l", "r", "l", "l"]),
+                  "장기금리 − 단기금리. 마이너스가 되면 역전이라 부르고 "
+                  "침체 신호로 읽습니다")
     h += insight_slot("macro")
 
     dv = j.get("divergences") or []
@@ -350,13 +369,35 @@ def render_macro(j):
                                           ["l", "r", "r", "r"]),
                   "★ = 통상 관계가 깨진 것")
 
+    # 원자재는 재고·커브를 교차한 수급 판정을 붙인다. 가격만으로는
+    # 지금 물건이 귀한 건지 남는 건지 안 보인다.
+    inv_state = {r["name"]: r.get("state")
+                 for r in (j.get("inventory_readings") or [])}
+    curves = j.get("curves") or {}
     for g, items in groups.items():
-        rows = [[esc(r["name"]), num(r.get("price"), 2), pct(r.get("change_pct")),
-                 pct(r.get("change_20d_pct")),
-                 f'<span class="dim">{num(r.get("pos_52w"), 0)}</span>']
-                for r in items]
-        h += card(g, rows_table(["이름", "현재가", "당일", "20일", "52주"],
-                                rows, ["l", "r", "r", "r", "r"]))
+        rows = []
+        for r in items:
+            n = r["name"]
+            bias, why = read.commodity_bias(
+                inv_state.get(n), (curves.get(n) or {}).get("shape"))
+            tail = (f'<span class="chip">{esc(bias)}</span>' if bias
+                    else f'<span class="dim">{esc(read.pos_52w(r.get("pos_52w")))}</span>')
+            rows.append([esc(n), num(r.get("price"), 2), pct(r.get("change_pct")),
+                         pct(r.get("change_20d_pct")),
+                         f'<span class="dim">{esc(read.pos_52w(r.get("pos_52w")))}</span>'
+                         if bias else "", tail])
+        # 수급 판정이 하나도 없는 묶음(환율·금리 등)은 열을 줄인다
+        has_bias = any(r[5].startswith('<span class="chip"') for r in rows)
+        if has_bias:
+            h += card(g, rows_table(
+                ["이름", "현재가", "당일", "20일", "52주", "수급"],
+                [r for r in rows], ["l", "r", "r", "r", "r", "r"]),
+                "수급 = 재고와 선물커브를 교차한 판정")
+        else:
+            h += card(g, rows_table(
+                ["이름", "현재가", "당일", "20일", "52주"],
+                [[r[0], r[1], r[2], r[3], r[5]] for r in rows],
+                ["l", "r", "r", "r", "r"]))
 
     inv = j.get("inventories") or {}
     if inv:
@@ -364,17 +405,22 @@ def render_macro(j):
         rows = []
         for name, d in inv.items():
             st = state.get(name, {})
-            s_ = st.get("state", "")
+            plain, side = read.inventory_state(st.get("state"),
+                                               d.get("vs_5y_avg_pct"))
             # 재고 판정은 등락이 아니다. 등락 색(적/청)과 섞지 않고 의미색을 쓴다.
-            cell = (f'<span class="chip">{esc(s_)}</span>' if s_ in ("타이트", "과잉")
-                    else f'<span class="dim">{esc(s_)}</span>')
+            cell = (f'<span class="chip">{esc(plain)}</span>'
+                    if plain in ("재고 부족", "재고 넘침")
+                    else f'<span class="dim">{esc(plain)}</span>')
+            if side:
+                cell += f'<br><span class="dim">{esc(side)}</span>'
             rows.append([esc(name), f'{num(d["value"])} <span class="dim">{esc(d["unit"])}</span>',
                          f'{d.get("change_1w", 0):+,.0f}',
                          pct(d.get("vs_5y_avg_pct"), 1), cell])
         rd = next(iter(inv.values())).get("period")
         h += card("EIA 주간 재고", rows_table(
             ["항목", "재고", "주간", "평년대비", "판정"], rows,
-            ["l", "r", "r", "r", "r"]), f"기준 {rd}")
+            ["l", "r", "r", "r", "l"]),
+            f"기준 {rd} · 평년(5년 평균)보다 5% 이상 적으면 재고 부족")
 
     cot = j.get("cot") or {}
     if cot:
@@ -383,22 +429,33 @@ def render_macro(j):
         for name, d in sorted(cot.items(),
                               key=lambda kv: -abs(kv[1].get("spec_net_pct_oi") or 0)):
             mark = '<span class="brk">★</span> ' if name in ext else ""
+            note = read.cot_reading(d.get("spec_ratio"),
+                                    d.get("spec_net_pct_oi"),
+                                    d.get("spec_net_change"))
+            cls = "brk" if name in ext else "dim"
             rows.append([mark + esc(name), num(d.get("spec_ratio"), 2),
-                         f'{d.get("spec_net", 0):+,}',
                          f'{d.get("spec_net_pct_oi", 0):+.1f}%',
-                         f'{d.get("spec_net_change", 0):+,}'])
+                         f'{d.get("spec_net_change", 0):+,}',
+                         f'<span class="{cls}">{esc(note)}</span>'])
         rd = next(iter(cot.values())).get("report_date")
         h += card("COT 투기 포지셔닝", rows_table(
-            ["품목", "롱숏비", "순포지션", "OI대비", "전주대비"], rows,
-            ["l", "r", "r", "r", "r"]), f"CFTC 기준일 {rd} · ★ = 극단 쏠림")
+            ["품목", "롱숏비", "OI대비", "전주대비", "해석"], rows,
+            ["l", "r", "r", "r", "l"]),
+            f"헤지펀드가 어느 쪽에 걸었는지 · CFTC 기준일 {rd} · "
+            f"★ = 한쪽으로 극단 쏠림")
 
     cv = j.get("curves") or {}
     if cv:
-        rows = [[esc(n), esc(c["shape"]), f'{c["spread_pct"]:+.2f}%',
-                 f'<span class="dim">{"" if c["monotonic"] else "계절성"}</span>']
-                for n, c in sorted(cv.items(), key=lambda kv: kv[1]["spread_pct"])]
-        h += card("선물 커브", rows_table(["품목", "형태", "근월대비", ""],
-                                       rows, ["l", "l", "r", "r"]))
+        rows = []
+        for n, c in sorted(cv.items(), key=lambda kv: kv[1]["spread_pct"]):
+            plain, side = read.curve_shape(c["shape"], c.get("spread_pct"))
+            tail = f'<span class="chip">{esc(side)}</span>' if side else ""
+            if not c["monotonic"]:
+                tail += ' <span class="dim">계절성</span>'
+            rows.append([esc(n), esc(plain), f'{c["spread_pct"]:+.2f}%', tail])
+        h += card("선물 커브", rows_table(
+            ["품목", "지금 vs 나중", "차이", "뜻"], rows, ["l", "l", "r", "l"]),
+            "지금 물건이 나중보다 비싸면 공급이 빠듯하다는 뜻입니다")
 
     ns = j.get("news_stats") or {}
     h += card("뉴스", news_list(j.get("news_selected") or []),
@@ -446,6 +503,23 @@ def render_coin(j):
             k = c.get("kimchi") or {}
             fr = c.get("funding_rate")
             fr_s = f'{fr*10000:+.2f}bp' if fr is not None else "-"
+            # 가격과 미결제약정의 조합이 코인에서 가장 정보량이 크다.
+            # 같은 상승도 신규 자금이면 이어지고 숏 커버링이면 끊긴다.
+            flow, flow_why, flow_cls = read.coin_flow(
+                c.get("change_7d"), c.get("oi_change_7d_pct"))
+            fund, fund_cls = read.funding_reading(
+                fr * 10000 if fr is not None else None)
+            gap, gap_cls = read.crowd_gap(c.get("long_account_pct"),
+                                          c.get("long_top_pct"))
+            tags = ""
+            if flow:
+                tags += (f'<span class="rd {flow_cls}" title="{esc(flow_why)}">'
+                         f'{esc(flow)}</span>')
+            if fund and fund != "중립":
+                tags += f'<span class="rd {fund_cls}">{esc(fund)}</span>'
+            if gap:
+                tags += f'<span class="rd {gap_cls}">{esc(gap)}</span>'
+
             body += (
                 f'<div class="stock{hot_class(c.get("reasons"))}"><div class="srow">'
                 f'<div><span class="sname">{esc(c["symbol"])}</span> '
@@ -453,7 +527,8 @@ def render_coin(j):
                 f'<div class="sprice">${num(c.get("price"), 4)} {pct(c.get("change_pct"))}</div>'
                 f'</div>'
                 f'<div class="sbadges">{badges(c.get("reasons") or [])}</div>'
-                f'<div class="sstats">'
+                + (f'<div class="sbadges">{tags}</div>' if tags else "")
+                + f'<div class="sstats">'
                 f'<span>7일 {pct(c.get("change_7d"))}</span>'
                 f'<span>펀딩 {fr_s}</span>'
                 f'<span>롱숏 {num(c.get("long_short_account"), 2)}</span>'
@@ -461,7 +536,8 @@ def render_coin(j):
                 + (f'<span>김프 {pct(k.get("premium_pct"))}</span>' if k else "")
                 + f'<span>ATH {pct(c.get("ath_change_pct"), 1)}</span>'
                 f'</div></div>')
-        h += card(f"선별 코인 {len(sel)}개", body, src_sub)
+        h += card(f"선별 코인 {len(sel)}개", body,
+                  src_sub + " · 7일 가격과 미결제약정을 묶어 자금 성격을 판정합니다")
 
     ns = j.get("news_stats") or {}
     sub = f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별"
@@ -489,6 +565,7 @@ CSS = """
   --acc:#0891b2;            /* 틸 — 등락 적/청과 충돌하지 않는 강조 */
   --warn:#b45309;           /* 경고(극단·타이트) — 강조색과 분리된 의미색 */
   --warn-bg:#fdf3e3;
+  --up-bg:#fdeced; --down-bg:#eaf1fd;   /* 해석 태그 배경 */
   --shadow:0 1px 2px rgba(13,20,24,.06);
 }
 @media(prefers-color-scheme:dark){
@@ -499,6 +576,7 @@ CSS = """
     --up:#ff6b6b; --down:#60a5fa; --flat:#6b7c88;
     --acc:#22d3ee;
     --warn:#f59e0b; --warn-bg:#2a1f0d;
+    --up-bg:#2a1416; --down-bg:#0f1e2e;
     --shadow:none;
   }
 }
@@ -624,6 +702,13 @@ tr:last-child td{border:none}
 code{background:var(--line);border-radius:3px;padding:1px 5px;font-size:11.5px;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .panel{display:none}.panel.on{display:block}
+/* 해석 태그 — 등락 색(적/청)과 섞이면 안 되므로 의미색을 따로 쓴다 */
+.rd{display:inline-block;border-radius:3px;padding:1px 7px;font-size:11px;
+  font-weight:650;border:1px solid transparent}
+.rd.good{background:var(--up-bg);color:var(--up)}
+.rd.bad{background:var(--down-bg);color:var(--down)}
+.rd.warn{background:var(--warn-bg);color:var(--warn)}
+.rd.flat{border-color:var(--line);color:var(--dim)}
 .pstamp{color:var(--dim);font-size:11.5px;padding:10px 2px 0;
   font-variant-numeric:tabular-nums;display:flex;gap:6px;align-items:center}
 .pstamp .old{background:var(--warn-bg);color:var(--warn);border-radius:3px;
