@@ -26,6 +26,10 @@ from core.http import UA, _referer_for
 
 TIMEOUT = 25
 
+# DART list.json은 날짜 범위를 안 주면 오늘치만 본다. 오늘 공시가 없는
+# 회사면 '데이터 없음'이 와서 접속 성공을 실패로 오인한다.
+_D30 = (dt.date.today() - dt.timedelta(days=30)).strftime("%Y%m%d")
+
 # (그룹, 이름, URL, 없으면 죽는 것, 성공 판정 키워드)
 # 성공 판정 키워드가 None이면 HTTP 200만 본다.
 TARGETS = [
@@ -48,21 +52,24 @@ TARGETS = [
      "종목별 과거 시세·이동평균", None),
     # DART는 엔드포인트마다 따로 재야 한다. 실측에서 공시 목록은 되는데
     # 내부자거래·5%룰만 비는 일이 있었다.
+    # 성공 판정 키워드는 '성공 응답에만 있는 것'이라야 한다. DART는 오류도
+    # 200 + {"status":"..."}로 주므로 status로 재면 오류를 성공으로 센다.
     ("국장", "DART 공시목록(list)",
      "https://opendart.fss.or.kr/api/list.json"
-     "?crtfc_key={DART_API_KEY}&corp_code=00126380&page_count=1",
-     "종목별 최근 공시", "status"),
+     "?crtfc_key={DART_API_KEY}&corp_code=00126380"
+     f"&bgn_de={_D30}&page_count=1",
+     "종목별 최근 공시", "rcept_no"),
     ("국장", "DART 내부자거래(elestock)",
      "https://opendart.fss.or.kr/api/elestock.json"
      "?crtfc_key={DART_API_KEY}&corp_code=00126380",
-     "임원·주요주주 매매 (★ 동시매수/매도 신호)", "status"),
+     "임원·주요주주 매매 (★ 동시매수/매도 신호)", "rcept_no"),
     ("국장", "DART 5%룰(majorstock)",
      "https://opendart.fss.or.kr/api/majorstock.json"
      "?crtfc_key={DART_API_KEY}&corp_code=00126380",
-     "대량보유 변동 (국민연금·블랙록 등)", "status"),
+     "대량보유 변동 (국민연금·블랙록 등)", "rcept_no"),
     ("국장", "DART 고유번호 ZIP(corpCode)",
      "https://opendart.fss.or.kr/api/corpCode.xml?crtfc_key={DART_API_KEY}",
-     "종목코드→DART코드 매핑. 없으면 위 셋이 전부 죽는다", None),
+     "종목코드→DART코드 매핑. 없으면 위 셋이 전부 죽는다", "PK"),
     ("국장", "DART 웹",
      "https://dart.fss.or.kr/dsab007/main.do",
      "공시 원문 링크", None),
@@ -274,8 +281,10 @@ def main():
                          "bytes": 0, "sec": 0, "ok": None, "body": ""})
             continue
         status, code, size, el, body = probe(real)
-        # 200이어도 내용이 비어 있으면 실패다 (차단 페이지를 200으로 주는 곳이 있다)
-        if status == "OK" and key and key not in body and size < 200:
+        # 200이어도 내용이 비어 있으면 실패다. 오류를 200으로 주는 곳이 많다
+        # (DART는 {"status":"012",...}, 차단 페이지도 200인 경우가 있다).
+        # 크기 조건은 걸지 않는다 — 90바이트 오류를 성공으로 세는 원인이었다.
+        if status == "OK" and key and key not in body:
             status = "내용없음"
         ok = status == "OK"
         ok_n += ok
