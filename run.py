@@ -14,7 +14,9 @@
 
 만들어진 HTML은 자기완결형이다 (CSS·JS·데이터 전부 인라인, 외부 요청 0건).
 """
+import glob
 import io
+import os
 import subprocess
 import sys
 import time
@@ -44,11 +46,22 @@ GROUPS = {
 }
 
 # --auto가 "개장 임박"으로 보는 창. 미국 서머타임이 바뀌면 개장이 한 시간
-# 밀리므로 넉넉히 잡는다. 예약을 21:30에 걸어 두면 여름·겨울 모두 걸린다.
+# 밀리므로 넉넉히 잡는다. 예약을 21:30과 22:30에 둘 다 걸어 두면 여름·겨울
+# 모두 걸리고, 겹치는 쪽은 아래 FRESH_H 가드가 걸러 준다.
 AUTO_WINDOW_H = 2.5
+FRESH_H = 3.0          # 이 시간 안에 이미 받은 자산군은 --auto에서 건너뛴다
 
 
-def auto_markets(now=None):
+def _age_h(market):
+    """마지막 수집 이후 경과 시간. 받은 적 없으면 무한대."""
+    files = sorted(glob.glob(str(DATA / f"{market}_2*.json")),
+                   key=os.path.getmtime)
+    if not files:
+        return float("inf")
+    return (time.time() - os.path.getmtime(files[-1])) / 3600
+
+
+def auto_markets(now=None, skip_fresh=True):
     """개장이 임박한 시장을 고른다. 예약 실행용.
 
     아무 장도 임박하지 않았으면 빈 리스트를 돌려준다 — 잘못 걸린 예약이
@@ -64,7 +77,12 @@ def auto_markets(now=None):
         picked.append("macro")          # 매크로는 두 장 모두의 배경
         if "us" in picked:
             picked.append("coin")       # 코인은 미국 세션과 같이 움직인다
-    return [m for m in ORDER if m in picked]
+    out = [m for m in ORDER if m in picked]
+    if skip_fresh:
+        # 서머타임 때문에 예약을 두 번 걸어 두면 한쪽은 헛돈다.
+        # 방금 받은 자산군은 다시 받지 않는다.
+        out = [m for m in out if _age_h(m) >= FRESH_H]
+    return out
 
 
 def resolve(args):
@@ -72,6 +90,10 @@ def resolve(args):
     if "--auto" in args:
         m = auto_markets()
         if not m:
+            # 개장이 멀어서인지, 방금 받아서인지 구분해 준다
+            raw = auto_markets(skip_fresh=False)
+            if raw:
+                return [], f"{'·'.join(raw)} 최근 {FRESH_H:.0f}시간 내 갱신됨"
             return [], "개장 임박한 장 없음"
         return m, "자동 선택"
     named, given = [], 0
@@ -139,6 +161,9 @@ def main():
     if not markets:
         if why == "인자 오류":
             print(f"  쓸 수 있는 값: {' '.join(ORDER)} / 아침 / 저녁 / --auto\n")
+        elif "갱신됨" in why:
+            print("  이미 최신이라 건너뛰었습니다.")
+            print(f"  강제로 돌리려면: python run.py {' '.join(ORDER)}\n")
         else:
             print("  다음 개장까지 여유가 있어 아무것도 하지 않았습니다.")
             print(f"  강제로 돌리려면: python run.py {' '.join(ORDER)}\n")

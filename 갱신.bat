@@ -3,7 +3,8 @@ chcp 65001 > nul
 title 자산 인사이트 갱신
 cd /d "%~dp0"
 
-python run.py
+REM 인자를 그대로 넘긴다 — 갱신.bat kr / 갱신.bat 저녁 / 갱신.bat --auto
+python run.py %*
 
 echo.
 echo ================================================================
