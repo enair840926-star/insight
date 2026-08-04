@@ -1,0 +1,8 @@
+# docs/index.html은 dashboard.py가 굽는 산출물이다. PC와 클라우드가
+# 각자 굽고 각자 push하므로 거의 매번 충돌하는데, 병합할 의미가 없다.
+# 항상 다시 구워서 덮어쓰면 되므로 병합 시도 자체를 막는다.
+docs/index.html -merge -diff
+
+# 클라우드가 커밋하는 수집 결과도 마찬가지로 병합 대상이 아니다.
+cloud/*.json -merge -diff
+cloud/*.txt  -merge -diff

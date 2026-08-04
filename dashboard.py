@@ -427,6 +427,14 @@ def render_coin(j):
 
     sel = j.get("selected") or []
     if sel:
+        # 파생 지표는 실행 위치에 따라 거래소가 달라진다 (미국 IP에서는
+        # 바이낸스가 451이라 OKX로 받는다). 펀딩비·롱숏비의 절대 수준이
+        # 거래소마다 다르므로, 어디서 온 값인지 보이지 않으면 어제와
+        # 오늘을 비교할 때 없는 변화를 읽게 된다.
+        src = j.get("derivatives_source", "binance")
+        src_label = {"binance": "바이낸스", "okx": "OKX"}.get(src, src)
+        src_sub = (f"펀딩비·미결제약정·롱숏비 출처: {src_label} 무기한선물 · "
+                   f"거래소가 다르면 절대 수준을 비교하지 마세요")
         body = ""
         for c in sel:
             k = c.get("kimchi") or {}
@@ -447,7 +455,7 @@ def render_coin(j):
                 + (f'<span>김프 {pct(k.get("premium_pct"))}</span>' if k else "")
                 + f'<span>ATH {pct(c.get("ath_change_pct"), 1)}</span>'
                 f'</div></div>')
-        h += card(f"선별 코인 {len(sel)}개", body)
+        h += card(f"선별 코인 {len(sel)}개", body, src_sub)
 
     ns = j.get("news_stats") or {}
     sub = f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별"
