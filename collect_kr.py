@@ -336,8 +336,19 @@ def build_prompt(b):
         A("\n## 국내 거시 (한국은행 ECOS)")
         A("지수형 지표(물가·수출)는 절대값이 아니라 전년동월비를 보라.")
         A("발표 시차가 있어 최신 월이 1~2개월 전일 수 있다.")
-        for r in ecos.summarize(km):
+        rows = ecos.summarize(km)
+        for r in rows:
             A(f"- {r['name']} ({r['period']}): {r['text']}")
+        # 조회에 실패한 지표를 명시한다. 빈 목록을 그냥 두면 '값이 없다'와
+        # '못 받았다'를 구분할 수 없어, 지표가 없는 것을 안정으로 읽는다.
+        bad = [n for n, d in km.items() if not d or d.get("error")]
+        if bad:
+            A(f"- **조회 실패: {', '.join(bad)}** — 값이 없는 게 아니라"
+              f" 받지 못한 것이다. 이 지표들은 판단 근거로 쓰지 마라.")
+    else:
+        A("\n## 국내 거시 (한국은행 ECOS)")
+        A("**수집 실패 — 국내 금리·물가·수출 지표가 전부 없다.**")
+        A("이 항목들을 언급하지 말고, 필요하면 '데이터 없음'이라고 명시하라.")
 
     s = b.get("sentiment") or {}
     if s.get("us_fear_greed"):
@@ -374,6 +385,24 @@ def build_prompt(b):
         for r in rows[-bot:]:
             A(f"- {r['name']}: {r['change_pct']:+.2f}%"
               f" (상승 {r['rise']}/{r['count']}, {r['up_ratio']}%)")
+
+    # DART가 통째로 실패하면 공시·내부자거래·5%룰이 조용히 사라진다.
+    # 그러면 '내부자 매매가 없었다'로 읽히는데, 사실은 못 받은 것이다.
+    dart_all = b.get("dart") or {}
+    dart_ok = sum(1 for v in dart_all.values() if v and not v.get("error"))
+    if not dart_ok:
+        A("\n## DART 수집 실패")
+        A("**공시·내부자거래·5%룰 데이터가 전부 없다.**")
+        A("내부자 매매나 대량보유 변동이 '없었다'고 서술하지 마라 —")
+        A("일어나지 않은 것이 아니라 조회하지 못한 것이다.")
+        A("이 축은 판단에서 빼고, 필요하면 '데이터 없음'이라고 명시하라.")
+    elif dart_ok < len(dart_all):
+        missing = [c for c, v in dart_all.items()
+                   if not v or v.get("error")]
+        A(f"\n## DART 부분 실패")
+        A(f"다음 종목은 공시·내부자거래·5%룰을 받지 못했다: "
+          f"{', '.join(missing)}")
+        A("이 종목들에 대해 '내부자 매매 없음'이라고 쓰지 마라.")
 
     st_ = b.get("select_stats") or {}
     A(f"\n## 선별 종목 {len([s for s in b['stocks'] if not s.get('error')])}개")

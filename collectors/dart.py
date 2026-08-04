@@ -60,7 +60,9 @@ def _call(path, **params):
     """DART 호출. status가 000이 아니면 사유를 명확히 알려준다."""
     params["crtfc_key"] = _key()
     qs = "&".join(f"{k}={v}" for k, v in params.items() if v is not None)
-    j = fetch_json(f"{BASE}/{path}?{qs}")
+    # 해외에서는 연결이 느려 기본 20초로는 ConnectTimeout이 난다.
+    # elestock은 삼성전자 기준 1.1MB라 받는 데도 시간이 걸린다.
+    j = fetch_json(f"{BASE}/{path}?{qs}", timeout=60)
     if j is None:
         return None
     st = j.get("status")
@@ -82,8 +84,10 @@ def load_corp_codes(force=False):
         if age < CORP_CACHE_DAYS * 86400:
             return json.loads(CORP_CACHE.read_text(encoding="utf-8"))
 
+    # 해외(GitHub 러너)에서 DART는 연결이 느리거나 간헐적으로 끊긴다.
+    # 3.5MB ZIP이라 여유를 크게 준다.
     r = requests.get(f"{BASE}/corpCode.xml", params={"crtfc_key": _key()},
-                     timeout=60)
+                     timeout=120)
     r.raise_for_status()
 
     # 정상이면 ZIP, 오류면 XML 에러 문서가 온다
