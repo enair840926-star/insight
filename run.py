@@ -53,12 +53,24 @@ FRESH_H = 3.0          # 이 시간 안에 이미 받은 자산군은 --auto에�
 
 
 def _age_h(market):
-    """마지막 수집 이후 경과 시간. 받은 적 없으면 무한대."""
-    files = sorted(glob.glob(str(DATA / f"{market}_2*.json")),
-                   key=os.path.getmtime)
-    if not files:
+    """마지막 수집 이후 경과 시간. 받은 적 없으면 무한대.
+
+    mtime이 아니라 파일명에 박힌 수집 시각으로 잰다. 러너는 매번 새로
+    체크아웃하므로 mtime이 전부 '방금'이 되어 버린다. 그러면 겨울철
+    12:30·13:30 UTC 두 예약이 모두 통과해 같은 장을 두 번 받는다.
+    """
+    from core import store
+    p = store.latest(f"{market}_2*.json")
+    if not p:
         return float("inf")
-    return (time.time() - os.path.getmtime(files[-1])) / 3600
+    m = store._STAMP.search(p.name)
+    if not m:
+        return (time.time() - os.path.getmtime(p)) / 3600
+    try:
+        when = dt.datetime.strptime(m.group(1), "%Y%m%d_%H%M")
+    except ValueError:
+        return float("inf")
+    return (dt.datetime.now() - when).total_seconds() / 3600
 
 
 def auto_markets(now=None, skip_fresh=True):
@@ -207,6 +219,13 @@ def main():
 
     index, isize, _assets = dashboard.build_pwa()
     print(f"  docs/index.html  ({isize:,}자)  ← 폰 앱용\n")
+
+    # 클라우드 수집분을 리포에 남겨 PC가 그대로 쓸 수 있게 한다.
+    # data/는 .gitignore 대상이라 cloud/로 복사해야 커밋된다.
+    if "--publish" in args:
+        from core import store
+        names = store.publish(markets)
+        print(f"  cloud/ 갱신 {len(names)}개 파일\n")
 
     print("[4/4] 배포")
     if "--no-deploy" in args:

@@ -26,7 +26,10 @@ BINANCE_OI_HIST = ("https://fapi.binance.com/futures/data/openInterestHist"
                    "?symbol={sym}&period=1d&limit=8")
 BINANCE_LS_ACCOUNT = ("https://fapi.binance.com/futures/data/globalLongShortAccountRatio"
                       "?symbol={sym}&period=1h&limit=2")
-BINANCE_LS_TOP = ("https://fapi.binance.com/futures/data/topLongShortPositionRatio"
+# 상위트레이더는 계좌 기준을 쓴다. 위 globalLongShortAccountRatio와 같은 축이라야
+# '소매는 롱인데 큰손은 아니다' 같은 비교가 성립한다. 포지션 기준
+# (topLongShortPositionRatio)과 섞어 놓으면 서로 다른 것을 재고 비교하게 된다.
+BINANCE_LS_TOP = ("https://fapi.binance.com/futures/data/topLongShortAccountRatio"
                   "?symbol={sym}&period=1h&limit=2")
 BINANCE_TAKER = ("https://fapi.binance.com/futures/data/takerlongshortRatio"
                  "?symbol={sym}&period=1h&limit=2")
@@ -76,6 +79,11 @@ NEWS_RECENT_DAYS = 3
 NEWS_LIMIT = 35
 NEWS_PER_COIN = 0        # 코인은 종목별 RSS가 없다 (야후 티커 RSS 미지원)
 MAX_WORKERS = 8
+
+# 바이낸스가 막힌 환경(미국 IP)에서 OKX로 넘어갈 때, 펀딩비는 일괄 조회가
+# 안 되므로 시총 상위 N개만 미리 받는다. 선별 기준의 '펀딩비 극단'을
+# 살리기 위한 것이고, 선별 후에는 뽑힌 코인만 마저 채운다.
+OKX_FUNDING_PREFETCH = 40
 
 # 코인명 → 티커 매핑 보조. 뉴스에 "Bitcoin"이라 쓰지 "BTC"라 안 쓴다.
 NAME_ALIASES = {

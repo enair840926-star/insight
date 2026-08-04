@@ -15,7 +15,7 @@ from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 import coin_universe as U
-from collectors import coin_market as cm, coin_news
+from collectors import coin_market as cm, coin_news, coin_okx as okx
 from core import session
 
 DATA_DIR = Path(__file__).parent / "data"
@@ -54,14 +54,33 @@ def run():
     now = dt.datetime.now()
     print(f"코인 데이터 수집 시작 — {now:%Y-%m-%d %H:%M}\n")
 
-    print("[1/5] 시총 상위 + 바이낸스 선물 전체 …", end=" ", flush=True)
+    print("[1/5] 시총 상위 + 무기한선물 전체 …", end=" ", flush=True)
     coins = cm.coingecko_universe(U.COINGECKO_MARKETS, U.EXCLUDE_SYMBOLS)
-    perp = cm.binance_futures(U.BINANCE_FUT_24H, U.BINANCE_FUNDING)
-    cm.merge(coins, perp)
     if not coins:
         print("실패 — 코인게코 응답 없음")
         return None
-    print(f"코인 {len(coins)}개 / 무기한선물 {len(perp)}개")
+
+    # 바이낸스는 미국 IP에 451(약관상 지역 제한)을 준다. 우회하지 않고
+    # 같은 지표를 주는 OKX로 넘어간다. 어느 쪽에서 왔는지는 기록해 둔다 —
+    # 거래소가 다르면 펀딩비·롱숏비의 절대 수준도 다르므로, 어제와 오늘을
+    # 비교할 때 출처가 바뀐 사실을 모르면 없는 변화를 읽게 된다.
+    source = "binance"
+    perp = cm.binance_futures(U.BINANCE_FUT_24H, U.BINANCE_FUNDING)
+    if not perp:
+        perp = okx.futures()
+        if perp:
+            source = "okx"
+            # OKX는 펀딩비 일괄 조회가 없다. 선별 기준(펀딩비 극단)을
+            # 살리려면 시총 상위권만이라도 미리 받아 둬야 한다.
+            top = [c["symbol"] for c in coins[:U.OKX_FUNDING_PREFETCH]]
+            okx.fill_funding(perp, top, U.MAX_WORKERS)
+    cm.merge(coins, perp)
+
+    label = {"binance": "바이낸스", "okx": "OKX(바이낸스 차단)"}[source]
+    if not perp:
+        print("무기한선물 조회 실패 — 가격만으로 진행합니다")
+    else:
+        print(f"코인 {len(coins)}개 / 무기한선물 {len(perp)}개 · {label}")
 
     print("[2/5] 동적 선별 …", end=" ", flush=True)
     selected = cm.select(coins, watchlist=U.WATCHLIST,
@@ -70,7 +89,16 @@ def run():
     print(f"{len(selected)}개")
 
     print("[3/5] 포지셔닝 (미결제약정·롱숏·테이커) …", end=" ", flush=True)
-    cm.enrich_positioning(selected, POS_CFG, U.MAX_WORKERS)
+    if source == "okx":
+        okx.enrich_positioning(selected, U.MAX_WORKERS)
+        # 선별된 것 중 아직 펀딩비가 없는 코인을 마저 채운다
+        okx.fill_funding(
+            {c["symbol"]: c for c in selected if c.get("has_perp")},
+            [c["symbol"] for c in selected
+             if c.get("has_perp") and c.get("funding_rate") is None],
+            U.MAX_WORKERS)
+    else:
+        cm.enrich_positioning(selected, POS_CFG, U.MAX_WORKERS)
     n_pos = sum(1 for c in selected if c.get("open_interest"))
     print(f"{n_pos}/{len(selected)}개")
 
@@ -89,6 +117,7 @@ def run():
     bundle = {
         "collected_at": now.isoformat(timespec="seconds"),
         "market": "CRYPTO",
+        "derivatives_source": source,
         "usdkrw": fx,
         "global": glob,
         "fear_greed": fg,
@@ -202,6 +231,20 @@ def build_prompt(b):
             A("    양수면 롱 우위, 극단적으로 높으면 롱 과열로 청산 위험이 커진다.")
     if b["usdkrw"]:
         A(f"- 원달러 {b['usdkrw']:,.2f}원 (김치프리미엄 계산 기준)")
+
+    # 파생 지표의 출처를 명시한다. 거래소가 다르면 펀딩비·롱숏비의 절대
+    # 수준이 달라지므로, 출처가 바뀐 걸 모르면 없는 변화를 읽게 된다.
+    src = b.get("derivatives_source", "binance")
+    if src == "okx":
+        A("\n### 파생 지표 출처: OKX")
+        A("바이낸스가 이 환경에서 막혀(451, 약관상 지역 제한) OKX로 받았다.")
+        A("**어제 인사이트가 바이낸스 기준이었다면 절대 수준을 직접 비교하지 마라.**")
+        A("OKX는 바이낸스보다 거래대금이 작아 펀딩비·롱숏비의 진폭이 다르다.")
+        A("방향과 순위는 유효하지만 수치의 크기는 거래소 안에서만 비교하라.")
+        A("또 OI 7일 변화는 OKX가 해당 코인의 모든 파생상품을 합산한 값이라")
+        A("바이낸스의 USDT 무기한 단일 종목 기준과 다를 수 있다.")
+    else:
+        A("\n### 파생 지표 출처: 바이낸스 USDT 무기한선물")
 
     A(f"\n## 선별 코인 {len(b['selected'])}개")
     A("선별 사유: 관심코인 / 급등 / 급락 / 거래대금상위 / 펀딩비극단")

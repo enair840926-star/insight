@@ -35,11 +35,15 @@ MARKETS = [
 
 # ---------------------------------------------------------------- 유틸
 def latest_json(prefix):
-    files = sorted(glob.glob(str(DATA / f"{prefix}_2*.json")), key=os.path.getmtime)
-    if not files:
+    """로컬 수집분과 클라우드 수집분 중 최신. core/store.py 참고."""
+    from core import store
+    p = store.latest(f"{prefix}_2*.json")
+    if not p:
         return None
-    with open(files[-1], encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return None
 
 
 def esc(s):

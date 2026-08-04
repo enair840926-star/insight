@@ -31,9 +31,13 @@ USD_KRW = 1430
 
 
 def latest_prompt(market):
-    files = sorted(glob.glob(str(DATA / f"prompt_{market}_2*.txt")),
-                   key=os.path.getmtime)
-    return Path(files[-1]) if files else None
+    """로컬 수집분과 클라우드(GitHub Actions) 수집분 중 최신.
+
+    클라우드가 장 시간에 맞춰 받아 둔 프롬프트를 그대로 쓸 수 있다.
+    인사이트를 만들려고 데이터를 다시 받을 필요가 없다.
+    """
+    from core import store
+    return store.latest(f"prompt_{market}_2*.txt")
 
 
 def _client():
