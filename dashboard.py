@@ -260,6 +260,14 @@ def render_kr(j):
             t = (s.get("trend") or [{}])[0]
             close = t.get("close")
             chg = s.get("snapshot_change_pct")
+            # 국장의 핵심 축은 외국인·기관 수급이다. 가격이 오르는데
+            # 둘 다 팔고 있으면 개인이 받고 있다는 뜻이다.
+            sg = s.get("signals") or {}
+            fl, fl_why, fl_cls = read.stock_flow(
+                chg, sg.get("foreign_net_5d"), sg.get("organ_net_5d"))
+            flow_tag = (f'<div class="sbadges"><span class="rd {fl_cls}" '
+                        f'title="{esc(fl_why)}">{esc(fl)}</span></div>'
+                        if fl else "")
             body += (
                 f'<div class="stock{hot_class(s.get("reasons"))}"><div class="srow">'
                 f'<div><span class="sname">{esc(s["name"])}</span> '
@@ -267,7 +275,8 @@ def render_kr(j):
                 f'<div class="sprice">{num(close)}원 {pct(chg)}</div></div>'
                 f'<div class="sbadges">{badges(s.get("reasons") or [])}'
                 f'<span class="badge sec">{esc(s.get("industry") or "-")}</span></div>'
-                f'<div class="sstats">'
+                + flow_tag
+                + f'<div class="sstats">'
                 f'<span>시총 {money_krw(s.get("market_cap"))}</span>'
                 f'<span>PER {num(f_.get("per"), 2)}배</span>'
                 f'<span>추정 {num(f_.get("est_per"), 2)}배</span>'
@@ -276,7 +285,8 @@ def render_kr(j):
                 f'<span>20MA {pct(g_.get("vs_ma20_pct"))}</span>'
                 f'</div></div>')
         h += card(f"선별 종목 {len(stocks)}개", body,
-                  f"전종목 {j.get('select_stats', {}).get('fetched', 0):,}개에서 동적 선별")
+                  f"전종목 {j.get('select_stats', {}).get('fetched', 0):,}개에서 동적 선별 · "
+                  f"수급 태그는 가격과 외국인·기관 5일 순매수를 묶은 판정")
 
     ns = j.get("news_stats") or {}
     sub = f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별"
@@ -310,8 +320,23 @@ def render_us(j):
 
     sel = j.get("selected") or []
     if sel:
+        # 장중에 수집하면 거래량이 하루치가 아니라 그때까지의 부분치다.
+        # 그 상태로 판정하면 전 종목이 '거래 없이 오름'으로 찍힌다.
+        #
+        # 최대값으로 재면 안 된다. 급등주 하나가 30분 만에 평균을 넘기면
+        # (실측: 개장 32분에 PLTR 1.17배) 가드가 안 걸린다. 완결된 장이면
+        # 중앙값이 1.0 근처여야 하므로 중앙값으로 판정한다.
+        vrs = sorted(s.get("volume_ratio") for s in sel
+                     if s.get("volume_ratio") is not None)
+        med = vrs[len(vrs) // 2] if vrs else None
+        partial = med is not None and med < 0.7
         body = ""
         for s in sel:
+            fl, fl_why, fl_cls = ("", "", "") if partial else read.volume_flow(
+                s.get("change_pct"), s.get("volume_ratio"))
+            flow_tag = (f'<div class="sbadges"><span class="rd {fl_cls}" '
+                        f'title="{esc(fl_why)}">{esc(fl)}</span></div>'
+                        if fl else "")
             body += (
                 f'<div class="stock{hot_class(s.get("reasons"))}"><div class="srow">'
                 f'<div><span class="sname">{esc(s["symbol"])}</span> '
@@ -320,16 +345,19 @@ def render_us(j):
                 f'</div>'
                 f'<div class="sbadges">{badges(s.get("reasons") or [])}'
                 f'<span class="badge sec">{esc(s.get("sector") or "-")}</span></div>'
-                f'<div class="sstats">'
+                + flow_tag
+                + f'<div class="sstats">'
                 f'<span>시총 {money_usd(s.get("market_cap"))}</span>'
                 f'<span>거래대금 {money_usd(s.get("turnover"))}</span>'
                 f'<span>20MA {pct(s.get("vs_ma20_pct"))}</span>'
                 f'<span>52주 {esc(read.pos_52w(s.get("pos_52w")))}</span>'
                 f'<span>거래량 {num(s.get("volume_ratio"), 2)}배</span>'
                 f'</div></div>')
+        vsub = ("장중 수집이라 거래량 판정은 생략했습니다" if partial
+                else "거래 태그는 가격과 거래량을 묶은 판정")
         h += card(f"선별 종목 {len(sel)}개", body,
                   f"전종목 {j.get('select_stats', {}).get('total', 0):,}개에서 동적 선별 · "
-                  f"52주는 1년 가격 범위에서 지금 어디쯤인지")
+                  f"52주는 1년 가격 범위에서 지금 어디쯤인지 · {vsub}")
 
     ea = j.get("earnings") or []
     if ea:
@@ -465,6 +493,9 @@ def render_macro(j):
     if cot:
         ext = {e["name"] for e in (j.get("cot_extremes") or [])}
         rows = []
+        # 가격과 포지션 변화의 조합은 코인의 가격×미결제약정과 같은 구조다.
+        px = {r["name"]: r.get("change_5d_pct")
+              for r in (j.get("records") or []) if not r.get("error")}
         for name, d in sorted(cot.items(),
                               key=lambda kv: -abs(kv[1].get("spec_net_pct_oi") or 0)):
             mark = '<span class="brk">★</span> ' if name in ext else ""
@@ -472,16 +503,20 @@ def render_macro(j):
                                     d.get("spec_net_pct_oi"),
                                     d.get("spec_net_change"))
             cls = "brk" if name in ext else "dim"
+            fl, fl_why, fl_cls = read.cot_flow(px.get(name),
+                                               d.get("spec_net_change"))
+            tag = (f'<span class="rd {fl_cls}" title="{esc(fl_why)}">'
+                   f'{esc(fl)}</span>' if fl else "")
             rows.append([mark + esc(name), num(d.get("spec_ratio"), 2),
                          f'{d.get("spec_net_pct_oi", 0):+.1f}%',
                          f'{d.get("spec_net_change", 0):+,}',
-                         f'<span class="{cls}">{esc(note)}</span>'])
+                         tag or f'<span class="{cls}">{esc(note)}</span>'])
         rd = next(iter(cot.values())).get("report_date")
         h += card("COT 투기 포지셔닝", rows_table(
-            ["품목", "롱숏비", "OI대비", "전주대비", "해석"], rows,
+            ["품목", "롱숏비", "OI대비", "전주대비", "자금 성격"], rows,
             ["l", "r", "r", "r", "l"]),
-            f"헤지펀드가 어느 쪽에 걸었는지 · CFTC 기준일 {rd} · "
-            f"★ = 한쪽으로 극단 쏠림")
+            f"헤지펀드가 어느 쪽에 걸었는지 · 5일 가격과 포지션 변화를 묶은 판정 · "
+            f"CFTC 기준일 {rd} · ★ = 한쪽으로 극단 쏠림")
 
     cv = j.get("curves") or {}
     if cv:

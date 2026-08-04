@@ -217,6 +217,72 @@ def coin_flow(change_pct, oi_change_pct):
     return "디레버리징", "빠지면서 포지션도 정리 중", "flat"
 
 
+# ---------------------------------------------------------------- 자금 성격
+# 코인의 '가격 × 미결제약정'과 같은 축이 다른 자산군에도 있다.
+# 국장은 외국인·기관 수급, 미장은 거래량, 원자재는 COT 순포지션이다.
+# 같은 상승이라도 누가 사서 오른 것인지에 따라 지속성이 전혀 다르다.
+
+def stock_flow(change_pct, foreign_net, organ_net):
+    """국장 — 가격과 외국인·기관 수급의 조합.
+
+    국장에서 가장 정보량이 큰 축이다. 가격이 오르는데 외국인과 기관이
+    동시에 팔고 있으면 개인이 받고 있다는 뜻이고, 그건 받아줄 주체가
+    떨어지는 순간 무너진다.
+    """
+    if change_pct is None or foreign_net is None or organ_net is None:
+        return "", "", ""
+    f_up, o_up = foreign_net > 0, organ_net > 0
+    if f_up != o_up:
+        who = "외국인 매수·기관 매도" if f_up else "기관 매수·외국인 매도"
+        return "수급 충돌", who, "warn"
+    up = change_pct > 0
+    if up and f_up:
+        return "쌍끌이 매수", "외국인·기관이 함께 사면서 올랐음", "good"
+    if up and not f_up:
+        return "개인이 받는 중", "외국인·기관은 파는데 가격은 올랐음", "bad"
+    if not up and f_up:
+        return "저가 매수", "빠지는데 외국인·기관은 담고 있음", "good"
+    return "동반 이탈", "외국인·기관이 함께 팔면서 빠졌음", "bad"
+
+
+def volume_flow(change_pct, volume_ratio):
+    """미장 — 가격과 거래량의 조합.
+
+    미장은 외국인·기관 수급 데이터가 없다. 대신 거래량이 그 자리를
+    대신한다. 거래 없이 오른 것과 실수요가 받쳐 오른 것은 다르다.
+    """
+    if change_pct is None or volume_ratio is None:
+        return "", "", ""
+    up = change_pct > 0
+    if volume_ratio >= 1.5:
+        return (("실수요 동반", "거래량이 평소의 1.5배 넘게 붙으며 올랐음", "good")
+                if up else
+                ("투매", "거래량이 크게 늘면서 빠졌음", "bad"))
+    if volume_ratio <= 0.6:
+        return (("거래 없이 오름", "평소보다 한산한데 가격만 올랐음", "warn")
+                if up else
+                ("관심 소멸", "거래도 줄고 가격도 빠졌음", "flat"))
+    return "", "", ""
+
+
+def cot_flow(change_pct, spec_net_change):
+    """원자재 — 가격과 COT 투기 순포지션 변화의 조합.
+
+    코인의 미결제약정과 정확히 같은 구조다. COT가 주 1회라 가격도
+    주간 기준으로 맞춰 봐야 한다.
+    """
+    if change_pct is None or spec_net_change is None:
+        return "", "", ""
+    up, pos_up = change_pct > 0, spec_net_change > 0
+    if up and pos_up:
+        return "신규 롱 유입", "오르면서 투기 포지션도 늘었음", "good"
+    if up and not pos_up:
+        return "숏 커버링", "올랐지만 포지션은 줄어 지속성 약함", "warn"
+    if not up and pos_up:
+        return "물타기", "빠지는데 롱이 늘어 청산 위험", "bad"
+    return "포지션 정리", "빠지면서 포지션도 줄었음", "flat"
+
+
 def funding_reading(bp):
     """펀딩비(8시간, bp). 롱이 숏에게 내는 비용.
 
