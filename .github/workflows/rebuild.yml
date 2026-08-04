@@ -1,0 +1,51 @@
+name: 인사이트 반영
+
+# insights/ 안의 글이 바뀌면 대시보드만 다시 굽는다.
+# 수집은 하지 않으므로 30초쯤 걸리고, 폰에서 마크다운을 고쳐 커밋하면
+# 1분 안에 앱에 반영된다. API 호출이 없어 요금도 없다.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'insights/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  # 수집 워크플로와 같은 줄에 세운다. 둘이 동시에 docs/를 밀면 충돌한다.
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - run: pip install -r requirements.txt
+
+      - name: 대시보드 다시 굽기
+        env:
+          TZ: Asia/Seoul
+        # 수집 없이 cloud/에 있는 최신 데이터로만 그린다.
+        run: python run.py --skip-collect --no-insight --no-deploy
+
+      - name: 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --staged --quiet; then
+            echo "변경 없음"
+          else
+            git commit -m "인사이트 반영 $(date +'%Y-%m-%d %H:%M') [skip ci]"
+            git pull --rebase origin main || true
+            git push
+          fi

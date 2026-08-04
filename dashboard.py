@@ -144,6 +144,12 @@ def news_list(items, limit=15):
     return f'<div class="newswrap">{out}</div>'
 
 
+# 폰에서 인사이트를 직접 고칠 수 있게 깃허브 편집기로 보낸다.
+# 고쳐서 커밋하면 rebuild 워크플로가 1분 안에 앱에 반영한다.
+EDIT_URL = ("https://github.com/enair840926-star/insight/edit/main/"
+            "insights/insight_{m}.md")
+
+
 def insight_slot(market_name):
     """생성된 인사이트가 있으면 렌더링하고, 없으면 안내를 띄운다.
 
@@ -154,6 +160,8 @@ def insight_slot(market_name):
     src = INSIGHTS / f"insight_{market_name}.md"
     if not src.exists():
         src = DATA / f"insight_{market_name}.md"     # 예전 위치
+    edit = (f'<a class="edit" href="{EDIT_URL.format(m=market_name)}" '
+            f'target="_blank" rel="noopener">고치기</a>')
     if src.exists():
         from core import md
         text = src.read_text(encoding="utf-8").strip()
@@ -161,14 +169,14 @@ def insight_slot(market_name):
             when = dt.datetime.fromtimestamp(src.stat().st_mtime)
             return (f'<section class="card insight has"><h2>인사이트</h2>'
                     f'<div class="csub">{when:%m월 %d일 %H:%M} 생성 · '
-                    f'투자 권유가 아닌 정보 정리입니다</div>'
+                    f'투자 권유가 아닌 정보 정리입니다 {edit}</div>'
                     f'<div class="md">{md.render(text)}</div></section>')
     return (f'<section class="card insight"><h2>인사이트</h2>'
-            f'<div class="empty"><p>아직 생성되지 않았습니다.</p>'
-            f'<p class="dim">.env에 <code>ANTHROPIC_API_KEY</code>를 넣고 '
-            f'<code>python insight.py</code>를 실행하면 여기 표시됩니다.</p>'
-            f'<p class="dim">지금은 <code>data/prompt_{esc(market_name)}_*.txt</code> '
-            f'파일이 준비된 상태입니다.</p></div></section>')
+            f'<div class="empty"><p>아직 없습니다.</p>'
+            f'<p class="dim">{edit}를 눌러 직접 쓰거나, PC에서 '
+            f'<code>python insight.py</code>로 만들 수 있습니다.</p>'
+            f'<p class="dim">직접 쓰면 커밋 후 1분 안에 여기 반영됩니다. '
+            f'요금은 들지 않습니다.</p></div></section>')
 
 
 # ---------------------------------------------------------------- 국장
@@ -626,6 +634,10 @@ tr:last-child td{border:none}
 code{background:var(--line);border-radius:3px;padding:1px 5px;font-size:11.5px;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .panel{display:none}.panel.on{display:block}
+.edit{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:4px;
+  border:1px solid var(--line);color:var(--dim);text-decoration:none;
+  font-size:11px;font-weight:600}
+.edit:active{background:var(--line)}
 .pstamp{color:var(--dim);font-size:11.5px;padding:10px 2px 0;
   font-variant-numeric:tabular-nums;display:flex;gap:6px;align-items:center}
 .pstamp .old{background:var(--warn-bg);color:var(--warn);border-radius:3px;
