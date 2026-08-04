@@ -106,6 +106,38 @@ TARGETS = [
      "https://api.alternative.me/fng/?limit=1",
      "코인 심리 지표", None),
 
+    # 바이낸스가 451이면 여기서 같은 지표를 가져와야 한다.
+    # 우회가 아니라 대체 소스다 — 바이낸스 약관을 건드리지 않는다.
+    ("코인대체", "OKX 펀딩비",
+     "https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP",
+     "펀딩비 대체", "fundingRate"),
+    ("코인대체", "OKX 미결제약정",
+     "https://www.okx.com/api/v5/public/open-interest"
+     "?instType=SWAP&instId=BTC-USDT-SWAP",
+     "미결제약정 대체", "oiCcy"),
+    ("코인대체", "OKX 전체계좌 롱숏비",
+     "https://www.okx.com/api/v5/rubik/stat/contracts/"
+     "long-short-account-ratio-contract?instId=BTC-USDT-SWAP&period=1H",
+     "전체계좌 롱숏비 대체", None),
+    ("코인대체", "OKX 상위트레이더 롱숏비",
+     "https://www.okx.com/api/v5/rubik/stat/contracts/"
+     "long-short-account-ratio-contract-top-trader?instId=BTC-USDT-SWAP&period=1H",
+     "상위계좌 롱숏비 대체 (소매-고래 분화)", None),
+    ("코인대체", "OKX 테이커 매수/매도",
+     "https://www.okx.com/api/v5/rubik/stat/taker-volume"
+     "?ccy=BTC&instType=SPOT&period=1H",
+     "테이커 비율 대체", None),
+    ("코인대체", "OKX 티커 전체",
+     "https://www.okx.com/api/v5/market/tickers?instType=SWAP",
+     "코인별 24시간 등락", None),
+    ("코인대체", "바이비트 티커(펀딩+OI 한번에)",
+     "https://api.bybit.com/v5/market/tickers?category=linear&symbol=BTCUSDT",
+     "OKX도 막힐 때의 2차 대안", "fundingRate"),
+    ("코인대체", "바이비트 롱숏비",
+     "https://api.bybit.com/v5/market/account-ratio"
+     "?category=linear&symbol=BTCUSDT&period=1h&limit=1",
+     "OKX도 막힐 때의 2차 대안", None),
+
     # ---------------------------------------------------------------- 뉴스
     ("뉴스", "구글뉴스 RSS(한국어)",
      "https://news.google.com/rss/search?q=%EC%BD%94%EC%8A%A4%ED%94%BC&hl=ko&gl=KR&ceid=KR:ko",
