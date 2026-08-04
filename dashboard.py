@@ -140,11 +140,21 @@ def news_list(items, limit=15):
 
 
 def insight_slot(market_name):
-    """인사이트 자리. API 키를 넣으면 여기가 채워진다."""
+    """생성된 인사이트가 있으면 렌더링하고, 없으면 안내를 띄운다."""
+    src = DATA / f"insight_{market_name}.md"
+    if src.exists():
+        from core import md
+        text = src.read_text(encoding="utf-8").strip()
+        if text:
+            when = dt.datetime.fromtimestamp(src.stat().st_mtime)
+            return (f'<section class="card insight has"><h2>인사이트</h2>'
+                    f'<div class="csub">{when:%m월 %d일 %H:%M} 생성 · '
+                    f'투자 권유가 아닌 정보 정리입니다</div>'
+                    f'<div class="md">{md.render(text)}</div></section>')
     return (f'<section class="card insight"><h2>인사이트</h2>'
             f'<div class="empty"><p>아직 생성되지 않았습니다.</p>'
             f'<p class="dim">.env에 <code>ANTHROPIC_API_KEY</code>를 넣고 '
-            f'인사이트 생성을 연결하면 {esc(market_name)} 분석이 여기 표시됩니다.</p>'
+            f'<code>python insight.py</code>를 실행하면 여기 표시됩니다.</p>'
             f'<p class="dim">지금은 <code>data/prompt_{esc(market_name)}_*.txt</code> '
             f'파일이 준비된 상태입니다.</p></div></section>')
 
@@ -571,9 +581,35 @@ tr:last-child td{border:none}
   padding:18px 16px;text-align:center;font-size:12.5px;color:var(--dim)}
 .insight .empty p{margin:5px 0}
 .insight .empty p:first-child{color:var(--tx);font-weight:600}
+
+/* 생성된 인사이트 — 읽는 글이라 표·목록보다 여백과 행간이 중요하다 */
+.insight.has{border-left:2px solid var(--acc)}
+.md{font-size:14px;line-height:1.65}
+.md>*+*{margin-top:11px}
+.md h3{font-size:15px;font-weight:700;letter-spacing:-.01em;margin-top:20px;
+  text-wrap:balance}
+.md h4,.md h5{font-size:13.5px;font-weight:650;color:var(--dim);
+  letter-spacing:.02em;margin-top:16px}
+.md h3:first-child,.md h4:first-child{margin-top:0}
+.md p{text-wrap:pretty}
+.md ul,.md ol{padding-left:20px;display:flex;flex-direction:column;gap:5px}
+.md li{line-height:1.6}
+.md li::marker{color:var(--dim)}
+.md strong{font-weight:700}
+.md table{font-size:12.5px}
+.md td,.md th{padding:6px 9px}
+.md blockquote{border-left:2px solid var(--line);padding:2px 0 2px 12px;
+  color:var(--dim);font-size:13px}
+.md hr{border:none;border-top:1px solid var(--line);margin:16px 0}
+.md code{font-size:12.5px}
+.md a{color:var(--acc)}
 code{background:var(--line);border-radius:3px;padding:1px 5px;font-size:11.5px;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .panel{display:none}.panel.on{display:block}
+.pstamp{color:var(--dim);font-size:11.5px;padding:10px 2px 0;
+  font-variant-numeric:tabular-nums;display:flex;gap:6px;align-items:center}
+.pstamp .old{background:var(--warn-bg);color:var(--warn);border-radius:3px;
+  padding:1px 6px;font-weight:650}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 """
 
@@ -595,6 +631,28 @@ try{
 """
 
 
+def _age_line(iso):
+    """자산군별 수집 시각. 장별로 따로 갱신하면 카드마다 신선도가 다르므로
+    패널 상단에 각자의 시각을 적어 준다 — 헤더의 '최종 수집'만 보면
+    어제 데이터를 오늘 것으로 착각한다."""
+    if not iso:
+        return ""
+    try:
+        when = dt.datetime.fromisoformat(iso)
+    except ValueError:
+        return f'<div class="pstamp">수집 {esc(iso[:16])}</div>'
+    hrs = (dt.datetime.now() - when).total_seconds() / 3600
+    if hrs < 1:
+        ago = f"{hrs*60:.0f}분 전"
+    elif hrs < 48:
+        ago = f"{hrs:.0f}시간 전"
+    else:
+        ago = f"{hrs/24:.0f}일 전"
+    warn = '<span class="old">갱신 필요</span>' if hrs >= 18 else ""
+    return (f'<div class="pstamp"><span>수집 {when:%m-%d %H:%M} '
+            f'({ago})</span>{warn}</div>')
+
+
 def _body():
     """헤더 + 탭 + 패널. 단독 HTML과 아티팩트가 공유한다."""
     panels, tabs, stamps = "", "", []
@@ -605,8 +663,9 @@ def _body():
         tabs += (f'<button data-m="{key}" class="{on.strip()}">'
                  f'{icon} {esc(label)}</button>')
         if j:
-            stamps.append(j.get("collected_at", "")[:16].replace("T", " "))
-            body = RENDERERS[key](j)
+            iso = j.get("collected_at", "")
+            stamps.append(iso[:16].replace("T", " "))
+            body = _age_line(iso) + RENDERERS[key](j)
         else:
             body = card("데이터 없음",
                         f'<p class="dim">collect_{key}.py를 먼저 실행하세요.</p>')

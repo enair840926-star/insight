@@ -90,7 +90,7 @@ MANIFEST = """{
 
 # 네트워크 우선 — 온라인이면 항상 최신을 받고, 끊기면 마지막 캐시를 쓴다.
 # 캐시 우선으로 하면 PC에서 push한 새 데이터가 폰에 안 내려온다.
-SERVICE_WORKER = """const CACHE = 'insight-v1';
+SERVICE_WORKER = """const CACHE = 'insight-v2';
 const SHELL = ['./', './index.html', './manifest.json',
                './icon-192.png', './icon-512.png'];
 
@@ -107,8 +107,18 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+
+  // GitHub Pages는 HTML에 Cache-Control: max-age=600 을 붙인다.
+  // 그냥 fetch하면 브라우저 HTTP 캐시가 먼저 응답해서, 갱신을 해도
+  // 폰에서 최대 10분간 어제 데이터가 보인다. 페이지 요청만 캐시를
+  // 무시하고 서버에서 직접 받는다 (아이콘·매니페스트는 그대로 캐시).
+  const isPage = e.request.mode === 'navigate' ||
+                 e.request.url.endsWith('/') ||
+                 e.request.url.endsWith('index.html');
+  const req = isPage ? new Request(e.request.url, {cache: 'reload'}) : e.request;
+
   e.respondWith(
-    fetch(e.request).then(res => {
+    fetch(req).then(res => {
       const copy = res.clone();
       caches.open(CACHE).then(c => c.put(e.request, copy)).catch(() => {});
       return res;
