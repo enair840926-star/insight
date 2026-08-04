@@ -17,6 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
+INSIGHTS = ROOT / "insights"
 
 MARKETS = ["kr", "us", "macro", "coin"]
 LABELS = {"kr": "국장", "us": "미장", "macro": "매크로", "coin": "코인"}
@@ -136,9 +137,12 @@ def run(markets=None, dry_run=False, model=None, max_tokens=None, effort=None):
             print(f"실패 — {type(e).__name__}: {str(e)[:70]}")
             continue
 
-        out = DATA / f"insight_{m}.md"
-        out.write_text(text, encoding="utf-8")
-        # 날짜별 사본 — 지난 판단을 되짚어볼 수 있게
+        # insights/에 쓴다. 수집은 클라우드가 하고 인사이트는 PC가 만드는데,
+        # data/는 .gitignore 대상이라 러너에 없다. 거기 두면 클라우드가
+        # 대시보드를 다시 구울 때마다 인사이트가 지워진다.
+        INSIGHTS.mkdir(exist_ok=True)
+        (INSIGHTS / f"insight_{m}.md").write_text(text, encoding="utf-8")
+        # 날짜별 사본 — 지난 판단을 되짚어볼 수 있게. 이쪽은 커밋하지 않는다.
         (DATA / f"insight_{m}_{now:%Y%m%d_%H%M}.md").write_text(text, encoding="utf-8")
 
         results[m] = text

@@ -256,12 +256,14 @@ def deploy(now, tag="데이터"):
                               encoding="utf-8", errors="replace",
                               cwd=str(ROOT), **kw)
 
-    st = git("status", "--porcelain", "docs")
+    # insights/도 함께 올린다. 인사이트는 PC에서 만들고 수집은 클라우드가
+    # 하는데, 리포에 없으면 클라우드가 대시보드를 다시 구울 때 지워진다.
+    st = git("status", "--porcelain", "docs", "insights", "cloud")
     if not (st.stdout or "").strip():
         print("  변경 없음 — 푸시 생략")
         return
 
-    git("add", "docs")
+    git("add", "docs", "insights", "cloud")
     c = git("commit", "-m", f"{tag} 갱신 {now:%Y-%m-%d %H:%M}")
     if c.returncode != 0:
         print(f"  커밋 실패: {(c.stderr or c.stdout).strip()[:90]}")

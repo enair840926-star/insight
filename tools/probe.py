@@ -46,15 +46,30 @@ TARGETS = [
      "https://api.finance.naver.com/siseJson.naver"
      "?symbol=005930&requestType=1&startTime=20260701&endTime=20260804&timeframe=day",
      "종목별 과거 시세·이동평균", None),
-    ("국장", "DART 공시(키 없이 호출)",
-     "https://opendart.fss.or.kr/api/list.json?corp_code=00126380",
-     "공시·내부자거래·5%룰", "status"),
+    # DART는 엔드포인트마다 따로 재야 한다. 실측에서 공시 목록은 되는데
+    # 내부자거래·5%룰만 비는 일이 있었다.
+    ("국장", "DART 공시목록(list)",
+     "https://opendart.fss.or.kr/api/list.json"
+     "?crtfc_key={DART_API_KEY}&corp_code=00126380&page_count=1",
+     "종목별 최근 공시", "status"),
+    ("국장", "DART 내부자거래(elestock)",
+     "https://opendart.fss.or.kr/api/elestock.json"
+     "?crtfc_key={DART_API_KEY}&corp_code=00126380",
+     "임원·주요주주 매매 (★ 동시매수/매도 신호)", "status"),
+    ("국장", "DART 5%룰(majorstock)",
+     "https://opendart.fss.or.kr/api/majorstock.json"
+     "?crtfc_key={DART_API_KEY}&corp_code=00126380",
+     "대량보유 변동 (국민연금·블랙록 등)", "status"),
+    ("국장", "DART 고유번호 ZIP(corpCode)",
+     "https://opendart.fss.or.kr/api/corpCode.xml?crtfc_key={DART_API_KEY}",
+     "종목코드→DART코드 매핑. 없으면 위 셋이 전부 죽는다", None),
     ("국장", "DART 웹",
      "https://dart.fss.or.kr/dsab007/main.do",
      "공시 원문 링크", None),
-    ("국장", "한국은행 ECOS(키 없이 호출)",
-     "https://ecos.bok.or.kr/api/StatisticSearch/none/json/kr/1/1/722Y001",
-     "국내 거시지표(금리·물가·수출)", None),
+    ("국장", "한국은행 ECOS",
+     "https://ecos.bok.or.kr/api/StatisticSearch/{ECOS_API_KEY}"
+     "/json/kr/1/1/722Y001/M/202601/202607/0101000",
+     "국내 거시지표(금리·물가·수출)", "StatisticSearch"),
 
     # ---------------------------------------------------------------- 미장
     ("미장", "나스닥 스크리너",
@@ -162,6 +177,24 @@ TARGETS = [
 ]
 
 
+def redact(text):
+    """응답 본문에서 키 값을 지운다.
+
+    리포트는 공개 리포에 커밋된다. 지금까지 확인한 응답들은 키를 되돌려
+    주지 않지만, 소스가 바뀌면 언제든 그럴 수 있다. 새어 나간 뒤에
+    알아차리는 것보다 미리 막는 편이 싸다.
+    """
+    if not text:
+        return text
+    from core import env
+    for name in ("DART_API_KEY", "ECOS_API_KEY", "EIA_API_KEY",
+                 "ANTHROPIC_API_KEY", "USDA_API_KEY"):
+        v = env.get(name)
+        if v and len(v) >= 8:
+            text = text.replace(v, f"<{name}>")
+    return text
+
+
 def resolve_url(url):
     """{EIA_API_KEY} 같은 자리표시자를 .env·환경변수 값으로 바꾼다.
 
@@ -196,7 +229,7 @@ def probe(url):
     except requests.RequestException as e:
         return f"연결실패({type(e).__name__})", None, 0, time.time() - t0, ""
     el = time.time() - t0
-    body = r.content[:400].decode("utf-8", "replace")
+    body = redact(r.content[:400].decode("utf-8", "replace"))
     if r.status_code == 200:
         return "OK", 200, len(r.content), el, body
     if r.status_code == 451:

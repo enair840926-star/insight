@@ -23,6 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
+INSIGHTS = ROOT / "insights"      # 커밋되는 곳. core/store.py 주석 참고.
 OUT = DATA / "latest.html"
 
 MARKETS = [
@@ -144,8 +145,15 @@ def news_list(items, limit=15):
 
 
 def insight_slot(market_name):
-    """생성된 인사이트가 있으면 렌더링하고, 없으면 안내를 띄운다."""
-    src = DATA / f"insight_{market_name}.md"
+    """생성된 인사이트가 있으면 렌더링하고, 없으면 안내를 띄운다.
+
+    insights/에서 먼저 찾는다. 인사이트는 PC에서 만들고 수집은 클라우드가
+    하는데, data/는 .gitignore 대상이라 러너에 없다. 거기 두면 클라우드가
+    대시보드를 다시 구울 때마다 인사이트가 빈 자리로 덮인다.
+    """
+    src = INSIGHTS / f"insight_{market_name}.md"
+    if not src.exists():
+        src = DATA / f"insight_{market_name}.md"     # 예전 위치
     if src.exists():
         from core import md
         text = src.read_text(encoding="utf-8").strip()

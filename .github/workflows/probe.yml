@@ -24,11 +24,17 @@ jobs:
         with:
           python-version: '3.13'
 
-      - run: pip install requests
+      - run: pip install -r requirements.txt
 
       - name: 접속 검증
         # 일부 소스가 막혀도 리포트는 남겨야 하므로 실패로 끝내지 않는다.
         continue-on-error: true
+        env:
+          # 키가 필요한 소스는 키 없이 재면 '도달했는지'만 알 뿐,
+          # 인증된 호출이 되는지는 모른다. 실제 키로 재야 의미가 있다.
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
         run: python tools/probe.py --md notes/probe-github.md
 
       - name: 결과 커밋
