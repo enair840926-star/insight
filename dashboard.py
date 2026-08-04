@@ -13,6 +13,7 @@ import glob
 import os
 import sys
 import socket
+import subprocess
 import datetime as dt
 
 from core import read
@@ -146,6 +147,31 @@ def news_list(items, limit=15):
     return f'<div class="newswrap">{out}</div>'
 
 
+def _written_at(path):
+    """인사이트가 실제로 쓰인 시각.
+
+    **파일 수정 시각(mtime)을 쓰면 안 된다.** 클라우드가 대시보드를
+    다시 구울 때마다 저장소를 새로 내려받으므로 mtime이 그때로 찍힌다.
+    그러면 일주일 전 인사이트도 '방금 작성'으로 보인다. 마지막 커밋
+    시각을 쓰면 실제로 쓰인 때가 나온다.
+
+    저장소 밖이거나 git이 없으면 mtime으로 물러선다.
+    """
+    try:
+        r = subprocess.run(
+            ["git", "log", "-1", "--format=%cI", "--", str(path)],
+            capture_output=True, text=True, timeout=10, cwd=str(ROOT))
+        s = (r.stdout or "").strip()
+        if s:
+            return dt.datetime.fromisoformat(s).astimezone().replace(tzinfo=None)
+    except (OSError, ValueError, subprocess.SubprocessError):
+        pass
+    try:
+        return dt.datetime.fromtimestamp(path.stat().st_mtime)
+    except OSError:
+        return None
+
+
 def insight_slot(market_name):
     """생성된 인사이트가 있으면 렌더링하고, 없으면 안내를 띄운다.
 
@@ -160,9 +186,15 @@ def insight_slot(market_name):
         from core import md
         text = src.read_text(encoding="utf-8").strip()
         if text:
-            when = dt.datetime.fromtimestamp(src.stat().st_mtime)
+            when = _written_at(src)
+            stamp = f"{when:%m월 %d일 %H:%M} 작성" if when else "작성 시각 미상"
+            old = ""
+            if when and (dt.datetime.now() - when).total_seconds() > 18 * 3600:
+                hrs = (dt.datetime.now() - when).total_seconds() / 3600
+                ago = f"{hrs/24:.0f}일 전" if hrs >= 48 else f"{hrs:.0f}시간 전"
+                old = f' <span class="old">{ago}</span>'
             return (f'<section class="card insight has"><h2>인사이트</h2>'
-                    f'<div class="csub">{when:%m월 %d일 %H:%M} 생성 · '
+                    f'<div class="csub">{stamp}{old} · '
                     f'투자 권유가 아닌 정보 정리입니다</div>'
                     f'<div class="md">{md.render(text)}</div></section>')
     return (f'<section class="card insight"><h2>인사이트</h2>'

@@ -24,6 +24,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 대시보드가 인사이트 작성 시각을 git log에서 읽는다. 기본값(depth 1)
+          # 이면 파일 이력을 못 찾아 mtime으로 물러서고, 체크아웃 시각이
+          # 찍혀 오래된 인사이트가 '방금 작성'으로 보인다.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:

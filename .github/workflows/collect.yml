@@ -43,6 +43,10 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 인사이트 작성 시각을 git log에서 읽으므로 전체 이력이 필요하다.
+          # depth 1이면 체크아웃 시각이 찍혀 오래된 글이 최신으로 보인다.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
