@@ -411,25 +411,32 @@ def render_macro(j):
         for r in items:
             n = r["name"]
             bias, why = read.commodity_bias(
-                inv_state.get(n), (curves.get(n) or {}).get("shape"))
-            tail = (f'<span class="chip">{esc(bias)}</span>' if bias
-                    else f'<span class="dim">{esc(read.pos_52w(r.get("pos_52w")))}</span>')
+                read.inventory_for(n, inv_state),
+                (curves.get(n) or {}).get("spread_pct"))
+            # 결론(어느 쪽으로 기울었나)을 앞에, 근거(수급 상태)를 뒤에.
+            lean, cls = read.supply_lean(bias)
+            tail = ""
+            if lean:
+                tail = f'<span class="rd {cls}">{esc(lean)}</span>'
+                if bias:
+                    tail += f' <span class="dim">{esc(bias)}</span>'
             rows.append([esc(n), num(r.get("price"), 2), pct(r.get("change_pct")),
                          pct(r.get("change_20d_pct")),
-                         f'<span class="dim">{esc(read.pos_52w(r.get("pos_52w")))}</span>'
-                         if bias else "", tail])
+                         f'<span class="dim">{esc(read.pos_52w(r.get("pos_52w")))}</span>',
+                         tail])
         # 수급 판정이 하나도 없는 묶음(환율·금리 등)은 열을 줄인다
-        has_bias = any(r[5].startswith('<span class="chip"') for r in rows)
+        has_bias = any(r[5] for r in rows)
         if has_bias:
             h += card(g, rows_table(
                 ["이름", "현재가", "당일", "20일", "52주", "수급"],
-                [r for r in rows], ["l", "r", "r", "r", "r", "r"]),
-                "수급 = 재고와 선물커브를 교차한 판정")
+                rows, ["l", "r", "r", "r", "r", "l"]),
+                "수급 = 재고와 선물커브를 교차한 판정 · "
+                "가격 예측이 아니라 지금 물건이 귀한지 남는지입니다")
         else:
+            # 수급 열만 뺀다. r[4]가 52주고 r[5]가 수급이다.
             h += card(g, rows_table(
                 ["이름", "현재가", "당일", "20일", "52주"],
-                [[r[0], r[1], r[2], r[3], r[5]] for r in rows],
-                ["l", "r", "r", "r", "r"]))
+                [r[:5] for r in rows], ["l", "r", "r", "r", "r"]))
 
     inv = j.get("inventories") or {}
     if inv:
@@ -480,14 +487,22 @@ def render_macro(j):
     if cv:
         rows = []
         for n, c in sorted(cv.items(), key=lambda kv: kv[1]["spread_pct"]):
-            plain, side = read.curve_shape(c["shape"], c.get("spread_pct"))
-            tail = f'<span class="chip">{esc(side)}</span>' if side else ""
+            verdict, why, cls = read.curve_shape(c["shape"], c.get("spread_pct"))
+            # 결론을 앞에 둔다. 근거는 뒤에서 뒷받침한다.
+            lean, lcls = read.supply_lean(verdict)
+            tag = (f'<span class="rd {lcls or cls}">{esc(lean or verdict)}</span>'
+                   if verdict else "")
+            if lean and verdict != lean:
+                tag += f' <span class="dim">{esc(verdict)}</span>'
+            note = f'<span class="dim">{esc(why)}</span>' if why else ""
             if not c["monotonic"]:
-                tail += ' <span class="dim">계절성</span>'
-            rows.append([esc(n), esc(plain), f'{c["spread_pct"]:+.2f}%', tail])
+                note += ' <span class="dim">· 계절성</span>'
+            rows.append([esc(n), tag, f'{c["spread_pct"]:+.2f}%', note])
         h += card("선물 커브", rows_table(
-            ["품목", "지금 vs 나중", "차이", "뜻"], rows, ["l", "l", "r", "l"]),
-            "지금 물건이 나중보다 비싸면 공급이 빠듯하다는 뜻입니다")
+            ["품목", "수급", "지금-나중 차이", "근거"], rows,
+            ["l", "l", "r", "l"]),
+            "지금 물건과 몇 달 뒤 물건의 가격 차이 · "
+            "보관비만큼 나중이 비싼 게 정상이고, 지금이 더 비싸면 물건이 귀하다는 뜻")
 
     ns = j.get("news_stats") or {}
     h += card("뉴스", news_list(j.get("news_selected") or []),

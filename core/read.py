@@ -69,18 +69,27 @@ def curve_meaning(label, spread_bp, inverted):
 
 # ---------------------------------------------------------------- 선물 커브
 def curve_shape(shape, spread_pct):
-    """백워데이션/콘탱고를 뜻으로 옮긴다.
+    """선물 커브를 수급 판정으로 옮긴다.
 
-    근월이 비싸면 지금 물건이 급하다는 뜻이고, 원월이 비싸면
-    보관비만 붙은 평상시다.
+    **원월이 비싼 것 자체는 신호가 아니다.** 보관비와 이자가 붙으니
+    대부분의 저장 가능한 원자재는 평상시에도 그렇다. 실측에서도
+    13개 중 12개가 그랬다. 전부 '공급 여유'로 찍으면 정보가 아니라
+    배경이 된다. 폭을 봐야 뜻이 생긴다.
+
+    반환: (판정, 근거설명, 색분류)
     """
-    if shape == "백워데이션":
-        return "지금이 더 비쌈", "공급 빠듯"
-    if shape == "콘탱고":
-        if spread_pct is not None and spread_pct > 20:
-            return "나중이 훨씬 비쌈", "공급 크게 여유"
-        return "나중이 더 비쌈", "공급 여유"
-    return shape or "", ""
+    if spread_pct is None:
+        return shape or "", "", ""
+    if spread_pct < -5:
+        return "공급 빠듯", "지금 물건이 나중보다 크게 비쌈", "warn"
+    if spread_pct < 0:
+        return "공급 다소 빠듯", "지금이 나중보다 비쌈", "warn"
+    if spread_pct <= 8:
+        # 보관비·이자 수준. 정상이라는 말이 정확한 정보다.
+        return "정상", "보관비 수준의 차이", "flat"
+    if spread_pct <= 25:
+        return "공급 여유", "나중이 뚜렷하게 비쌈", "flat"
+    return "공급 과잉", "나중이 훨씬 비쌈 — 지금 물건이 남음", "bad"
 
 
 # ---------------------------------------------------------------- EIA 재고
@@ -96,24 +105,65 @@ def inventory_state(state, vs_5y):
 
 
 # ---------------------------------------------------------------- 원자재 종합
-def commodity_bias(inv_state=None, curve_shape_=None, cot_ratio=None):
-    """재고(사실) · 커브(기대) · COT(포지션)를 교차한 수급 판정.
+# 시세 쪽 이름과 EIA 재고 쪽 이름이 다르다. 매핑이 없으면 가장 중요한
+# 원유에서 재고·커브 교차가 조용히 안 걸린다.
+INV_ALIAS = {
+    "WTI원유": "원유",
+    "브렌트유": "원유",
+    "휘발유": "휘발유",
+    "난방유": "중간유분",
+    "천연가스": "천연가스",
+}
 
-    셋이 같은 방향을 가리킬 때만 분명하게 쓴다. 엇갈리면 엇갈렸다고
+
+def inventory_for(name, states):
+    """시세 이름으로 EIA 재고 판정을 찾는다."""
+    return states.get(name) or states.get(INV_ALIAS.get(name, ""), None)
+
+
+def supply_lean(bias):
+    """수급 판정을 '어느 쪽으로 기울었나' 한 단어로.
+
+    저평가/고평가라는 말은 쓰지 않는다. 커브가 벌어진 것은 물건이
+    남는다는 뜻이라 오히려 약세 신호인데, 그걸 저평가로 부르면 뜻이
+    정확히 뒤집힌다. 실제로 천연가스가 그 자리에 있다.
+
+    가격이 오른다는 예측이 아니라 수급이 어느 쪽을 받치고 있는지다.
+    """
+    return {
+        "공급 부족": ("상방 우위", "good"),
+        "공급 빠듯": ("상방 우위", "good"),
+        "재고 부족": ("상방 우위", "good"),
+        "공급 과잉": ("하방 우위", "bad"),
+        "재고 넘침": ("하방 우위", "bad"),
+        "공급 여유": ("하방 우위", "bad"),
+        "엇갈림": ("혼재", "warn"),
+        "정상": ("중립", "flat"),
+    }.get(bias, ("", ""))
+
+
+def commodity_bias(inv_state=None, curve_spread_pct=None):
+    """재고(사실) × 커브(기대)를 교차한 수급 판정.
+
+    둘이 같은 방향을 가리킬 때만 분명하게 쓴다. 엇갈리면 엇갈렸다고
     말하는 것이 정보다 — 억지로 한 방향을 고르면 없는 확신을 만든다.
+
+    커브 기준은 curve_shape()와 같아야 한다. 두 카드가 다른 잣대를
+    쓰면 같은 품목에 다른 말이 붙는다.
 
     반환: (판정, 근거) 또는 ("", "")
     """
     tight = inv_state == "타이트"
     loose = inv_state == "과잉"
-    back = curve_shape_ == "백워데이션"
-    cont = curve_shape_ == "콘탱고"
+    s = curve_spread_pct
+    back = s is not None and s < 0            # 지금이 더 비쌈
+    wide = s is not None and s > 8            # 보관비를 넘는 여유
 
     if tight and back:
         return "공급 부족", "재고도 적고 지금 물건이 더 비쌈"
-    if loose and cont:
-        return "공급 과잉", "재고도 넘치고 나중이 더 비쌈"
-    if tight and cont:
+    if loose and wide:
+        return "공급 과잉", "재고도 넘치고 나중이 훨씬 비쌈"
+    if tight and wide:
         return "엇갈림", "재고는 적은데 커브는 여유 — 실물보다 심리"
     if loose and back:
         return "엇갈림", "재고는 넘치는데 지금이 비쌈 — 일시적 병목"
