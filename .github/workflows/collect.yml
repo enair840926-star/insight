@@ -48,7 +48,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - run: pip install requests
+      - run: pip install -r requirements.txt
 
       - name: 수집 + 대시보드
         env:

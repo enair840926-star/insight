@@ -1,0 +1,6 @@
+# 런타임 의존성은 이 둘뿐이다.
+requests
+feedparser
+
+# anthropic은 인사이트 생성에만 필요하다. 클라우드 수집에서는 쓰지 않으므로
+# 여기 넣지 않는다 — 필요할 때 PC에서 `pip install anthropic`.

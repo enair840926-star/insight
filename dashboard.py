@@ -699,6 +699,10 @@ def build():
 <main>{panels}</main>
 <script>{JS}</script>
 </body></html>"""
+    # 갓 클론한 리포에는 data/가 없다 (.gitignore 대상이라 커밋되지 않는다).
+    # 수집기가 먼저 만들어 주지만, 수집이 실패한 뒤 대시보드만 굽는 경우
+    # 여기서 넘어진다 — 클라우드 데이터로 그릴 수 있으면 그려야 한다.
+    DATA.mkdir(exist_ok=True)
     OUT.write_text(html, encoding="utf-8")
     return OUT, len(html)
 

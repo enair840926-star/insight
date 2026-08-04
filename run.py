@@ -188,6 +188,11 @@ def main():
             script, label = COLLECTORS[m]
             ok += run_one(script, label)
         print()
+        if not ok:
+            # 전부 실패했으면 남은 단계를 해봐야 옛 데이터를 다시 굽는 것뿐이다.
+            # 예약 실행에서 조용히 성공한 척하면 문제를 늦게 발견한다.
+            print("  수집이 전부 실패했습니다. 중단합니다.\n")
+            sys.exit(1)
     else:
         print("[1/4] 수집 건너뜀 (--skip-collect)\n")
         ok = len(markets)
