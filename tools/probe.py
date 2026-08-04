@@ -184,6 +184,40 @@ TARGETS = [
 ]
 
 
+KEY_NAMES = ("DART_API_KEY", "ECOS_API_KEY", "EIA_API_KEY")
+EXPECTED_LEN = {"DART_API_KEY": 40, "ECOS_API_KEY": 20, "EIA_API_KEY": 40}
+
+
+def key_shapes():
+    """키가 실제로 어떤 모양으로 도착했는지. 값은 절대 드러내지 않는다.
+
+    '안 넣었다 / 이름까지 같이 넣었다 / 공백이 붙었다 / 제대로 들어왔다'를
+    길이와 포함 문자만으로 구분할 수 있다. 값을 보지 않고 원인을 좁히려면
+    이 정도는 재야 한다.
+    """
+    from core import env
+    out = []
+    for name in KEY_NAMES:
+        v = os.environ.get(name)          # .env가 아니라 환경변수만 본다
+        exp = EXPECTED_LEN[name]
+        if not v:
+            out.append((name, 0, "없음 — 시크릿이 전달되지 않았습니다"))
+            continue
+        notes = []
+        if name in v:
+            notes.append(f"값 안에 '{name}'이 들어 있음 (이름까지 붙여넣음)")
+        for ch, label in ((":", "콜론"), ("=", "등호"), ('"', "따옴표"),
+                          ("'", "따옴표")):
+            if ch in v:
+                notes.append(f"{label} 포함")
+        if v != v.strip():
+            notes.append("앞뒤 공백/줄바꿈 있음")
+        if len(v) != exp and not notes:
+            notes.append(f"길이가 예상({exp}자)과 다름")
+        out.append((name, len(v), " · ".join(notes) or f"정상 ({exp}자)"))
+    return out
+
+
 def redact(text):
     """응답 본문에서 키 값을 지운다.
 
@@ -266,6 +300,12 @@ def main():
     print(f"위치: {where.get('country')} / {where.get('city')} "
           f"/ {where.get('org')}")
     print(f"파이썬 {platform.python_version()} · {platform.system()}\n")
+
+    shapes = key_shapes()
+    print("API 키 상태 (값은 표시하지 않습니다)")
+    for name, n, note in shapes:
+        print(f"  {name:<16} 길이 {n:>3}자   {note}")
+    print()
     print(f"{'그룹':<6}{'소스':<34}{'결과':<20}{'크기':>9}{'초':>7}")
     print("-" * 78)
 
@@ -318,13 +358,13 @@ def main():
 
     if a.md:
         with open(a.md, "w", encoding="utf-8") as f:
-            f.write(md_report(rows, where, ok_n))
+            f.write(md_report(rows, where, ok_n, shapes))
         print(f"리포트 저장: {a.md}")
 
     return 0
 
 
-def md_report(rows, where, ok_n):
+def md_report(rows, where, ok_n, shapes=()):
     tested = sum(1 for r in rows if r["ok"] is not None)
     L = [f"# 데이터 소스 접속 검증",
          "",
@@ -333,6 +373,13 @@ def md_report(rows, where, ok_n):
          f"/ {where.get('org')}",
          f"- 결과: **{ok_n}/{tested} 성공**",
          ""]
+    if shapes:
+        L += ["## API 키 상태", "",
+              "값은 표시하지 않습니다. 길이와 포함 문자만 봅니다.", "",
+              "| 키 | 길이 | 진단 |", "|---|---|---|"]
+        for name, n, note in shapes:
+            mark = "✓" if note.startswith("정상") else "**✗**"
+            L.append(f"| {mark} `{name}` | {n}자 | {note} |")
     cur = None
     for r in rows:
         if r["group"] != cur:
