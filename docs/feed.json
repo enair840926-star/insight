@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "producer": "asset-insight",
+ "generatedAt": "2026-08-05T23:06:52+09:00",
+ "collectedAt": {
+  "macro": "2026-08-05T22:26:55",
+  "us": "2026-08-05T22:26:36"
+ },
+ "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
+ "factors": {
+  "usRates": {
+   "value": -0.2,
+   "unit": "bp",
+   "fact": "미 10년물 4.625% (전일 4.627%)",
+   "source": "Yahoo ^TNX",
+   "asof": "2026-08-05T22:26:55"
+  },
+  "riskAppetite": {
+   "value": 0.42,
+   "unit": "pt",
+   "fact": "VIX 16.92 (전일 16.50)",
+   "source": "Yahoo ^VIX",
+   "asof": "2026-08-05T22:26:55"
+  },
+  "dollar": {
+   "value": -0.15,
+   "unit": "%",
+   "fact": "달러인덱스 99.737 (전일 대비 -0.15%)",
+   "source": "Yahoo DX-Y.NYB",
+   "asof": "2026-08-05T22:26:55"
+  },
+  "breadth": {
+   "value": 69.6,
+   "unit": "%",
+   "fact": "상승 3,478 / 하락 1,409 (69.6%)",
+   "source": "Nasdaq screener 전종목",
+   "asof": "2026-08-05T22:26:36"
+  },
+  "inventory": {
+   "value": -7.167,
+   "unit": "Mbbl",
+   "fact": "원유 재고 주간 -7,167.0천 배럴 (평년대비 -6.6%)",
+   "source": "EIA 주간재고 2026-07-24",
+   "asof": "2026-08-05T22:26:55"
+  }
+ },
+ "levels": {
+  "XAUUSD": {
+   "last": 4247.9,
+   "prevClose": 4095.39990234375,
+   "source": "Yahoo GC=F",
+   "asof": "2026-08-05T22:26:55",
+   "note": "금 · 당일 +3.72%"
+  },
+  "USOIL": {
+   "last": 75.88,
+   "prevClose": 75.7699966430664,
+   "source": "Yahoo CL=F",
+   "asof": "2026-08-05T22:26:55",
+   "note": "WTI원유 · 당일 +0.15%"
+  },
+  "EURUSD": {
+   "last": 1.1554,
+   "prevClose": 1.150734782218933,
+   "source": "Yahoo EURUSD=X",
+   "asof": "2026-08-05T22:26:55",
+   "note": "유로달러 · 당일 +0.41%"
+  },
+  "NAS100": {
+   "last": 29911.5,
+   "prevClose": 29863.5,
+   "source": "Yahoo NQ=F",
+   "asof": "2026-08-05T22:26:55",
+   "note": "나스닥선물 · 당일 +0.16%"
+  }
+ },
+ "missing": [
+  {
+   "key": "realYield",
+   "reason": "FRED DFII10 접속 불가 — 매크로 데스크가 직접 확인 필요"
+  },
+  {
+   "key": "inflation",
+   "reason": "FRED T10YIE 접속 불가 — 매크로 데스크가 직접 확인 필요"
+  },
+  {
+   "key": "rateDiff",
+   "reason": "독일 10년물 소스 미확보 — 매크로 데스크가 직접 확인 필요"
+  }
+ ]
+}

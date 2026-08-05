@@ -1125,6 +1125,10 @@ def build_pwa(docs_dir=None):
         json.dumps({"build": build_id, "collected": stamp}, ensure_ascii=False),
         encoding="utf-8")
 
+    # 매크로 데스크가 읽어 갈 숫자 피드. 판정은 넣지 않는다 — core/feed.py 참고.
+    from core import feed
+    feed.write(docs / "feed.json", latest_json("macro"), latest_json("us"))
+
     html = f"""<!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8">

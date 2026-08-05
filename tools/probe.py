@@ -106,6 +106,23 @@ TARGETS = [
      "https://api.eia.gov/v2/petroleum/stoc/wstk/data/"
      "?api_key={EIA_API_KEY}&frequency=weekly&data[0]=value&length=1",
      "원유·휘발유 재고 (재고·커브·COT 3축 중 1축)", "response"),
+    # 매크로 데스크가 '미확인·보류'로 남겨 둔 세 항목. 이 PC에서는
+    # FRED가 타임아웃인데 러너에서는 열릴 수 있어 따로 잰다.
+    ("매크로", "FRED 기대인플레(BEI)",
+     "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10YIE",
+     "매크로데스크 inflation 팩터 (bp)", "T10YIE"),
+    ("매크로", "FRED 실질금리(TIPS)",
+     "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10",
+     "매크로데스크 realYield 팩터 (bp)", "DFII10"),
+    ("매크로", "ECB 독일 10년물",
+     "https://data-api.ecb.europa.eu/service/data/YC/"
+     "B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y?lastNObservations=2&format=csvdata",
+     "매크로데스크 rateDiff 팩터 (미-유로존 금리차)", "OBS_VALUE"),
+    ("매크로", "독일 국채 (야후 대체)",
+     "https://query1.finance.yahoo.com/v8/finance/chart/"
+     "BUND.EX?range=5d&interval=1d",
+     "ECB가 막힐 때의 2차 대안", "chart"),
+
     ("매크로", "CNN 공포탐욕",
      "https://production.dataviz.cnn.io/index/fearandgreed/graphdata",
      "미 증시 심리 지표", None),
