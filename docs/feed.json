@@ -1,32 +1,32 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-08-06T00:24:34+09:00",
+ "generatedAt": "2026-08-06T08:31:01+09:00",
  "collectedAt": {
-  "macro": "2026-08-06T00:24:28",
+  "macro": "2026-08-06T08:30:55",
   "us": "2026-08-05T22:26:36"
  },
  "context": {
   "eiaCrudeLevel": {
-   "weeklyChangeKbbl": -7167.0,
-   "vs5yAvgPct": -6.6,
-   "period": "2026-07-24",
+   "weeklyChangeKbbl": 2479.0,
+   "vs5yAvgPct": -6.2,
+   "period": "2026-07-31",
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "fearGreed": {
-   "value": 61.1,
+   "value": 59.7,
    "rating": "greed",
    "weekAgo": 34.7
   },
   "yieldCurve": [
    {
     "label": "10Y-2Y",
-    "spreadBp": 89.5,
+    "spreadBp": 89.2,
     "inverted": false
    },
    {
     "label": "30Y-10Y",
-    "spreadBp": 54.8,
+    "spreadBp": 55.7,
     "inverted": false
    }
   ]
@@ -34,25 +34,25 @@
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
   "usRates": {
-   "value": 0.0,
+   "value": -1.0,
    "unit": "bp",
-   "fact": "미 10년물 4.627% (전일 4.627%)",
+   "fact": "미 10년물 4.617% (전일 4.627%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-08-06T00:24:28"
+   "asof": "2026-08-06T08:30:55"
   },
   "riskAppetite": {
-   "value": -0.21,
+   "value": -0.69,
    "unit": "pt",
-   "fact": "VIX 16.29 (전일 16.50)",
+   "fact": "VIX 15.81 (전일 16.50)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-08-06T00:24:28"
+   "asof": "2026-08-06T08:30:55"
   },
   "dollar": {
-   "value": -0.21,
+   "value": -0.2,
    "unit": "%",
-   "fact": "달러인덱스 99.684 (전일 대비 -0.21%)",
+   "fact": "달러인덱스 99.69 (전일 대비 -0.20%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-08-06T00:24:28"
+   "asof": "2026-08-06T08:30:55"
   },
   "breadth": {
    "value": 69.6,
@@ -69,41 +69,41 @@
    "asof": "2026-08-05T22:26:36"
   },
   "rateDiff": {
-   "value": 3.9,
+   "value": 2.9,
    "unit": "bp",
-   "fact": "미 10년물 4.627% − 유로존 3.1463% = 148bp (전일 144bp)",
+   "fact": "미 10년물 4.617% − 유로존 3.1463% = 147bp (전일 144bp)",
    "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-04",
-   "asof": "2026-08-06T00:24:28"
+   "asof": "2026-08-06T08:30:55"
   }
  },
  "levels": {
   "XAUUSD": {
-   "last": 4318.4,
+   "last": 4317.4,
    "prevClose": 4095.39990234375,
    "source": "Yahoo GC=F",
-   "asof": "2026-08-06T00:24:28",
-   "note": "금 · 당일 +5.45%"
+   "asof": "2026-08-06T08:30:55",
+   "note": "금 · 당일 +5.42%"
   },
   "USOIL": {
-   "last": 75.36,
+   "last": 74.99,
    "prevClose": 75.7699966430664,
    "source": "Yahoo CL=F",
-   "asof": "2026-08-06T00:24:28",
-   "note": "WTI원유 · 당일 -0.54%"
+   "asof": "2026-08-06T08:30:55",
+   "note": "WTI원유 · 당일 -1.03%"
   },
   "EURUSD": {
-   "last": 1.1551,
-   "prevClose": 1.150734782218933,
+   "last": 1.1558,
+   "prevClose": 1.153242826461792,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-08-06T00:24:28",
-   "note": "유로달러 · 당일 +0.38%"
+   "asof": "2026-08-06T08:30:55",
+   "note": "유로달러 · 당일 +0.22%"
   },
   "NAS100": {
-   "last": 29840.25,
+   "last": 29628.0,
    "prevClose": 29863.5,
    "source": "Yahoo NQ=F",
-   "asof": "2026-08-06T00:24:28",
-   "note": "나스닥선물 · 당일 -0.08%"
+   "asof": "2026-08-06T08:30:55",
+   "note": "나스닥선물 · 당일 -0.79%"
   }
  },
  "missing": [
