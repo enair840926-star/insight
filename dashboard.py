@@ -168,10 +168,10 @@ import re as _re
 _OPEN_SECTIONS = ("개장 전 브리핑", "오늘 주목할 것")
 
 
-def fold_insight(html):
+def fold_insight(html, market=""):
     """<h3>로 나뉜 인사이트를 섹션별 접기로 바꾼다.
 
-    반환: (본문HTML, 주목대상목록)
+    반환: (본문HTML, [(짧은이름, 전체제목, 앵커id), ...])
     """
     parts = _re.split(r"(<h3>.*?</h3>)", html)
     if len(parts) < 3:
@@ -184,21 +184,27 @@ def fold_insight(html):
         keep_open = any(k in title for k in _OPEN_SECTIONS)
 
         # '오늘 주목할 것' 안의 h4 제목이 곧 오늘의 지목 대상이다.
-        # 맨 위 요약으로 끌어올려 스크롤 없이 보이게 한다.
+        # 맨 위 칩으로 끌어올리고, 칩에서 본문으로 뛸 수 있게 id를 심는다.
         if "주목할 것" in title:
-            for m in _re.finditer(r"<h4>(.*?)</h4>", body):
+            n = [0]
+
+            def anchor(m):
+                n[0] += 1
+                return f'<h4 id="{market}-w{n[0]}">{m.group(1)}</h4>'
+
+            body = _re.sub(r"<h4>(.*?)</h4>", anchor, body)
+            for k, m in enumerate(_re.finditer(r"<h4[^>]*>(.*?)</h4>", body), 1):
                 t = _re.sub(r"<[^>]+>", "", m.group(1))
                 # md가 이미 이스케이프한 문자를 되돌린다. 안 하면 esc()가
                 # 한 번 더 걸려 S&amp;P500처럼 보인다.
-                t = _html.unescape(t).strip()
-                t = _re.sub(r"^\d+[.)]\s*", "", t)
+                full = _re.sub(r"^\d+[.)]\s*", "", _html.unescape(t).strip())
                 # 'A — B' 형식이면 앞이 대상이다. 구분자가 없으면 제목
-                # 전체가 문장일 수 있으니 잘라 쓴다.
-                t = _re.split(r"\s[—–-]\s", t)[0].strip(" -–—:")
-                if len(t) > 16:
-                    t = t[:15] + "…"
-                if t:
-                    watch.append(t)
+                # 전체가 문장일 수 있으니 칩에서만 줄여 쓴다.
+                short = _re.split(r"\s[—–-]\s", full)[0].strip(" -–—:")
+                if len(short) > 16:
+                    short = short[:15] + "…"
+                if short:
+                    watch.append((short, full, f"{market}-w{k}"))
 
         out += (f'<details class="sec"{" open" if keep_open else ""}>'
                 f'<summary>{title}</summary>{body}</details>')
@@ -251,7 +257,7 @@ def insight_slot(market_name):
                 hrs = (dt.datetime.now() - when).total_seconds() / 3600
                 ago = f"{hrs/24:.0f}일 전" if hrs >= 48 else f"{hrs:.0f}시간 전"
                 old = f' <span class="old">{ago}</span>'
-            body, watch = fold_insight(md.render(text))
+            body, watch = fold_insight(md.render(text), market_name)
             return (f'<section class="card insight has"><h2>인사이트</h2>'
                     f'<div class="csub">{stamp}{old} · '
                     f'투자 권유가 아닌 정보 정리입니다</div>'
@@ -267,12 +273,19 @@ def watch_strip(items):
 
     인사이트 안에 묻혀 있으면 스크롤을 한참 해야 보인다. 결론부터
     보이는 게 폰에서는 맞다.
+
+    칩은 링크다. 폰에서는 긴 제목이 잘릴 수밖에 없으므로, 누르면
+    본문의 해당 항목으로 뛰어 전체를 읽게 한다. 잘린 글자를 늘리는
+    것보다 이쪽이 낫다 — 칩의 역할은 요약이 아니라 이정표다.
     """
     if not items:
         return ""
-    chips = "".join(f'<span class="wc">{esc(t)}</span>' for t in items[:6])
+    chips = "".join(
+        f'<a class="wc" href="#{esc(aid)}" title="{esc(full)}">{esc(short)}</a>'
+        for short, full, aid in items[:6])
     return (f'<section class="card watch"><h2>오늘 주목</h2>'
-            f'<div class="wchips">{chips}</div></section>')
+            f'<div class="wchips">{chips}</div>'
+            f'<div class="csub">눌러서 자세히 보기</div></section>')
 
 
 # ---------------------------------------------------------------- 국장
@@ -898,7 +911,13 @@ details.sec[open]>summary{color:var(--acc)}
 .watch h2{margin-bottom:8px}
 .wchips{display:flex;flex-wrap:wrap;gap:6px}
 .wc{background:var(--sunken);border:1px solid var(--line);border-radius:14px;
-  padding:5px 11px;font-size:12.5px;font-weight:650}
+  padding:8px 12px;font-size:13px;font-weight:650;color:var(--tx);
+  text-decoration:none;display:inline-block}
+.wc:active{background:var(--line)}
+.wc:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+/* 뛰어간 자리를 잠깐 표시한다. 안 그러면 어디로 왔는지 모른다. */
+.md h4.hit{background:var(--warn-bg);border-radius:5px;
+  box-shadow:0 0 0 6px var(--warn-bg);transition:background .3s,box-shadow .3s}
 
 /* ---- 새로고침 ---- */
 .hrow{display:flex;align-items:flex-start;gap:10px}
@@ -981,6 +1000,25 @@ document.addEventListener('visibilitychange',()=>{
   if(Date.now()-away>60000) checkNew();
 });
 if(navigator.onLine) setTimeout(checkNew,3000);
+
+// 오늘 주목 칩 → 본문 항목으로 이동.
+// 대상이 접힌 섹션 안에 있으면 먼저 펼쳐야 한다. 그냥 앵커로 두면
+// display:none인 곳으로 뛰어 아무 일도 안 일어난 것처럼 보인다.
+document.querySelectorAll('a.wc').forEach(a=>{
+  a.addEventListener('click',ev=>{
+    ev.preventDefault();
+    const el=document.getElementById(a.getAttribute('href').slice(1));
+    if(!el) return;
+    for(let p=el.parentElement;p;p=p.parentElement){
+      if(p.tagName==='DETAILS') p.open=true;
+    }
+    const top=el.getBoundingClientRect().top+window.scrollY
+              -(document.querySelector('header')?.offsetHeight||0)-10;
+    window.scrollTo({top,behavior:'smooth'});
+    el.classList.add('hit');
+    setTimeout(()=>el.classList.remove('hit'),1600);
+  });
+});
 
 // 스크롤하면 헤더의 제목줄을 접는다. 탭은 계속 보인다.
 const hd=document.querySelector('header');
