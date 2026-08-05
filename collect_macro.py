@@ -16,7 +16,7 @@ from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 import universe
-from collectors import macro_market, macro_news, macro, commodity, eia
+from collectors import macro_market, macro_news, macro, commodity, eia, ecb
 from core import env, session
 
 DATA_DIR = Path(__file__).parent / "data"
@@ -60,7 +60,11 @@ def run():
     diverg = macro_market.divergences(records, universe.MACRO_RELATIONS)
     tops = macro_market.outliers(records)
     broken = sum(1 for d in diverg if d["broken"])
-    print(f"커브 {len(curve)} / 관계 {len(diverg)}(깨짐 {broken})")
+    # 유로존 10년물 — 야후에 독일 국채 심볼이 없어 ECB에서 따로 받는다.
+    # 미-유로존 금리차 계산에 쓴다.
+    eu10 = ecb.get_10y()
+    print(f"커브 {len(curve)} / 관계 {len(diverg)}(깨짐 {broken})"
+          + (f" / 유로존10Y {eu10['price']}%" if eu10 else " / 유로존10Y 실패"))
 
     print("[3/4] 원자재 심화 (COT·선물커브·ETF) …", end=" ", flush=True)
     front = {r["name"]: r["price"] for r in records
@@ -94,6 +98,7 @@ def run():
         "yield_curve": curve,
         "divergences": diverg,
         "outliers": tops,
+        "eurozone_10y": eu10,
         "cot": cot,
         "cot_extremes": cot_ext,
         "curves": curves,

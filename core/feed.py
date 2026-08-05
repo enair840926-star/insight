@@ -115,6 +115,17 @@ def build(macro=None, us=None):
             f"(평년대비 {inv.get('vs_5y_avg_pct'):+.1f}%)",
             f"EIA 주간재고 {inv.get('period')}", asof_macro)
 
+    # --- rateDiff: 미-유로존 10년물 금리차의 전일 대비 변화 (bp)
+    # 수준이 아니라 변화를 준다. 매크로 데스크 밴드가 bp 변화 단위다.
+    eu = macro.get("eurozone_10y") or {}
+    if t10 and eu.get("price") is not None and eu.get("prev_close") is not None:
+        today = (t10["price"] - eu["price"]) * 100
+        prev = (t10["prev_close"] - eu["prev_close"]) * 100
+        put("rateDiff", round(today - prev, 1), "bp",
+            f"미 10년물 {t10['price']}% − 유로존 {eu['price']}% "
+            f"= {today:.0f}bp (전일 {prev:.0f}bp)",
+            f"Yahoo ^TNX / {eu.get('source')} {eu.get('period')}", asof_macro)
+
     # --- 자산별 가격. 엔진의 position 계산이 last/prevClose를 쓴다.
     levels = {}
     for md_name, our_name in (("XAUUSD", "금"), ("USOIL", "WTI원유"),
@@ -147,10 +158,12 @@ def build(macro=None, us=None):
 _NUMERIC_FACTORS = ("usRates", "riskAppetite", "breadth", "dollar",
                     "inventory", "realYield", "inflation", "rateDiff")
 
+# FRED는 이 PC와 GitHub 러너 양쪽에서 타임아웃이다(실측). 대체 소스를
+# 찾기 전까지는 매크로 데스크가 지금처럼 직접 구해야 한다.
 _WHY_MISSING = {
-    "realYield": "FRED DFII10 접속 불가 — 매크로 데스크가 직접 확인 필요",
-    "inflation": "FRED T10YIE 접속 불가 — 매크로 데스크가 직접 확인 필요",
-    "rateDiff": "독일 10년물 소스 미확보 — 매크로 데스크가 직접 확인 필요",
+    "realYield": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요",
+    "inflation": "FRED T10YIE 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요",
+    "rateDiff": "유로존 10년물 조회 실패 — 직접 확인 필요",
 }
 
 
