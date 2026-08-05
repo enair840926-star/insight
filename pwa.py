@@ -90,7 +90,7 @@ MANIFEST = """{
 
 # 네트워크 우선 — 온라인이면 항상 최신을 받고, 끊기면 마지막 캐시를 쓴다.
 # 캐시 우선으로 하면 PC에서 push한 새 데이터가 폰에 안 내려온다.
-SERVICE_WORKER = """const CACHE = 'insight-v2';
+SERVICE_WORKER = """const CACHE = 'insight-v3';
 const SHELL = ['./', './index.html', './manifest.json',
                './icon-192.png', './icon-512.png'];
 
@@ -107,6 +107,11 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+
+  // version.json은 '새 데이터가 올라왔나'를 묻는 용도다. 캐시가 끼면
+  // 항상 옛 값을 돌려줘서 새 데이터를 영영 못 알아챈다. 손대지 않고
+  // 네트워크로 흘려보낸다.
+  if (e.request.url.includes('version.json')) return;
 
   // GitHub Pages는 HTML에 Cache-Control: max-age=600 을 붙인다.
   // 그냥 fetch하면 브라우저 HTTP 캐시가 먼저 응답해서, 갱신을 해도

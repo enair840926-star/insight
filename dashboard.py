@@ -92,9 +92,22 @@ def money_usd(v):
     return f"${v:,.0f}"
 
 
-def card(title, body, sub=""):
+def card(title, body, sub="", fold=False, note=""):
+    """fold=True면 접힌 상태로 시작한다.
+
+    폰에서 한 탭이 12~15화면이었다. 매번 필요한 건 그중 일부인데
+    전부 펼쳐 두면 원하는 걸 찾는 데만 스크롤을 한참 해야 한다.
+    자주 안 보는 것은 접어 두고 제목만 남긴다.
+
+    note는 접힌 상태에서도 보이는 한 줄 요약이다 — 펼칠지 말지를
+    제목만으로 정하기 어려울 때 쓴다.
+    """
     s = f'<div class="csub">{esc(sub)}</div>' if sub else ""
-    return f'<section class="card"><h2>{esc(title)}</h2>{s}{body}</section>'
+    if not fold:
+        return f'<section class="card"><h2>{esc(title)}</h2>{s}{body}</section>'
+    n = f'<span class="fnote">{note}</span>' if note else ""
+    return (f'<details class="card fold"><summary><h2>{esc(title)}</h2>{n}'
+            f'</summary>{s}{body}</details>')
 
 
 def kv_grid(pairs):
@@ -147,6 +160,51 @@ def news_list(items, limit=15):
     return f'<div class="newswrap">{out}</div>'
 
 
+import html as _html
+import re as _re
+
+# 아침에 실제로 필요한 건 앞의 두 섹션이다. 나머지는 접어 두고
+# 필요할 때 펼친다 — 인사이트만 5~6화면이라 그대로 두면 훑기가 어렵다.
+_OPEN_SECTIONS = ("개장 전 브리핑", "오늘 주목할 것")
+
+
+def fold_insight(html):
+    """<h3>로 나뉜 인사이트를 섹션별 접기로 바꾼다.
+
+    반환: (본문HTML, 주목대상목록)
+    """
+    parts = _re.split(r"(<h3>.*?</h3>)", html)
+    if len(parts) < 3:
+        return html, []
+
+    out, watch = parts[0], []
+    for i in range(1, len(parts), 2):
+        head, body = parts[i], parts[i + 1] if i + 1 < len(parts) else ""
+        title = _re.sub(r"<[^>]+>", "", head).strip()
+        keep_open = any(k in title for k in _OPEN_SECTIONS)
+
+        # '오늘 주목할 것' 안의 h4 제목이 곧 오늘의 지목 대상이다.
+        # 맨 위 요약으로 끌어올려 스크롤 없이 보이게 한다.
+        if "주목할 것" in title:
+            for m in _re.finditer(r"<h4>(.*?)</h4>", body):
+                t = _re.sub(r"<[^>]+>", "", m.group(1))
+                # md가 이미 이스케이프한 문자를 되돌린다. 안 하면 esc()가
+                # 한 번 더 걸려 S&amp;P500처럼 보인다.
+                t = _html.unescape(t).strip()
+                t = _re.sub(r"^\d+[.)]\s*", "", t)
+                # 'A — B' 형식이면 앞이 대상이다. 구분자가 없으면 제목
+                # 전체가 문장일 수 있으니 잘라 쓴다.
+                t = _re.split(r"\s[—–-]\s", t)[0].strip(" -–—:")
+                if len(t) > 16:
+                    t = t[:15] + "…"
+                if t:
+                    watch.append(t)
+
+        out += (f'<details class="sec"{" open" if keep_open else ""}>'
+                f'<summary>{title}</summary>{body}</details>')
+    return out, watch
+
+
 def _written_at(path):
     """인사이트가 실제로 쓰인 시각.
 
@@ -193,14 +251,28 @@ def insight_slot(market_name):
                 hrs = (dt.datetime.now() - when).total_seconds() / 3600
                 ago = f"{hrs/24:.0f}일 전" if hrs >= 48 else f"{hrs:.0f}시간 전"
                 old = f' <span class="old">{ago}</span>'
+            body, watch = fold_insight(md.render(text))
             return (f'<section class="card insight has"><h2>인사이트</h2>'
                     f'<div class="csub">{stamp}{old} · '
                     f'투자 권유가 아닌 정보 정리입니다</div>'
-                    f'<div class="md">{md.render(text)}</div></section>')
+                    f'<div class="md">{body}</div></section>'), watch
     return (f'<section class="card insight"><h2>인사이트</h2>'
             f'<div class="empty"><p>아직 없습니다.</p>'
             f'<p class="dim">Claude에게 <code>/인사이트</code>라고 하면 '
-            f'최신 데이터로 써서 1분 안에 여기 반영됩니다.</p></div></section>')
+            f'최신 데이터로 써서 1분 안에 여기 반영됩니다.</p></div></section>'), []
+
+
+def watch_strip(items):
+    """오늘 지목된 대상을 맨 위에 칩으로 띄운다.
+
+    인사이트 안에 묻혀 있으면 스크롤을 한참 해야 보인다. 결론부터
+    보이는 게 폰에서는 맞다.
+    """
+    if not items:
+        return ""
+    chips = "".join(f'<span class="wc">{esc(t)}</span>' for t in items[:6])
+    return (f'<section class="card watch"><h2>오늘 주목</h2>'
+            f'<div class="wchips">{chips}</div></section>')
 
 
 # ---------------------------------------------------------------- 국장
@@ -217,7 +289,8 @@ def render_kr(j):
         idx.append(("시총가중", pct(a.get("market_cap_weighted_pct"))))
     h += card("지수 · 시장폭", kv_grid(idx))
 
-    h += insight_slot("kr")
+    ins, watch = insight_slot("kr")
+    h = watch_strip(watch) + h + ins
 
     km = j.get("kr_macro") or {}
     if km:
@@ -292,7 +365,7 @@ def render_kr(j):
     sub = f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별"
     if ns.get("uncovered"):
         sub += f" · 뉴스 없음: {', '.join(ns['uncovered'])}"
-    h += card("뉴스", news_list(j.get("news_selected") or []), sub)
+    h += card("뉴스", news_list(j.get("news_selected") or []), sub, fold=True, note=f"{ns.get('selected_for_llm', 0)}건")
     return h
 
 
@@ -308,7 +381,8 @@ def render_us(j):
                                  f'<span class="down">{br["down"]:,}</span>'))
         idx.append(("시총가중", pct(a.get("market_cap_weighted_pct"))))
     h += card("지수 · 시장폭", kv_grid(idx))
-    h += insight_slot("us")
+    ins, watch = insight_slot("us")
+    h = watch_strip(watch) + h + ins
 
     secs = a.get("sectors") or []
     if secs:
@@ -390,7 +464,7 @@ def render_us(j):
     sub = f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별"
     if ns.get("uncovered"):
         sub += f" · 뉴스 없음: {', '.join(ns['uncovered'])}"
-    h += card("뉴스", news_list(j.get("news_selected") or []), sub)
+    h += card("뉴스", news_list(j.get("news_selected") or []), sub, fold=True, note=f"{ns.get('selected_for_llm', 0)}건")
     return h
 
 
@@ -417,7 +491,8 @@ def render_macro(j):
                                         rows, ["l", "r", "l", "l"]),
                   "장기금리 − 단기금리. 마이너스가 되면 역전이라 부르고 "
                   "침체 신호로 읽습니다")
-    h += insight_slot("macro")
+    ins, watch = insight_slot("macro")
+    h = watch_strip(watch) + h + ins
 
     dv = j.get("divergences") or []
     if dv:
@@ -454,17 +529,24 @@ def render_macro(j):
                          tail])
         # 수급 판정이 하나도 없는 묶음(환율·금리 등)은 열을 줄인다
         has_bias = any(r[5] for r in rows)
+        # 접힌 상태에서도 무슨 일이 있었는지 보이게 대표 움직임을 요약한다
+        movers = sorted((r for r in items if r.get("change_pct") is not None),
+                        key=lambda r: -abs(r["change_pct"]))[:2]
+        note = " · ".join(f'{esc(r["name"])} {pct(r["change_pct"])}'
+                          for r in movers)
         if has_bias:
             h += card(g, rows_table(
                 ["이름", "현재가", "당일", "20일", "52주", "수급"],
                 rows, ["l", "r", "r", "r", "r", "l"]),
                 "수급 = 재고와 선물커브를 교차한 판정 · "
-                "가격 예측이 아니라 지금 물건이 귀한지 남는지입니다")
+                "가격 예측이 아니라 지금 물건이 귀한지 남는지입니다",
+                fold=True, note=note)
         else:
             # 수급 열만 뺀다. r[4]가 52주고 r[5]가 수급이다.
             h += card(g, rows_table(
                 ["이름", "현재가", "당일", "20일", "52주"],
-                [r[:5] for r in rows], ["l", "r", "r", "r", "r"]))
+                [r[:5] for r in rows], ["l", "r", "r", "r", "r"]),
+                fold=True, note=note)
 
     inv = j.get("inventories") or {}
     if inv:
@@ -541,7 +623,8 @@ def render_macro(j):
 
     ns = j.get("news_stats") or {}
     h += card("뉴스", news_list(j.get("news_selected") or []),
-              f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별")
+              f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별",
+              fold=True, note=f"{ns.get('selected_for_llm', 0)}건")
     return h
 
 
@@ -568,7 +651,8 @@ def render_coin(j):
     if j.get("usdkrw"):
         pairs.append(("원달러", f'{num(j["usdkrw"], 2)}원'))
     h += card("시장 전체", kv_grid(pairs))
-    h += insight_slot("coin")
+    ins, watch = insight_slot("coin")
+    h = watch_strip(watch) + h + ins
 
     sel = j.get("selected") or []
     if sel:
@@ -625,7 +709,7 @@ def render_coin(j):
     sub = f"{ns.get('collected', 0):,}건 수집 → {ns.get('selected_for_llm', 0)}건 선별"
     if ns.get("uncovered"):
         sub += f" · 뉴스 없음: {', '.join(ns['uncovered'])}"
-    h += card("뉴스", news_list(j.get("news_selected") or []), sub)
+    h += card("뉴스", news_list(j.get("news_selected") or []), sub, fold=True, note=f"{ns.get('selected_for_llm', 0)}건")
     return h
 
 
@@ -669,6 +753,7 @@ CSS = """
   --tx:#0d1418; --dim:#5b6b75;
   --up:#e5484d; --down:#3b82f6; --flat:#8b98a1;
   --acc:#0891b2; --warn:#b45309; --warn-bg:#fdf3e3;
+  --up-bg:#fdeced; --down-bg:#eaf1fd;
   --shadow:0 1px 2px rgba(13,20,24,.06);
 }
 :root[data-theme="dark"]{
@@ -677,6 +762,7 @@ CSS = """
   --tx:#e3edf3; --dim:#8496a3;
   --up:#ff6b6b; --down:#60a5fa; --flat:#6b7c88;
   --acc:#22d3ee; --warn:#f59e0b; --warn-bg:#2a1f0d;
+  --up-bg:#2a1416; --down-bg:#0f1e2e;
   --shadow:none;
 }
 
@@ -691,6 +777,12 @@ header{position:sticky;top:0;z-index:10;background:var(--bg);
   border-bottom:1px solid var(--line);padding:14px 14px 0}
 h1{font-size:16px;font-weight:700;letter-spacing:-.01em}
 .stamp{color:var(--dim);font-size:11.5px;margin-top:3px;font-variant-numeric:tabular-nums}
+/* 스크롤하면 제목줄을 접어 탭만 남긴다. 헤더가 111px로 화면의 14%를
+   차지하고 있었는데, 스크롤 중에 계속 필요한 건 탭뿐이다. */
+header.min{padding-top:6px}
+header.min .hrow{max-height:0;opacity:0;overflow:hidden;margin:0}
+.hrow{transition:max-height .18s,opacity .18s;max-height:60px}
+@media(prefers-reduced-motion:reduce){.hrow{transition:none}}
 nav{display:flex;gap:2px;margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;
   scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
@@ -741,7 +833,7 @@ tr:last-child td{border:none}
 .badge{background:var(--sunken);border:1px solid var(--line);border-radius:4px;
   color:var(--dim);font-size:10px;padding:2px 6px;letter-spacing:.01em}
 .badge.sec{border-color:var(--acc);color:var(--acc);background:transparent}
-.sstats{display:flex;flex-wrap:wrap;gap:3px 14px;color:var(--dim);font-size:11.5px}
+.sstats{display:flex;flex-wrap:wrap;gap:3px 14px;color:var(--dim);font-size:12.5px}
 
 .newswrap{display:flex;flex-direction:column}
 .news{display:block;text-decoration:none;color:inherit;
@@ -784,6 +876,43 @@ tr:last-child td{border:none}
 code{background:var(--line);border-radius:3px;padding:1px 5px;font-size:11.5px;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .panel{display:none}.panel.on{display:block}
+
+/* ---- 접기 ---- */
+details.fold>summary,details.sec>summary{cursor:pointer;list-style:none;
+  display:flex;align-items:center;gap:8px;min-height:44px}
+details.fold>summary::-webkit-details-marker,
+details.sec>summary::-webkit-details-marker{display:none}
+details.fold>summary::after,details.sec>summary::after{content:"";margin-left:auto;
+  width:7px;height:7px;border-right:2px solid var(--dim);border-bottom:2px solid var(--dim);
+  transform:rotate(45deg);transition:transform .15s;flex:none}
+details.fold[open]>summary::after,details.sec[open]>summary::after{transform:rotate(-135deg)}
+details.fold>summary h2{margin:0}
+.fnote{color:var(--dim);font-size:11.5px;font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+details.sec{border-top:1px solid var(--line-soft);padding:2px 0}
+details.sec:first-child{border-top:none}
+details.sec>summary{font-size:14.5px;font-weight:700;color:var(--tx);padding:8px 0}
+details.sec[open]>summary{color:var(--acc)}
+
+/* ---- 오늘 주목 ---- */
+.watch h2{margin-bottom:8px}
+.wchips{display:flex;flex-wrap:wrap;gap:6px}
+.wc{background:var(--sunken);border:1px solid var(--line);border-radius:14px;
+  padding:5px 11px;font-size:12.5px;font-weight:650}
+
+/* ---- 새로고침 ---- */
+.hrow{display:flex;align-items:flex-start;gap:10px}
+.hrow>div{min-width:0;flex:1}
+#rf{flex:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface);color:var(--tx);font-size:17px;line-height:1;cursor:pointer}
+#rf:active{background:var(--sunken)}
+#rf.spin{animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+#newv{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:30;background:var(--acc);color:#fff;border:none;border-radius:20px;
+  padding:11px 20px;font-size:13.5px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25);
+  display:none;cursor:pointer}
+#newv.on{display:block}
 /* 해석 태그 — 등락 색(적/청)과 섞이면 안 되므로 의미색을 따로 쓴다 */
 .rd{display:inline-block;border-radius:3px;padding:1px 7px;font-size:11px;
   font-weight:650;border:1px solid transparent}
@@ -799,20 +928,69 @@ code{background:var(--line);border-radius:3px;padding:1px 5px;font-size:11.5px;
 """
 
 JS = """
+// 탭마다 스크롤 위치를 따로 기억한다. 한 탭이 12화면이라
+// 위치가 섞이면 다른 탭에서 엉뚱한 곳이 보인다.
+const POS={};
+let cur=document.querySelector('nav button.on')?.dataset.m;
+
 document.querySelectorAll('nav button').forEach(b=>{
   b.onclick=()=>{
+    if(cur) POS[cur]=window.scrollY;
     document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
     document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
     b.classList.add('on');
     document.getElementById('p-'+b.dataset.m).classList.add('on');
-    window.scrollTo(0,0);
-    try{localStorage.setItem('tab',b.dataset.m)}catch(e){}
+    cur=b.dataset.m;
+    window.scrollTo(0,POS[cur]||0);
+    try{localStorage.setItem('tab',cur)}catch(e){}
   };
 });
 try{
   const t=localStorage.getItem('tab');
   if(t){const b=document.querySelector(`nav button[data-m="${t}"]`); if(b)b.click();}
 }catch(e){}
+
+// ---- 새로고침 ----
+// 캐시를 비우고 다시 받는다. 서비스워커가 옛 페이지를 붙들고 있으면
+// 그냥 reload로는 바뀐 게 안 보인다.
+async function hardReload(){
+  const rf=document.getElementById('rf');
+  if(rf) rf.classList.add('spin');
+  try{
+    if(window.caches){const ks=await caches.keys(); await Promise.all(ks.map(k=>caches.delete(k)));}
+  }catch(e){}
+  location.reload();
+}
+document.getElementById('rf')?.addEventListener('click',hardReload);
+document.getElementById('newv')?.addEventListener('click',hardReload);
+
+// 앱을 다시 열었을 때 새 데이터가 올라와 있으면 알려 준다.
+// 자동으로 새로고침하지는 않는다 — 읽던 중이면 끊기니까.
+let away=0;
+async function checkNew(){
+  try{
+    const r=await fetch('version.json?'+Date.now(),{cache:'no-store'});
+    if(!r.ok) return;
+    const v=(await r.json()).build;
+    if(v && v!==window.__BUILD__) document.getElementById('newv')?.classList.add('on');
+  }catch(e){}
+}
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){away=Date.now();return;}
+  // 잠깐 전환한 것까지 매번 확인하면 낭비다. 1분 넘게 떠나 있었을 때만.
+  if(Date.now()-away>60000) checkNew();
+});
+if(navigator.onLine) setTimeout(checkNew,3000);
+
+// 스크롤하면 헤더의 제목줄을 접는다. 탭은 계속 보인다.
+const hd=document.querySelector('header');
+let last=0;
+addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  if(Math.abs(y-last)<6) return;   // 손떨림으로 깜빡이지 않게
+  hd?.classList.toggle('min', y>90);
+  last=y;
+},{passive:true});
 """
 
 
@@ -858,10 +1036,12 @@ def _body():
         first = False
 
     stamp = max(stamps) if stamps else "-"
-    head = (f'<header><h1>자산 인사이트</h1>'
+    head = (f'<header><div class="hrow"><div>'
+            f'<h1>자산 인사이트</h1>'
             f'<div class="stamp">최종 수집 {esc(stamp)} · '
-            f'생성 {dt.datetime.now():%m-%d %H:%M}</div>'
-            f'<nav>{tabs}</nav></header>')
+            f'생성 {dt.datetime.now():%m-%d %H:%M}</div></div>'
+            f'<button id="rf" title="새로고침" aria-label="새로고침">↻</button>'
+            f'</div><nav>{tabs}</nav></header>')
     return head, panels, stamp
 
 
@@ -899,6 +1079,14 @@ def build_pwa(docs_dir=None):
     assets = pwa.write_assets(docs)
 
     head, panels, stamp = _body()
+    # 앱이 '새 데이터가 올라왔나'를 물어볼 대상. 페이지에 박은 값과
+    # 비교해 다르면 새로고침 버튼을 띄운다. 전체 HTML을 다시 받지
+    # 않아도 되므로 앱을 열 때마다 확인해도 부담이 없다.
+    build_id = dt.datetime.now().strftime("%Y%m%d%H%M%S")
+    (docs / "version.json").write_text(
+        json.dumps({"build": build_id, "collected": stamp}, ensure_ascii=False),
+        encoding="utf-8")
+
     html = f"""<!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8">
@@ -910,7 +1098,8 @@ def build_pwa(docs_dir=None):
 </head><body>
 {head}
 <main>{panels}</main>
-<script>{JS}{pwa.REGISTER_SW}</script>
+<button id="newv">새 데이터가 있습니다 · 탭하여 갱신</button>
+<script>window.__BUILD__="{build_id}";{JS}{pwa.REGISTER_SW}</script>
 </body></html>"""
     index = docs / "index.html"
     index.write_text(html, encoding="utf-8")
