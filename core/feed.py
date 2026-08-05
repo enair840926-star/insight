@@ -54,6 +54,54 @@ def _f(v, digits=2):
     return None if v is None else round(v, digits)
 
 
+def _mbbl(s):
+    """'2.690M' · '-2.000M' · '7,167' → 백만 배럴 float"""
+    if s is None:
+        return None
+    t = str(s).replace(",", "").strip()
+    mult = 1.0
+    if t.upper().endswith("M"):
+        t = t[:-1]
+    elif t.upper().endswith("K"):
+        t, mult = t[:-1], 0.001
+    try:
+        return float(t) * mult
+    except ValueError:
+        return None
+
+
+def _crude_surprise(econ):
+    """원유 재고 발표에서 컨센서스 대비 서프라이즈를 뽑는다.
+
+    매크로 데스크 밴드가 '컨센서스 대비 서프라이즈(백만 배럴)'를 받는다.
+    주간 증감 원값과는 다른 값이라 섞으면 안 된다.
+
+    EIA(공식)가 있으면 그쪽을, 없으면 API(민간 선행)를 쓴다. 출처를
+    적어 받는 쪽이 어느 조사인지 알게 한다.
+    """
+    picks = []
+    for e in econ:
+        name = (e.get("event") or "")
+        low = name.lower()
+        if "crude" not in low or "stock" not in low:
+            continue
+        a, c = _mbbl(e.get("actual")), _mbbl(e.get("consensus"))
+        if a is None or c is None:
+            continue
+        src = "EIA" if "eia" in low else ("API" if "api" in low else name[:20])
+        picks.append({
+            "value": round(a - c, 3),
+            "fact": f"{name} 실제 {e.get('actual')} / 예상 {e.get('consensus')} "
+                    f"→ 서프라이즈 {a - c:+.2f}백만 배럴",
+            "source": src, "date": e.get("date"),
+            "rank": 0 if src == "EIA" else 1,
+        })
+    if not picks:
+        return None
+    picks.sort(key=lambda x: (x["rank"], x["date"] or ""))
+    return picks[0]
+
+
 def build(macro=None, us=None):
     """수집 결과 → 매크로 데스크가 읽을 숫자 피드.
 
@@ -106,14 +154,15 @@ def build(macro=None, us=None):
             f"({br['up_ratio']}%)",
             "Nasdaq screener 전종목", asof_us)
 
-    # --- inventory: EIA 원유 재고 주간 증감 (백만 배럴)
-    inv = (macro.get("inventories") or {}).get("원유") or {}
-    if inv.get("change_1w") is not None:
-        # EIA 단위가 천 배럴(MBBL)이라 백만 배럴로 바꾼다
-        put("inventory", _f(inv["change_1w"] / 1000, 3), "Mbbl",
-            f"원유 재고 주간 {inv['change_1w']:+,}천 배럴 "
-            f"(평년대비 {inv.get('vs_5y_avg_pct'):+.1f}%)",
-            f"EIA 주간재고 {inv.get('period')}", asof_macro)
+    # --- inventory: 원유 재고 '컨센서스 대비 서프라이즈' (백만 배럴)
+    #
+    # 주간 증감 원값을 주면 안 된다. 매크로 데스크 밴드는 서프라이즈
+    # 단위이고, 원값을 넣으면 엉뚱한 stance가 나온다. 컨센서스가
+    # 있는 발표만 쓰고, 없으면 이 팩터를 아예 만들지 않는다.
+    sur = _crude_surprise(us.get("econ") or [])
+    if sur:
+        put("inventory", sur["value"], "Mbbl", sur["fact"],
+            f"{sur['source']} {sur['date']}", asof_us)
 
     # --- rateDiff: 미-유로존 10년물 금리차의 전일 대비 변화 (bp)
     # 수준이 아니라 변화를 준다. 매크로 데스크 밴드가 bp 변화 단위다.
@@ -139,11 +188,35 @@ def build(macro=None, us=None):
                         if r.get("change_pct") is not None else our_name,
             }
 
+    # 팩터가 아닌 배경 숫자. factors와 섞으면 단위가 다른 값이 팩터로
+    # 들어갈 수 있어 따로 둔다. 서수형 팩터(안전자산·지정학·OPEC+ 등)를
+    # 판단할 때 참고하라는 뜻이다.
+    context = {}
+    inv = (macro.get("inventories") or {}).get("원유") or {}
+    if inv:
+        context["eiaCrudeLevel"] = {
+            "weeklyChangeKbbl": inv.get("change_1w"),
+            "vs5yAvgPct": inv.get("vs_5y_avg_pct"),
+            "period": inv.get("period"),
+            "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다.",
+        }
+    fg = (macro.get("sentiment") or {}).get("us_fear_greed") or {}
+    if fg:
+        context["fearGreed"] = {"value": fg.get("score"),
+                                "rating": fg.get("rating"),
+                                "weekAgo": fg.get("week_ago")}
+    yc = macro.get("yield_curve") or []
+    if yc:
+        context["yieldCurve"] = [
+            {"label": c.get("label"), "spreadBp": c.get("spread_bp"),
+             "inverted": c.get("inverted")} for c in yc]
+
     return {
         "schema": SCHEMA,
         "producer": "asset-insight",
         "generatedAt": now.isoformat(timespec="seconds"),
         "collectedAt": {"macro": asof_macro, "us": asof_us},
+        "context": context,
         "contract": (
             "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. "
             "매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 "

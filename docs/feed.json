@@ -1,10 +1,35 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-08-05T23:13:32+09:00",
+ "generatedAt": "2026-08-05T23:23:11+09:00",
  "collectedAt": {
   "macro": "2026-08-05T23:12:46",
   "us": "2026-08-05T22:26:36"
+ },
+ "context": {
+  "eiaCrudeLevel": {
+   "weeklyChangeKbbl": -7167.0,
+   "vs5yAvgPct": -6.6,
+   "period": "2026-07-24",
+   "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
+  },
+  "fearGreed": {
+   "value": 63.8,
+   "rating": "greed",
+   "weekAgo": 34.7
+  },
+  "yieldCurve": [
+   {
+    "label": "10Y-2Y",
+    "spreadBp": 90.3,
+    "inverted": false
+   },
+   {
+    "label": "30Y-10Y",
+    "spreadBp": 54.4,
+    "inverted": false
+   }
+  ]
  },
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
@@ -37,11 +62,11 @@
    "asof": "2026-08-05T22:26:36"
   },
   "inventory": {
-   "value": -7.167,
+   "value": 4.69,
    "unit": "Mbbl",
-   "fact": "원유 재고 주간 -7,167.0천 배럴 (평년대비 -6.6%)",
-   "source": "EIA 주간재고 2026-07-24",
-   "asof": "2026-08-05T23:12:46"
+   "fact": "API Weekly Crude Oil Stock 실제 2.690M / 예상 -2.000M → 서프라이즈 +4.69백만 배럴",
+   "source": "API 2026-08-05",
+   "asof": "2026-08-05T22:26:36"
   },
   "rateDiff": {
    "value": 4.7,
