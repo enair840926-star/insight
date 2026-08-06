@@ -70,6 +70,32 @@ def _mbbl(s):
         return None
 
 
+def _news(items, limit=30):
+    """서수형 팩터 판단용 뉴스. 사실만 넘긴다.
+
+    **label·score는 넣지 않는다.** 그건 자산 인사이트의 규칙 기반
+    호재·악재 판정이고, 넘기면 숫자에 대해 지키는 경계가 뉴스에서
+    무너진다. 매크로 데스크가 읽고 스스로 판단해야 그쪽 스코어보드가
+    자기 룰셋을 채점한다.
+
+    본문도 넣지 않는다 — 제목·날짜·출처·링크면 판단에 충분하고,
+    전문 전재는 저작권 문제가 된다.
+    """
+    out = []
+    for n in items[:limit]:
+        if not n.get("title"):
+            continue
+        out.append({
+            "date": (n.get("published") or "")[:16],
+            "title": n["title"],
+            "source": n.get("source"),
+            "topics": n.get("topics") or [],
+            "groups": n.get("groups") or [],
+            "link": n.get("link"),
+        })
+    return out
+
+
 def _crude_surprise(econ):
     """원유 재고 발표에서 컨센서스 대비 서프라이즈를 뽑는다.
 
@@ -211,6 +237,15 @@ def build(macro=None, us=None):
             {"label": c.get("label"), "spreadBp": c.get("spread_bp"),
              "inverted": c.get("inverted")} for c in yc]
 
+    news = _news(macro.get("news_selected") or [])
+    if news:
+        context["news"] = news
+        context["newsNote"] = (
+            "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) "
+            "판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 "
+            "붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
+        )
+
     return {
         "schema": SCHEMA,
         "producer": "asset-insight",
@@ -237,6 +272,10 @@ _WHY_MISSING = {
     "realYield": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요",
     "inflation": "FRED T10YIE 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요",
     "rateDiff": "유로존 10년물 조회 실패 — 직접 확인 필요",
+    # 재고는 매일 나오는 게 아니다. 발표가 없는 날 빠지는 건 정상이고,
+    # 그걸 수집 실패로 읽으면 없는 문제를 쫓게 된다.
+    "inventory": "이번 캘린더에 컨센서스 있는 원유 재고 발표 없음 "
+                 "(API 화요일·EIA 수요일 발표) — 해당 요일이 아니면 정상",
 }
 
 
