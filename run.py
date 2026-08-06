@@ -51,6 +51,11 @@ GROUPS = {
 AUTO_WINDOW_H = 2.5
 FRESH_H = 3.0          # 이 시간 안에 이미 받은 자산군은 --auto에서 건너뛴다
 
+# 수집기 하나당 제한 시간. 로컬에서 국장이 13초인데 러너는 한국까지
+# 왕복이 멀어 훨씬 느리다. 국장은 전종목 목록 페이지네이션 + 종목별
+# 상세 + DART까지 도는 가장 무거운 수집기라 여유를 크게 준다.
+TIMEOUT_S = 900
+
 
 def _age_h(market):
     """마지막 수집 이후 경과 시간. 받은 적 없으면 무한대.
@@ -136,16 +141,22 @@ def run_one(script, label):
         r = subprocess.run(
             [sys.executable, str(ROOT / script)],
             capture_output=True, text=True, encoding="utf-8",
-            errors="replace", timeout=300, cwd=str(ROOT))
+            errors="replace", timeout=TIMEOUT_S, cwd=str(ROOT))
     except subprocess.TimeoutExpired:
-        print("시간 초과 (5분)")
+        print(f"시간 초과 ({TIMEOUT_S}초)")
         return False
     dt_s = time.time() - t0
     if r.returncode != 0:
-        print(f"실패 ({dt_s:.0f}초)")
-        tail = (r.stderr or r.stdout or "").strip().splitlines()[-3:]
-        for line in tail:
-            print(f"          {line[:100]}")
+        print(f"실패 ({dt_s:.0f}초, 종료코드 {r.returncode})")
+        # 러너 로그를 나중에 볼 수 없는 경우가 많다. 마지막 3줄만으로는
+        # 원인을 못 찾아 국장이 며칠간 조용히 빠져 있었다. 넉넉히 남긴다.
+        out = (r.stdout or "").strip().splitlines()
+        err = (r.stderr or "").strip().splitlines()
+        for label, lines in (("stdout", out[-8:]), ("stderr", err[-15:])):
+            if lines:
+                print(f"          --- {label} ---")
+                for line in lines:
+                    print(f"          {line[:160]}")
         return False
 
     # 수집기가 찍는 요약 줄만 뽑아 보여준다
