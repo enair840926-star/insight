@@ -1,10 +1,10 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-08-06T08:31:01+09:00",
+ "generatedAt": "2026-08-06T22:23:25+09:00",
  "collectedAt": {
-  "macro": "2026-08-06T08:30:55",
-  "us": "2026-08-05T22:26:36"
+  "macro": "2026-08-06T22:23:01",
+  "us": "2026-08-06T22:22:46"
  },
  "context": {
   "eiaCrudeLevel": {
@@ -14,9 +14,9 @@
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "fearGreed": {
-   "value": 59.7,
+   "value": 60.4,
    "rating": "greed",
-   "weekAgo": 34.7
+   "weekAgo": 40.7
   },
   "yieldCurve": [
    {
@@ -38,75 +38,72 @@
    "unit": "bp",
    "fact": "미 10년물 4.617% (전일 4.627%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-08-06T08:30:55"
+   "asof": "2026-08-06T22:23:01"
   },
   "riskAppetite": {
-   "value": -0.69,
+   "value": 0.04,
    "unit": "pt",
-   "fact": "VIX 15.81 (전일 16.50)",
+   "fact": "VIX 15.85 (전일 15.81)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-08-06T08:30:55"
+   "asof": "2026-08-06T22:23:01"
   },
   "dollar": {
-   "value": -0.2,
+   "value": 0.05,
    "unit": "%",
-   "fact": "달러인덱스 99.69 (전일 대비 -0.20%)",
+   "fact": "달러인덱스 99.742 (전일 대비 +0.05%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-08-06T08:30:55"
+   "asof": "2026-08-06T22:23:01"
   },
   "breadth": {
-   "value": 69.6,
+   "value": 41.4,
    "unit": "%",
-   "fact": "상승 3,478 / 하락 1,409 (69.6%)",
+   "fact": "상승 2,069 / 하락 2,824 (41.4%)",
    "source": "Nasdaq screener 전종목",
-   "asof": "2026-08-05T22:26:36"
-  },
-  "inventory": {
-   "value": 4.69,
-   "unit": "Mbbl",
-   "fact": "API Weekly Crude Oil Stock 실제 2.690M / 예상 -2.000M → 서프라이즈 +4.69백만 배럴",
-   "source": "API 2026-08-05",
-   "asof": "2026-08-05T22:26:36"
+   "asof": "2026-08-06T22:22:46"
   },
   "rateDiff": {
-   "value": 2.9,
+   "value": -1.0,
    "unit": "bp",
-   "fact": "미 10년물 4.617% − 유로존 3.1463% = 147bp (전일 144bp)",
-   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-04",
-   "asof": "2026-08-06T08:30:55"
+   "fact": "미 10년물 4.617% − 유로존 3.1466% = 147bp (전일 148bp)",
+   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-05",
+   "asof": "2026-08-06T22:23:01"
   }
  },
  "levels": {
   "XAUUSD": {
-   "last": 4317.4,
-   "prevClose": 4095.39990234375,
+   "last": 4320.7,
+   "prevClose": 4245.7998046875,
    "source": "Yahoo GC=F",
-   "asof": "2026-08-06T08:30:55",
-   "note": "금 · 당일 +5.42%"
+   "asof": "2026-08-06T22:23:01",
+   "note": "금 · 당일 +1.76%"
   },
   "USOIL": {
-   "last": 74.99,
-   "prevClose": 75.7699966430664,
+   "last": 75.2,
+   "prevClose": 75.22000122070312,
    "source": "Yahoo CL=F",
-   "asof": "2026-08-06T08:30:55",
-   "note": "WTI원유 · 당일 -1.03%"
+   "asof": "2026-08-06T22:23:01",
+   "note": "WTI원유 · 당일 -0.03%"
   },
   "EURUSD": {
-   "last": 1.1558,
+   "last": 1.1546,
    "prevClose": 1.153242826461792,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-08-06T08:30:55",
-   "note": "유로달러 · 당일 +0.22%"
+   "asof": "2026-08-06T22:23:01",
+   "note": "유로달러 · 당일 +0.12%"
   },
   "NAS100": {
-   "last": 29628.0,
-   "prevClose": 29863.5,
+   "last": 29537.25,
+   "prevClose": 29615.0,
    "source": "Yahoo NQ=F",
-   "asof": "2026-08-06T08:30:55",
-   "note": "나스닥선물 · 당일 -0.79%"
+   "asof": "2026-08-06T22:23:01",
+   "note": "나스닥선물 · 당일 -0.26%"
   }
  },
  "missing": [
+  {
+   "key": "inventory",
+   "reason": "수집 실패"
+  },
   {
    "key": "realYield",
    "reason": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요"
