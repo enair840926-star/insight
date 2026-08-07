@@ -39,6 +39,8 @@ on:
     - cron: '50 13 * * 1-5'   # 22:50 KST
   push:
     # 이 파일을 고치면 한 번 돌려 본다. 수집은 무료라 부담이 없다.
+    # 결과를 저장소에 커밋하므로 main에서만 돈다.
+    branches: [main]
     paths:
       - '.github/workflows/collect.yml'
 

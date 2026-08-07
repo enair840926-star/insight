@@ -76,6 +76,31 @@ def _us_state(now):
     return "장마감", _us_open_kst(now)
 
 
+def session_open(market, now=None):
+    """지금 장중이면 이번 세션이 열린 시각. 장중이 아니면 None.
+
+    '개장 전 스냅샷을 받았는가'를 판정할 때 쓴다. 데이터가 이 시각보다
+    오래됐으면 이번 장을 놓친 것이다. 단순히 '몇 시간 낡았나'로 재면
+    하루 한 번 열리는 장에서 20시간 낡은 정상 상태와 구분이 안 된다.
+    """
+    now = now or _now()
+    if market == "kr":
+        state, _ = _kr_state(now)
+        if state != "장중":
+            return None
+        return now.replace(hour=9, minute=0, second=0, microsecond=0)
+    if market == "us":
+        state, _ = _us_state(now)
+        if state != "장중":
+            return None
+        if NY is None:
+            return now.replace(hour=23, minute=30, second=0, microsecond=0)
+        ny = now.astimezone(NY)
+        return ny.replace(hour=9, minute=30, second=0,
+                          microsecond=0).astimezone(KST)
+    return None
+
+
 def describe(market, now=None):
     """LLM 프롬프트에 넣을 시간 맥락.
 

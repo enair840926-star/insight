@@ -7,6 +7,8 @@ name: 데이터 소스 접속 검증
 on:
   workflow_dispatch:
   push:
+    # 결과를 저장소에 커밋하므로 main에서만 돈다.
+    branches: [main]
     paths:
       - 'tools/probe.py'
       - '.github/workflows/probe.yml'

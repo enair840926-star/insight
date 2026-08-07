@@ -7,6 +7,10 @@ name: 인사이트 반영
 on:
   workflow_dispatch:
   push:
+    # main만 받는다. 브랜치를 안 걸면 아무 브랜치 푸시에도 돌고,
+    # 아래 커밋 단계가 `git pull --rebase origin main`을 하므로
+    # 그 브랜치에 main이 섞여 버린다.
+    branches: [main]
     paths:
       - 'insights/**'
 

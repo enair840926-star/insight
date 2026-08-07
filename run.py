@@ -78,17 +78,58 @@ def _age_h(market):
     return (dt.datetime.now() - when).total_seconds() / 3600
 
 
-def auto_markets(now=None, skip_fresh=True):
-    """개장이 임박한 시장을 고른다. 예약 실행용.
+def _collected_at(market):
+    """마지막 수집 시각. 파일명에 박힌 값. 없으면 None."""
+    from core import store
+    p = store.latest(f"{market}_2*.json")
+    if not p:
+        return None
+    m = store._STAMP.search(p.name)
+    if not m:
+        return None
+    try:
+        return dt.datetime.strptime(m.group(1), "%Y%m%d_%H%M")
+    except ValueError:
+        return None
 
-    아무 장도 임박하지 않았으면 빈 리스트를 돌려준다 — 잘못 걸린 예약이
+
+def auto_markets(now=None, skip_fresh=True):
+    """받아야 할 시장을 고른다. 예약 실행용.
+
+    두 가지 경우에 고른다.
+      1. 개장이 임박했다 (AUTO_WINDOW_H 안)
+      2. 이미 장중인데 이번 세션 개장 전 스냅샷이 없다
+
+    2번이 없으면 예약이 개장을 넘겨 밀릴 때 그 장이 통째로 빠진다.
+    실제로 08-06에 그랬다 — 08:25 실행은 수집기가 실패했고 09:11 실행은
+    이미 장중이라 국장을 아예 안 골라, 그날 국장 데이터가 없었다.
+
+    '몇 시간 낡았나'로 재면 안 된다. 하루 한 번 열리는 장에서는 20시간
+    낡은 것이 정상이라 놓친 것과 구분이 안 된다. 이번 세션 개장 시각을
+    기준으로 본다.
+
+    아무 데도 해당 안 되면 빈 리스트를 돌려준다 — 잘못 걸린 예약이
     전체 수집을 돌려 버리는 것보다 아무것도 안 하는 게 낫다.
     """
     from core import session
     picked = []
     for m in ("kr", "us"):
         d = session.describe(m, now)
-        if d["state"] != "장중" and d["hours_until"] <= AUTO_WINDOW_H:
+        soon = d["state"] != "장중" and d["hours_until"] <= AUTO_WINDOW_H
+
+        missed = False
+        if d["state"] == "장중":
+            opened = session.session_open(m, now)
+            got = _collected_at(m)
+            if opened is not None:
+                # 기준은 개장 시각이 아니라 '개장 전 수집 창의 시작'이다.
+                # 개장 전 스냅샷은 당연히 개장보다 이르므로, 개장 시각으로
+                # 재면 정상적으로 받아 둔 것까지 놓친 것으로 본다.
+                since = (opened.replace(tzinfo=None)
+                         - dt.timedelta(hours=AUTO_WINDOW_H))
+                missed = got is None or got < since
+
+        if soon or missed:
             picked.append(m)
     if picked:
         picked.append("macro")          # 매크로는 두 장 모두의 배경
