@@ -60,20 +60,73 @@ def written_at(market):
     return None
 
 
-def pending(markets=MARKETS):
+# 각 자산군이 어느 장의 개장을 따르는가. 매크로는 두 장의 배경이라
+# 더 가까운 쪽, 코인은 미국 세션과 같이 움직인다.
+FOLLOWS = {"kr": "kr", "us": "us", "macro": None, "coin": "us"}
+
+# --auto가 개장 몇 시간 전부터 수집하는가. run.AUTO_WINDOW_H와 같아야 한다.
+WINDOW_H = 2.5
+
+
+def waiting_for_collection(market, now=None):
+    """이번 세션 수집이 아직 안 왔으면 True — 쓰지 말고 다음 루틴에 넘긴다.
+
+    GitHub 예약은 예측 불가하게 밀린다(실측: 21:20 예약이 21:31,
+    07:20 예약이 10:34). 루틴 시각을 고정해 두면 수집을 앞지르는 회차가
+    생기고, 그 회차가 쓴 글은 곧 도착하는 새 데이터에 덮여 버려진다.
+
+    실제로 08-07에 그랬다 — 21:12 루틴이 18:55 데이터로 코인을 썼는데
+    21:31에 수집이 도착해 22:12 루틴이 다시 썼다.
+
+    그래서 '개장 전 수집 창 안에 있는데 이번 세션 데이터가 아직 없다'면
+    기다린다. 장이 열리면 더 기다리지 않고 쓴다 — 수집이 아예 안 왔을
+    수도 있으므로 무한정 미루면 안 된다.
+    """
+    from core import session
+    ref = FOLLOWS.get(market, market)
+    if ref is None:                       # 매크로 — 더 가까운 개장을 따른다
+        cands = [session.describe(k, now) for k in ("kr", "us")]
+        cands = [d for d in cands if d.get("next_open")]
+        if not cands:
+            return False
+        d = min(cands, key=lambda x: x["next_open"])
+    else:
+        d = session.describe(ref, now)
+        if d["state"] == "장중":           # 이미 열렸으면 기다릴 이유가 없다
+            return False
+        if not d.get("next_open"):
+            return False
+
+    now = now or dt.datetime.now().astimezone()
+    open_at = d["next_open"]
+    start = open_at - dt.timedelta(hours=WINDOW_H)
+    if not (start <= now < open_at):      # 수집 창 밖이면 기다리지 않는다
+        return False
+
+    c = collected_at(market)
+    if c is None:
+        return True
+    # 파일명 시각은 naive(KST). 창 시작과 비교하려면 tz를 떼어 맞춘다.
+    return c < start.replace(tzinfo=None)
+
+
+def pending(markets=MARKETS, now=None, wait=True):
     """(자산군, 사유) 목록. 다시 쓸 게 없으면 빈 목록."""
     out = []
     for m in markets:
         c, w = collected_at(m), written_at(m)
         if not c:
             continue                       # 수집된 적이 없으면 쓸 재료가 없다
+        if w and c <= w:
+            continue                       # 이미 최신
+        if wait and waiting_for_collection(m, now):
+            continue                       # 곧 올 수집을 기다린다
         if not w:
             out.append((m, "인사이트 없음"))
             continue
-        if c > w:
-            gap = (c - w).total_seconds() / 3600
-            out.append((m, f"수집 {c:%m-%d %H:%M} > 작성 {w:%m-%d %H:%M} "
-                           f"({gap:.1f}시간 새 데이터)"))
+        gap = (c - w).total_seconds() / 3600
+        out.append((m, f"수집 {c:%m-%d %H:%M} > 작성 {w:%m-%d %H:%M} "
+                       f"({gap:.1f}시간 새 데이터)"))
     return out
 
 
@@ -88,9 +141,16 @@ def main():
         for m in (a.markets or MARKETS):
             c, w = collected_at(m), written_at(m)
             need = any(x[0] == m for x in rows)
+            if need:
+                state = "다시 써야 함"
+            elif c and (not w or c > w) and waiting_for_collection(m):
+                # '최신'과 구분해야 한다. 새 데이터가 있는데도 안 쓰는
+                # 것이므로, 이유를 안 보이면 버그로 오해한다.
+                state = "대기 (이번 세션 수집 전)"
+            else:
+                state = "최신"
             print(f"{LABELS[m]:<5} 수집 {c and c.strftime('%m-%d %H:%M') or '-':<12}"
-                  f" 작성 {w and w.strftime('%m-%d %H:%M') or '-':<12}"
-                  f" {'다시 써야 함' if need else '최신'}")
+                  f" 작성 {w and w.strftime('%m-%d %H:%M') or '-':<12} {state}")
         print()
     print(" ".join(m for m, _ in rows))
     return 0
