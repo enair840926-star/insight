@@ -871,6 +871,30 @@ def from_coin(b):
     return out
 
 
+# 경제지표 발표에 반응하는 그룹. 금은 실질금리와 달러에 직접 붙어 있어
+# 물가·고용 발표가 곧 촉발점이고, 원유도 수요 전망을 통해 움직인다.
+# 농산물만 뺀다 — 작황과 재고가 훨씬 크게 지배한다.
+_ECON_GROUPS = ("채권금리", "환율", "지수선물", "변동성", "글로벌지수",
+                "금속", "에너지")
+
+# 캘린더에는 '프랑스 준비자산 총계' 같은 것까지 들어온다(나스닥은 중요도를
+# 주지 않는다). 첫 줄을 그냥 집으면 그것이 금의 촉발점으로 찍힌다 —
+# 실제로 금리·환율·원자재를 한꺼번에 움직이는 발표만 촉발점으로 센다.
+_ECON_BIG = ("cpi", "ppi", "pce", "payroll", "employment", "unemployment",
+             "gdp", "rate decision", "interest rate", "fomc", "retail sales",
+             "ism", "jobless", "trade balance", "consumer confidence",
+             "nonfarm", "inflation")
+
+
+def _big_econ(rows, day):
+    """그날 발표되는 것 중 시장을 움직이는 것. 미국 지표를 앞에 둔다."""
+    xs = [e for e in rows or []
+          if e.get("date") == day
+          and any(k in (e.get("event") or "").lower() for k in _ECON_BIG)]
+    xs.sort(key=lambda e: e.get("country") != "United States")
+    return xs
+
+
 def from_macro(b):
     """매크로 — 종목이 아니라 지표다. 관계가 깨진 자리가 알맹이다."""
     day = (b.get("collected_at") or "")[:10]
@@ -925,6 +949,9 @@ def from_macro(b):
         for grp in n.get("groups") or []:
             news[grp] = news.get(grp, 0) + (n.get("score") or 0)
 
+    econ_today = _big_econ(b.get("econ"), day)
+    econ_soon = _big_econ(b.get("econ"), _days(day, 1))
+
     out = []
     for r in b.get("records") or []:
         name = r.get("name")
@@ -959,8 +986,16 @@ def from_macro(b):
             "broken_pair": broken.get(name),
             "topic": topic.get(name),
             "news_score": news.get(r.get("group")),
-            "event_today": ("EIA 주간 재고 발표일"
-                            if oil and weekday in (1, 2) else None),
+            # 재고 발표일이 있으면 그것이 더 직접적인 촉발점이라 앞선다.
+            "event_today": (
+                "EIA 주간 재고 발표일" if oil and weekday in (1, 2)
+                else (f"오늘 [{econ_today[0]['country']}] "
+                      f"{econ_today[0]['event']} 발표"
+                      if econ_today and r.get("group") in _ECON_GROUPS else None)),
+            "event_soon": (f"내일 [{econ_soon[0]['country']}] "
+                           f"{econ_soon[0]['event']} 발표"
+                           if econ_soon and r.get("group") in _ECON_GROUPS
+                           else None),
         })
     return out
 

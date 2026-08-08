@@ -38,6 +38,46 @@ NEGATIVE = {
     "리스크": -1, "위험": -1, "규제": -1, "둔화": -1, "경고": -1, "불확실": -1,
 }
 
+# 영문 기사용. 위 사전은 한국어라 미장 뉴스에 한 건도 안 걸린다 —
+# 실측에서 미장 480건 중 점수가 붙은 것이 2건이었고 그 둘도 한국어
+# 기사였다. 코인 20%, 매크로 8%도 같은 이유다.
+#
+# **반드시 단어 경계로 찾는다.** 부분 문자열로 찾으면 'surprise' 안의
+# 'rise'가 걸려 어닝 서프라이즈 기사가 상승으로 읽힌다.
+POSITIVE_EN = {
+    "record high": 3, "all-time high": 3, "52-week high": 3, "blowout": 3,
+    "beats estimates": 3, "beat estimates": 3, "earnings beat": 3,
+    "tops estimates": 3,
+    "raises guidance": 2, "raised guidance": 2, "upgrade": 2, "upgraded": 2,
+    "surge": 2, "surges": 2, "soar": 2, "soars": 2, "rally": 2, "rallies": 2,
+    "buyback": 2, "acquisition": 2, "jumps": 2, "spikes": 2,
+    "outperform": 2, "price target raised": 2,
+    "gain": 1, "gains": 1, "rise": 1, "rises": 1, "climb": 1, "climbs": 1,
+    "growth": 1, "beat": 1, "beats": 1, "optimism": 1, "upbeat": 1,
+    "strong": 1, "rebound": 1, "recovery": 1,
+}
+
+NEGATIVE_EN = {
+    "record low": -3, "52-week low": -3, "bankruptcy": -3, "fraud": -3,
+    "delisted": -3, "halted": -3, "misses estimates": -3, "earnings miss": -3,
+    "cuts guidance": -2, "cut guidance": -2, "downgrade": -2, "downgraded": -2,
+    "plunge": -2, "plunges": -2, "tumble": -2, "tumbles": -2, "slump": -2,
+    "lawsuit": -2, "recall": -2, "layoffs": -2, "probe": -2, "subpoena": -2,
+    "price target cut": -2, "sinks": -2,
+    # 'fall'은 넣지 않는다 — 가을을 뜻하는 쓰임이 흔해서 오탐이 난다
+    # (실측: "Gas prices could remain high this fall"이 -1을 받았다).
+    # 동사형 'falls'만 센다.
+    "falls": -1, "drop": -1, "drops": -1, "decline": -1,
+    "declines": -1, "slid": -1, "slides": -1, "weak": -1, "concerns": -1,
+    "warns": -1, "cautious": -1, "pressure": -1, "headwind": -1,
+    "headwinds": -1, "slowdown": -1,
+}
+
+_EN = {**POSITIVE_EN, **NEGATIVE_EN}
+_EN_PAT = [(re.compile(r"\b" + re.escape(w) + r"\b", re.I), w, v)
+           for w, v in _EN.items()]
+
+
 # 이 단어가 있으면 시장 전체에 영향 — 개별 종목 태그가 없어도 살린다
 MACRO_KEYWORDS = [
     "금리", "연준", "FOMC", "CPI", "물가", "환율", "관세", "무역",
@@ -63,6 +103,11 @@ def score_text(text):
         if word in text:
             score += w
             hits.append(f"-{word}")
+    # 영문은 단어 경계로 찾는다. 한국어 기사에 섞인 영어도 그대로 걸린다.
+    for pat, word, w in _EN_PAT:
+        if pat.search(text):
+            score += w
+            hits.append(f"{'+' if w > 0 else '-'}{word}")
     return score, hits
 
 

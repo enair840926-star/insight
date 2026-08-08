@@ -16,7 +16,12 @@ from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 import universe
+# 경제지표 캘린더는 미장 수집기가 이미 받고 있다. 매크로가 금리·환율을
+# 다루면서 FOMC·CPI 발표일을 모르는 것이 이상해서 같은 소스를 함께 쓴다.
+# 새 소스가 아니라 안 쓰던 것을 옮기는 것이다.
+import us_universe
 from collectors import macro_market, macro_news, macro, commodity, eia, ecb
+from collectors import us_market
 from core import env, history, pick, session
 
 DATA_DIR = Path(__file__).parent / "data"
@@ -89,7 +94,11 @@ def run():
         universe.MACRO_RSS, universe.MACRO_GOOGLE_QUERIES,
         universe.MACRO_TOPICS, universe.NEWS_RECENT_DAYS)
     sent = macro.get_sentiment()
-    print(f"{news_stats['collected']}건 → {news_stats['selected_for_llm']}건 선별\n")
+    # 금리·환율을 다루면서 FOMC·CPI 발표일을 모르면 '예정된 이벤트'가
+    # 늘 비어 나간다. 미장이 쓰는 나스닥 캘린더를 그대로 쓴다.
+    econ = us_market.econ_calendar(us_universe.ECON_URL)
+    print(f"{news_stats['collected']}건 → {news_stats['selected_for_llm']}건 선별"
+          f" / 지표 {len(econ)}\n")
 
     bundle = {
         "collected_at": now.isoformat(timespec="seconds"),
@@ -105,6 +114,7 @@ def run():
         "commodity_etfs": etfs,
         "inventories": inventories,
         "inventory_readings": inv_read,
+        "econ": econ,
         "sentiment": sent,
         "news_stats": news_stats,
         "news_selected": selected,
@@ -384,6 +394,15 @@ def build_prompt(b):
         if rows:
             A(f"- {label}: " + ", ".join(
                 f"{r['name']} {r['value']:+.1f}" for r in rows[:6]))
+
+    if b.get("econ"):
+        A("\n## 경제지표 (오늘~내일)")
+        A("이 발표들이 금리·환율·원자재를 한꺼번에 움직인다. '예정된 이벤트'에")
+        A("반드시 반영하라 — 발표 전과 후는 같은 자산이라도 다른 국면이다.")
+        for e in b["econ"][:12]:
+            A(f"- {e['date']} [{e['country']}] {e['event']}"
+              f" — 실제 {e['actual'] or '미발표'} / 예상 {e['consensus'] or '-'}"
+              f" / 이전 {e['previous'] or '-'}")
 
     s = b.get("sentiment") or {}
     if s:
