@@ -37,7 +37,7 @@
 import datetime as dt
 import statistics
 
-from core import read, session
+from core import read, rules, session
 
 # ---------------------------------------------------------------- 임계값
 # 한곳에 모아 둔다. 흩어지면 어느 숫자를 만졌는지 추적이 안 된다.
@@ -189,6 +189,7 @@ def _bull(c):
     gap = _num(c.get("per_gap_rel"))
     rd = _num(c.get("foreign_ratio_rel"))
     news = _num(c.get("news_score"))
+    disc, disc_title = _num(c.get("disc_score")), c.get("disc_title") or ""
     hi = _num(c.get("from_52w_high_rel"))
     p52 = _num(c.get("pos_52w"))
     ma = _num(c.get("vs_ma20_pct"))
@@ -239,12 +240,19 @@ def _bull(c):
              f"외국인 지분율 변화가 중간값보다 {rd:+.2f}%p" if rd else ""),
 
         # --- 이익 전망·뉴스
+        # 중간값 대비라 '좋다/나쁘다'로 쓰면 절대 판단으로 읽힌다. 실제로
+        # NAVER는 추정PER 19.09배 대 현재 19.62배로 이익 전망이 나쁜 게
+        # 아니라 평범한 것인데, 반도체가 중간값을 -28.6%까지 끌어내려
+        # 상대적으로 뒤처진 축이 된 것뿐이다. 앞섬/뒤처짐으로 쓴다.
         _sig(gap is not None and gap <= -PER_GAP_REL, 1,
-             "이익 전망이 이 스냅샷에서 두드러지게 좋음"),
+             "이익 증가 전망이 이 스냅샷에서 앞선 축"),
         _sig(gap is not None and gap >= PER_GAP_REL, -1,
-             "이익 전망이 이 스냅샷에서 두드러지게 나쁨"),
+             "이익 증가 전망이 이 스냅샷에서 뒤처진 축"),
         _sig(news, 1 if (news or 0) > 0 else -1,
-             f"뉴스·공시 규칙 판정 {'호재' if (news or 0) > 0 else '악재'} 쪽"),
+             f"뉴스 규칙 판정 {'호재' if (news or 0) > 0 else '악재'} 쪽"),
+        # 공시는 확정 사실이라 뉴스보다 한 칸 무겁다.
+        _sig(disc, 2 if (disc or 0) > 0 else -2,
+             f"공시 {'호재' if (disc or 0) > 0 else '악재'} — {disc_title}"),
 
         # --- 거래량이 방향을 받쳐 주는가
         _sig(vflow == "실수요 동반", 2, "거래량이 평소의 1.5배 넘게 붙으며 올랐음"),
@@ -658,6 +666,15 @@ def from_kr(b):
         today = next((d for d in ds if (d.get("datetime") or "")[:10] == day), None)
         soon = next((d for d in ds if (d.get("datetime") or "")[:10] == prev), None)
 
+        # 공시는 뉴스와 달리 확정 사실이라 따로 센다. 최근 것 중 방향이
+        # 가장 센 하나만 쓴다 — 여러 건을 더하면 공시가 많은 대형주가
+        # 그것만으로 이긴다.
+        scored = [(rules.score_disclosure(d.get("title") or "")[0], d)
+                  for d in ds[:5]]
+        scored = [(s, d) for s, d in scored if s]
+        disc_score, disc_top = (max(scored, key=lambda x: abs(x[0]))
+                                if scored else (0, None))
+
         # DART가 이 종목만 실패했으면 공시·내부자 축이 통째로 빈다.
         # 점수가 낮게 나온 이유가 '조용해서'가 아니라 '못 받아서'일 수 있다.
         dd = dart.get(code)
@@ -683,6 +700,8 @@ def from_kr(b):
             "organ_streak": g.get("organ_streak"),
             "foreign_ratio_delta": g.get("foreign_ratio_delta"),
             "news_score": news.get(code),
+            "disc_score": disc_score,
+            "disc_title": (disc_top or {}).get("title"),
             "event_today": f"오늘 공시 — {today['title']}" if today else None,
             "event_soon": f"어제 공시 — {soon['title']}" if soon else None,
         })
