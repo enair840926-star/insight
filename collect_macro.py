@@ -17,7 +17,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import universe
 from collectors import macro_market, macro_news, macro, commodity, eia, ecb
-from core import env, session
+from core import env, pick, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -403,6 +403,8 @@ def build_prompt(b):
         A(f"- ({d}) [{n['label']}] x{n.get('dup_count',1)}{tag} {n['title']}")
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
+
+    A(pick.block("macro", b))
 
     A(session.request_block("macro", extra_sections="""
 ### 참고 — 이 데이터에서만 보이는 것

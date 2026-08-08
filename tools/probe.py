@@ -85,6 +85,17 @@ TARGETS = [
     ("미장", "나스닥 실적 캘린더",
      "https://api.nasdaq.com/api/calendar/earnings?date=2026-08-05",
      "실적 발표 일정", None),
+    # 야후 quoteSummary가 401이라 미장만 펀더멘털이 없다. 아래 둘이 그
+    # 자리를 메울 후보다 — PC에서는 7종목 중 6종목에서 나왔고(스핀오프만
+    # 비었다) 키도 필요 없다. **러너에서 되는지가 붙일지를 가른다.**
+    ("미장", "나스닥 실적 서프라이즈",
+     "https://api.nasdaq.com/api/company/MSFT/earnings-surprise",
+     "최근 4분기 EPS 대 컨센서스 — 미장 유일의 사실 기반 펀더멘털 후보",
+     "earningsSurpriseTable"),
+    ("미장", "나스닥 애널리스트 목표주가",
+     "https://api.nasdaq.com/api/analyst/MSFT/targetprice",
+     "목표주가·매수/보유/매도 수 (사실이 아니라 남의 판정이므로 참고용)",
+     "consensusOverview"),
     # SEC는 UA에 연락처를 요구한다 (정책). us_universe.SEC_UA를 그대로 쓴다.
     ("미장", "SEC 회사 목록",
      "https://www.sec.gov/files/company_tickers_exchange.json",

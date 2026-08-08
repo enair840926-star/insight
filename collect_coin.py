@@ -16,7 +16,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import coin_universe as U
 from collectors import coin_market as cm, coin_news, coin_okx as okx
-from core import session
+from core import pick, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -298,6 +298,8 @@ def build_prompt(b):
         A(f"- ({d}) [{n['label']}] x{n.get('dup_count',1)}{tag} {n['title']}")
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
+
+    A(pick.block("coin", b))
 
     A(session.request_block("coin", extra_sections="""
 ### 참고 — 이 데이터에서만 보이는 것

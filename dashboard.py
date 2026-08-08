@@ -163,9 +163,14 @@ def news_list(items, limit=15):
 import html as _html
 import re as _re
 
-# 아침에 실제로 필요한 건 앞의 두 섹션이다. 나머지는 접어 두고
+# 아침에 실제로 필요한 건 앞의 세 섹션이다. 나머지는 접어 두고
 # 필요할 때 펼친다 — 인사이트만 5~6화면이라 그대로 두면 훑기가 어렵다.
-_OPEN_SECTIONS = ("개장 전 브리핑", "오늘 주목할 것")
+_OPEN_SECTIONS = ("개장 전 브리핑", "오늘의 픽", "오늘 주목할 것")
+
+# 맨 위 칩으로 올릴 섹션. 앞의 것이 있으면 그것만 쓴다 — 픽이 결론이고
+# '주목할 것'은 그 아래 맥락이라, 둘을 섞으면 칩이 8개가 되어 훑는 의미가
+# 없어진다. 픽 섹션이 없는 예전 글은 자동으로 뒤엣것으로 물러선다.
+_CHIP_SECTIONS = (("오늘의 픽", "p"), ("주목할 것", "w"))
 
 
 def fold_insight(html, market=""):
@@ -177,22 +182,25 @@ def fold_insight(html, market=""):
     if len(parts) < 3:
         return html, []
 
-    out, watch = parts[0], []
+    out, found = parts[0], {}
     for i in range(1, len(parts), 2):
         head, body = parts[i], parts[i + 1] if i + 1 < len(parts) else ""
         title = _re.sub(r"<[^>]+>", "", head).strip()
         keep_open = any(k in title for k in _OPEN_SECTIONS)
 
-        # '오늘 주목할 것' 안의 h4 제목이 곧 오늘의 지목 대상이다.
-        # 맨 위 칩으로 끌어올리고, 칩에서 본문으로 뛸 수 있게 id를 심는다.
-        if "주목할 것" in title:
+        # 이 섹션 안의 h4 제목이 곧 오늘의 지목 대상이다. 맨 위 칩으로
+        # 끌어올리고, 칩에서 본문으로 뛸 수 있게 id를 심는다.
+        key = next((k for k, _ in _CHIP_SECTIONS if k in title), None)
+        if key:
+            tag = dict(_CHIP_SECTIONS)[key]
             n = [0]
 
-            def anchor(m):
+            def anchor(m, _t=tag):
                 n[0] += 1
-                return f'<h4 id="{market}-w{n[0]}">{m.group(1)}</h4>'
+                return f'<h4 id="{market}-{_t}{n[0]}">{m.group(1)}</h4>'
 
             body = _re.sub(r"<h4>(.*?)</h4>", anchor, body)
+            picked = []
             for k, m in enumerate(_re.finditer(r"<h4[^>]*>(.*?)</h4>", body), 1):
                 t = _re.sub(r"<[^>]+>", "", m.group(1))
                 # md가 이미 이스케이프한 문자를 되돌린다. 안 하면 esc()가
@@ -201,13 +209,20 @@ def fold_insight(html, market=""):
                 # 'A — B' 형식이면 앞이 대상이다. 구분자가 없으면 제목
                 # 전체가 문장일 수 있으니 칩에서만 줄여 쓴다.
                 short = _re.split(r"\s[—–-]\s", full)[0].strip(" -–—:")
+                # 칩은 16자뿐이다. 종목코드·티커 괄호가 그 절반을 먹으면
+                # 정작 이름이 잘린다 ('한화에어로스페이스 (0124…').
+                short = _re.sub(r"\s*\([^)]*\)\s*$", "", short).strip() or short
                 if len(short) > 16:
                     short = short[:15] + "…"
                 if short:
-                    watch.append((short, full, f"{market}-w{k}"))
+                    picked.append((short, full, f"{market}-{tag}{k}"))
+            found[key] = picked
 
         out += (f'<details class="sec"{" open" if keep_open else ""}>'
                 f'<summary>{title}</summary>{body}</details>')
+
+    # 앞의 것을 먼저 쓴다. 픽이 있으면 픽만, 없으면 '주목할 것'으로 물러선다.
+    watch = next((found[k] for k, _ in _CHIP_SECTIONS if found.get(k)), [])
     return out, watch
 
 
@@ -260,7 +275,7 @@ def insight_slot(market_name):
             body, watch = fold_insight(md.render(text), market_name)
             return (f'<section class="card insight has"><h2>인사이트</h2>'
                     f'<div class="csub">{stamp}{old} · '
-                    f'투자 권유가 아닌 정보 정리입니다</div>'
+                    f'방향 판정은 규칙 계산이며 결과를 보장하지 않습니다</div>'
                     f'<div class="md">{body}</div></section>'), watch
     return (f'<section class="card insight"><h2>인사이트</h2>'
             f'<div class="empty"><p>아직 없습니다.</p>'

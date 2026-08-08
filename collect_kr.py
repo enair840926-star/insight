@@ -18,7 +18,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import config
 from collectors import kr_market, kr_news, macro, dart, kr_screen, ecos
-from core import rules, env, screen, session
+from core import rules, env, pick, screen, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -493,6 +493,8 @@ def build_prompt(b):
         A(f"- ({d}) [{n['label']}] ({n['score']:+d}) x{n.get('dup_count', 1)}{tag} {n['title']}")
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
+
+    A(pick.block("kr", b))
 
     A(session.request_block("kr", extra_sections="""
 ### 참고 — 이 시장에서만 볼 수 있는 것

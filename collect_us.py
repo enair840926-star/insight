@@ -17,7 +17,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import us_universe as U
 from collectors import us_market, us_news, macro
-from core import screen, session
+from core import pick, screen, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -267,6 +267,8 @@ def build_prompt(b):
         A(f"- ({d}) [{n['label']}] x{n.get('dup_count',1)}{tag} {n['title']}")
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
+
+    A(pick.block("us", b))
 
     A(session.request_block("us", extra_sections="""
 ### 참고 — 이 시장에서만 볼 수 있는 것
