@@ -377,50 +377,78 @@ def _bull(c):
     ])
 
 
+def _price_at(price, pct):
+    """지금 가격에서 pct% 움직인 값. 원화는 소수점이 의미가 없다."""
+    at = price * (1 + pct / 100)
+    return f"{at:,.0f}" if at >= 1000 else f"{at:,.2f}"
+
+
 def _breaks(c):
-    """근거가 깨지는 지점. 반환: [(거리%, 설명), ...] 가까운 순.
+    """근거가 깨지는 지점. 반환: {"today": [...], "later": [...]}
 
     일률적인 손절선(-3% 같은)은 그 종목이 왜 뽑혔는지와 무관하다. 깨져도
     무엇이 깨진 것인지 알 수 없어 다음 판정에 쓸 수가 없다. 각 근거는
     이미 자기 조건을 갖고 있으므로 그 값을 그대로 낸다.
 
+    **다만 이동평균선은 한 장짜리 기준이 아니다.** 20일선 위 +26%로 올라온
+    종목은 거기까지 -20%가 남는데, 그 종목의 하루 변동폭이 4.5%면 평소
+    움직임의 4.7배가 나와야 닿는다(실측: HALO). 오늘의 픽이라면 오늘 볼
+    선이 따로 있어야 한다. 그래서 **하루 변동폭(20일 변동성)으로 환산해
+    한 장 안에 닿을 수 있는 것과 아닌 것을 갈라 낸다.**
+
     **매도 지시가 아니라 근거 무효화 조건이다.** 무엇을 할지는 읽는 쪽 몫이다.
     """
-    out = []
+    today, later = [], []
     price = _num(c.get("price"))
+    vol = _num(c.get("volatility_20d"))     # 일간 등락률 표준편차 %
+    chg = _num(c.get("change_pct"))
 
+    # --- 오늘 볼 선
+    # 오늘 오른 종목은 그 상승분을 되돌리는 자리가 가장 가까운 선이다.
+    if price and chg is not None and chg >= TREND_MIN:
+        back = round((1 / (1 + chg / 100) - 1) * 100, 1)
+        today.append(f"오늘 오른 {chg:+.1f}%를 되돌리면 (전일 종가 "
+                     f"{_price_at(price, back)}, 지금보다 {back:+.1f}%)")
+
+    if price and vol:
+        today.append(f"평소 하루 변동폭은 ±{vol:.1f}%다 — "
+                     f"{_price_at(price, -vol)} 아래로 빠지면 평소보다 큰 하락")
+
+    vr = _num(c.get("volume_ratio"))
+    if vr is not None and vr >= 1.2:
+        today.append(f"다음 장 거래량이 20일 평균 아래로 내려가면 "
+                     f"'거래량 동반' 근거가 바로 사라진다 (지금 {vr}배)")
+
+    # --- 그보다 뒤에 깨지는 것
     for key, label in (("vs_ma20_pct", "20일선"), ("vs_ma60_pct", "60일선")):
         v = _num(c.get(key))
         if v is None or v <= 0:
             continue          # 이미 아래면 그 근거는 애초에 안 켜졌다
         # 현재가에서 이동평균까지 몇 % 인가. +24%면 -19.4%다(1/1.24-1).
         gap = round((1 / (1 + v / 100) - 1) * 100, 1)
-        line = f"{label}이 무너지면 (지금보다 {gap:+.1f}%"
-        if price:
-            # 원화는 소수점이 의미가 없고 달러는 필요하다. 자릿수로 가른다.
-            at = price * (1 + gap / 100)
-            line += f", 약 {at:,.0f}" if at >= 1000 else f", 약 {at:,.2f}"
-        out.append((abs(gap), line + ")"))
-
-    vr = _num(c.get("volume_ratio"))
-    if vr is not None and vr >= 1.2:
-        out.append((999, f"거래량이 20일 평균 아래로 내려가면 (지금 {vr}배)"))
+        line = f"{label} {_price_at(price, gap) if price else ''}" \
+               f"({gap:+.1f}%)이 무너지면"
+        if vol:
+            mult = abs(gap) / vol
+            line += (f" — 하루 변동폭의 {mult:.1f}배라 "
+                     + ("한 장에도 닿을 수 있다" if mult <= 1.5
+                        else "한 장에는 멀다"))
+        (today if vol and abs(gap) / vol <= 1.5 else later).append(line)
 
     for key, who in (("foreign_streak", "외국인"), ("organ_streak", "기관")):
         n = c.get(key) or 0
         if abs(n) >= STREAK_STRONG:
             side = "순매수" if n > 0 else "순매도"
             flip = "순매도" if n > 0 else "순매수"
-            out.append((998, f"{who}이 {abs(n)}일 연속 {side}를 끊고 "
-                             f"{flip}로 돌면"))
+            today.append(f"{who}이 {abs(n)}일 연속 {side}를 끊고 "
+                         f"{flip}로 돌면 (이번 장에 확인된다)")
 
     rs = _num(c.get("rel_strength"))
     if rs is not None and rs >= REL_STRENGTH:
-        out.append((997, f"20일 기준 S&P500 대비 앞선 폭이 "
-                         f"{REL_STRENGTH}%p 밑으로 좁혀지면 (지금 {rs:+.1f}%p)"))
+        later.append(f"20일 기준 S&P500 대비 앞선 폭이 "
+                     f"{REL_STRENGTH}%p 밑으로 좁혀지면 (지금 {rs:+.1f}%p)")
 
-    out.sort(key=lambda x: x[0])
-    return out
+    return {"today": today, "later": later}
 
 
 def _caution(c, n_signals):
@@ -706,6 +734,7 @@ def from_kr(b):
             "caveat": caveat,
             "change_pct": chg,
             "price": (trend[0].get("close") if trend else None),
+            "volatility_20d": g.get("volatility_20d"),
             "volume_ratio": g.get("volume_ratio"),
             "vs_ma20_pct": g.get("vs_ma20_pct"),
             "from_52w_high_pct": g.get("from_52w_high_pct"),
@@ -775,6 +804,7 @@ def from_us(b):
             "change_5d_pct": r.get("change_5d_pct"),
             "change_20d_pct": r.get("change_20d_pct"),
             "price": r.get("price"),
+            "volatility_20d": r.get("volatility_20d"),
             "volume_ratio": r.get("volume_ratio"),
             "vs_ma20_pct": r.get("vs_ma20_pct"),
             "vs_ma60_pct": r.get("vs_ma60_pct"),
@@ -999,9 +1029,11 @@ def render(picks, dropped, market="kr"):
             L.append(f"- ※ **{MIN_SCORE}점을 넘긴 후보가 모자라 채운 자리다.**"
                      f" 앞의 픽과 같은 무게로 쓰지 말고, 근거가 그만큼"
                      f" 얇다는 사실을 글에 함께 적어라.")
-        if p.get("breaks"):
-            L.append("- 근거가 깨지는 지점: "
-                     + " / ".join(t for _, t in p["breaks"]))
+        br = p.get("breaks") or {}
+        if br.get("today"):
+            L.append("- **오늘 볼 선**: " + " / ".join(br["today"]))
+        if br.get("later"):
+            L.append("- 그보다 뒤에 깨지는 것: " + " / ".join(br["later"]))
         if p["split"]:
             L.append("- ※ 반대 근거도 함께 있다. 위 목록의 부호를 보고 "
                      "양쪽을 다 적어라 — 한쪽만 옮기면 글이 데이터보다 세진다.")
