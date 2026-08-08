@@ -17,7 +17,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import universe
 from collectors import macro_market, macro_news, macro, commodity, eia, ecb
-from core import env, pick, session
+from core import env, history, pick, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -118,6 +118,10 @@ def run():
     prompt = build_prompt(bundle)
     pout = DATA_DIR / f"prompt_macro_{stamp}.txt"
     pout.write_text(prompt, encoding="utf-8")
+
+    done, made = history.track("macro", bundle)
+    if done or made:
+        print(f"기록: 결과 {done}건 채움 / 픽 {made}건 남김")
 
     report(bundle)
     print(f"\n원자료  : {out}")

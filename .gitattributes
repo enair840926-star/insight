@@ -6,3 +6,8 @@ docs/index.html -merge -diff
 # 클라우드가 커밋하는 수집 결과도 마찬가지로 병합 대상이 아니다.
 cloud/*.json -merge -diff
 cloud/*.txt  -merge -diff
+
+# 픽 기록은 정반대다. 덧붙이기만 하는 로그라 한쪽을 버리면 그날 기록이
+# 통째로 사라진다. union은 양쪽 줄을 다 남긴다 — 같은 id가 두 번 들어와도
+# history.load()가 뒤엣것으로 덮으므로 잃는 것이 없다.
+history/*.jsonl merge=union

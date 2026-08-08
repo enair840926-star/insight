@@ -16,7 +16,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import coin_universe as U
 from collectors import coin_market as cm, coin_news, coin_okx as okx
-from core import pick, session
+from core import history, pick, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -135,6 +135,10 @@ def run():
     prompt = build_prompt(bundle)
     pout = DATA_DIR / f"prompt_coin_{stamp}.txt"
     pout.write_text(prompt, encoding="utf-8")
+
+    done, made = history.track("coin", bundle)
+    if done or made:
+        print(f"기록: 결과 {done}건 채움 / 픽 {made}건 남김")
 
     report(bundle)
     print(f"\n원자료  : {out}")

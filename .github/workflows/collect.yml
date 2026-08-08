@@ -90,7 +90,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs cloud
+          # history/는 픽과 그 결과의 기록이다. 여기서 커밋하지 않으면
+          # 러너가 매번 빈 상태로 시작해 결과를 영영 못 채운다.
+          git add docs cloud history
           if git diff --staged --quiet; then
             echo "변경 없음 — 갱신할 장이 없었습니다"
           else

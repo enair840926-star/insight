@@ -17,7 +17,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import us_universe as U
 from collectors import us_market, us_news, macro
-from core import pick, screen, session
+from core import history, pick, screen, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -51,11 +51,17 @@ def run():
     print(f"{len(rows):,}개")
 
     print("[2/5] 동적 선별 …", end=" ", flush=True)
-    selected, sel_stats = screen.select(rows, watchlist=U.WATCHLIST, **U.SELECT)
+    # 결과를 아직 못 채운 픽을 워치리스트에 얹는다. 미장 스크리너는 급등·
+    # 급락으로 뽑아서 어제 픽이 오늘 목록에서 사라진다(실측: 최근 세 쌍이
+    # 1/3, 1/3, 0/3). 워치리스트는 조용해도 항상 포함되므로 그 자리를 쓴다.
+    open_ = history.open_keys("us")
+    watch = tuple(U.WATCHLIST) + tuple(k for k in open_ if k not in U.WATCHLIST)
+    selected, sel_stats = screen.select(rows, watchlist=watch, **U.SELECT)
     agg = screen.aggregate(rows, U.AGG_MIN_CAP)
     print(f"{len(selected)}개 선별 "
           f"(파생 {sel_stats['derivative']:,} / 시총없음 {sel_stats['no_cap']:,} 제외, "
-          f"유효 {sel_stats['usable']:,})")
+          f"유효 {sel_stats['usable']:,}"
+          + (f", 미결 픽 {len(open_)}개 포함" if open_ else "") + ")")
 
     print("[3/5] 선별 종목 상세 + 지수 …", end=" ", flush=True)
     us_market.enrich_details(selected, U.DETAIL_RANGE, U.MAX_WORKERS)
@@ -99,6 +105,10 @@ def run():
     prompt = build_prompt(bundle)
     pout = DATA_DIR / f"prompt_us_{stamp}.txt"
     pout.write_text(prompt, encoding="utf-8")
+
+    done, made = history.track("us", bundle)
+    if done or made:
+        print(f"기록: 결과 {done}건 채움 / 픽 {made}건 남김")
 
     report(bundle)
     print(f"\n원자료  : {out}")

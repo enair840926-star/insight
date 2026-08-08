@@ -18,7 +18,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import config
 from collectors import kr_market, kr_news, macro, dart, kr_screen, ecos
-from core import rules, env, pick, screen, session
+from core import rules, env, history, pick, screen, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -157,6 +157,12 @@ def run():
     prompt = build_prompt(bundle)
     pout = DATA_DIR / f"prompt_kr_{stamp}.txt"
     pout.write_text(prompt, encoding="utf-8")
+
+    # 지난 픽의 결과를 채우고 이번 픽을 남긴다. 재는 기록이 없으면
+    # 규칙을 고칠 근거도 없고 고쳐도 나아졌는지 알 수 없다.
+    done, made = history.track("kr", bundle)
+    if done or made:
+        print(f"기록: 결과 {done}건 채움 / 픽 {made}건 남김")
 
     report(bundle)
     print(f"\n원자료  : {out}")

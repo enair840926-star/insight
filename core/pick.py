@@ -854,6 +854,7 @@ def from_coin(b):
             "rank": c.get("rank"),
             "caveat": f"파생 지표 출처 {src.upper()} — 절대 수준은 다른 "
                       f"거래소와 비교하지 마라",
+            "price": c.get("price"),
             "change_pct": c.get("change_pct"),
             "change_7d": c.get("change_7d"),
             "funding_bp": fr * 10000 if fr is not None else None,
@@ -946,6 +947,8 @@ def from_macro(b):
             "cot_side": cot_side.get(name),
             "curve_shape": curves.get(name),
             "cot_net_change": cot_move.get(name),
+            "price": r.get("price"),
+            "volatility_20d": r.get("volatility_20d"),
             "change_pct": r.get("change_pct"),
             "change_5d_pct": r.get("change_5d_pct"),
             "change_20d_pct": r.get("change_20d_pct"),
