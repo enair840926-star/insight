@@ -250,6 +250,13 @@ def build_prompt(b):
                            for q in s["quarters"])
             A(f"- 실적 서프라이즈: 최근 {s['count']}분기 중 {s['beats']}번"
               f" 컨센서스 상회 ({qs})")
+        # 야후 quoteSummary가 401이라 미장에는 밸류에이션이 없었다. 위
+        # 분기 EPS 넷을 합쳐 후행 12개월로 낸 값이다 — 선행 추정치가
+        # 아니므로 국장의 추정PER과 같은 뜻이 아니다.
+        if r.get("per"):
+            A(f"- 밸류: PER {r['per']}배 (후행 12개월 EPS ${r['ttm_eps']})")
+        elif r.get("ttm_eps") is not None:
+            A(f"- 밸류: 후행 12개월 EPS ${r['ttm_eps']} — 적자라 PER 없음")
 
     if b["earnings"]:
         A("\n## 실적 발표 예정 (오늘~내일)")

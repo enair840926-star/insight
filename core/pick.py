@@ -70,6 +70,7 @@ TREND_MIN = 1.0          # 당일·7일 등락을 방향으로 셀 최소 폭 %
 REL_STRENGTH = 5.0       # 20일 기준 S&P500 대비 앞선 폭 %p
 SECTOR_MOVE = 1.0        # 섹터 시총가중 등락률 %
 SURPRISE_BIG = 5.0       # 직전 분기 실적이 예상과 벌어진 폭 %
+PER_CHEAP, PER_RICH = 0.6, 2.0   # 스냅샷 중간 PER의 몇 배인가
 
 TOP_N = 3
 PER_GROUP = 1            # 같은 업종·섹터에서 몇 개까지
@@ -201,6 +202,7 @@ def _bull(c):
     no_vol = _num(c.get("volume_ratio")) is None
     beats, of_n = c.get("beats"), c.get("beat_of")
     sur = _num(c.get("surprise_pct"))
+    per, pratio = _num(c.get("per")), _num(c.get("per_ratio"))
     ls, lsr = _num(c.get("long_short_account")), _num(c.get("ls_rel"))
     fb, fbr = _num(c.get("funding_bp")), _num(c.get("funding_rel"))
     taker = _num(c.get("taker_buy_sell"))
@@ -300,6 +302,14 @@ def _bull(c):
         _sig(sur is not None and sur <= -SURPRISE_BIG, -1,
              f"직전 분기 실적이 예상을 {sur:+.1f}% 밑돎"
              if sur is not None else ""),
+        # 후행 PER의 스냅샷 중간값 대비 배수. 추세와 상쇄되는 것은
+        # 의도한 동작이다 — 많이 오른 종목은 비싸지므로 둘이 맞물린다.
+        _sig(pratio is not None and pratio <= PER_CHEAP, 1,
+             f"PER {per}배 — 이 스냅샷 중간값의 {pratio}배로 싼 축"
+             if pratio is not None else ""),
+        _sig(pratio is not None and pratio >= PER_RICH, -1,
+             f"PER {per}배 — 이 스냅샷 중간값의 {pratio}배로 비싼 축"
+             if pratio is not None else ""),
         # 미장 전용 — 시장 전체 대비 상대강도와 섹터 흐름
         _sig(rs is not None and rs >= REL_STRENGTH, 1,
              f"20일 기준 S&P500보다 {rs:+.1f}%p 앞섬" if rs is not None else ""),
@@ -773,6 +783,13 @@ def from_us(b):
     agg = b.get("aggregate") or {}
     bench = ((b.get("indices") or {}).get("S&P500") or {}).get("change_20d_pct")
     bench = _num(bench)
+
+    # PER은 뺄셈이 아니라 나눗셈으로 잰다. 분포가 한쪽으로 길어서
+    # (실측 10.7배 ~ 4,429배, 중간값 36.1배) 중간값과의 차이는 위쪽
+    # 극단에 통째로 끌려간다. 몇 배인지가 읽히는 값이다.
+    pers = sorted(x for x in (_num(r.get("per")) for r in b.get("selected") or [])
+                  if x and x > 0)
+    per_mid = pers[len(pers) // 2] if len(pers) >= 5 else None
     sector_move = {s["sector"]: s.get("cap_weighted_pct")
                    for s in (agg.get("sectors") or [])}
 
@@ -788,10 +805,14 @@ def from_us(b):
         ed = (e or {}).get("date")
         d20 = _num(r.get("change_20d_pct"))
         s = r.get("surprise") or {}
+        per = _num(r.get("per"))
         out.append({
             "beats": s.get("beats"),
             "beat_of": s.get("count"),
             "surprise_pct": s.get("latest_pct"),
+            "per": per,
+            "per_ratio": (round(per / per_mid, 2)
+                          if per and per_mid else None),
             "rel_strength": (round(d20 - bench, 2)
                              if d20 is not None and bench is not None else None),
             "sector_move": _num(sector_move.get(r.get("sector"))),
