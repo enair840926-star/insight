@@ -381,6 +381,16 @@ def build_prompt(b):
         rows = b.get(key) or []
         if not rows:
             continue
+        # 개장 전 수집이면 오늘 등락이 아직 없어 전부 0%로 온다. 그대로
+        # 내보내면 '상위 6 / 하위 4'라는 라벨 때문에 정렬에 뜻이 있는
+        # 것처럼 읽힌다 — 실제로는 아무 순서도 아니다. 정규 수집은 늘
+        # 개장 1시간 전이므로 이쪽이 오히려 보통이다.
+        if not any(r.get("change_pct") for r in rows):
+            A(f"\n## {label}별 등락")
+            A(f"**아직 없다.** 개장 전이라 오늘 {label} 등락이 생기지 않았다."
+              f" 전부 0%로 오므로 순위에 뜻이 없다 —"
+              f" {label} 흐름을 근거로 쓰지 마라.")
+            continue
         top, bot = config.GROUP_TOP, config.GROUP_BOTTOM
         A(f"\n## {label}별 등락 (전체 {len(rows)}개 중 상위 {top} / 하위 {bot})")
         A(note)
