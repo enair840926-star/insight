@@ -69,6 +69,7 @@ QUIET_PRICE = 1.0        # 이 밑이면 '가격은 조용하다'
 TREND_MIN = 1.0          # 당일·7일 등락을 방향으로 셀 최소 폭 %
 REL_STRENGTH = 5.0       # 20일 기준 S&P500 대비 앞선 폭 %p
 SECTOR_MOVE = 1.0        # 섹터 시총가중 등락률 %
+SURPRISE_BIG = 5.0       # 직전 분기 실적이 예상과 벌어진 폭 %
 
 TOP_N = 3
 PER_GROUP = 1            # 같은 업종·섹터에서 몇 개까지
@@ -198,6 +199,8 @@ def _bull(c):
     d7, chg = _num(c.get("change_7d")), _num(c.get("change_pct"))
     rs, sm = _num(c.get("rel_strength")), _num(c.get("sector_move"))
     no_vol = _num(c.get("volume_ratio")) is None
+    beats, of_n = c.get("beats"), c.get("beat_of")
+    sur = _num(c.get("surprise_pct"))
     ls, lsr = _num(c.get("long_short_account")), _num(c.get("ls_rel"))
     fb, fbr = _num(c.get("funding_bp")), _num(c.get("funding_rel"))
     taker = _num(c.get("taker_buy_sell"))
@@ -284,6 +287,19 @@ def _bull(c):
              f"당일 {chg:+.1f}%" if chg is not None else ""),
         _sig(no_vol and chg is not None and chg <= -TREND_MIN, -1,
              f"당일 {chg:+.1f}%" if chg is not None else ""),
+        # 미장 유일의 사실 기반 펀더멘털 — 실제 EPS 대 발표 전 컨센서스.
+        # 4분기를 다 채운 종목만 '전승'을 따진다. 신규 상장은 이력이 짧아
+        # 2분기 전승이 4분기 전승과 같은 무게가 되면 안 된다.
+        _sig(beats is not None and of_n == 4 and beats == 4, 2,
+             "최근 4분기 모두 컨센서스 상회"),
+        _sig(beats is not None and of_n and beats == 0, -2,
+             f"최근 {of_n}분기 모두 컨센서스 하회" if of_n else ""),
+        _sig(sur is not None and sur >= SURPRISE_BIG, 1,
+             f"직전 분기 실적이 예상을 {sur:+.1f}% 넘김"
+             if sur is not None else ""),
+        _sig(sur is not None and sur <= -SURPRISE_BIG, -1,
+             f"직전 분기 실적이 예상을 {sur:+.1f}% 밑돎"
+             if sur is not None else ""),
         # 미장 전용 — 시장 전체 대비 상대강도와 섹터 흐름
         _sig(rs is not None and rs >= REL_STRENGTH, 1,
              f"20일 기준 S&P500보다 {rs:+.1f}%p 앞섬" if rs is not None else ""),
@@ -742,7 +758,11 @@ def from_us(b):
         e = earn.get(sym)
         ed = (e or {}).get("date")
         d20 = _num(r.get("change_20d_pct"))
+        s = r.get("surprise") or {}
         out.append({
+            "beats": s.get("beats"),
+            "beat_of": s.get("count"),
+            "surprise_pct": s.get("latest_pct"),
             "rel_strength": (round(d20 - bench, 2)
                              if d20 is not None and bench is not None else None),
             "sector_move": _num(sector_move.get(r.get("sector"))),

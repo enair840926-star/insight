@@ -95,6 +95,54 @@ def enrich_details(selected, rng="3mo", max_workers=8):
     return selected
 
 
+# ---------------------------------------------------------------- 실적 서프라이즈
+NASDAQ_SURPRISE = "https://api.nasdaq.com/api/company/{s}/earnings-surprise"
+
+
+def _surprise(symbol):
+    """최근 4분기 실제 EPS 대 발표 전 컨센서스.
+
+    야후 quoteSummary가 401이라 미장에는 펀더멘털이 없다. 이건 그 자리를
+    메우는 **사실**이다 — 애널리스트 목표주가처럼 남의 판정이 아니라
+    실제로 발표된 숫자와 발표 전 예상의 대조라 사후 검증이 된 값이다.
+    """
+    j = fetch_json(NASDAQ_SURPRISE.format(s=quote(symbol)))
+    rows = (((j or {}).get("data") or {})
+            .get("earningsSurpriseTable") or {}).get("rows") or []
+    out = []
+    for r in rows[:4]:
+        pct = to_num(r.get("percentageSurprise"))
+        if pct is None:
+            continue
+        out.append({"quarter": r.get("fiscalQtrEnd"),
+                    "reported": r.get("dateReported"),
+                    "eps": to_num(r.get("eps")),
+                    "consensus": to_num(r.get("consensusForecast")),
+                    "surprise_pct": pct})
+    if not out:
+        return symbol, None
+    return symbol, {
+        "quarters": out,
+        "latest_pct": out[0]["surprise_pct"],
+        # 4분기를 다 채운 종목만 '연속'을 따진다. 신규 상장은 이력이
+        # 짧아 2분기 전승을 4분기 전승과 같이 세면 안 된다.
+        "beats": sum(1 for q in out if q["surprise_pct"] > 0),
+        "count": len(out),
+    }
+
+
+def enrich_surprise(selected, max_workers=8):
+    """선별 종목의 실적 서프라이즈. 30개면 6초쯤."""
+    syms = [r["symbol"] for r in selected]
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        got = dict(ex.map(_surprise, syms))
+    for r in selected:
+        s = got.get(r["symbol"])
+        if s:
+            r["surprise"] = s
+    return selected
+
+
 # ---------------------------------------------------------------- 지수
 def get_indices(indices, max_workers=6):
     def one(kv):

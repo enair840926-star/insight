@@ -59,8 +59,12 @@ def run():
 
     print("[3/5] 선별 종목 상세 + 지수 …", end=" ", flush=True)
     us_market.enrich_details(selected, U.DETAIL_RANGE, U.MAX_WORKERS)
+    # 야후 quoteSummary가 401이라 미장에는 펀더멘털이 없다. 나스닥 실적
+    # 서프라이즈가 그 자리를 메운다 (러너에서도 되는 것을 probe로 확인).
+    us_market.enrich_surprise(selected, U.MAX_WORKERS)
     indices = us_market.get_indices(U.INDICES)
-    print(f"{len(selected)}종목 / 지수 {len(indices)}개")
+    n_sur = sum(1 for r in selected if r.get("surprise"))
+    print(f"{len(selected)}종목 (실적 서프라이즈 {n_sur}개) / 지수 {len(indices)}개")
 
     print("[4/5] 뉴스 …", end=" ", flush=True)
     picked, deduped, news_stats = us_news.collect(
@@ -228,6 +232,14 @@ def build_prompt(b):
             pos.append(f"20일 변동성 {r['volatility_20d']}%")
         if pos:
             A("- 위치: " + ", ".join(pos))
+        # 미장 유일의 사실 기반 펀더멘털. 애널리스트 목표주가와 달리
+        # 실제 발표 숫자와 발표 전 예상의 대조라 사후 검증이 된 값이다.
+        s = r.get("surprise")
+        if s:
+            qs = ", ".join(f"{q['quarter']} {q['surprise_pct']:+.1f}%"
+                           for q in s["quarters"])
+            A(f"- 실적 서프라이즈: 최근 {s['count']}분기 중 {s['beats']}번"
+              f" 컨센서스 상회 ({qs})")
 
     if b["earnings"]:
         A("\n## 실적 발표 예정 (오늘~내일)")
