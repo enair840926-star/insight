@@ -21,6 +21,7 @@ python tools/backup_routines.py --restore  # 저장소 → 실물 (PC를 갈았�
 
 | 파일 | 실물 위치 | 하는 일 |
 |---|---|---|
+| `CLAUDE-사용자.md` | `~/.claude/CLAUDE.md` | 모든 프로젝트에 적용되는 작업 지침 |
 | `인사이트-포인터.md` | `~/.claude/skills/인사이트/SKILL.md` | `/인사이트` 진입점 |
 | `asset-insight-morning.md` | `~/.claude/scheduled-tasks/asset-insight-morning/SKILL.md` | 아침 루틴 |
 | `asset-insight-evening.md` | `~/.claude/scheduled-tasks/asset-insight-evening/SKILL.md` | 저녁 루틴 |

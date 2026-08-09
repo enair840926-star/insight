@@ -31,6 +31,9 @@ HOME = Path.home() / ".claude"
 
 # (저장소 안 파일명, 실물 경로, 설명)
 FILES = [
+    ("CLAUDE-사용자.md",
+     HOME / "CLAUDE.md",
+     "모든 프로젝트에 적용되는 작업 지침"),
     ("인사이트-포인터.md",
      HOME / "skills" / "인사이트" / "SKILL.md",
      "/인사이트 진입점. 저장소의 지침을 읽으라는 포인터."),
