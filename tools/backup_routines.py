@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+"""저장소 밖에 있는 것을 저장소 안으로 백업한다
+
+    python tools/backup_routines.py            # 다른지만 확인
+    python tools/backup_routines.py --save     # 실물 → 저장소 (백업)
+    python tools/backup_routines.py --restore  # 저장소 → 실물 (복원)
+
+이 앱이 매일 알아서 도는 구조는 저장소 밖 파일 셋에 걸려 있다.
+
+    ~/.claude/skills/인사이트/SKILL.md                 /인사이트 진입점(포인터)
+    ~/.claude/scheduled-tasks/asset-insight-morning/   아침 루틴
+    ~/.claude/scheduled-tasks/asset-insight-evening/   저녁 루틴
+
+git에 없으므로 PC가 죽으면 사라진다. 코드가 다 있어도 **무엇을 다시
+만들어야 하는지**가 어디에도 안 적혀 있으면 복구가 안 된다.
+
+사본을 그냥 두면 스킬 때 겪은 것과 같은 문제가 난다 — 한쪽만 고치고
+어긋난 채로 몇 주가 간다. 그래서 사본을 두되 **다른지 재는 것**을
+같이 둔다. 바라는 대신 잰다.
+"""
+import argparse
+import filecmp
+import os
+import shutil
+import sys
+from pathlib import Path
+
+ROOT = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BACKUP = ROOT / ".claude" / "routines"
+HOME = Path.home() / ".claude"
+
+# (저장소 안 파일명, 실물 경로, 설명)
+FILES = [
+    ("인사이트-포인터.md",
+     HOME / "skills" / "인사이트" / "SKILL.md",
+     "/인사이트 진입점. 저장소의 지침을 읽으라는 포인터."),
+    ("asset-insight-morning.md",
+     HOME / "scheduled-tasks" / "asset-insight-morning" / "SKILL.md",
+     "아침 루틴 (평일 07:22·08:22·09:22)"),
+    ("asset-insight-evening.md",
+     HOME / "scheduled-tasks" / "asset-insight-evening" / "SKILL.md",
+     "저녁 루틴 (평일 21:12·22:12·23:12)"),
+]
+
+
+def _state(name, live):
+    repo = BACKUP / name
+    if not live.exists() and not repo.exists():
+        return "둘 다 없음"
+    if not live.exists():
+        return "실물 없음 (복원 필요)"
+    if not repo.exists():
+        return "백업 없음 (저장 필요)"
+    return "같음" if filecmp.cmp(repo, live, shallow=False) else "다름"
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    g = ap.add_mutually_exclusive_group()
+    g.add_argument("--save", action="store_true", help="실물 → 저장소")
+    g.add_argument("--restore", action="store_true", help="저장소 → 실물")
+    a = ap.parse_args()
+
+    BACKUP.mkdir(parents=True, exist_ok=True)
+    bad = 0
+    for name, live, note in FILES:
+        repo = BACKUP / name
+        st = _state(name, live)
+
+        if a.save and live.exists():
+            shutil.copy2(live, repo)
+            st = "저장함"
+        elif a.restore and repo.exists():
+            live.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(repo, live)
+            st = "복원함"
+
+        mark = "✓" if st in ("같음", "저장함", "복원함") else "✗"
+        if mark == "✗":
+            bad += 1
+        print(f"  {mark} {name:26s} {st:18s} {note}")
+
+    if a.restore:
+        print("\n복원했습니다. **예약은 파일만으로 살아나지 않습니다** —")
+        print("Claude 앱에서 두 루틴이 등록·활성 상태인지 확인하십시오.")
+    elif not a.save and bad:
+        print(f"\n{bad}건이 어긋났습니다. 실물이 정본이면 --save,")
+        print("저장소가 정본이면 --restore 로 맞추십시오.")
+    elif not a.save:
+        print("\n전부 같습니다.")
+    return 1 if (bad and not (a.save or a.restore)) else 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+    sys.exit(main())

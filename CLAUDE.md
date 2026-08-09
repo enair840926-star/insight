@@ -20,7 +20,15 @@ python tools/probe.py            # 데이터 소스 접속 검증 (키 상태까
 python tools/pending.py -v       # 인사이트를 다시 써야 하는 자산군
 python tools/lint_insight.py     # 인사이트에 전문용어가 남았는지
 python tools/score_picks.py      # 픽이 맞았는지 (표본이 모자라면 그렇다고 말한다)
+python tools/backup_routines.py  # 저장소 밖 파일이 사본과 같은지
 ```
+
+**저장소 밖에 있는 것을 고쳤으면 백업하라.** 매일 도는 구조가
+`~/.claude/` 의 파일 셋(포인터 · 아침 루틴 · 저녁 루틴)에 걸려 있는데
+git에 없어서 PC가 죽으면 사라진다. `tools/backup_routines.py --save` 로
+`.claude/routines/` 에 넣고, 복원 절차와 예약 시각은 `notes/routines.md`
+에 있다. 사본은 어긋나므로 확인하는 쪽을 같이 뒀다 — 스킬 사본을 그냥
+두었다가 옛 규칙이 살아 돌아온 적이 있다.
 
 `probe.py`는 러너에서도 돈다 — Actions의 `데이터 소스 접속 검증`을
 돌리면 결과가 `notes/probe-github.md`로 커밋된다. **200 응답을 성공으로
