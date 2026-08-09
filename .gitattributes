@@ -11,3 +11,8 @@ cloud/*.txt  -merge -diff
 # 통째로 사라진다. union은 양쪽 줄을 다 남긴다 — 같은 id가 두 번 들어와도
 # history.load()가 뒤엣것으로 덮으므로 잃는 것이 없다.
 history/*.jsonl merge=union
+
+# 저장소 밖 파일의 사본이다. backup_routines.py 가 filecmp 로 바이트를 재는데
+# core.autocrlf=true 라, git이 이 파일들을 건드리면(checkout·stash 따위) 사본만
+# CRLF가 되어 LF인 실물과 어긋난다. 고친 것이 없는데 넷 다 '다름'으로 뜬다.
+.claude/routines/** text eol=lf
