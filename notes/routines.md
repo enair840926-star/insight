@@ -21,7 +21,6 @@ python tools/backup_routines.py --restore  # 저장소 → 실물 (PC를 갈았�
 
 | 파일 | 실물 위치 | 하는 일 |
 |---|---|---|
-| `CLAUDE-사용자.md` | `~/.claude/CLAUDE.md` | 모든 프로젝트에 적용되는 작업 지침 |
 | `인사이트-포인터.md` | `~/.claude/skills/인사이트/SKILL.md` | `/인사이트` 진입점 |
 | `asset-insight-morning.md` | `~/.claude/scheduled-tasks/asset-insight-morning/SKILL.md` | 아침 루틴 |
 | `asset-insight-evening.md` | `~/.claude/scheduled-tasks/asset-insight-evening/SKILL.md` | 저녁 루틴 |
@@ -54,6 +53,21 @@ python tools/backup_routines.py --restore  # 저장소 → 실물 (PC를 갈았�
 | 미장·매크로·코인 | 20:50 · 21:20 · 21:50 | 21:12 · 22:12 · 23:12 |
 
 ---
+
+## 사용자 작업 지침 — 파일이 아니다
+
+Claude 앱의 **설정 → 지침**은 계정에 저장된다. 디스크 어디에도 없어서
+`backup_routines.py` 로 동기화할 수 없다(사용자 폴더 전체를 훑어 확인했다).
+**새 세션부터 적용된다** — 지금 세션에서 안 보인다고 저장이 안 된 것이 아니다.
+
+`.claude/routines/CLAUDE-사용자.md` 에 텍스트로만 남겨 둔다. 계정이
+날아가거나 지침이 지워지면 그것을 설정에 붙여넣는다. **동기화가 없으므로
+설정에서 고쳤으면 그 파일도 손으로 맞춘다.**
+
+한때 `~/.claude/CLAUDE.md` 에도 같은 성격의 지침이 있었다. 설정 지침과
+둘 다 로드되어 겹쳤으므로 `CLAUDE.md.replaced-by-settings` 로 이름을
+바꿔 두었다. 되살릴 일이 있으면 그 파일을 다시 `CLAUDE.md` 로 바꾸면
+되지만, 그러면 다시 겹친다.
 
 ## 저장소 밖에 있는 나머지
 

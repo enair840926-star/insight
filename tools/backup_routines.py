@@ -29,11 +29,14 @@ ROOT = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 BACKUP = ROOT / ".claude" / "routines"
 HOME = Path.home() / ".claude"
 
+# 사용자 작업 지침(설정 → 지침)은 여기 없다. 계정에 저장되고 로컬 파일이
+# 아니라 동기화할 대상이 없다 — 디스크 전체를 훑어도 나오지 않는다.
+# `.claude/routines/CLAUDE-사용자.md` 에 텍스트로만 남겨 두고, 계정이
+# 날아가면 그것을 설정에 붙여넣는다. 손으로 맞춰야 하므로 고쳤으면
+# 그 파일도 같이 고친다.
+
 # (저장소 안 파일명, 실물 경로, 설명)
 FILES = [
-    ("CLAUDE-사용자.md",
-     HOME / "CLAUDE.md",
-     "모든 프로젝트에 적용되는 작업 지침"),
     ("인사이트-포인터.md",
      HOME / "skills" / "인사이트" / "SKILL.md",
      "/인사이트 진입점. 저장소의 지침을 읽으라는 포인터."),
