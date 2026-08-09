@@ -21,6 +21,7 @@ python tools/backup_routines.py --restore  # 저장소 → 실물 (PC를 갈았�
 
 | 파일 | 실물 위치 | 하는 일 |
 |---|---|---|
+| `CLAUDE-사용자.md` | `~/.claude/CLAUDE.md` | 모든 프로젝트 공통 작업 지침 |
 | `인사이트-포인터.md` | `~/.claude/skills/인사이트/SKILL.md` | `/인사이트` 진입점 |
 | `asset-insight-morning.md` | `~/.claude/scheduled-tasks/asset-insight-morning/SKILL.md` | 아침 루틴 |
 | `asset-insight-evening.md` | `~/.claude/scheduled-tasks/asset-insight-evening/SKILL.md` | 저녁 루틴 |
@@ -54,20 +55,33 @@ python tools/backup_routines.py --restore  # 저장소 → 실물 (PC를 갈았�
 
 ---
 
-## 사용자 작업 지침 — 파일이 아니다
+## 작업 지침 — 설정이 아니라 파일이다
 
-Claude 앱의 **설정 → 지침**은 계정에 저장된다. 디스크 어디에도 없어서
-`backup_routines.py` 로 동기화할 수 없다(사용자 폴더 전체를 훑어 확인했다).
-**새 세션부터 적용된다** — 지금 세션에서 안 보인다고 저장이 안 된 것이 아니다.
+Claude 앱의 **설정 → 지침**에 넣어 봤다가 되돌렸다. 거기 넣은 것은 계정에
+저장되고 **Claude Code 세션에는 실리지 않는다.**
 
-`.claude/routines/CLAUDE-사용자.md` 에 텍스트로만 남겨 둔다. 계정이
-날아가거나 지침이 지워지면 그것을 설정에 붙여넣는다. **동기화가 없으므로
-설정에서 고쳤으면 그 파일도 손으로 맞춘다.**
+실측(2026-08-09): 설정에 저장하고 `~/.claude/CLAUDE.md` 를 치운 다음,
+7분 뒤 새 세션을 열어 확인했다. 한 줄도 안 들어왔다 — 가장 확실한 표식인
+"한국어로 답한다"조차 없었다. **새 세션이 아니라서 안 실린 것이 아니다.**
+그 경로로는 Claude Code까지 닿지 않는다.
 
-한때 `~/.claude/CLAUDE.md` 에도 같은 성격의 지침이 있었다. 설정 지침과
-둘 다 로드되어 겹쳤으므로 `CLAUDE.md.replaced-by-settings` 로 이름을
-바꿔 두었다. 되살릴 일이 있으면 그 파일을 다시 `CLAUDE.md` 로 바꾸면
-되지만, 그러면 다시 겹친다.
+그래서 `~/.claude/CLAUDE.md` 가 실물이고 `.claude/routines/CLAUDE-사용자.md`
+가 그 사본이다. 다른 셋과 똑같이 `backup_routines.py` 가 잰다 — 사본이니
+**바이트가 같아야** 하고, 그래서 설명을 이 파일 안에 머리말로 넣지 않는다.
+
+**아직 안 잰 것:** 이 파일이 실제로 실리는지는 세션 시작 때 정해져서
+되돌린 그 세션에서는 확인할 수 없었다. 전사본(`~/.claude/projects/*.jsonl`)
+으로도 과거 로드 여부는 못 본다 — 주입 블록이 기록된 것은 최근 세션뿐이다.
+**새 세션에서 "한국어로 답한다"가 걸리는지 보면 된다.** 안 걸리면 파일
+경로도 닿지 않는 것이므로, 공통 지침을 포기하고 프로젝트 `CLAUDE.md` 에만
+둔다.
+
+프로젝트에만 걸리는 것은 저장소의 `CLAUDE.md` 에 둔다(이 저장소는
+`asset-insight/CLAUDE.md`). 공통 지침과 겹치는 말을 다시 쓰지 않고 이
+프로젝트에 특화된 것만 쓴다.
+
+claude.ai 채팅 쪽에서는 설정 지침이 여전히 걸릴 수 있다 — 확인하지 않았다.
+거기서도 쓴다면 두 곳 내용을 같게 두어야 어긋나지 않는다.
 
 ## 저장소 밖에 있는 나머지
 
