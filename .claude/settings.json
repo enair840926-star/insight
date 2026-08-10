@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+
+  "//": "루틴이 무인으로 돌 수 있게 하는 허용 목록. 권한 규칙은 접두 매칭이라 'git add'로 시작하는 명령만 맞는다 — 'git -C <경로> add' 나 'Set-Location ...; git add' 같은 형태는 안 맞으므로 동사별로 쪼개지 않고 'git *' 로 둔다. 되돌릴 수 없는 것만 deny 로 따로 막는다.",
+
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write(insights/**)",
+      "Edit(insights/**)",
+
+      "Bash(cd /c/Users/enair/Desktop/claude/asset-insight*)",
+      "Bash(git *)",
+      "Bash(python tools/*)",
+
+      "PowerShell(Set-Location C:\\Users\\enair\\Desktop\\claude\\asset-insight*)",
+      "PowerShell(git *)",
+      "PowerShell(python tools/*)"
+    ],
+
+    "deny": [
+      "Bash(python insight.py*)",
+      "PowerShell(python insight.py*)",
+
+      "Bash(git reset --hard*)",
+      "Bash(git clean *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+
+      "PowerShell(git reset --hard*)",
+      "PowerShell(git clean *)",
+      "PowerShell(git push --force*)",
+      "PowerShell(git push -f *)"
+    ]
+  }
+}

@@ -31,6 +31,24 @@ python tools/backup_routines.py --restore  # 저장소 → 실물 (PC를 갈았�
 
 ---
 
+## 권한 — 루틴이 무인으로 돌려면
+
+`.claude/settings.json` 이 허용 목록을 갖고 있다. 이게 없으면 루틴이
+`git pull` 한 번마다 승인을 묻고, 아무도 안 보고 있으면 거기서 멈춘다.
+
+**권한 규칙은 접두 매칭이다.** 그래서 두 가지를 지켜야 실제로 걸린다.
+
+- **동사별로 쪼개지 말 것.** `git add` 로 적으면 `git -C <경로> add` 가
+  안 맞는다. `git *` 로 둔다.
+- **명령을 한 줄에 묶지 말 것.** `Set-Location ...; git pull` 은 `git` 으로
+  시작하지 않아 안 맞는다. 디렉터리 이동을 한 번만 따로 하고 그 뒤로는
+  맨 명령을 쓴다. 루틴 지침에도 적어 두었다.
+
+되돌릴 수 없는 것만 `deny` 로 막는다 — `git reset --hard`, `git clean`,
+`git push --force`, 그리고 요금이 붙는 `insight.py`.
+
+---
+
 ## 예약 (파일만으로는 안 살아난다)
 
 `--restore` 는 파일만 되돌린다. **예약 자체는 Claude 앱에 다시 등록해야
