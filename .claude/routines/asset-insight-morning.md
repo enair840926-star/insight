@@ -8,7 +8,12 @@ description: 국장 개장 전 인사이트 — 새 데이터가 있을 때만 (
 저장소: C:\Users\enair\Desktop\claude\asset-insight
 
 순서:
-1. 저장소로 이동해 `git pull` 을 먼저 한다.
+1. 저장소로 이동해 `git pull --rebase` 를 먼저 한다.
+   **`--rebase` 를 빼지 마라.** 맨 `git pull` 은 병합 커밋을 만들려고
+   편집기를 띄우는데, 루틴은 입력할 사람이 없어 "Pulling latest changes
+   from remote" 에서 아무 메시지 없이 멈춘다. 게다가 `.gitattributes` 가
+   `docs/index.html` 과 `cloud/*` 를 병합 불가로 막아 뒀고 클라우드가
+   그 파일들을 하루에도 여러 번 커밋하므로, 병합 방식이면 충돌까지 겹친다.
 2. `python tools/pending.py -v` 를 돌린다. 인사이트보다 새로운 데이터가
    있는 자산군만 출력된다.
 3. **출력이 비어 있으면 여기서 끝낸다.** 커밋하지 말고 "새 데이터 없음"만
@@ -16,7 +21,8 @@ description: 국장 개장 전 인사이트 — 새 데이터가 있을 때만 (
    수집이 끝난 직후 한 번뿐이다.
 4. 출력된 자산군이 있으면 `인사이트` 스킬을 그 자산군들로 실행한다.
    (스킬 위치: .claude/skills/인사이트/SKILL.md)
-5. insights/ 에 쓰고 커밋·푸시한다.
+5. insights/ 에 쓰고 커밋·푸시한다. 푸시가 거부되면 클라우드가 먼저
+   커밋한 것이니 `git pull --rebase` 후 다시 push 한다.
 
 이 작업이 아침에 3번 도는 이유:
 GitHub 예약 수집이 최대 한 시간까지 밀린다. 실측에서 08:00 예약이
@@ -26,7 +32,7 @@ GitHub 예약 수집이 최대 한 시간까지 밀린다. 실측에서 08:00 �
 **명령을 한 줄에 묶지 마라.** 허용 목록이 접두 매칭이라
 `Set-Location ...; git pull` 은 `git` 으로 시작하지 않아 안 걸리고 매번
 승인을 묻는다. 디렉터리 이동을 **한 번만 따로** 하고, 그 뒤로는
-`git pull`, `python tools/pending.py -v` 처럼 맨 명령을 하나씩 쓴다.
+`git pull --rebase`, `python tools/pending.py -v` 처럼 맨 명령을 하나씩 쓴다.
 (허용 목록: 저장소의 `.claude/settings.json`)
 
 주의:
