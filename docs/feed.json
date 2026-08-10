@@ -1,10 +1,10 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-08-10T08:11:18+09:00",
+ "generatedAt": "2026-08-10T21:35:53+09:00",
  "collectedAt": {
-  "macro": "2026-08-10T08:00:24",
-  "us": "2026-08-09T00:48:46"
+  "macro": "2026-08-10T21:35:13",
+  "us": "2026-08-10T21:34:50"
  },
  "context": {
   "eiaCrudeLevel": {
@@ -16,21 +16,68 @@
   "fearGreed": {
    "value": 63.7,
    "rating": "greed",
-   "weekAgo": 45.2
+   "weekAgo": 50.7
   },
   "yieldCurve": [
    {
     "label": "10Y-2Y",
-    "spreadBp": 95.0,
+    "spreadBp": 94.9,
     "inverted": false
    },
    {
     "label": "30Y-10Y",
-    "spreadBp": 55.1,
+    "spreadBp": 54.3,
     "inverted": false
    }
   ],
   "news": [
+   {
+    "date": "2026-08-08 08:55",
+    "title": "미국 CPI 발표 앞두고 달러인덱스 100선 하회…부진한 고용지표에 연준 금리 전망 변화 - VT Markets",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "연준",
+     "cpi",
+     "달러인덱스"
+    ],
+    "groups": [
+     "금속",
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxNTlNzWmczeTJVVDNiMnFwWmpYX1FxNkp1QnRxY0hpMnFDYzJOOGU2U1pBbzlMUWdBamUyNlAzeF9lUmZ6eFdCZ3BNZGhyRnpfdnBvdFZBR2hGN2pjX01KTWRKWVE3M0RPZFRnWnB1RjF5UVRuWFcxeGRxRGIxdXd5cVRUdzFtVWtwVWh4ZkRqbDlkNTJNRmpWZk83NjdiX0Q2alJvX1ZrcHJMSXVuUnNEYnJhbmF4VHdiaFNwOHczVXhZSVdKRHZIcEhyT3djQzZzckpkQ3pmdTRicEhCeVdsT1NoZk42aEM0bjgxT3M1dGdDcGxtTHVpMGRMNmZDckNlZkdoTHBESm5HY01CaWpDdzE3Q1l4TmZoZy1KS3d1bS1xdUhaRnNLR3JqQ1FvRm9DaG02YUV2NVd4N2g4M05fa1dtaWpqc3Vpa0Y5VEFzRWR1Zw?oc=5"
+   },
+   {
+    "date": "2026-08-10 11:11",
+    "title": "The U.S. economy is shedding jobs. Here’s why that’s good news for stocks.",
+    "source": "MarketWatch",
+    "topics": [
+     "federal reserve",
+     "interest rate",
+     "inflation"
+    ],
+    "groups": [
+     "금속",
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://www.marketwatch.com/story/the-u-s-economy-is-shedding-jobs-why-thats-good-news-for-stocks-a7f4773c?mod=mw_rss_topstories"
+   },
+   {
+    "date": "2026-08-07 15:20",
+    "title": "United States Dollar Index tumbles as NFP shock trims Fed hike bets - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNem0ySHh4QUIwRDZMTnR6eW0wWlUyYXhzdVk1ZDdsaTlZYzBUTVdqcV9pa0V5anZPU3V1VnFSWHhBQ3g2QUFXUkp4WGhCTHlRYjNJUm8wbVZ3dTQ1dVBBNXdKM1RVTkYtTTNyWVJ5Rk04Y3FvZ2E2Qy02emVZQ09VZXpNZDVtNTZpUVZ0aHZ4c3h1UkZjc0FrLXdOWkZNaXhzMXhIQl9nOXo1azN0OEFtbFNfc3M2dFNyQlhmcExubWJuVURUOE5Fc2I2ZHNNUQ?oc=5"
+   },
    {
     "date": "2026-08-07 18:02",
     "title": "Gold miners surge more than 20% in breakout week",
@@ -44,12 +91,19 @@
     "link": "https://www.mining.com/gold-miners-surge-more-than-20-in-breakout-week/"
    },
    {
-    "date": "2026-08-09 14:00",
-    "title": "S&P 500 sales growth is at a nearly 5-year high. Here’s what’s behind the surge.",
-    "source": "MarketWatch",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.marketwatch.com/story/s-p-500-sales-growth-is-at-a-nearly-5-year-high-heres-whats-behind-the-surge-a4ccf06d?mod=mw_rss_topstories"
+    "date": "2026-08-10 05:30",
+    "title": "Oil Prices Rise as Iran Hardens Hormuz Demands",
+    "source": "OilPrice",
+    "topics": [
+     "crude",
+     "oil price",
+     "barrel",
+     "refinery"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Rise-as-Iran-Hardens-Hormuz-Demands.html"
    },
    {
     "date": "2026-08-07 12:14",
@@ -72,17 +126,37 @@
     "link": "https://www.ft.com/content/0edbd013-dc35-494b-b7e7-9a745af01c9d?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-08-09 22:46",
-    "title": "U.S. stock futures dip as investors await inflation data, grapple with more Iran uncertainty",
-    "source": "MarketWatch",
+    "date": "2026-08-07 13:32",
+    "title": "Gold Price Forecast: XAU/USD rallies further with bulls eyeing $4,380 area - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
     "topics": [
-     "inflation"
+     "gold price"
+    ],
+    "groups": [
+     "금속"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQYS11NUlLSF9fT3JWQUhDbzVtVThFYmF5WlJwdHF3Yk5kM2w0MldLbGxVTVFhbzFVNWRnOHhoY2ZVVHI1Qi03SkRWNXJELVgycEltZ0hJMXVQMy1pWTdxY3lQbURxeHhqV01wZHNJeVdjYzlwc2FCbXVIWFUzWk5LWWJRU3BnQ0U5RW9SYnJqUi1aYklrUW1qaVJvV09USkhLT2pGTHh5U3VRN1ZFSWJLTTlYSjVzS29taGJkLWEwNXNmOE4yRUxpLXJjcnNpdXFJWkp1RA?oc=5"
+   },
+   {
+    "date": "2026-08-10 11:48",
+    "title": "Gold retreats from seven-week high amid Iran war uncertainty, looming CPI data",
+    "source": "Investing원자재",
+    "topics": [
+     "cpi"
     ],
     "groups": [
      "금속",
      "채권금리"
     ],
-    "link": "https://www.marketwatch.com/story/u-s-stock-futures-flat-as-investors-await-inflation-data-grapple-with-more-iran-uncertainty-133212d2?mod=mw_rss_topstories"
+    "link": "https://www.investing.com/news/commodities-news/gold-steady-near-7wk-highs-as-traders-weigh-iran-uncertainty-fed-outlook-4847814"
+   },
+   {
+    "date": "2026-08-10 06:30",
+    "title": "Hormuz Tensions Surge After Reports of Another Tanker Strike",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Hormuz-Tensions-Surge-After-Reports-of-Another-Tanker-Strike.html"
    },
    {
     "date": "2026-08-08 21:00",
@@ -93,12 +167,102 @@
     "link": "https://oilprice.com/Energy/Energy-General/Why-Southeast-Asias-Clean-Energy-Surge-Could-Stall-Before-It-Starts.html"
    },
    {
+    "date": "2026-08-10 12:13",
+    "title": "Yen sinks as effect of US-Japan intervention fades",
+    "source": "FT마켓",
+    "topics": [
+     "currency"
+    ],
+    "groups": [
+     "환율"
+    ],
+    "link": "https://www.ft.com/content/47d2ab3c-0423-49ed-89ca-68683761ed98?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-08-10 04:37",
+    "title": "US backs Australian rare earth miner to cut out China",
+    "source": "FT마켓",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/d88b7e46-6806-4286-94d7-3bb16facee41?syn-25a6b1a6=1"
+   },
+   {
     "date": "2026-08-07 08:48",
     "title": "DR Congo launches probe into uranium-contaminated cobalt exports",
     "source": "FT마켓",
     "topics": [],
     "groups": [],
     "link": "https://www.ft.com/content/7c028aa0-cb64-4f71-9605-f63b83df7af4?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-08-07 05:49",
+    "title": "Silver Price Forecast: XAG/USD rises to near $62.20 in countdown to US NFP data - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
+    "topics": [
+     "silver price"
+    ],
+    "groups": [
+     "금속"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOZzJnVUZGQjI0VGlQdjFtQjVILWhZMF9uYmJMVTdEa3dXTVRFV0JRQjZ3WGZVOW5oS1pJanNzSjhqQktfZ3lZYmJYdnpvWHRMSFA1cnJWa3FaWmQyTFBfWXJiTXBkQ3k1MkJ3YzJxZjlRaUljOUlqcUdIWjYzc2JGbEJvTkx4UG4tcXlla1FJMnhvY1pzVkpPUVZIbDhBcmxqNUprR1FFamw1RXNVY0VDQ1duTWpReE91Y3B3cWVHRFlyY0g0SlUzeERETlg5bFh1a1VfdVNIUjFzQQ?oc=5"
+   },
+   {
+    "date": "2026-08-07 14:35",
+    "title": "Silver Price Forecast: Weak US payrolls fuel breakout above 50-day SMA - tmgm.com",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "silver price"
+    ],
+    "groups": [
+     "금속"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVUFvSFg4bkQwNkNXeFlJUFpSdzROZGdxNW05c2lyZENjcmJPMnEzN3Vpc3lIcEh0eW5FOFZzc0UtMUh3cTZoUDQyNjBrQ1U4NnRnRk1rLUNEQUphV3pWeml2ZkEtalNyYktpUF9HNk1oQkdIeDFDY0JwXzY2V3F5UnZkRHhBaWFjRHNMcG1EWER4V3BBZG5YSnRETThlaEZiaFVDSWZTVVREMXh6bGNabEpLTkhJYVFTdHdNb3RJNU9yUkhLTTNXN0tyYVRiTmdR?oc=5"
+   },
+   {
+    "date": "2026-08-07 13:51",
+    "title": "US Dollar Index Price Forecast: Likely find direction after US NFP release - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOQW5oTHZBWGZLLTlPV1RnV19hVGprbVpabzBFU2xQU0dibGdMQVRrSXlKMDVQZGFyOHdzSklIczhfNXB5N0tJYUkxb1hHUk0wNFYyeHU3anFSM1dLSnpraDFWNXZGMnBrMkUxQWgxekJ6Um9PdkRQX0NZZjFROURTMzl6UGhvTlNuQkFnVDRmRE5NREw2cmVzcG5JNk1BblpvQVc2ekZjVTN2ZG1ydExuZ28wY1g2MEVibWxSRkctdlExcGJSYmtvcDV5OW1iUkp4U00zLVZR?oc=5"
+   },
+   {
+    "date": "2026-08-07 05:41",
+    "title": "United States Dollar Index holds steady near 100.00 as bulls await US NFP amid Iran risks - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNLWFOdno3V1l5UjFmQjdiMVhCQVRtUW91dmtOMlVETFM4SzNxNmtOY0hVUEU0QllzTDVEX2RIekg4WHF1aDJqNTNuZjdaM3MwRkRjcmRQNXpCZmhNQjJvNklweFE4ZkhEd1NjeFUxengxbGxsLUhKS3R2WXkwYkF1V0ZWT2YySklqN2RRTXlTZWJRRE5xQ2RPNVJfLXpoeC1jcHVQSTU2NUNRRWRoaURZYlBEX3BBdndPOVlsMkJzRTJYQVFxOEN1a1pQaEIxX2xuaFh3Sm00Nm9lWjN5VzJpTjVkcVphZVloR0E?oc=5"
+   },
+   {
+    "date": "2026-08-10 11:30",
+    "title": "Kazakhstan Weighs New Routes as Drone Strikes Squeeze Black Sea Oil Exports",
+    "source": "OilPrice",
+    "topics": [
+     "crude"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Kazakhstan-Weighs-New-Routes-as-Drone-Strikes-Squeeze-Black-Sea-Oil-Exports.html"
+   },
+   {
+    "date": "2026-08-10 08:00",
+    "title": "ADNOC Gas Unveils $8.2 Billion Expansion Push",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/ADNOC-Gas-Unveils-82-Billion-Expansion-Push.html"
    },
    {
     "date": "2026-08-09 23:00",
@@ -111,18 +275,6 @@
      "에너지"
     ],
     "link": "https://oilprice.com/Energy/Crude-Oil/Why-Trumps-Waiver-of-the-Jones-Act-Is-Unlikely-To-Lower-Gas-Prices.html"
-   },
-   {
-    "date": "2026-08-08 09:30",
-    "title": "Currency interventions have a mixed record",
-    "source": "FT마켓",
-    "topics": [
-     "currency"
-    ],
-    "groups": [
-     "환율"
-    ],
-    "link": "https://www.ft.com/content/d2248ee9-edb5-445c-b89b-425e033a19fa?syn-25a6b1a6=1"
    },
    {
     "date": "2026-08-08 23:00",
@@ -138,19 +290,6 @@
     "link": "https://oilprice.com/Energy/Energy-General/US-Energy-Helps-Cushion-Global-Supply-Shock-From-Hormuz.html"
    },
    {
-    "date": "2026-08-07 23:00",
-    "title": "Oil Traders Stay Bearish Despite Deepening Middle East Disruptions",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Energy/Oil-Prices/Oil-Traders-Stay-Bearish-Despite-Deepening-Middle-East-Disruptions.html"
-   },
-   {
     "date": "2026-08-08 01:11",
     "title": "World’s biggest mining companies now worth $2.17 trillion",
     "source": "Mining.com",
@@ -159,32 +298,29 @@
     "link": "https://www.mining.com/worlds-biggest-mining-companies-now-worth-2-17-trillion/"
    },
    {
-    "date": "2026-08-09 22:18",
-    "title": "Oil rises as uncertainty continues over reopening of Strait",
-    "source": "Investing원자재",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.investing.com/news/commodities-news/oil-rises-as-uncertainty-continues-over-reopening-of-strait-4847759"
-   },
-   {
-    "date": "2026-08-09 19:42",
-    "title": "Yemen’s Houthis attack Saudi refinery after kingdom signs defence pact",
+    "date": "2026-08-10 10:33",
+    "title": "Iraq raises September crude oil prices for Asian buyers",
     "source": "Investing원자재",
     "topics": [
-     "refinery"
+     "crude",
+     "oil price"
     ],
     "groups": [
      "에너지"
     ],
-    "link": "https://www.investing.com/news/commodities-news/yemens-houthis-say-they-attacked-saudi-aramco-jazan-refinery-fire-extinguished-4847714"
+    "link": "https://www.investing.com/news/commodities-news/iraq-raises-september-crude-oil-prices-for-asian-buyers-93CH-4848396"
    },
    {
-    "date": "2026-08-07 20:55",
-    "title": "Oil slides more than 8% for the week as traders hope for Hormuz reopening deal",
+    "date": "2026-08-10 07:06",
+    "title": "Crude Oil WTI trapped in bear flag near $78.27: Live levels",
     "source": "Investing원자재",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.investing.com/news/commodities-news/oil-extends-sharp-gains-as-iran-seeks-to-ban-us-israeli-ships-from-hormuz-4844990"
+    "topics": [
+     "crude"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/crude-oil-wti-trapped-in-bear-flag-near-7827-live-levels-93CH-4847937"
    },
    {
     "date": "2026-08-07 11:23",
@@ -195,124 +331,40 @@
     "link": "https://www.cnbc.com/2026/08/06/the-july-jobs-numbers-are-due-out-friday-heres-what-to-expect.html"
    },
    {
-    "date": "2026-08-09 19:11",
-    "title": "The number of stocks beating the S&P 500 is the highest in 4 years. Why that number should rise.",
+    "date": "2026-08-10 12:24",
+    "title": "Intel plans to sell $15 billion worth of stock after it has risen 400% in a year",
     "source": "MarketWatch",
     "topics": [],
     "groups": [],
-    "link": "https://www.marketwatch.com/story/the-number-of-stocks-beating-the-s-p-500-is-the-highest-in-4-years-why-that-number-should-rise-b9bd05b3?mod=mw_rss_topstories"
+    "link": "https://www.marketwatch.com/story/intel-plans-to-sell-15-billion-worth-of-stock-after-it-has-risen-400-in-a-year-395effce?mod=mw_rss_topstories"
    },
    {
-    "date": "2026-08-09 04:00",
-    "title": "Investors return to European stocks as strong earnings lift Iran war gloom",
+    "date": "2026-08-10 10:01",
+    "title": "This is the hottest ZIP Code where homes are selling fast",
+    "source": "MarketWatch",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.marketwatch.com/story/this-is-the-hottest-zip-code-where-homes-are-selling-fast-2c642716?mod=mw_rss_topstories"
+   },
+   {
+    "date": "2026-08-10 05:30",
+    "title": "Your move, BoJ",
     "source": "FT마켓",
     "topics": [],
     "groups": [],
-    "link": "https://www.ft.com/content/297a8bf7-ce8b-44fe-bc51-3e2ec2e47699?syn-25a6b1a6=1"
+    "link": "https://www.ft.com/content/8ca25b96-f8eb-49b1-a259-b7314ef4741a?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-08-08 04:00",
-    "title": "The US bares its financial weak spot",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/fb49381a-3e09-4666-85b0-7a171e01394e?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-07 21:12",
-    "title": "Iran’s oil exports stall and Kharg Island idles under US blockade",
-    "source": "FT마켓",
-    "topics": [
-     "crude"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://www.ft.com/content/6bc9c93d-1b75-4512-8bc2-ba33cc3c4a53?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-07 05:00",
-    "title": "The curious case of the Japanese government bond yields",
+    "date": "2026-08-10 04:00",
+    "title": "London plots digital gold pivot to protect bullion trading",
     "source": "FT마켓",
     "topics": [
-     "bond yield"
+     "bullion"
     ],
     "groups": [
-     "채권금리"
+     "금속"
     ],
-    "link": "https://www.ft.com/content/22a6bce7-ccec-4e7d-a31b-ca8d67b1bcb6"
-   },
-   {
-    "date": "2026-08-09 19:00",
-    "title": "What Does It Take to Reopen a Nuclear Power Plant?",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Alternative-Energy/Nuclear-Power/What-Does-It-Take-to-Reopen-a-Nuclear-Power-Plant.html"
-   },
-   {
-    "date": "2026-08-09 17:00",
-    "title": "Europe's Next Energy Crisis Won't Be a War, It'll Be Peak Oil",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/Europes-Next-Energy-Crisis-Wont-Be-a-War-Itll-Be-Peak-Oil.html"
-   },
-   {
-    "date": "2026-08-09 15:00",
-    "title": "How Engineers Are Reinventing the Wind Turbine",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Alternative-Energy/Wind-Power/How-Engineers-Are-Reinventing-the-Wind-Turbine.html"
-   },
-   {
-    "date": "2026-08-08 19:00",
-    "title": "Airlines Scramble for Jet Fuel as Hormuz Disruption Drags On",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/Airlines-Scramble-for-Jet-Fuel-as-Hormuz-Disruption-Drags-On.html"
-   },
-   {
-    "date": "2026-08-08 17:00",
-    "title": "Berkeley Lab's New Fusion Materials Breakthrough, Explained",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/Berkeley-Labs-New-Fusion-Materials-Breakthrough-Explained.html"
-   },
-   {
-    "date": "2026-08-08 16:36",
-    "title": "Iran Says Hormuz Stays Closed Until U.S. Meets Six Sweeping Demands",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Iran-Says-Hormuz-Stays-Closed-Until-US-Meets-Six-Sweeping-Demands.html"
-   },
-   {
-    "date": "2026-08-08 15:00",
-    "title": "Europe Bets Billions on North Africa’s Clean Energy Potential",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/Europe-Bets-Billions-on-North-Africas-Clean-Energy-Potential.html"
-   },
-   {
-    "date": "2026-08-07 23:00",
-    "title": "EU Locks In Plan To Triple Energy Storage Capacity By 2030",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/EU-Locks-In-Plan-To-Triple-Energy-Storage-Capacity-By-2030.html"
-   },
-   {
-    "date": "2026-08-07 21:00",
-    "title": "China Is Betting on Quantum Tech to Fix Its Power Grid",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/China-Is-Betting-on-Quantum-Tech-to-Fix-Its-Power-Grid.html"
+    "link": "https://www.ft.com/content/9973f186-5834-4b66-8faa-e8b2e8711466?syn-25a6b1a6=1"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -320,69 +372,69 @@
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
   "usRates": {
-   "value": -1.0,
+   "value": 0.4,
    "unit": "bp",
-   "fact": "미 10년물 4.66% (전일 4.670%)",
+   "fact": "미 10년물 4.664% (전일 4.660%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-08-10T08:00:24"
+   "asof": "2026-08-10T21:35:13"
   },
   "riskAppetite": {
-   "value": -0.25,
+   "value": 0.56,
    "unit": "pt",
-   "fact": "VIX 14.9 (전일 15.15)",
+   "fact": "VIX 15.46 (전일 14.90)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-08-10T08:00:24"
+   "asof": "2026-08-10T21:35:13"
   },
   "dollar": {
-   "value": 0.03,
+   "value": 0.14,
    "unit": "%",
-   "fact": "달러인덱스 99.627 (전일 대비 +0.03%)",
+   "fact": "달러인덱스 99.737 (전일 대비 +0.14%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-08-10T08:00:24"
+   "asof": "2026-08-10T21:35:13"
   },
   "breadth": {
    "value": 61.2,
    "unit": "%",
-   "fact": "상승 3,061 / 하락 1,824 (61.2%)",
+   "fact": "상승 3,061 / 하락 1,820 (61.2%)",
    "source": "Nasdaq screener 전종목",
-   "asof": "2026-08-09T00:48:46"
+   "asof": "2026-08-10T21:34:50"
   },
   "rateDiff": {
-   "value": -1.0,
+   "value": -0.2,
    "unit": "bp",
-   "fact": "미 10년물 4.66% − 유로존 3.1467% = 151bp (전일 152bp)",
-   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-06",
-   "asof": "2026-08-10T08:00:24"
+   "fact": "미 10년물 4.664% − 유로존 3.1523% = 151bp (전일 151bp)",
+   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-07",
+   "asof": "2026-08-10T21:35:13"
   }
  },
  "levels": {
   "XAUUSD": {
-   "last": 4402.0,
+   "last": 4385.3,
    "prevClose": 4340.7001953125,
    "source": "Yahoo GC=F",
-   "asof": "2026-08-10T08:00:24",
-   "note": "금 · 당일 +1.41%"
+   "asof": "2026-08-10T21:35:13",
+   "note": "금 · 당일 +1.03%"
   },
   "USOIL": {
-   "last": 78.81,
+   "last": 79.42,
    "prevClose": 78.18000030517578,
    "source": "Yahoo CL=F",
-   "asof": "2026-08-10T08:00:24",
-   "note": "WTI원유 · 당일 +0.81%"
+   "asof": "2026-08-10T21:35:13",
+   "note": "WTI원유 · 당일 +1.59%"
   },
   "EURUSD": {
-   "last": 1.1559,
+   "last": 1.1551,
    "prevClose": 1.1524720191955566,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-08-10T08:00:24",
-   "note": "유로달러 · 당일 +0.30%"
+   "asof": "2026-08-10T21:35:13",
+   "note": "유로달러 · 당일 +0.23%"
   },
   "NAS100": {
-   "last": 29842.25,
+   "last": 29819.75,
    "prevClose": 29834.75,
    "source": "Yahoo NQ=F",
-   "asof": "2026-08-10T08:00:24",
-   "note": "나스닥선물 · 당일 +0.03%"
+   "asof": "2026-08-10T21:35:13",
+   "note": "나스닥선물 · 당일 -0.05%"
   }
  },
  "missing": [
