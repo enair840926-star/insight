@@ -268,10 +268,14 @@ def insight_slot(market_name):
             when = _written_at(src)
             stamp = f"{when:%m월 %d일 %H:%M} 작성" if when else "작성 시각 미상"
             old = ""
-            if when and (dt.datetime.now() - when).total_seconds() > 18 * 3600:
+            if when:
+                # 수집 시각과 같은 이유로 브라우저가 다시 센다.
                 hrs = (dt.datetime.now() - when).total_seconds() / 3600
-                ago = f"{hrs/24:.0f}일 전" if hrs >= 48 else f"{hrs:.0f}시간 전"
-                old = f' <span class="old">{ago}</span>'
+                hide = "" if hrs >= 18 else " hidden"
+                ts = esc(when.isoformat(timespec="seconds"))
+                old = (f' <span class="old" data-warn="{ts}"{hide}>'
+                       f'<span class="ago" data-ts="{ts}">{_ago_text(hrs)}</span>'
+                       f'</span>')
             body, watch = fold_insight(md.render(text), market_name)
             return (f'<section class="card insight has"><h2>인사이트</h2>'
                     f'<div class="csub">{stamp}{old} · '
@@ -1035,6 +1039,34 @@ document.querySelectorAll('a.wc').forEach(a=>{
   });
 });
 
+// 경과 시간은 여기서 센다. 파이썬이 구울 때 계산해 박아 두면 다시 구울
+// 때까지 얼어붙어서, 몇 시간이 지나도 '56분 전'이라 떠 있었다. 폰 앱은
+// 한 번 연 화면을 며칠씩 띄워 두므로 특히 오래 어긋난다.
+// _ago_text()와 규칙이 같아야 한다 — 한쪽만 고치면 새로 고치기 전후로
+// 표기가 달라진다.
+function ago(h){
+  if(h<1) return Math.round(h*60)+'분 전';
+  if(h<48) return Math.round(h)+'시간 전';
+  return Math.round(h/24)+'일 전';
+}
+function freshen(){
+  const now=Date.now();
+  document.querySelectorAll('.ago[data-ts]').forEach(el=>{
+    const t=Date.parse(el.dataset.ts);
+    if(isNaN(t)) return;                       // 못 읽으면 구운 값을 그대로 둔다
+    el.textContent=ago(Math.max(0,(now-t)/3600000));
+  });
+  document.querySelectorAll('.old[data-warn]').forEach(el=>{
+    const t=Date.parse(el.dataset.warn);
+    if(isNaN(t)) return;
+    el.hidden=((now-t)/3600000)<18;
+  });
+}
+freshen();
+setInterval(freshen,60000);
+// 폰에서 앱을 다시 열면 그 사이 흐른 시간을 바로 반영한다.
+addEventListener('visibilitychange',()=>{if(!document.hidden)freshen()});
+
 // 스크롤하면 헤더의 제목줄을 접는다. 탭은 계속 보인다.
 const hd=document.querySelector('header');
 let last=0;
@@ -1047,6 +1079,16 @@ addEventListener('scroll',()=>{
 """
 
 
+def _ago_text(hrs):
+    """경과 시간을 사람 말로. 자바스크립트 쪽 ago()와 규칙이 같아야 한다 —
+    한쪽만 고치면 새로 고치기 전후로 표기가 달라진다."""
+    if hrs < 1:
+        return f"{hrs*60:.0f}분 전"
+    if hrs < 48:
+        return f"{hrs:.0f}시간 전"
+    return f"{hrs/24:.0f}일 전"
+
+
 def _age_line(iso):
     """자산군별 수집 시각. 장별로 따로 갱신하면 카드마다 신선도가 다르므로
     패널 상단에 각자의 시각을 적어 준다 — 헤더의 '최종 수집'만 보면
@@ -1057,16 +1099,18 @@ def _age_line(iso):
         when = dt.datetime.fromisoformat(iso)
     except ValueError:
         return f'<div class="pstamp">수집 {esc(iso[:16])}</div>'
+    # 경과 시간은 브라우저가 다시 센다. 여기서 계산해 문자열로 박으면
+    # 다시 구울 때까지 그대로 얼어붙는다 — 몇 시간이 지나도 '56분 전'이라
+    # 떠서, 오래된 데이터를 방금 받은 것으로 읽게 된다. '갱신 필요'도
+    # 같은 이유로 안 뜬다. 아래 값은 자바스크립트가 꺼졌을 때의 대비책일
+    # 뿐이고, 정상 경로에서는 data-ts를 보고 매분 다시 쓴다.
     hrs = (dt.datetime.now() - when).total_seconds() / 3600
-    if hrs < 1:
-        ago = f"{hrs*60:.0f}분 전"
-    elif hrs < 48:
-        ago = f"{hrs:.0f}시간 전"
-    else:
-        ago = f"{hrs/24:.0f}일 전"
-    warn = '<span class="old">갱신 필요</span>' if hrs >= 18 else ""
+    ago = _ago_text(hrs)
+    hide = "" if hrs >= 18 else " hidden"
+    ts = esc(when.isoformat(timespec="seconds"))
     return (f'<div class="pstamp"><span>수집 {when:%m-%d %H:%M} '
-            f'({ago})</span>{warn}</div>')
+            f'(<span class="ago" data-ts="{ts}">{ago}</span>)</span>'
+            f'<span class="old" data-warn="{ts}"{hide}>갱신 필요</span></div>')
 
 
 def _body():
