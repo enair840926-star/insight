@@ -1,0 +1,6415 @@
+{
+ "collected_at": "2026-08-11T21:30:26",
+ "market": "US",
+ "indices": {
+  "S&P500": {
+   "symbol": "^GSPC",
+   "price": 7753.11,
+   "change_pct": -0.06,
+   "change_20d_pct": 3.16,
+   "pos_52w": 97.3
+  },
+  "나스닥": {
+   "symbol": "^IXIC",
+   "price": 26605.357,
+   "change_pct": -0.32,
+   "change_20d_pct": 2.83,
+   "pos_52w": 91.0
+  },
+  "다우": {
+   "symbol": "^DJI",
+   "price": 53975.98,
+   "change_pct": -0.11,
+   "change_20d_pct": 2.81,
+   "pos_52w": 92.8
+  },
+  "러셀2000": {
+   "symbol": "^RUT",
+   "price": 3017.397,
+   "change_pct": -0.56,
+   "change_20d_pct": 2.17,
+   "pos_52w": 96.2
+  },
+  "필라델피아반도체": {
+   "symbol": "^SOX",
+   "price": 11993.861,
+   "change_pct": -2.94,
+   "change_20d_pct": -2.87,
+   "pos_52w": 71.0
+  },
+  "VIX": {
+   "symbol": "^VIX",
+   "price": 15.44,
+   "change_pct": -0.13,
+   "change_20d_pct": -6.42,
+   "pos_52w": 9.4
+  }
+ },
+ "selected": [
+  {
+   "symbol": "FLR",
+   "name": "Fluor Corporation",
+   "market_cap": 6987970751.0,
+   "price": 52.25,
+   "volume": 4566172.0,
+   "change_pct": -8.333,
+   "turnover": 238582487.0,
+   "sector": "Industrials",
+   "industry": "Military/Government/Technical",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "급락"
+   ],
+   "change_pct_yahoo": -8.33,
+   "vs_ma20_pct": 2.79,
+   "vs_ma60_pct": 5.03,
+   "change_5d_pct": 4.15,
+   "change_20d_pct": 5.28,
+   "volatility_20d": 5.09,
+   "volume_ratio": 1.71,
+   "pos_52w": 69.5,
+   "from_52w_high_pct": -9.8,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/7/2026",
+      "eps": 0.91,
+      "consensus": 0.73,
+      "surprise_pct": 24.66
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/8/2026",
+      "eps": 0.14,
+      "consensus": 0.66,
+      "surprise_pct": -78.79
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/17/2026",
+      "eps": 0.33,
+      "consensus": 0.34,
+      "surprise_pct": -2.94
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/7/2025",
+      "eps": 0.68,
+      "consensus": 0.44,
+      "surprise_pct": 54.55
+     }
+    ],
+    "latest_pct": 24.66,
+    "beats": 2,
+    "count": 4
+   },
+   "ttm_eps": 2.06,
+   "per": 25.4
+  },
+  {
+   "symbol": "NVDA",
+   "name": "NVIDIA Corporation",
+   "market_cap": 5264710000000.0,
+   "price": 217.55,
+   "volume": 115849078.0,
+   "change_pct": -2.862,
+   "turnover": 25202966918.9,
+   "sector": "Technology",
+   "industry": "Semiconductors",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "거래대금상위"
+   ],
+   "change_pct_yahoo": -2.86,
+   "vs_ma20_pct": 4.83,
+   "vs_ma60_pct": 4.33,
+   "change_5d_pct": 5.28,
+   "change_20d_pct": 6.89,
+   "volatility_20d": 2.56,
+   "volume_ratio": 0.91,
+   "pos_52w": 73.8,
+   "from_52w_high_pct": -8.0,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Apr 2026",
+      "reported": "5/20/2026",
+      "eps": 1.87,
+      "consensus": 1.7,
+      "surprise_pct": 10.0
+     },
+     {
+      "quarter": "Jan 2026",
+      "reported": "2/25/2026",
+      "eps": 1.57,
+      "consensus": 1.45,
+      "surprise_pct": 8.28
+     },
+     {
+      "quarter": "Oct 2025",
+      "reported": "11/19/2025",
+      "eps": 1.24,
+      "consensus": 1.18,
+      "surprise_pct": 5.08
+     },
+     {
+      "quarter": "Jul 2025",
+      "reported": "8/27/2025",
+      "eps": 0.99,
+      "consensus": 0.94,
+      "surprise_pct": 5.32
+     }
+    ],
+    "latest_pct": 10.0,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 5.67,
+   "per": 38.4
+  },
+  {
+   "symbol": "AAPL",
+   "name": "Apple Inc.",
+   "market_cap": 4498801926800.0,
+   "price": 308.26,
+   "volume": 44812784.0,
+   "change_pct": -1.533,
+   "turnover": 13813988795.84,
+   "sector": "Technology",
+   "industry": "Computer Manufacturing",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "거래대금상위"
+   ],
+   "change_pct_yahoo": -1.62,
+   "vs_ma20_pct": -4.56,
+   "vs_ma60_pct": -0.17,
+   "change_5d_pct": 1.6,
+   "change_20d_pct": -2.85,
+   "volatility_20d": 2.32,
+   "volume_ratio": 0.79,
+   "pos_52w": 69.9,
+   "from_52w_high_pct": -10.5,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/30/2026",
+      "eps": 1.91,
+      "consensus": 1.88,
+      "surprise_pct": 1.6
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/30/2026",
+      "eps": 2.01,
+      "consensus": 1.92,
+      "surprise_pct": 4.69
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "1/29/2026",
+      "eps": 2.84,
+      "consensus": 2.65,
+      "surprise_pct": 7.17
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/30/2025",
+      "eps": 1.85,
+      "consensus": 1.73,
+      "surprise_pct": 6.94
+     }
+    ],
+    "latest_pct": 1.6,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 8.61,
+   "per": 35.8
+  },
+  {
+   "symbol": "PLTR",
+   "name": "Palantir Technologies Inc.",
+   "market_cap": 420911831300.0,
+   "price": 175.23,
+   "volume": 57403105.0,
+   "change_pct": 1.872,
+   "turnover": 10058746089.15,
+   "sector": "Technology",
+   "industry": "Computer Software: Prepackaged Software",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "거래대금상위"
+   ],
+   "change_pct_yahoo": 1.87,
+   "vs_ma20_pct": 27.63,
+   "vs_ma60_pct": 31.03,
+   "change_5d_pct": 39.46,
+   "change_20d_pct": 34.75,
+   "volatility_20d": 7.32,
+   "volume_ratio": 1.22,
+   "pos_52w": 68.1,
+   "from_52w_high_pct": -15.6,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/3/2026",
+      "eps": 0.31,
+      "consensus": 0.28,
+      "surprise_pct": 10.71
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/4/2026",
+      "eps": 0.25,
+      "consensus": 0.22,
+      "surprise_pct": 13.64
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/2/2026",
+      "eps": 0.24,
+      "consensus": 0.17,
+      "surprise_pct": 41.18
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/3/2025",
+      "eps": 0.18,
+      "consensus": 0.12,
+      "surprise_pct": 50.0
+     }
+    ],
+    "latest_pct": 10.71,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 0.98,
+   "per": 178.8
+  },
+  {
+   "symbol": "MSFT",
+   "name": "Microsoft Corporation",
+   "market_cap": 3757771551175.0,
+   "price": 506.06,
+   "volume": 31206408.0,
+   "change_pct": 1.214,
+   "turnover": 15792314832.48,
+   "sector": "Technology",
+   "industry": "Computer Software: Prepackaged Software",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "거래대금상위"
+   ],
+   "change_pct_yahoo": 1.21,
+   "vs_ma20_pct": 17.8,
+   "vs_ma60_pct": 23.35,
+   "change_5d_pct": 3.78,
+   "change_20d_pct": 29.43,
+   "volatility_20d": 3.76,
+   "volume_ratio": 0.78,
+   "pos_52w": 76.7,
+   "from_52w_high_pct": -8.6,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/29/2026",
+      "eps": 4.74,
+      "consensus": 4.21,
+      "surprise_pct": 12.59
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/29/2026",
+      "eps": 4.27,
+      "consensus": 4.07,
+      "surprise_pct": 4.91
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "1/28/2026",
+      "eps": 4.14,
+      "consensus": 3.88,
+      "surprise_pct": 6.7
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/29/2025",
+      "eps": 4.13,
+      "consensus": 3.65,
+      "surprise_pct": 13.15
+     }
+    ],
+    "latest_pct": 12.59,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 17.28,
+   "per": 29.3
+  },
+  {
+   "symbol": "AMZN",
+   "name": "Amazon.com Inc.",
+   "market_cap": 2999565941237.0,
+   "price": 278.09,
+   "volume": 35732085.0,
+   "change_pct": 1.315,
+   "turnover": 9936735517.65,
+   "sector": "Consumer Discretionary",
+   "industry": "Catalog/Specialty Distribution",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "거래대금상위"
+   ],
+   "change_pct_yahoo": 1.32,
+   "vs_ma20_pct": 9.86,
+   "vs_ma60_pct": 10.9,
+   "change_5d_pct": -2.09,
+   "change_20d_pct": 12.45,
+   "volatility_20d": 3.97,
+   "volume_ratio": 0.71,
+   "pos_52w": 90.0,
+   "from_52w_high_pct": -3.2,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/30/2026",
+      "eps": 1.88,
+      "consensus": 1.83,
+      "surprise_pct": 2.73
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/29/2026",
+      "eps": 1.56,
+      "consensus": 1.6,
+      "surprise_pct": -2.5
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/5/2026",
+      "eps": 1.95,
+      "consensus": 1.98,
+      "surprise_pct": -1.52
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/30/2025",
+      "eps": 1.95,
+      "consensus": 1.58,
+      "surprise_pct": 23.42
+     }
+    ],
+    "latest_pct": 2.73,
+    "beats": 2,
+    "count": 4
+   },
+   "ttm_eps": 7.34,
+   "per": 37.9
+  },
+  {
+   "symbol": "TSLA",
+   "name": "Tesla Inc.",
+   "market_cap": 1306826241727.0,
+   "price": 330.88,
+   "volume": 25004624.0,
+   "change_pct": 0.7,
+   "turnover": 8273529989.12,
+   "sector": "Industrials",
+   "industry": "Auto Manufacturing",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "거래대금상위"
+   ],
+   "change_pct_yahoo": 0.7,
+   "vs_ma20_pct": -2.72,
+   "vs_ma60_pct": -14.31,
+   "change_5d_pct": 2.73,
+   "change_20d_pct": -16.18,
+   "volatility_20d": 3.73,
+   "volume_ratio": 0.64,
+   "pos_52w": 16.6,
+   "from_52w_high_pct": -33.7,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/22/2026",
+      "eps": 0.04,
+      "consensus": 0.32,
+      "surprise_pct": -87.5
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/22/2026",
+      "eps": 0.18,
+      "consensus": 0.21,
+      "surprise_pct": -14.29
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "1/28/2026",
+      "eps": 0.31,
+      "consensus": 0.34,
+      "surprise_pct": -8.82
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/22/2025",
+      "eps": 0.37,
+      "consensus": 0.41,
+      "surprise_pct": -9.76
+     }
+    ],
+    "latest_pct": -87.5,
+    "beats": 0,
+    "count": 4
+   },
+   "ttm_eps": 0.9,
+   "per": 367.6
+  },
+  {
+   "symbol": "META",
+   "name": "Meta Platforms Inc.",
+   "market_cap": 1515562403377.0,
+   "price": 594.92,
+   "volume": 14967809.0,
+   "change_pct": 0.476,
+   "turnover": 8904648930.279999,
+   "sector": "Technology",
+   "industry": "Computer Software: Programming Data Processing",
+   "country": "United States",
+   "reasons": [
+    "관심종목",
+    "거래대금상위"
+   ],
+   "change_pct_yahoo": 0.48,
+   "vs_ma20_pct": -2.34,
+   "vs_ma60_pct": -1.12,
+   "change_5d_pct": 0.79,
+   "change_20d_pct": -9.41,
+   "volatility_20d": 2.77,
+   "volume_ratio": 0.88,
+   "pos_52w": 27.1,
+   "from_52w_high_pct": -25.3,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/29/2026",
+      "eps": 6.18,
+      "consensus": 7.1,
+      "surprise_pct": -12.96
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/29/2026",
+      "eps": 7.31,
+      "consensus": 6.71,
+      "surprise_pct": 8.94
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "1/28/2026",
+      "eps": 8.88,
+      "consensus": 8.21,
+      "surprise_pct": 8.16
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/29/2025",
+      "eps": 7.25,
+      "consensus": 6.61,
+      "surprise_pct": 9.68
+     }
+    ],
+    "latest_pct": -12.96,
+    "beats": 3,
+    "count": 4
+   },
+   "ttm_eps": 29.62,
+   "per": 20.1
+  },
+  {
+   "symbol": "AVGO",
+   "name": "Broadcom Inc.",
+   "market_cap": 2009601875635.0,
+   "price": 422.4,
+   "volume": 13854361.0,
+   "change_pct": -1.253,
+   "turnover": 5852082086.4,
+   "sector": "Technology",
+   "industry": "Semiconductors",
+   "country": "United States",
+   "reasons": [
+    "관심종목"
+   ],
+   "change_pct_yahoo": -1.25,
+   "vs_ma20_pct": 7.27,
+   "vs_ma60_pct": 5.77,
+   "change_5d_pct": 7.69,
+   "change_20d_pct": 9.99,
+   "volatility_20d": 2.54,
+   "volume_ratio": 0.74,
+   "pos_52w": 65.9,
+   "from_52w_high_pct": -14.7,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Apr 2026",
+      "reported": "6/3/2026",
+      "eps": 2.17,
+      "consensus": 2.02,
+      "surprise_pct": 7.43
+     },
+     {
+      "quarter": "Jan 2026",
+      "reported": "3/4/2026",
+      "eps": 1.76,
+      "consensus": 1.67,
+      "surprise_pct": 5.39
+     },
+     {
+      "quarter": "Oct 2025",
+      "reported": "12/11/2025",
+      "eps": 1.61,
+      "consensus": 1.49,
+      "surprise_pct": 8.05
+     },
+     {
+      "quarter": "Jul 2025",
+      "reported": "9/4/2025",
+      "eps": 1.26,
+      "consensus": 1.35,
+      "surprise_pct": -6.67
+     }
+    ],
+    "latest_pct": 7.43,
+    "beats": 3,
+    "count": 4
+   },
+   "ttm_eps": 6.8,
+   "per": 62.1
+  },
+  {
+   "symbol": "GOOGL",
+   "name": "Alphabet Inc.",
+   "market_cap": 4372469600000.0,
+   "price": 357.52,
+   "volume": 18991463.0,
+   "change_pct": 0.909,
+   "turnover": 6789827851.759999,
+   "sector": "Technology",
+   "industry": "Computer Software: Programming Data Processing",
+   "country": "United States",
+   "reasons": [
+    "관심종목"
+   ],
+   "change_pct_yahoo": 0.91,
+   "vs_ma20_pct": 2.44,
+   "vs_ma60_pct": -1.16,
+   "change_5d_pct": -4.28,
+   "change_20d_pct": 1.42,
+   "volatility_20d": 3.14,
+   "volume_ratio": 0.58,
+   "pos_52w": 75.9,
+   "from_52w_high_pct": -12.5,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/22/2026",
+      "eps": 9.11,
+      "consensus": 2.88,
+      "surprise_pct": 216.32
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/29/2026",
+      "eps": 5.11,
+      "consensus": 2.64,
+      "surprise_pct": 93.56
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/4/2026",
+      "eps": 2.82,
+      "consensus": 2.57,
+      "surprise_pct": 9.73
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/29/2025",
+      "eps": 2.87,
+      "consensus": 2.26,
+      "surprise_pct": 26.99
+     }
+    ],
+    "latest_pct": 216.32,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 19.91,
+   "per": 18.0
+  },
+  {
+   "symbol": "BTG",
+   "name": "B2Gold Corp Common shares (Canada)",
+   "market_cap": 6684618056.0,
+   "price": 5.06,
+   "volume": 32653546.0,
+   "change_pct": 0.596,
+   "turnover": 165226942.76,
+   "sector": "Basic Materials",
+   "industry": "Precious Metals",
+   "country": "Canada",
+   "reasons": [
+    "관심종목"
+   ],
+   "change_pct_yahoo": 0.6,
+   "vs_ma20_pct": 27.91,
+   "vs_ma60_pct": 21.21,
+   "change_5d_pct": 31.43,
+   "change_20d_pct": 33.86,
+   "volatility_20d": 5.45,
+   "volume_ratio": 1.42,
+   "pos_52w": 54.8,
+   "from_52w_high_pct": -19.6,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/6/2026",
+      "eps": 0.03,
+      "consensus": 0.07,
+      "surprise_pct": -57.14
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/6/2026",
+      "eps": 0.19,
+      "consensus": 0.11,
+      "surprise_pct": 72.73
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/18/2026",
+      "eps": 0.11,
+      "consensus": 0.2,
+      "surprise_pct": -45.0
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/5/2025",
+      "eps": 0.14,
+      "consensus": 0.15,
+      "surprise_pct": -6.67
+     }
+    ],
+    "latest_pct": -57.14,
+    "beats": 1,
+    "count": 4
+   },
+   "ttm_eps": 0.47,
+   "per": 10.8
+  },
+  {
+   "symbol": "BSP",
+   "name": "Bending Spoons S.p.A.",
+   "market_cap": 34640232145.0,
+   "price": 51.43,
+   "volume": 7009301.0,
+   "change_pct": 15.703,
+   "turnover": 360488350.43,
+   "sector": "Technology",
+   "industry": "Computer Software: Programming Data Processing",
+   "country": "Italy",
+   "reasons": [
+    "급등",
+    "섹터대표:Technology"
+   ],
+   "change_pct_yahoo": 15.7,
+   "vs_ma20_pct": 41.7,
+   "change_5d_pct": 41.99,
+   "change_20d_pct": 61.83,
+   "volatility_20d": 5.12,
+   "volume_ratio": 2.94,
+   "pos_52w": 76.0,
+   "from_52w_high_pct": -11.6
+  },
+  {
+   "symbol": "TXG",
+   "name": "10x Genomics Inc.",
+   "market_cap": 7631153710.0,
+   "price": 58.57,
+   "volume": 5996259.0,
+   "change_pct": 12.57,
+   "turnover": 351200889.63,
+   "sector": "Industrials",
+   "industry": "Biotechnology: Laboratory Analytical Instruments",
+   "country": "United States",
+   "reasons": [
+    "급등",
+    "섹터대표:Industrials"
+   ],
+   "change_pct_yahoo": 12.57,
+   "vs_ma20_pct": 23.82,
+   "vs_ma60_pct": 58.71,
+   "change_5d_pct": 24.59,
+   "change_20d_pct": 40.22,
+   "volatility_20d": 5.43,
+   "volume_ratio": 1.88,
+   "pos_52w": 97.3,
+   "from_52w_high_pct": -2.2,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/6/2026",
+      "eps": -0.14,
+      "consensus": -0.23,
+      "surprise_pct": 39.13
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/7/2026",
+      "eps": -0.1,
+      "consensus": -0.29,
+      "surprise_pct": 65.52
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/12/2026",
+      "eps": -0.13,
+      "consensus": -0.19,
+      "surprise_pct": 31.58
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/6/2025",
+      "eps": -0.22,
+      "consensus": -0.27,
+      "surprise_pct": 18.52
+     }
+    ],
+    "latest_pct": 39.13,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": -0.59
+  },
+  {
+   "symbol": "MAAS",
+   "name": "Maase Inc.",
+   "market_cap": 9153034465.0,
+   "price": 20.7,
+   "volume": 225513.0,
+   "change_pct": 10.4,
+   "turnover": 4668119.1,
+   "sector": "Finance",
+   "industry": "Investment Managers",
+   "country": "China",
+   "reasons": [
+    "급등",
+    "섹터대표:Finance"
+   ],
+   "change_pct_yahoo": 10.4,
+   "vs_ma20_pct": 14.09,
+   "vs_ma60_pct": 37.92,
+   "change_5d_pct": 11.95,
+   "change_20d_pct": 56.34,
+   "volatility_20d": 9.28,
+   "volume_ratio": 2.13,
+   "pos_52w": 81.0,
+   "from_52w_high_pct": -16.9
+  },
+  {
+   "symbol": "SM",
+   "name": "SM Energy Company",
+   "market_cap": 7554245200.0,
+   "price": 31.76,
+   "volume": 5169056.0,
+   "change_pct": 9.972,
+   "turnover": 164169218.56,
+   "sector": "Energy",
+   "industry": "Oil & Gas Production",
+   "country": "United States",
+   "reasons": [
+    "급등",
+    "섹터대표:Energy"
+   ],
+   "change_pct_yahoo": 9.97,
+   "vs_ma20_pct": 2.17,
+   "vs_ma60_pct": 4.45,
+   "change_5d_pct": -0.53,
+   "change_20d_pct": 6.26,
+   "volatility_20d": 4.03,
+   "volume_ratio": 1.43,
+   "pos_52w": 77.6,
+   "from_52w_high_pct": -11.5,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/5/2026",
+      "eps": 2.19,
+      "consensus": 1.93,
+      "surprise_pct": 13.47
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/6/2026",
+      "eps": 1.55,
+      "consensus": 1.29,
+      "surprise_pct": 20.16
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/25/2026",
+      "eps": 0.83,
+      "consensus": 0.73,
+      "surprise_pct": 13.7
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/3/2025",
+      "eps": 1.33,
+      "consensus": 1.25,
+      "surprise_pct": 6.4
+     }
+    ],
+    "latest_pct": 13.47,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 5.9,
+   "per": 5.4
+  },
+  {
+   "symbol": "LITE",
+   "name": "Lumentum Holdings Inc.",
+   "market_cap": 63291078000.0,
+   "price": 813.51,
+   "volume": 6155055.0,
+   "change_pct": -8.612,
+   "turnover": 5007198793.05,
+   "sector": "Telecommunications",
+   "industry": "Telecommunications Equipment",
+   "country": "United States",
+   "reasons": [
+    "급락",
+    "섹터대표:Telecommunications"
+   ],
+   "change_pct_yahoo": -8.61,
+   "vs_ma20_pct": 5.61,
+   "vs_ma60_pct": -2.48,
+   "change_5d_pct": 4.31,
+   "change_20d_pct": 5.91,
+   "volatility_20d": 7.14,
+   "volume_ratio": 1.31,
+   "pos_52w": 72.1,
+   "from_52w_high_pct": -25.1,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/5/2026",
+      "eps": 1.88,
+      "consensus": 1.81,
+      "surprise_pct": 3.87
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/3/2026",
+      "eps": 1.24,
+      "consensus": 0.97,
+      "surprise_pct": 27.84
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/4/2025",
+      "eps": 0.6,
+      "consensus": 0.59,
+      "surprise_pct": 1.69
+     },
+     {
+      "quarter": "Jun 2025",
+      "reported": "8/12/2025",
+      "eps": 0.32,
+      "consensus": 0.1,
+      "surprise_pct": 220.0
+     }
+    ],
+    "latest_pct": 3.87,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 4.04,
+   "per": 201.4
+  },
+  {
+   "symbol": "OKLO",
+   "name": "Oklo Inc.",
+   "market_cap": 8275925249.0,
+   "price": 44.49,
+   "volume": 14239382.0,
+   "change_pct": -8.116,
+   "turnover": 633510105.1800001,
+   "sector": "Utilities",
+   "industry": "Electric Utilities: Central",
+   "country": "United States",
+   "reasons": [
+    "급락",
+    "섹터대표:Utilities"
+   ],
+   "change_pct_yahoo": -8.12,
+   "vs_ma20_pct": 4.69,
+   "vs_ma60_pct": -16.12,
+   "change_5d_pct": 7.93,
+   "change_20d_pct": -2.88,
+   "volatility_20d": 6.34,
+   "volume_ratio": 1.47,
+   "pos_52w": 5.0,
+   "from_52w_high_pct": -77.0,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/7/2026",
+      "eps": -0.28,
+      "consensus": -0.17,
+      "surprise_pct": -64.71
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/12/2026",
+      "eps": -0.19,
+      "consensus": -0.2,
+      "surprise_pct": 5.0
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "3/17/2026",
+      "eps": -0.27,
+      "consensus": -0.18,
+      "surprise_pct": -50.0
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/11/2025",
+      "eps": -0.2,
+      "consensus": -0.13,
+      "surprise_pct": -53.85
+     }
+    ],
+    "latest_pct": -64.71,
+    "beats": 1,
+    "count": 4
+   },
+   "ttm_eps": -0.94
+  },
+  {
+   "symbol": "FTDR",
+   "name": "Frontdoor Inc.",
+   "market_cap": 5780838146.0,
+   "price": 83.91,
+   "volume": 788063.0,
+   "change_pct": -7.619,
+   "turnover": 66126366.33,
+   "sector": "Consumer Discretionary",
+   "industry": "Diversified Commercial Services",
+   "country": "United States",
+   "reasons": [
+    "급락",
+    "섹터대표:Consumer Discretionary"
+   ],
+   "change_pct_yahoo": -7.62,
+   "vs_ma20_pct": 10.08,
+   "vs_ma60_pct": 17.99,
+   "change_5d_pct": 10.42,
+   "change_20d_pct": 12.19,
+   "volatility_20d": 4.58,
+   "volume_ratio": 1.5,
+   "pos_52w": 78.8,
+   "from_52w_high_pct": -10.2,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/6/2026",
+      "eps": 1.93,
+      "consensus": 1.78,
+      "surprise_pct": 8.43
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/30/2026",
+      "eps": 0.73,
+      "consensus": 0.66,
+      "surprise_pct": 10.61
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/26/2026",
+      "eps": 0.23,
+      "consensus": 0.11,
+      "surprise_pct": 109.09
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/5/2025",
+      "eps": 1.58,
+      "consensus": 1.49,
+      "surprise_pct": 6.04
+     }
+    ],
+    "latest_pct": 8.43,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 4.47,
+   "per": 18.8
+  },
+  {
+   "symbol": "COHR",
+   "name": "Coherent Corp.",
+   "market_cap": 63612125223.0,
+   "price": 325.15,
+   "volume": 9845663.0,
+   "change_pct": -14.238,
+   "turnover": 3201317324.45,
+   "sector": "Technology",
+   "industry": "Electronic Components",
+   "country": "United States",
+   "reasons": [
+    "급락"
+   ],
+   "change_pct_yahoo": -14.24,
+   "vs_ma20_pct": 10.18,
+   "vs_ma60_pct": -6.45,
+   "change_5d_pct": 12.84,
+   "change_20d_pct": 5.78,
+   "volatility_20d": 8.08,
+   "volume_ratio": 1.69,
+   "pos_52w": 67.7,
+   "from_52w_high_pct": -26.1,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/6/2026",
+      "eps": 1.21,
+      "consensus": 1.23,
+      "surprise_pct": -1.63
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/4/2026",
+      "eps": 1.11,
+      "consensus": 1.03,
+      "surprise_pct": 7.77
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/5/2025",
+      "eps": 0.93,
+      "consensus": 0.85,
+      "surprise_pct": 9.41
+     },
+     {
+      "quarter": "Jun 2025",
+      "reported": "8/13/2025",
+      "eps": 0.74,
+      "consensus": 0.71,
+      "surprise_pct": 4.23
+     }
+    ],
+    "latest_pct": -1.63,
+    "beats": 3,
+    "count": 4
+   },
+   "ttm_eps": 3.99,
+   "per": 81.5
+  },
+  {
+   "symbol": "DDOG",
+   "name": "Datadog Inc.",
+   "market_cap": 93639584759.0,
+   "price": 260.78,
+   "volume": 8667511.0,
+   "change_pct": 11.478,
+   "turnover": 2260313518.58,
+   "sector": "Technology",
+   "industry": "Computer Software: Prepackaged Software",
+   "country": "United States",
+   "reasons": [
+    "급등"
+   ],
+   "change_pct_yahoo": 11.48,
+   "vs_ma20_pct": 0.62,
+   "vs_ma60_pct": 6.82,
+   "change_5d_pct": -4.69,
+   "change_20d_pct": 0.21,
+   "volatility_20d": 5.57,
+   "volume_ratio": 1.7,
+   "pos_52w": 83.6,
+   "from_52w_high_pct": -10.9,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/6/2026",
+      "eps": 0.18,
+      "consensus": 0.13,
+      "surprise_pct": 38.46
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/7/2026",
+      "eps": 0.17,
+      "consensus": 0.06,
+      "surprise_pct": 183.33
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/10/2026",
+      "eps": 0.15,
+      "consensus": 0.14,
+      "surprise_pct": 7.14
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/6/2025",
+      "eps": 0.11,
+      "consensus": 0.07,
+      "surprise_pct": 57.14
+     }
+    ],
+    "latest_pct": 38.46,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 0.61,
+   "per": 427.5
+  },
+  {
+   "symbol": "FIG",
+   "name": "Figma Inc.",
+   "market_cap": 13533120523.0,
+   "price": 25.39,
+   "volume": 25637089.0,
+   "change_pct": 9.017,
+   "turnover": 650925689.71,
+   "sector": "Technology",
+   "industry": "Computer Software: Prepackaged Software",
+   "country": "United States",
+   "reasons": [
+    "급등"
+   ],
+   "change_pct_yahoo": 9.02,
+   "vs_ma20_pct": 6.62,
+   "vs_ma60_pct": 15.4,
+   "change_5d_pct": 1.89,
+   "change_20d_pct": 7.36,
+   "volatility_20d": 5.95,
+   "volume_ratio": 1.03,
+   "pos_52w": 11.8,
+   "from_52w_high_pct": -72.1,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/5/2026",
+      "eps": -0.2,
+      "consensus": -0.22,
+      "surprise_pct": 9.09
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/14/2026",
+      "eps": -0.21,
+      "consensus": -0.17,
+      "surprise_pct": -23.53
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/18/2026",
+      "eps": -0.34,
+      "consensus": -0.2,
+      "surprise_pct": -70.0
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/5/2025",
+      "eps": -2.65,
+      "consensus": -1.56,
+      "surprise_pct": -69.87
+     }
+    ],
+    "latest_pct": 9.09,
+    "beats": 1,
+    "count": 4
+   },
+   "ttm_eps": -3.4
+  },
+  {
+   "symbol": "APA",
+   "name": "APA Corporation",
+   "market_cap": 14371418940.0,
+   "price": 41.02,
+   "volume": 7198829.0,
+   "change_pct": 9.009,
+   "turnover": 295295965.58000004,
+   "sector": "Energy",
+   "industry": "Oil & Gas Production",
+   "country": "United States",
+   "reasons": [
+    "급등"
+   ],
+   "change_pct_yahoo": 9.01,
+   "vs_ma20_pct": 13.91,
+   "vs_ma60_pct": 14.34,
+   "change_5d_pct": 11.26,
+   "change_20d_pct": 18.32,
+   "volatility_20d": 3.1,
+   "volume_ratio": 1.29,
+   "pos_52w": 82.0,
+   "from_52w_high_pct": -10.2,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/5/2026",
+      "eps": 1.89,
+      "consensus": 1.85,
+      "surprise_pct": 2.16
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/6/2026",
+      "eps": 1.38,
+      "consensus": 1.01,
+      "surprise_pct": 36.63
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/25/2026",
+      "eps": 0.91,
+      "consensus": 0.62,
+      "surprise_pct": 46.77
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/5/2025",
+      "eps": 0.93,
+      "consensus": 0.74,
+      "surprise_pct": 25.68
+     }
+    ],
+    "latest_pct": 2.16,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": 5.11,
+   "per": 8.0
+  },
+  {
+   "symbol": "XE",
+   "name": "X-Energy Inc.",
+   "market_cap": 8387396469.0,
+   "price": 20.64,
+   "volume": 4285327.0,
+   "change_pct": -8.874,
+   "turnover": 88449149.28,
+   "sector": "Industrials",
+   "industry": "Metal Fabrications",
+   "country": "United States",
+   "reasons": [
+    "급락"
+   ],
+   "change_pct_yahoo": -8.87,
+   "vs_ma20_pct": 22.73,
+   "vs_ma60_pct": 1.16,
+   "change_5d_pct": 18.69,
+   "change_20d_pct": 33.77,
+   "volatility_20d": 6.45,
+   "volume_ratio": 0.74,
+   "pos_52w": 30.9,
+   "from_52w_high_pct": -44.4
+  },
+  {
+   "symbol": "P",
+   "name": "Everpure Inc.",
+   "market_cap": 32569035237.0,
+   "price": 97.98,
+   "volume": 5151541.0,
+   "change_pct": 8.806,
+   "turnover": 504747987.18,
+   "sector": "Technology",
+   "industry": "Electronic Components",
+   "country": "United States",
+   "reasons": [
+    "급등"
+   ],
+   "change_pct_yahoo": 8.81,
+   "vs_ma20_pct": 26.76,
+   "vs_ma60_pct": 27.41,
+   "change_5d_pct": 22.26,
+   "change_20d_pct": 30.02,
+   "volatility_20d": 4.1,
+   "volume_ratio": 2.08,
+   "pos_52w": 91.2,
+   "from_52w_high_pct": -4.1,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Apr 2026",
+      "reported": "5/27/2026",
+      "eps": 0.09,
+      "consensus": 0.01,
+      "surprise_pct": 800.0
+     },
+     {
+      "quarter": "Jan 2026",
+      "reported": "2/25/2026",
+      "eps": 0.31,
+      "consensus": 0.27,
+      "surprise_pct": 14.81
+     },
+     {
+      "quarter": "Oct 2025",
+      "reported": "12/2/2025",
+      "eps": 0.18,
+      "consensus": 0.25,
+      "surprise_pct": -28.0
+     },
+     {
+      "quarter": "Jul 2025",
+      "reported": "8/27/2025",
+      "eps": 0.08,
+      "consensus": 0.08,
+      "surprise_pct": 0.0
+     }
+    ],
+    "latest_pct": 800.0,
+    "beats": 2,
+    "count": 4
+   },
+   "ttm_eps": 0.66,
+   "per": 148.5
+  },
+  {
+   "symbol": "RIG",
+   "name": "Transocean Ltd (Switzerland)",
+   "market_cap": 6388554086.0,
+   "price": 5.72,
+   "volume": 59394090.0,
+   "change_pct": 8.745,
+   "turnover": 339734194.8,
+   "sector": "Energy",
+   "industry": "Oil & Gas Production",
+   "country": "Switzerland",
+   "reasons": [
+    "급등"
+   ],
+   "change_pct_yahoo": 8.75,
+   "vs_ma20_pct": 9.72,
+   "vs_ma60_pct": 1.12,
+   "change_5d_pct": 11.07,
+   "change_20d_pct": 6.52,
+   "volatility_20d": 3.07,
+   "volume_ratio": 1.4,
+   "pos_52w": 60.4,
+   "from_52w_high_pct": -25.3,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/5/2026",
+      "eps": 0.03,
+      "consensus": 0.01,
+      "surprise_pct": 200.0
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/4/2026",
+      "eps": -0.03,
+      "consensus": 0.07,
+      "surprise_pct": -142.86
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/29/2025",
+      "eps": 0.06,
+      "consensus": 0.04,
+      "surprise_pct": 50.0
+     }
+    ],
+    "latest_pct": 200.0,
+    "beats": 2,
+    "count": 3
+   }
+  },
+  {
+   "symbol": "RBRK",
+   "name": "Rubrik Inc.",
+   "market_cap": 20152674897.0,
+   "price": 97.91,
+   "volume": 5989076.0,
+   "change_pct": 8.704,
+   "turnover": 586390431.16,
+   "sector": "Technology",
+   "industry": "Computer Software: Prepackaged Software",
+   "country": "United States",
+   "reasons": [
+    "급등"
+   ],
+   "change_pct_yahoo": 8.7,
+   "vs_ma20_pct": 24.25,
+   "vs_ma60_pct": 29.28,
+   "change_5d_pct": 31.0,
+   "change_20d_pct": 16.78,
+   "volatility_20d": 4.22,
+   "volume_ratio": 2.21,
+   "pos_52w": 96.5,
+   "from_52w_high_pct": -2.0,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Apr 2026",
+      "reported": "6/4/2026",
+      "eps": -0.19,
+      "consensus": -0.44,
+      "surprise_pct": 56.82
+     },
+     {
+      "quarter": "Jan 2026",
+      "reported": "3/12/2026",
+      "eps": -0.37,
+      "consensus": -0.53,
+      "surprise_pct": 30.19
+     },
+     {
+      "quarter": "Oct 2025",
+      "reported": "12/4/2025",
+      "eps": -0.3,
+      "consensus": -0.62,
+      "surprise_pct": 51.61
+     },
+     {
+      "quarter": "Jul 2025",
+      "reported": "9/9/2025",
+      "eps": -0.49,
+      "consensus": -0.71,
+      "surprise_pct": 30.99
+     }
+    ],
+    "latest_pct": 56.82,
+    "beats": 4,
+    "count": 4
+   },
+   "ttm_eps": -1.35
+  },
+  {
+   "symbol": "MXL",
+   "name": "MaxLinear Inc.",
+   "market_cap": 6207041992.0,
+   "price": 68.44,
+   "volume": 2945669.0,
+   "change_pct": -8.722,
+   "turnover": 201601586.35999998,
+   "sector": "Technology",
+   "industry": "Semiconductors",
+   "country": "United States",
+   "reasons": [
+    "급락"
+   ],
+   "change_pct_yahoo": -8.72,
+   "vs_ma20_pct": -7.14,
+   "vs_ma60_pct": -20.17,
+   "change_5d_pct": 1.98,
+   "change_20d_pct": -23.36,
+   "volatility_20d": 9.34,
+   "volume_ratio": 0.72,
+   "pos_52w": 48.2,
+   "from_52w_high_pct": -46.7,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/23/2026",
+      "eps": 0.13,
+      "consensus": 0.13,
+      "surprise_pct": 0.0
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "4/23/2026",
+      "eps": -0.01,
+      "consensus": -0.07,
+      "surprise_pct": 85.71
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "1/29/2026",
+      "eps": 0.08,
+      "consensus": -0.04,
+      "surprise_pct": 300.0
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/23/2025",
+      "eps": -0.11,
+      "consensus": -0.07,
+      "surprise_pct": -57.14
+     }
+    ],
+    "latest_pct": 0.0,
+    "beats": 2,
+    "count": 4
+   },
+   "ttm_eps": 0.09,
+   "per": 760.4
+  },
+  {
+   "symbol": "TWST",
+   "name": "Twist Bioscience Corporation",
+   "market_cap": 8279690609.0,
+   "price": 124.88,
+   "volume": 2642590.0,
+   "change_pct": 7.962,
+   "turnover": 330006639.2,
+   "sector": "Health Care",
+   "industry": "Biotechnology: Biological Products (No Diagnostic Substances)",
+   "country": "United States",
+   "reasons": [
+    "섹터대표:Health Care"
+   ],
+   "change_pct_yahoo": 7.96,
+   "vs_ma20_pct": 28.81,
+   "vs_ma60_pct": 48.61,
+   "change_5d_pct": 23.57,
+   "change_20d_pct": 38.22,
+   "volatility_20d": 5.77,
+   "volume_ratio": 1.68,
+   "pos_52w": 99.2,
+   "from_52w_high_pct": -0.6,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "8/3/2026",
+      "eps": -0.56,
+      "consensus": -0.5,
+      "surprise_pct": -12.0
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/4/2026",
+      "eps": -0.62,
+      "consensus": -0.54,
+      "surprise_pct": -14.81
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "2/2/2026",
+      "eps": -0.5,
+      "consensus": -0.48,
+      "surprise_pct": -4.17
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "11/14/2025",
+      "eps": -0.45,
+      "consensus": -0.4,
+      "surprise_pct": -12.5
+     }
+    ],
+    "latest_pct": -12.0,
+    "beats": 0,
+    "count": 4
+   },
+   "ttm_eps": -2.13
+  },
+  {
+   "symbol": "CORZ",
+   "name": "Core Scientific Inc.",
+   "market_cap": 6246858173.0,
+   "price": 19.44,
+   "volume": 19276023.0,
+   "change_pct": -7.473,
+   "turnover": 374725887.12,
+   "sector": "Finance",
+   "industry": "Finance: Consumer Services",
+   "country": "United States",
+   "reasons": [
+    "급락"
+   ],
+   "change_pct_yahoo": -7.47,
+   "vs_ma20_pct": -10.53,
+   "vs_ma60_pct": -20.94,
+   "change_5d_pct": -14.85,
+   "change_20d_pct": -14.4,
+   "volatility_20d": 7.3,
+   "volume_ratio": 1.42,
+   "pos_52w": 36.4,
+   "from_52w_high_pct": -36.2,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Jun 2026",
+      "reported": "7/28/2026",
+      "eps": 0.18,
+      "consensus": -0.02,
+      "surprise_pct": 1000.0
+     },
+     {
+      "quarter": "Mar 2026",
+      "reported": "5/6/2026",
+      "eps": -0.1,
+      "consensus": -0.02,
+      "surprise_pct": -400.0
+     },
+     {
+      "quarter": "Dec 2025",
+      "reported": "3/2/2026",
+      "eps": -0.29,
+      "consensus": -0.27,
+      "surprise_pct": -7.41
+     },
+     {
+      "quarter": "Sep 2025",
+      "reported": "10/24/2025",
+      "eps": -0.46,
+      "consensus": -0.85,
+      "surprise_pct": 45.88
+     }
+    ],
+    "latest_pct": 1000.0,
+    "beats": 2,
+    "count": 4
+   },
+   "ttm_eps": -0.67
+  },
+  {
+   "symbol": "FRVO",
+   "name": "Fervo Energy Company",
+   "market_cap": 7047907778.0,
+   "price": 23.92,
+   "volume": 1732096.0,
+   "change_pct": -7.466,
+   "turnover": 41431736.32,
+   "sector": "Utilities",
+   "industry": "Electric Utilities: Central",
+   "country": "United States",
+   "reasons": [
+    "급락"
+   ],
+   "change_pct_yahoo": -7.47,
+   "vs_ma20_pct": 0.74,
+   "vs_ma60_pct": -22.11,
+   "change_5d_pct": 7.8,
+   "change_20d_pct": -7.5,
+   "volatility_20d": 9.87,
+   "volume_ratio": 0.68,
+   "pos_52w": 27.3,
+   "from_52w_high_pct": -43.9,
+   "surprise": {
+    "quarters": [
+     {
+      "quarter": "Mar 2026",
+      "reported": "6/22/2026",
+      "eps": -3.72,
+      "consensus": -0.09,
+      "surprise_pct": -4033.33
+     }
+    ],
+    "latest_pct": -4033.33,
+    "beats": 0,
+    "count": 1
+   }
+  }
+ ],
+ "select_stats": {
+  "total": 7026,
+  "derivative": 1530,
+  "no_cap": 493,
+  "usable": 5003
+ },
+ "aggregate": {
+  "breadth": {
+   "up": 1943,
+   "down": 2953,
+   "flat": 106,
+   "up_ratio": 38.8,
+   "counted": 5002
+  },
+  "market_cap_weighted_pct": 0.15,
+  "sectors": [
+   {
+    "sector": "Energy",
+    "count": 96,
+    "up_ratio": 88.5,
+    "cap_weighted_pct": 4.05,
+    "turnover_bil": 23.4
+   },
+   {
+    "sector": "기타",
+    "count": 17,
+    "up_ratio": 52.9,
+    "cap_weighted_pct": 1.59,
+    "turnover_bil": 4.0
+   },
+   {
+    "sector": "Health Care",
+    "count": 342,
+    "up_ratio": 57.6,
+    "cap_weighted_pct": 1.21,
+    "turnover_bil": 51.7
+   },
+   {
+    "sector": "Basic Materials",
+    "count": 71,
+    "up_ratio": 70.4,
+    "cap_weighted_pct": 0.72,
+    "turnover_bil": 11.6
+   },
+   {
+    "sector": "Miscellaneous",
+    "count": 22,
+    "up_ratio": 27.3,
+    "cap_weighted_pct": 0.42,
+    "turnover_bil": 1.7
+   },
+   {
+    "sector": "Telecommunications",
+    "count": 48,
+    "up_ratio": 41.7,
+    "cap_weighted_pct": 0.23,
+    "turnover_bil": 14.1
+   },
+   {
+    "sector": "Consumer Discretionary",
+    "count": 483,
+    "up_ratio": 30.8,
+    "cap_weighted_pct": 0.22,
+    "turnover_bil": 88.7
+   },
+   {
+    "sector": "Finance",
+    "count": 431,
+    "up_ratio": 34.6,
+    "cap_weighted_pct": -0.08,
+    "turnover_bil": 50.5
+   },
+   {
+    "sector": "Industrials",
+    "count": 335,
+    "up_ratio": 32.2,
+    "cap_weighted_pct": -0.23,
+    "turnover_bil": 63.1
+   },
+   {
+    "sector": "Technology",
+    "count": 337,
+    "up_ratio": 42.1,
+    "cap_weighted_pct": -0.23,
+    "turnover_bil": 302.8
+   },
+   {
+    "sector": "Utilities",
+    "count": 91,
+    "up_ratio": 30.8,
+    "cap_weighted_pct": -0.37,
+    "turnover_bil": 17.2
+   },
+   {
+    "sector": "Consumer Staples",
+    "count": 64,
+    "up_ratio": 25.0,
+    "cap_weighted_pct": -0.48,
+    "turnover_bil": 9.9
+   },
+   {
+    "sector": "Real Estate",
+    "count": 116,
+    "up_ratio": 8.6,
+    "cap_weighted_pct": -1.15,
+    "turnover_bil": 11.0
+   }
+  ]
+ },
+ "earnings": [
+  {
+   "date": "2026-08-12",
+   "symbol": "CSCO",
+   "name": "Cisco Systems, Inc.",
+   "time": "after-hours",
+   "eps_forecast": "$0.99",
+   "market_cap": 478608411371.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "COHR",
+   "name": "Coherent Corp.",
+   "time": "after-hours",
+   "eps_forecast": "$1.43",
+   "market_cap": 74172735771.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "SE",
+   "name": "Sea Limited",
+   "time": "pre-market",
+   "eps_forecast": "$0.78",
+   "market_cap": 69474119330.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "LITE",
+   "name": "Lumentum Holdings Inc.",
+   "time": "after-hours",
+   "eps_forecast": "$2.62",
+   "market_cap": 69255226000.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "CAH",
+   "name": "Cardinal Health, Inc.",
+   "time": "pre-market",
+   "eps_forecast": "$2.42",
+   "market_cap": 55366264122.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "CBRS",
+   "name": "Cerebras Systems Inc.",
+   "time": "after-hours",
+   "eps_forecast": "($0.21)",
+   "market_cap": 50526909056.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "CRWV",
+   "name": "CoreWeave, Inc.",
+   "time": "after-hours",
+   "eps_forecast": "($1.67)",
+   "market_cap": 49466863272.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "NBIS",
+   "name": "Nebius Group N.V.",
+   "time": "pre-market",
+   "eps_forecast": "($0.67)",
+   "market_cap": 47725243526.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "FNV",
+   "name": "Franco-Nevada Corporation",
+   "time": "after-hours",
+   "eps_forecast": "$1.95",
+   "market_cap": 46010931986.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "ESLT",
+   "name": "Elbit Systems Ltd.",
+   "time": "pre-market",
+   "eps_forecast": "$3.57",
+   "market_cap": 39957684698.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "VG",
+   "name": "Venture Global, Inc.",
+   "time": "pre-market",
+   "eps_forecast": "$0.49",
+   "market_cap": 32942587478.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "ONON",
+   "name": "On Holding AG",
+   "time": "pre-market",
+   "eps_forecast": "$0.38",
+   "market_cap": 23961219489.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "AMCR",
+   "name": "Amcor plc",
+   "time": "pre-market",
+   "eps_forecast": "$1.20",
+   "market_cap": 22127864723.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "PAAS",
+   "name": "Pan American Silver Corp.",
+   "time": "after-hours",
+   "eps_forecast": "$0.84",
+   "market_cap": 21580127167.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "SMCI",
+   "name": "Super Micro Computer, Inc.",
+   "time": "after-hours",
+   "eps_forecast": "$0.56",
+   "market_cap": 18722157345.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "PFGC",
+   "name": "Performance Food Group Company",
+   "time": "pre-market",
+   "eps_forecast": "$1.62",
+   "market_cap": 18049623880.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "QNT",
+   "name": "Quantinuum Inc.",
+   "time": "after-hours",
+   "eps_forecast": "($0.26)",
+   "market_cap": 15321591969.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "TME",
+   "name": "Tencent Music Entertainment Group",
+   "time": "pre-market",
+   "eps_forecast": "$0.23",
+   "market_cap": 14999309885.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "ARMK",
+   "name": "Aramark",
+   "time": "pre-market",
+   "eps_forecast": "$0.48",
+   "market_cap": 14712251906.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "TRMB",
+   "name": "Trimble Inc.",
+   "time": "pre-market",
+   "eps_forecast": "$0.65",
+   "market_cap": 13872466496.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "TECH",
+   "name": "Bio-Techne Corp",
+   "time": "not-supplied",
+   "eps_forecast": "$0.46",
+   "market_cap": 11318355010.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "SUZ",
+   "name": "Suzano S.A.",
+   "time": "after-hours",
+   "eps_forecast": "$0.06",
+   "market_cap": 10391046795.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-11",
+   "symbol": "SFD",
+   "name": "Smithfield Foods, Inc.",
+   "time": "pre-market",
+   "eps_forecast": "$0.59",
+   "market_cap": 9994322480.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "EAT",
+   "name": "Brinker International, Inc.",
+   "time": "pre-market",
+   "eps_forecast": "$3.07",
+   "market_cap": 9658330308.0,
+   "watched": false
+  },
+  {
+   "date": "2026-08-12",
+   "symbol": "CAE",
+   "name": "CAE Inc",
+   "time": "after-hours",
+   "eps_forecast": "$0.17",
+   "market_cap": 8740629705.0,
+   "watched": false
+  }
+ ],
+ "econ": [
+  {
+   "date": "2026-08-11",
+   "time": "10:00",
+   "country": "United States",
+   "event": "CB Employment Trends Index",
+   "actual": "107.71",
+   "consensus": " ",
+   "previous": "106.74"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude Oil Production Algeria (Barrel)",
+   "actual": "0.99M",
+   "consensus": " ",
+   "previous": "0.99M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude Oil Production Congo (Barrel)",
+   "actual": "0.27M",
+   "consensus": " ",
+   "previous": "0.27M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude Oil Production Guinea (Barrel)",
+   "actual": "0.05M",
+   "consensus": " ",
+   "previous": "0.05M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude Oil Production Gabon (Barrel)",
+   "actual": "0.22M",
+   "consensus": " ",
+   "previous": "0.22M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude oil Production Iran (Barrel)",
+   "actual": "2.55M",
+   "consensus": " ",
+   "previous": "3.00M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude oil Production Iraq (Barrel)",
+   "actual": "2.85M",
+   "consensus": " ",
+   "previous": "2.00M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude Oil Production Kuwait (Barrel)",
+   "actual": "1.95M",
+   "consensus": " ",
+   "previous": "1.65M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude Oil Production Libya (Barrel)",
+   "actual": "1.35M",
+   "consensus": " ",
+   "previous": "1.30M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude Oil Production Nigeria (Barrel)",
+   "actual": "1.60M",
+   "consensus": " ",
+   "previous": "1.65M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude oil Production Saudi Arabia (Barrel)",
+   "actual": "6.90M",
+   "consensus": " ",
+   "previous": "7.20M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "10:45",
+   "country": "United States",
+   "event": "OPEC Crude oil Production Venezuela (Barrel)",
+   "actual": "1.12M",
+   "consensus": " ",
+   "previous": "1.10M"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "11:30",
+   "country": "United States",
+   "event": "3-Month Bill Auction",
+   "actual": "3.735%",
+   "consensus": " ",
+   "previous": "3.750%"
+  },
+  {
+   "date": "2026-08-11",
+   "time": "11:30",
+   "country": "United States",
+   "event": "6-Month Bill Auction",
+   "actual": "3.830%",
+   "consensus": " ",
+   "previous": "3.855%"
+  },
+  {
+   "date": "2026-08-12",
+   "time": "06:00",
+   "country": "United States",
+   "event": "NFIB Small Business Optimism",
+   "actual": "99.8",
+   "consensus": "97.5",
+   "previous": "97.4"
+  },
+  {
+   "date": "2026-08-12",
+   "time": "08:15",
+   "country": "United States",
+   "event": "ADP Employment Change Weekly",
+   "actual": "&nbsp;",
+   "consensus": " ",
+   "previous": "15.00K"
+  },
+  {
+   "date": "2026-08-12",
+   "time": "08:55",
+   "country": "United States",
+   "event": "Redbook",
+   "actual": "&nbsp;",
+   "consensus": " ",
+   "previous": "8.7%"
+  },
+  {
+   "date": "2026-08-12",
+   "time": "10:00",
+   "country": "United States",
+   "event": "Existing Home Sales",
+   "actual": "&nbsp;",
+   "consensus": "4.05M",
+   "previous": "4.09M"
+  },
+  {
+   "date": "2026-08-12",
+   "time": "10:00",
+   "country": "United States",
+   "event": "Existing Home Sales",
+   "actual": "&nbsp;",
+   "consensus": " ",
+   "previous": "-2.4%"
+  },
+  {
+   "date": "2026-08-12",
+   "time": "12:00",
+   "country": "United States",
+   "event": "EIA Short-Term Energy Outlook",
+   "actual": "&nbsp;",
+   "consensus": " ",
+   "previous": "&nbsp;"
+  }
+ ],
+ "sentiment": {
+  "us_fear_greed": {
+   "score": 65,
+   "rating": "greed",
+   "prev_close": 64.4,
+   "week_ago": 60.0
+  },
+  "crypto_fear_greed": {
+   "score": 29,
+   "rating": "Fear"
+  }
+ },
+ "news_stats": {
+  "collected": 408,
+  "stale_removed": 209,
+  "undated": 0,
+  "duplicates_removed": 18,
+  "after_dedupe": 181,
+  "ticker_tagged": 101,
+  "selected_for_llm": 40,
+  "selected_ticker": 30,
+  "covered": [
+   "AAPL",
+   "AMZN",
+   "AVGO",
+   "BSP",
+   "BTG",
+   "COHR",
+   "CORZ",
+   "DDOG",
+   "FIG",
+   "FLR",
+   "FTDR",
+   "GOOGL",
+   "LITE",
+   "META",
+   "MSFT",
+   "MXL",
+   "NVDA",
+   "OKLO",
+   "P",
+   "PLTR",
+   "RBRK",
+   "TSLA",
+   "TWST",
+   "TXG",
+   "XE"
+  ],
+  "uncovered": [
+   "APA",
+   "FRVO",
+   "MAAS",
+   "RIG",
+   "SM"
+  ],
+  "label_dist": {
+   "중립": 126,
+   "약부정": 17,
+   "약긍정": 31,
+   "긍정": 7
+  }
+ },
+ "news_selected": [
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "All You Need to Know About Frontdoor (FTDR) Rating Upgrade to Buy",
+   "summary": "Frontdoor (FTDR) has been upgraded to a Zacks Rank #2 (Buy), reflecting growing optimism about the company's earnings prospects. This might drive the stock higher in the near term.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/know-frontdoor-ftdr-rating-upgrade-160006942.html?.tsrc=rss",
+   "published": "2026-08-10 16:00",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 5,
+   "score_hits": [
+    "+upgrade",
+    "+upgraded",
+    "+optimism"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "Empact Technologies Named No. 27 on the 2026 Inc. 5000 List, the Most Prestigious Ranking of America's Fastest-Growing Private Companies",
+   "summary": "Empact Technologies today announced it has been ranked No. 27 on the 2026 Inc. 5000 list, the annual list of the fastest-growing private companies in America. The list is the most prestigious ranking of the nation's most successful independent and entrepreneurial businesses, recognizing companies that have achieved remarkable growth while driving innovation, creating jobs, and shaping the future o",
+   "link": "https://finance.yahoo.com/small-business/articles/empact-technologies-named-no-27-121300051.html?.tsrc=rss",
+   "published": "2026-08-11 12:13",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 5
+  },
+  {
+   "source": "Yahoo:NVDA",
+   "source_type": "yahoo_ticker",
+   "title": "Cisco or Coherent: Which Stock Is Poised to Soar After Earnings?",
+   "summary": "Cisco and Coherent both report earnings the same afternoon, putting two very different AI networking bets head to head. One carries a 93% crowd-backed beat probability while the other just shed 14% in a single session, and only one belongs in a retirement portfolio.",
+   "link": "https://247wallst.com/investing/2026/08/11/cisco-or-coherent-which-stock-is-poised-to-soar-after-earnings/?.tsrc=rss",
+   "published": "2026-08-11 12:05",
+   "tickers": [
+    "COHR",
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 3,
+   "score_hits": [
+    "+soar",
+    "+beat"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "Frontdoor Inc. (FTDR) Hits Fresh High: Is There Still Room to Run?",
+   "summary": "Frontdoor (FTDR) is at a 52-week high, but can investors hope for more gains in the future? We take a look at the company's fundamentals for clues.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/frontdoor-inc-ftdr-hits-fresh-131504348.html?.tsrc=rss",
+   "published": "2026-08-10 13:15",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 4,
+   "score_hits": [
+    "+52-week high",
+    "+gains"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:DDOG",
+   "source_type": "yahoo_ticker",
+   "title": "Is DDOG Stock Worth Investing in After Q2 Beat & Solid '26 Guidance?",
+   "summary": "Datadog's Q2 beat, raised 2026 outlook, strong cash flow and AI momentum support growth, though the stock trades at a premium valuation.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/ddog-stock-worth-investing-q2-163200713.html?.tsrc=rss",
+   "published": "2026-08-10 16:32",
+   "tickers": [
+    "DDOG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 3,
+   "score_hits": [
+    "+growth",
+    "+beat",
+    "+strong"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "3 Reasons Growth Investors Will Love Frontdoor (FTDR)",
+   "summary": "Frontdoor (FTDR) possesses solid growth attributes, which could help it handily outperform the market.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-growth-investors-love-164503142.html?.tsrc=rss",
+   "published": "2026-08-10 16:45",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 3,
+   "score_hits": [
+    "+outperform",
+    "+growth"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FLR",
+   "source_type": "yahoo_ticker",
+   "title": "Fluor Q2 Earnings Call Highlights",
+   "summary": "Fluor (NYSE:FLR) reported second-quarter revenue of $4.3 billion, up 9% from a year earlier, as strong project execution helped lift adjusted EBITDA to $149 million from $96 million in the prior-year period. Adjusted earnings per share rose to $0.91 from $0.43. The engineering and construction comp",
+   "link": "https://www.marketbeat.com/instant-alerts/fluor-q2-earnings-call-highlights-2026-08-08/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+   "published": "2026-08-08 08:03",
+   "tickers": [
+    "FLR"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+strong"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 5
+  },
+  {
+   "source": "Yahoo:AAPL",
+   "source_type": "yahoo_ticker",
+   "title": "Klarna Group (KLAR) Will Provide Leasing For A New US Device Upgrade Program",
+   "summary": "Klarna Group (NYSE:KLAR) is providing the leasing and financing backbone for Apple's new Apple Upgrade program in the United States. The partnership integrates Klarna into one of Apple's core hardware ownership offerings, expanding Klarna's exposure to US Apple customers. The role places Klarna more directly in consumer electronics financing beyond its existing buy now, pay later services. This ki",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/klarna-group-klar-leasing-us-100958491.html?.tsrc=rss",
+   "published": "2026-08-11 10:09",
+   "tickers": [
+    "AAPL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+upgrade"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TSLA",
+   "source_type": "yahoo_ticker",
+   "title": "Tesla Stock Will Rally If These 2 Things Happen",
+   "summary": "The electric-vehicle maker’s recent rally may be about to fizzle out ahead of inflation data that could determine what the Fed does next.",
+   "link": "https://finance.yahoo.com/m/3209be52-fb5e-35ff-822d-4ad25298759d/tesla-stock-will-rally-if.html?.tsrc=rss",
+   "published": "2026-08-11 10:18",
+   "tickers": [
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TWST",
+   "source_type": "yahoo_ticker",
+   "title": "Twist Bioscience (TWST) Q3 2026 Earnings Call Transcript",
+   "summary": "AI-enabled drug discovery orders drive triple-digit growth as guidance rises.",
+   "link": "https://www.fool.com/earnings/call-transcripts/2026/08/10/twist-bioscience-twst-q3-2026-earnings-call-transcript/?.tsrc=rss",
+   "published": "2026-08-11 01:31",
+   "tickers": [
+    "TWST"
+   ],
+   "sectors": [
+    "Health Care"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rises",
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:BSP",
+   "source_type": "yahoo_ticker",
+   "title": "US Stock Market Today: S&P 500 Futures Edge Higher As Rate Hike Fears Ease",
+   "summary": "The Morning Bull - US Market Morning Update Tuesday, Aug, 11 2026 US stock futures are slightly higher this morning, with E-mini S&P 500 contracts up about 0.1% and tech heavy Nasdaq futures gaining around 0.4%. Softer U.S. jobs data is a key driver. July payrolls fell by 23,000, which reduces the chance of another interest rate hike and can ease pressure on mortgages, credit cards and auto loans.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-081147026.html?.tsrc=rss",
+   "published": "2026-08-11 08:11",
+   "tickers": [
+    "BSP"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-pressure"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "beehiiv Named No. 19 on the 2026 Inc. 5000 List of America’s Fastest-Growing Private Companies",
+   "summary": "More Than 100x Three-Year Revenue Growth Earns beehiiv a Place Among the Nation's Most Successful Independent Businesses The Inc. 5000 Builds on beehiiv's Summer Release Event and a Year of Industry Recognition Across Advertising, Media and Technology, Including ADWEEK AI Power 50, ADWEEK Tech Stack Awards, New York City Podcast Awards and Webby Award Nominations NEW YORK, Aug. 11, 2026 (GLOBE NEW",
+   "link": "https://finance.yahoo.com/small-business/articles/beehiiv-named-no-19-2026-120500063.html?.tsrc=rss",
+   "published": "2026-08-11 12:05",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "Shepherd Ranks No. 139 on 2026 Inc. 5000 With 2,234% Three-Year Growth",
+   "summary": "Shepherd, the AI-native commercial insurance platform for high-hazard industries, today announced it has been ranked No. 139 on the 2026 Inc. 5000 list, the annual list of the fastest-growing private companies in America.",
+   "link": "https://finance.yahoo.com/small-business/articles/shepherd-ranks-no-139-2026-120400229.html?.tsrc=rss",
+   "published": "2026-08-11 12:04",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:PLTR",
+   "source_type": "yahoo_ticker",
+   "title": "Michael Burry Refreshes Bearish Palantir Trade Even As AI Rally Strains Short Bets",
+   "summary": "Famed \"Big Short\" investor Michael Burry buys new out-of-the-money puts on Palantir and adds to his Zoetis stake.",
+   "link": "https://stocktwits.com/news-articles/markets/equity/michael-burry-refreshes-bearish-palantir-trade/cZokb9jRJfQ?.tsrc=rss",
+   "published": "2026-08-10 20:01",
+   "tickers": [
+    "PLTR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Memory Price Surge Accelerating IT Hardware Spending, Morgan Stanley Says",
+   "summary": "Information technology hardware companies in the US will likely benefit from accelerated enterprise",
+   "link": "https://finance.yahoo.com/technology/articles/memory-price-surge-accelerating-hardware-203709359.html?.tsrc=rss",
+   "published": "2026-08-10 20:37",
+   "tickers": [
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+surge"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:RBRK",
+   "source_type": "yahoo_ticker",
+   "title": "Why Rubrik Stock Bounced Almost 9% Higher on Monday",
+   "summary": "It was swept up in a broad cybersecurity stock rally.",
+   "link": "https://www.fool.com/investing/2026/08/10/why-rubrik-stock-bounced-almost-9-higher-on-monday/?.tsrc=rss",
+   "published": "2026-08-10 23:15",
+   "tickers": [
+    "RBRK"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:CORZ",
+   "source_type": "yahoo_ticker",
+   "title": "What Advanced Micro Devices (AMD)'s New Instinct Coder AI Stack and Data Center Push Means For Shareholders",
+   "summary": "In early August 2026, Advanced Micro Devices reported second-quarter 2026 results showing higher sales and net income versus a year earlier, while also issuing revenue guidance for the third quarter and unveiling AMD Instinct Coder, a turnkey enterprise AI inference solution built with Spectro Cloud and Supermicro on Instinct MI325X GPUs. Together with its planned acquisition of AI inference start",
+   "link": "https://finance.yahoo.com/technology/ai/articles/advanced-micro-devices-amd-instinct-181151722.html?.tsrc=rss",
+   "published": "2026-08-10 18:11",
+   "tickers": [
+    "CORZ"
+   ],
+   "sectors": [
+    "Finance"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+acquisition"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "World's biggest chipmaker TSMC's sales surge 45% amid buoyant AI demand",
+   "summary": "TSMC makes chips for Big Tech customers like Nvidia and Google, so the firm's financial figures are closely watched as a sign of AI semiconductor demand.",
+   "link": "https://www.cnbc.com/2026/08/10/tsmc-revenue-surge-ai-chip-big-tech.html",
+   "published": "2026-08-10 13:39",
+   "score": 2,
+   "score_hits": [
+    "+surge"
+   ],
+   "label": "약긍정",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Does STX Stock Still Have More Room to Run After Solid Q4 Earnings?",
+   "summary": "Seagate's AI-driven storage boom, faster HAMR adoption and strong cash flow fuel growth, but a higher valuation makes the risk-reward more balanced.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/does-stx-stock-still-more-134600529.html?.tsrc=rss",
+   "published": "2026-08-10 13:46",
+   "tickers": [
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+growth",
+    "+strong"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AMZN",
+   "source_type": "yahoo_ticker",
+   "title": "Zuckerberg Plans to Spend $145 Billion on AI This Year. Barclays Says Major Productivity Gains Remain Elusive",
+   "summary": "Tech giants are pouring hundreds of billions into AI infrastructure, but a Barclays economist is pointing to a decades-old cautionary tale that suggests the productivity payoff could be further away than Wall Street expects.",
+   "link": "https://247wallst.com/investing/2026/08/11/zuckerberg-plans-to-spend-145-billion-on-ai-this-year-barclays-says-major-productivity-gains-remain-elusive/?.tsrc=rss",
+   "published": "2026-08-11 11:01",
+   "tickers": [
+    "AMZN"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:META",
+   "source_type": "yahoo_ticker",
+   "title": "IBM, Together AI ink $240 million deal for Nvidia-powered AI inference cluster",
+   "summary": "IBM and startup Together AI have signed a $240 million multi-year ‌agreement to build a large-scale artificial intelligence ‌cluster on IBM Cloud using Nvidia systems, the companies ​said on Tuesday. The cluster will provide inference for open-source AI models, which have gained traction as businesses seek to rein in AI costs ‌and weigh concerns ⁠about cybersecurity incidents involving models from",
+   "link": "https://finance.yahoo.com/technology/ai/articles/ibm-together-ai-ink-240-120237670.html?.tsrc=rss",
+   "published": "2026-08-11 12:02",
+   "tickers": [
+    "META",
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-concerns"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:OKLO",
+   "source_type": "yahoo_ticker",
+   "title": "OKLO Stock Faces New Reality Check: Wall Street Is Getting More Cautious, Retail Sentiment Slips",
+   "summary": "Oklo received a series of price target cuts from Wall Street analysts, even as retail sentiment on Stocktwits fell from ‘extremely bullish’ to ‘bullish’ over the past 24 hours.",
+   "link": "https://stocktwits.com/news-articles/markets/equity/oklo-stock-faces-new-reality-check-wall-street-is-getting-more-cautious-retail-sentiment-slips/cZoZN1PRJfw?.tsrc=rss",
+   "published": "2026-08-11 05:43",
+   "tickers": [
+    "OKLO"
+   ],
+   "sectors": [
+    "Utilities"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-cautious"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:LITE",
+   "source_type": "yahoo_ticker",
+   "title": "“The Bottleneck Isn’t the Chips Anymore”: Goldman Sachs Says These Are AI’s Next Big Winners",
+   "summary": "A Goldman Sachs executive says the AI trade is quietly shifting away from chips toward a different hardware category entirely, and two companies are already racing to fill a supply gap that could take years to close.",
+   "link": "https://247wallst.com/investing/2026/08/11/the-bottleneck-isnt-the-chips-anymore-goldman-sachs-says-these-are-ais-next-big-winners/?.tsrc=rss",
+   "published": "2026-08-11 10:25",
+   "tickers": [
+    "LITE"
+   ],
+   "sectors": [
+    "Telecommunications"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:AVGO",
+   "source_type": "yahoo_ticker",
+   "title": "2 Dividend Growth Stocks Worth Holding for the Long Haul",
+   "summary": "The shareholder-friendliness of these companies often floats under the radar.",
+   "link": "https://www.fool.com/investing/2026/08/10/2-dividend-growth-stocks-worth-holding-for-the/?.tsrc=rss",
+   "published": "2026-08-10 13:50",
+   "tickers": [
+    "AVGO"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AMZN",
+   "source_type": "yahoo_ticker",
+   "title": "This AI Cloud Stock Is Obliterating Amazon, Microsoft, and Alphabet With a 1-Year Return of 275%. Is It Still a Buy?",
+   "summary": "Artificial intelligence has been a major tailwind for this budding cloud company.",
+   "link": "https://www.fool.com/investing/2026/08/11/this-ai-cloud-stock-alphabet-1-year-return-275-buy/?.tsrc=rss",
+   "published": "2026-08-11 08:55",
+   "tickers": [
+    "AMZN",
+    "GOOGL",
+    "MSFT"
+   ],
+   "sectors": [
+    "Consumer Discretionary",
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:XE",
+   "source_type": "yahoo_ticker",
+   "title": "TRISO-X and Oak Ridge National Laboratory Extend Advanced Nuclear Fuel Research Partnership",
+   "summary": "OAK RIDGE, Tenn., Aug. 11, 2026 (GLOBE NEWSWIRE) -- TRISO-X, LLC (“TRISO-X” or the “Company”), a leading manufacturer of advanced nuclear fuels and wholly-owned subsidiary of X-Energy, Inc. (“X-energy”) (Nasdaq: XE), today announced the extension of its cooperative research and development relationship with the U.S. Department of Energy's Oak Ridge National Laboratory (\"ORNL\" or the “Lab”). The ag",
+   "link": "https://finance.yahoo.com/energy/articles/triso-x-oak-ridge-national-110000287.html?.tsrc=rss",
+   "published": "2026-08-11 11:00",
+   "tickers": [
+    "XE"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:MXL",
+   "source_type": "yahoo_ticker",
+   "title": "MaxLinear Introduces RackCommander™ Control-Plane Portfolio for Next-Generation AI Infrastructure",
+   "summary": "CARLSBAD, Calif., August 11, 2026--MaxLinear launches RackCommander™, a control-plane portfolio enabling connectivity, monitoring, control, and power management for AI infrastructure.",
+   "link": "https://finance.yahoo.com/technology/ai/articles/maxlinear-introduces-rackcommander-control-plane-032300998.html?.tsrc=rss",
+   "published": "2026-08-11 03:23",
+   "tickers": [
+    "MXL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:BTG",
+   "source_type": "yahoo_ticker",
+   "title": "B2Gold (TSX:BTO) Stock May Still Trade At A Discount On Mali Permit News",
+   "summary": "B2Gold stock has delivered a strong run for long term holders over the past three years, yet the latest valuation checks still suggest the shares screen as inexpensive on several fronts. B2Gold has returned 87.7% over the past three years, which puts recent price strength in the spotlight for anyone reassessing upside from here. The newly granted Menankoto exploitation permit in Mali can support e",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/b2gold-tsx-bto-stock-may-091135882.html?.tsrc=rss",
+   "published": "2026-08-09 09:11",
+   "tickers": [
+    "BTG"
+   ],
+   "sectors": [
+    "Basic Materials"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+strong"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TXG",
+   "source_type": "yahoo_ticker",
+   "title": "TXG Q2 Deep Dive: Atera Launch Signals Transition as Spatial Market Shifts",
+   "summary": "Biotech company 10x Genomics (NASDAQ:TXG) reported Q2 CY2026 results exceeding the market’s revenue expectations, but sales fell by 12.6% year on year to $151 million. The company’s full-year revenue guidance of $620 million at the midpoint came in 1% above analysts’ estimates. Its GAAP loss of $0.14 per share was 44.2% above analysts’ consensus estimates.",
+   "link": "https://finance.yahoo.com/healthcare/articles/txg-q2-deep-dive-atera-034122869.html?.tsrc=rss",
+   "published": "2026-08-10 03:41",
+   "tickers": [
+    "TXG"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FIG",
+   "source_type": "yahoo_ticker",
+   "title": "How Figma Stock Jumped 37.4% Last Month",
+   "summary": "Short sellers and index funds moved Figma's stock in July. The company barely participated in the process.",
+   "link": "https://www.fool.com/investing/2026/08/10/how-figma-stock-jumped-374-last-month/?.tsrc=rss",
+   "published": "2026-08-10 19:16",
+   "tickers": [
+    "FIG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Hormuz deadlock: Where oil prices could head next as prospects for an imminent deal fade",
+   "summary": "Oil traders keep clinging to hope that the Strait of Hormuz will reopen. That won't last forever.",
+   "link": "https://www.cnbc.com/2026/08/11/hormuz-oil-prices-us-iran.html",
+   "published": "2026-08-11 10:29",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Energy"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "U.S. oil price hovers around $82 as traders weigh conflicting signals on Strait of Hormuz deal",
+   "summary": "U.S. oil had risen as much as 3% earlier in the day after President Donald Trump demanded that Iran pay reparations to the U.S.",
+   "link": "https://www.cnbc.com/2026/08/11/oil-prices-today-us-crude-84.html",
+   "published": "2026-08-11 12:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Energy"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Why is Legend Biotech stock surging today?",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/why-is-legend-biotech-stock-surging-today-93CH-4851533",
+   "published": "2026-08-11 12:18",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Health Care"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Interest rates may stay higher for longer. What that means for consumers",
+   "summary": "Any move toward higher rates would increase borrowing costs for consumers at a time when affordability pressures are already mounting.",
+   "link": "https://www.cnbc.com/2026/08/10/fed-rate-hike-prospects-higher-interest-rates.html",
+   "published": "2026-08-10 16:10",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Finance"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "Energy earnings beat: 10 stocks with the highest EPS surprises",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630647-energy-earnings-beat-10-stocks-with-the-highest-eps-surprises?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:23",
+   "score": 4,
+   "score_hits": [
+    "+earnings beat",
+    "+beat"
+   ],
+   "label": "긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "U.S. judge ends graft case against Indian billionaire Gautam Adani",
+   "summary": "A U.S. federal judge has approved the Department of Justice's decision to dismiss the criminal probe against Indian billionaire Gautam Adani on graft charges.",
+   "link": "https://www.cnbc.com/2026/08/11/us-judge-ends-graft-case-against-indian-billionaire-gautam-adani.html",
+   "published": "2026-08-11 09:57",
+   "score": -2,
+   "score_hits": [
+    "-probe"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "US backs Australian rare earth miner to cut out China",
+   "summary": "Sunrise Energy shares soar after Trump administration provides $400mn loan to develop scandium project",
+   "link": "https://www.ft.com/content/d88b7e46-6806-4286-94d7-3bb16facee41?syn-25a6b1a6=1",
+   "published": "2026-08-10 04:37",
+   "score": 2,
+   "score_hits": [
+    "+soar"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:US stocks market today",
+   "source_type": "google",
+   "title": "Samsung Electronics, SK hynix rally on U.S. market boost - 네이트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE13aVRzLWlmMWdYU1hUcFBmOFVRbm5wVEx0RmEtanJQaXNUNWNiZGY4ZDIyVS01Yi1UcWJhODNXZU8zc0VnYXRYUzdka09pVjRaQzVJVy1Ka084SElVM0I5Z1Q4ZVZBNWxUcHFsZ0FoWHZabWVZd0xIcA?oc=5",
+   "published": "2026-08-10 02:30",
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Zelenskyy warns Putin is preparing for escalation by bringing in North Korean military equipment",
+   "summary": "His comments come shortly after deadly Russian attacks on cities across Ukraine overnight.",
+   "link": "https://www.cnbc.com/2026/08/11/ukraine-war-zelenskyy-russia-putin-north-korea.html",
+   "published": "2026-08-11 08:20",
+   "score": -1,
+   "score_hits": [
+    "-warns"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "FIFA World Cup 'will never be as profitable' if Infantino is ousted, Trump warns amid global soccer revolt",
+   "summary": "President Gianni Infantino pushed FIFA's commercialization drive, which culminated in the largest, most profitable World Cup on record",
+   "link": "https://www.cnbc.com/2026/08/11/trump-world-cup-infantino-profit.html",
+   "published": "2026-08-11 10:17",
+   "score": -1,
+   "score_hits": [
+    "-warns"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  }
+ ],
+ "news_all": [
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Wall Street just endorsed Jensen Huang's 'big concept' for AI. What now?",
+   "summary": "The first three-plus years of the AI buildout has been funded by record amounts of equity and debt issued by leading tech companies. Nvidia has a new idea.",
+   "link": "https://www.cnbc.com/2026/08/11/wall-street-endorsed-jensen-huangs-big-concept-for-ai-what-now.html",
+   "published": "2026-08-11 11:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "'That's a good idea': U.S. and Iran trade reparation demands as Hormuz deal hopes fade",
+   "summary": "The dueling positions Washington and Tehran staked out showed how far apart the two sides remain even as both talked of winding down regional hostilities.",
+   "link": "https://www.cnbc.com/2026/08/11/us-iran-war-trump-hormuz-control-reparation-talks-.html",
+   "published": "2026-08-11 12:29",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Intel upsizes stock offering to $20 billion at $95 per share as AI demand accelerates",
+   "summary": "Technology giants have shelled out trillions to support insatiable AI demand and the infrastructure buildout.",
+   "link": "https://www.cnbc.com/2026/08/10/intel-intc-stock-offering-ai.html",
+   "published": "2026-08-11 07:17",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Baby products company Frida is expanding into kids’ personal care",
+   "summary": "Baby products company Frida is launching a new category of personal care items for kids, tapping into a growing market and largely untapped space.",
+   "link": "https://www.cnbc.com/2026/08/11/frida-kids-personal-care.html",
+   "published": "2026-08-11 12:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Zelenskyy warns Putin is preparing for escalation by bringing in North Korean military equipment",
+   "summary": "His comments come shortly after deadly Russian attacks on cities across Ukraine overnight.",
+   "link": "https://www.cnbc.com/2026/08/11/ukraine-war-zelenskyy-russia-putin-north-korea.html",
+   "published": "2026-08-11 08:20",
+   "score": -1,
+   "score_hits": [
+    "-warns"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Hotel giant says ‘growing middle class’ boosted hotel demand despite Middle East hit",
+   "summary": "IHG reported higher first-half profit as U.S. demand accelerated and Middle East disruption weighed on travel.",
+   "link": "https://www.cnbc.com/2026/08/11/ihg-profit-us-travel-middle-east.html",
+   "published": "2026-08-11 10:06",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Trump signs executive order calling for fewer childhood vaccines, falsely linking shots to autism",
+   "summary": "The order builds on the Trump administration's efforts to reshape the childhood shot schedule under HHS Secretary RFK Jr., a longtime vaccine skeptic.",
+   "link": "https://www.cnbc.com/2026/08/10/trump-vaccine-executive-order-autism.html",
+   "published": "2026-08-10 20:51",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "U.S. judge ends graft case against Indian billionaire Gautam Adani",
+   "summary": "A U.S. federal judge has approved the Department of Justice's decision to dismiss the criminal probe against Indian billionaire Gautam Adani on graft charges.",
+   "link": "https://www.cnbc.com/2026/08/11/us-judge-ends-graft-case-against-indian-billionaire-gautam-adani.html",
+   "published": "2026-08-11 09:57",
+   "score": -2,
+   "score_hits": [
+    "-probe"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Interest rates may stay higher for longer. What that means for consumers",
+   "summary": "Any move toward higher rates would increase borrowing costs for consumers at a time when affordability pressures are already mounting.",
+   "link": "https://www.cnbc.com/2026/08/10/fed-rate-hike-prospects-higher-interest-rates.html",
+   "published": "2026-08-10 16:10",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Finance"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "OpenAI wraps $7 billion share sale ahead of potential IPO",
+   "summary": "OpenAI's tender offer has been in the works since the company closed its record-breaking $122 billion funding round in March.",
+   "link": "https://www.cnbc.com/2026/08/10/openai-wraps-7-billion-share-sale-ahead-of-potential-ipo-.html",
+   "published": "2026-08-10 22:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Treasury yields are little changed as investors await inflation data",
+   "summary": "U.S. Treasury yields edged higher Tuesday as investors await July's inflation data print amid ongoing Iran tensions.",
+   "link": "https://www.cnbc.com/2026/08/11/treasury-yields-up-as-oil-prices-jump-investors-await-inflation-data-.html",
+   "published": "2026-08-11 12:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "FIFA World Cup 'will never be as profitable' if Infantino is ousted, Trump warns amid global soccer revolt",
+   "summary": "President Gianni Infantino pushed FIFA's commercialization drive, which culminated in the largest, most profitable World Cup on record",
+   "link": "https://www.cnbc.com/2026/08/11/trump-world-cup-infantino-profit.html",
+   "published": "2026-08-11 10:17",
+   "score": -1,
+   "score_hits": [
+    "-warns"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Eli Lilly takes weight-loss pill battle global with first Foundayo approval outside U.S.",
+   "summary": "Lilly's Foundayo wins U.K. approval, taking its weight-loss pill battle with Novo Nordisk's Wegovy beyond the U.S. market.",
+   "link": "https://www.cnbc.com/2026/08/11/foundayo-eli-lilly-wegovy-pill-uk.html",
+   "published": "2026-08-11 09:27",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Hormuz deadlock: Where oil prices could head next as prospects for an imminent deal fade",
+   "summary": "Oil traders keep clinging to hope that the Strait of Hormuz will reopen. That won't last forever.",
+   "link": "https://www.cnbc.com/2026/08/11/hormuz-oil-prices-us-iran.html",
+   "published": "2026-08-11 10:29",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Energy"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Meta's latest model advances Zuckerberg's vision for personal AI assistants",
+   "summary": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
+   "link": "https://www.cnbc.com/2026/08/10/metas-latest-model-advances-zuckerbergs-vision-for-personal-ai-assistants.html",
+   "published": "2026-08-10 19:09",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Trump Media posts $238 million second-quarter loss as crypto declines",
+   "summary": "TMTG said it has signed more than 10 customer agreements for Truth API, the service offering faster access to President Donald Trump's posts.",
+   "link": "https://www.cnbc.com/2026/08/10/trump-media-djt-tmtg-earnings-truth-social-crypto.html",
+   "published": "2026-08-10 22:33",
+   "score": -1,
+   "score_hits": [
+    "-declines"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Trump says he spoke recently to Fed Chairman Warsh, denies regular calls",
+   "summary": "The president said he had recently been in touch with the Fed chairman, but denied regular contact amid concerns about central bank independence.",
+   "link": "https://www.cnbc.com/2026/08/10/trump-spoke-to-fed-chair-kevin-warsh-denies-regular-calls.html",
+   "published": "2026-08-10 21:23",
+   "score": -1,
+   "score_hits": [
+    "-concerns"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Oil in U.S. Strategic Petroleum Reserve falls below 300 million barrels, lowest since 1983",
+   "summary": "U.S. presidents have increasingly ordered massive releases from the SPR in recent years.",
+   "link": "https://www.cnbc.com/2026/08/10/oil-in-strategic-petroleum-reserve-falls-below-300-million-barrels-lowest-since-1983.html",
+   "published": "2026-08-10 18:43",
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "U.S. oil price hovers around $82 as traders weigh conflicting signals on Strait of Hormuz deal",
+   "summary": "U.S. oil had risen as much as 3% earlier in the day after President Donald Trump demanded that Iran pay reparations to the U.S.",
+   "link": "https://www.cnbc.com/2026/08/11/oil-prices-today-us-crude-84.html",
+   "published": "2026-08-11 12:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Energy"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "OpenAI expands Daybreak cybersecurity initiative as AI agent threats evolve",
+   "summary": "The company introduced Daybreak in May as a way for its ecosystem partners to use its most advanced AI models to adapt to a rapidly changing threat landscape.",
+   "link": "https://www.cnbc.com/2026/08/10/open-ai-daybreak-cybersecurity.html",
+   "published": "2026-08-10 18:43",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "HHS moves to tighten oversight of food ingredients as safety concerns mount",
+   "summary": "HHS moves to tighten oversight of food ingredients and define ultra-processed foods as food safety concerns raise questions about FDA visibility.",
+   "link": "https://www.cnbc.com/2026/08/10/hhs-makes-announcements-on-gras-ultraprocessed-food.html",
+   "published": "2026-08-10 18:46",
+   "score": -1,
+   "score_hits": [
+    "-concerns"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Singapore revises its annual growth forecast sharply higher on AI-related boost",
+   "summary": "GDP growth for 2026 is now expected to come in at 4.5% to 5.5%, more than double the low end of its previous forecast of 2%-4%",
+   "link": "https://www.cnbc.com/2026/08/11/singapore-gdp-forecast-ai-boost-oil.html",
+   "published": "2026-08-11 02:58",
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Boeing sells eVTOL subsidiaries, takes stake in Archer",
+   "summary": "Boeing is selling three of its subsidiaries to Archer Aviation in exchange for a stake in the eVTOL startup.",
+   "link": "https://www.cnbc.com/2026/08/10/boeing-evtol-archer-stake.html",
+   "published": "2026-08-10 20:11",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "SpaceX stock rebounds, closing above $135 IPO price for first time in weeks",
+   "summary": "SpaceX reported better-than-expected revenue in its second-quarter earnings report last week.",
+   "link": "https://www.cnbc.com/2026/08/10/spacex-spcx-stock-ipo-price.html",
+   "published": "2026-08-10 20:08",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "OpenAI tightens controls on its new model over cybersecurity risks, as AI security debate intensifies",
+   "summary": "The AI lab said it could not rule out a new model had reached \"Critical\" capability, meaning it could launch cyberattacks against sophisticated cyber defenses.",
+   "link": "https://www.cnbc.com/2026/08/10/openai-astra-cybersecurity-risks.html",
+   "published": "2026-08-10 11:04",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Santoli: Stocks return to winning ways. Why the market gods may not be satisfied with July's brief pain",
+   "summary": "The stock market's winning history – a hit rate of 100% over any past 20-year span - is well understood. But investors recognize – or need to – the genuine hazard in equities.",
+   "link": "https://www.cnbc.com/2026/08/10/santoli-stocks-return-to-their-winning-ways-but-was-julys-brief-pain-enough-to-satisfy-the-market-gods.html",
+   "published": "2026-08-10 11:45",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Meta to open source its most powerful AI model as it takes swipe at OpenAI, Anthropic",
+   "summary": "Meta launched Muse Glimmer and plans to release Muse Spark 1.2 weights as Zuckerberg pushes for U.S. leadership in open AI.",
+   "link": "https://www.cnbc.com/2026/08/10/meta-muse-glimmer-open-weight-ai.html",
+   "published": "2026-08-10 12:40",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "World's biggest chipmaker TSMC's sales surge 45% amid buoyant AI demand",
+   "summary": "TSMC makes chips for Big Tech customers like Nvidia and Google, so the firm's financial figures are closely watched as a sign of AI semiconductor demand.",
+   "link": "https://www.cnbc.com/2026/08/10/tsmc-revenue-surge-ai-chip-big-tech.html",
+   "published": "2026-08-10 13:39",
+   "score": 2,
+   "score_hits": [
+    "+surge"
+   ],
+   "label": "약긍정",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Student loan borrowers face steeper 'marriage penalty' under new repayment plan",
+   "summary": "Recent changes to the federal student loan system could impact married couples. Here's what borrowers should consider.",
+   "link": "https://www.cnbc.com/2026/08/10/student-loan-marriage-penalty-rap.html",
+   "published": "2026-08-10 12:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CNBC속보",
+   "source_type": "rss",
+   "title": "Shein faces existential threat as tariffs hit low-price model, putting new focus on services",
+   "summary": "Shein has won over consumers with its low prices but is now seeing shoppers flee after new tariffs and changing regulations forced it to raise prices.",
+   "link": "https://www.cnbc.com/2026/08/10/shein-ipo-tariffs.html",
+   "published": "2026-08-10 11:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "Airbnb has added thousands of new hotel listings. Will that ruin its charm?",
+   "summary": "The home-rental company is leaning into hotels and third-party amenities to transform into a “one-stop shop” for travel.",
+   "link": "https://www.marketwatch.com/story/airbnb-has-added-thousands-of-new-hotel-listings-will-that-ruin-its-charm-0af2d3b0?mod=mw_rss_topstories",
+   "published": "2026-08-11 12:29",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "Warsh’s changes to forward guidance were tried by one central bank — and here’s what happened",
+   "summary": "Canada’s post-2008 playbook shows the volatility risks of Warsh’s no-guidance Fed.",
+   "link": "https://www.marketwatch.com/story/warshs-changes-to-forward-guidance-were-tried-by-one-central-bank-and-heres-what-happened-c7a5c743?mod=mw_rss_topstories",
+   "published": "2026-08-11 12:16",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "‘The market is obviously on fire’: Should I take $1,000 from my brokerage account to pay off my car loan?",
+   "summary": "“I’m curious whether there’s a downside.”",
+   "link": "https://www.marketwatch.com/story/the-market-is-obviously-on-fire-is-it-a-mistake-to-take-1-000-from-my-brokerage-account-to-pay-my-car-loan-65800d1f?mod=mw_rss_topstories",
+   "published": "2026-08-11 12:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "As Lumentum gears up for earnings, here’s a sign the optical trade is clawing back",
+   "summary": "A photonics-themed ETF saw better demand in its first trading day than a popular memory ETF did at the same point in its life cycle.",
+   "link": "https://www.marketwatch.com/story/as-lumentum-gears-up-for-earnings-heres-a-sign-the-optical-trade-is-clawing-back-de284355?mod=mw_rss_topstories",
+   "published": "2026-08-11 11:46",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [
+    "LITE"
+   ],
+   "sectors": [
+    "Telecommunications"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "This fund manager tunes out AI hype to flag the infrastructure stocks to buy now. Think roads, water and telecom towers.",
+   "summary": "Lazard portfolio manager Bertrand Cliquet says infrastructure companies are worth more than the AI hype sometimes linked to them.",
+   "link": "https://www.marketwatch.com/story/roads-water-and-telecom-towers-can-beat-the-ai-hype-this-fund-manager-flags-the-infrastructure-stocks-to-buy-now-54c62a77?mod=mw_rss_topstories",
+   "published": "2026-08-11 11:18",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "Is $1 million enough for a household to retire? The answer keeps changing.",
+   "summary": "“Some readers — and couples — would be grateful to retire on half that amount.”",
+   "link": "https://www.marketwatch.com/story/is-1-million-enough-for-a-household-to-retire-the-answer-keeps-changing-aee84a83?mod=mw_rss_topstories",
+   "published": "2026-08-11 11:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "Wall Street bank urges hedging into July’s CPI — as sell trigger hits highest level in eight years",
+   "summary": "Well’s Fargo’s sentiment indicator reached 1.4 in August, its most since January 2018.",
+   "link": "https://www.marketwatch.com/story/wall-street-bank-urges-hedging-into-julys-cpi-as-sell-trigger-hits-highest-level-in-eight-years-bc9374f1?mod=mw_rss_topstories",
+   "published": "2026-08-11 10:50",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "These 11 midcaps are popular right now among investment newsletters but not because of sweet-spot market valuations",
+   "summary": "Bigger than small caps. Smaller than large caps. Are they, as in the fairytale, “just right”?",
+   "link": "https://www.marketwatch.com/story/these-11-midcaps-are-popular-right-now-among-investment-newsletters-but-not-because-of-their-market-valuations-a0bf0fbb?mod=mw_rss_topstories",
+   "published": "2026-08-11 10:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "‘I unexpectedly came into some money’: Is putting $20,000 into CDs a smart move?",
+   "summary": "“I want to make the process as straightforward as possible for my beneficiaries to access the funds.”",
+   "link": "https://www.marketwatch.com/story/i-unexpectedly-came-into-some-money-is-putting-20-000-into-cds-a-smart-move-6c410458?mod=mw_rss_topstories",
+   "published": "2026-08-11 10:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "MarketWatch",
+   "source_type": "rss",
+   "title": "My wife’s Social Security is just $900. Should she claim her spousal benefit at 62 or wait?",
+   "summary": "“She was a teacher at a school district, so didn’t put much into Social Security.”",
+   "link": "https://www.marketwatch.com/story/i-want-her-to-choose-the-best-strategy-my-wifes-social-security-is-just-900-should-she-claim-spousal-benefit-at-62-e3ef621d?mod=mw_rss_topstories",
+   "published": "2026-08-11 10:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "Monolithic Power initiated with a Buy rating at GF Securities",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630629-monolithic-power-initiated-with-a-buy-rating-at-gf-securities?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:25",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "Pangaea Logistics declares $0.10 dividend",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630657-pangaea-logistics-declares-0_10-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "Mereo BioPharma Group GAAP EPS of -$0.01 in-line",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630656-mereo-biopharma-group-gaap-eps-of-0_01-in-line?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:23",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "Energy earnings beat: 10 stocks with the highest EPS surprises",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630647-energy-earnings-beat-10-stocks-with-the-highest-eps-surprises?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:23",
+   "score": 4,
+   "score_hits": [
+    "+earnings beat",
+    "+beat"
+   ],
+   "label": "긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "James River declares $0.01 dividend",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630654-james-river-declares-0_01-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:23",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "Joby Aviation enters up to $750M equity distribution pact",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630651-joby-aviation-enters-up-to-750m-equity-distribution-pact?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:22",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "SeekingAlpha",
+   "source_type": "rss",
+   "title": "Entravision Communications Corporation declares $0.05 dividend",
+   "summary": "",
+   "link": "https://seekingalpha.com/news/4630653-entravision-communications-corporation-declares-0_05-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+   "published": "2026-08-11 12:21",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Deutsche becomes first European clearing bank for renminbi",
+   "summary": "China seeks to increase international use of its currency",
+   "link": "https://www.ft.com/content/d891285a-e581-45b7-8cb0-80411669c1eb?syn-25a6b1a6=1",
+   "published": "2026-08-11 09:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Chinese robot maker’s IPO 5,500 times oversubscribed by retail investors",
+   "summary": "Unitree raises $900mn ahead of Shanghai listing expected later this month",
+   "link": "https://www.ft.com/content/99824437-8173-4320-b84b-242c726ab437?syn-25a6b1a6=1",
+   "published": "2026-08-11 07:12",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Investing in the forgotten lands",
+   "summary": "Getting Europe back on the radar",
+   "link": "https://www.ft.com/content/c27150f4-24e7-4def-9461-0a4849a0ea81?syn-25a6b1a6=1",
+   "published": "2026-08-11 05:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Banks’ refusal to take on crypto firms risks stunting UK industry’s growth, lawmakers say",
+   "summary": "Parliamentary group asks lenders to clarify rules for serving crypto companies",
+   "link": "https://www.ft.com/content/291635b9-b401-47ed-a1aa-c9879147b883?syn-25a6b1a6=1",
+   "published": "2026-08-11 04:00",
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Hong Kong set to include trading firms in ‘big bang’ tax reforms",
+   "summary": "Proposal is part of push by the Chinese territory to compete with Singapore for top-tier financial talent",
+   "link": "https://www.ft.com/content/c9c7c2dc-979e-49b2-a57f-77bb461bb7db?syn-25a6b1a6=1",
+   "published": "2026-08-11 02:50",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Yen sinks as effect of US-Japan intervention fades",
+   "summary": "Currency gives up roughly half its gains from joint action with investors citing lack of ‘unified voice’ among central banks",
+   "link": "https://www.ft.com/content/47d2ab3c-0423-49ed-89ca-68683761ed98?syn-25a6b1a6=1",
+   "published": "2026-08-11 01:38",
+   "score": -1,
+   "score_hits": [
+    "+gains",
+    "-sinks"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "JBS heir to become chief of world’s largest meatpacker",
+   "summary": "Wesley Batista Filho’s move to the top role will restore control of the company to its founding family",
+   "link": "https://www.ft.com/content/fed04150-be6f-4dfb-8e51-102b15755611?syn-25a6b1a6=1",
+   "published": "2026-08-10 23:39",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "The renminbi’s hardest mile is only now beginning",
+   "summary": "Turning currency into an asset the world wants to hold will be hard",
+   "link": "https://www.ft.com/content/5fbd8dad-7e3d-418b-91dc-b61af9436ca6",
+   "published": "2026-08-10 23:01",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Chile grants unprecedented reprieve to state copper miner",
+   "summary": "Codelco has seen production slump and debt surge as demand explodes for the metal that is critical for data centres",
+   "link": "https://www.ft.com/content/f62afd17-389a-47b9-97f8-7140c77966d3?syn-25a6b1a6=1",
+   "published": "2026-08-10 22:21",
+   "score": 0,
+   "score_hits": [
+    "+surge",
+    "-slump"
+   ],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Wall Street giants partner with Nvidia on $500bn AI financing deal",
+   "summary": "Apollo, Blackstone and Goldman Sachs are among groups working with chipmaker to raise capital for data centre boom",
+   "link": "https://www.ft.com/content/98a8fd17-15b6-4f67-9cb4-825722b11348?syn-25a6b1a6=1",
+   "published": "2026-08-10 21:42",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Glencore-backed group looks to rescue cobalt refiner Sherritt",
+   "summary": "New consortium is the second major investor aiming for control of North America’s only cobalt refinery",
+   "link": "https://www.ft.com/content/ba95957a-e4fa-4caf-8ddb-ad0e203eef29?syn-25a6b1a6=1",
+   "published": "2026-08-10 17:50",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "AI will boost oil and gas production more than green energy, report finds",
+   "summary": "Debate over tech impact on greenhouse gas emissions stoked by latest study",
+   "link": "https://www.ft.com/content/8f16a902-3e80-462c-add8-b841494d1808?syn-25a6b1a6=1",
+   "published": "2026-08-10 17:38",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Shein IPO pitched to investors at sub-$30bn valuation",
+   "summary": "Fast-fashion retailer has suffered a roughly 70% drop in valuation over past four years",
+   "link": "https://www.ft.com/content/62d3a32d-8a38-4136-b32c-36f25099b91f?syn-25a6b1a6=1",
+   "published": "2026-08-10 14:15",
+   "score": -1,
+   "score_hits": [
+    "-drop"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Just how big is the hidden leverage of AI hyperscalers?",
+   "summary": "Very",
+   "link": "https://www.ft.com/content/a0a07cce-6d19-4b1e-a73b-9855a06ba7b3",
+   "published": "2026-08-10 12:27",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Barrick and Newmont gold mining truce clears way for IPO",
+   "summary": "Disagreement between top miners over Nevada joint venture had served as block to spin-off",
+   "link": "https://www.ft.com/content/0cc564c0-b69f-4e67-ac5d-15147ee31ac1?syn-25a6b1a6=1",
+   "published": "2026-08-10 11:49",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Revolut wins French banking licence",
+   "summary": "Authorisation from regulator accelerates UK-headquartered fintech’s European expansion plans",
+   "link": "https://www.ft.com/content/1f5e2807-5110-47bc-baf1-757c7b675cb0?syn-25a6b1a6=1",
+   "published": "2026-08-10 09:43",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Your move, BoJ",
+   "summary": "Plus, the weak jobs report",
+   "link": "https://www.ft.com/content/8ca25b96-f8eb-49b1-a259-b7314ef4741a?syn-25a6b1a6=1",
+   "published": "2026-08-10 05:30",
+   "score": -1,
+   "score_hits": [
+    "-weak"
+   ],
+   "label": "약부정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "US backs Australian rare earth miner to cut out China",
+   "summary": "Sunrise Energy shares soar after Trump administration provides $400mn loan to develop scandium project",
+   "link": "https://www.ft.com/content/d88b7e46-6806-4286-94d7-3bb16facee41?syn-25a6b1a6=1",
+   "published": "2026-08-10 04:37",
+   "score": 2,
+   "score_hits": [
+    "+soar"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "London plots digital gold pivot to protect bullion trading",
+   "summary": "FCA is seeking to encourage digitisation of financial markets",
+   "link": "https://www.ft.com/content/9973f186-5834-4b66-8faa-e8b2e8711466?syn-25a6b1a6=1",
+   "published": "2026-08-10 04:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Todd Boehly’s group rolls out AI to Chelsea and A24",
+   "summary": "Eldridge will embed technology in companies from Chelsea Football Club to film studio A24 after acquiring 50% of Sudolabs",
+   "link": "https://www.ft.com/content/1b3493a5-2b0b-4a3e-86e0-76b7f2de373a?syn-25a6b1a6=1",
+   "published": "2026-08-10 04:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Tehran says US must meet new conditions before Iran reopens strait",
+   "summary": "Iranian rhetoric hardens amid push to seal deal between Islamic republic and Oman that would reopen the waterway",
+   "link": "https://www.ft.com/content/9a1ab09b-82d7-43c2-b44a-ebb41d352dab?syn-25a6b1a6=1",
+   "published": "2026-08-09 19:29",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Asian carmakers cash in as high petrol prices lift US demand for hybrids",
+   "summary": "Sales, including of models made by Honda, Hyundai and Toyota, jump by a fifth in July",
+   "link": "https://www.ft.com/content/c15abecc-5f9a-4f7b-92e2-8c99f9ea3ae5?syn-25a6b1a6=1",
+   "published": "2026-08-09 10:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Impatient yacht owners make for a hot new asset class",
+   "summary": "Marinas tick the ‘dependable cash flow’ box with relative ease and come with plenty of room for improvement",
+   "link": "https://www.ft.com/content/69c573e0-9c24-451d-bb13-ae7a7c3104c0?syn-25a6b1a6=1",
+   "published": "2026-08-09 04:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "Investors return to European stocks as strong earnings lift Iran war gloom",
+   "summary": "Companies in the Stoxx Europe 600 are on track to deliver a 22% increase in profits in the second quarter",
+   "link": "https://www.ft.com/content/297a8bf7-ce8b-44fe-bc51-3e2ec2e47699?syn-25a6b1a6=1",
+   "published": "2026-08-09 04:00",
+   "score": 1,
+   "score_hits": [
+    "+strong"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "FT마켓",
+   "source_type": "rss",
+   "title": "One of world’s biggest coal producers battles to keep lights on",
+   "summary": "Indonesia’s attempt to contain prices at home has discouraged companies from supplying local market",
+   "link": "https://www.ft.com/content/ff321dc1-41d6-473d-b7e7-2a58224a18e7?syn-25a6b1a6=1",
+   "published": "2026-08-09 02:05",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Why is Broadwind Energy stock tumbling today?",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/why-is-broadwind-energy-stock-tumbling-today-93CH-4851547",
+   "published": "2026-08-11 12:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "S&P 500 EPS growth above 20% is rare. Why 2027 may be at risk",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/sp-500-eps-growth-above-20-is-rare-why-2027-may-be-at-risk-4851013",
+   "published": "2026-08-11 12:23",
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Why is American Healthcare REIT stock sliding today?",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/why-is-american-healthcare-reit-stock-sliding-today-93CH-4851544",
+   "published": "2026-08-11 12:22",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Riot, NIQ surge, On Holding tumbles premarket",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/riot-niq-surge-on-holding-tumbles-premarket-4851540",
+   "published": "2026-08-11 12:22",
+   "score": 0,
+   "score_hits": [
+    "+surge",
+    "-tumbles"
+   ],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Why is Legend Biotech stock surging today?",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/why-is-legend-biotech-stock-surging-today-93CH-4851533",
+   "published": "2026-08-11 12:18",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [
+    "Health Care"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Macquarie adds three stocks to nuclear picks amid sector reset",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/macquarie-adds-three-stocks-to-nuclear-picks-amid-sector-reset-93CH-4851531",
+   "published": "2026-08-11 12:17",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Morgan Stanley Picks This Airline as Top Pick as Gulf Carriers Return",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/morgan-stanley-picks-this-airline-as-top-pick-as-gulf-carriers-return-93CH-4851529",
+   "published": "2026-08-11 12:17",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Why is Vestis stock rallying today?",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/why-is-vestis-stock-rallying-today-93CH-4851525",
+   "published": "2026-08-11 12:16",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Why is Abercrombie & Fitch stock climbing today?",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/why-is-abercrombie--fitch-stock-climbing-today-93CH-4851523",
+   "published": "2026-08-11 12:13",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Investing주식",
+   "source_type": "rss",
+   "title": "Wall St futures edge higher amid Mideast diplomatic efforts; CPI awaited",
+   "summary": "",
+   "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-subdued-as-hormuz-uncertainty-persists-cpi-awaited-4850698",
+   "published": "2026-08-11 12:12",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:US stocks market today",
+   "source_type": "google",
+   "title": "Samsung Electronics, SK hynix rally on U.S. market boost - 네이트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE13aVRzLWlmMWdYU1hUcFBmOFVRbm5wVEx0RmEtanJQaXNUNWNiZGY4ZDIyVS01Yi1UcWJhODNXZU8zc0VnYXRYUzdka09pVjRaQzVJVy1Ka084SElVM0I5Z1Q4ZVZBNWxUcHFsZ0FoWHZabWVZd0xIcA?oc=5",
+   "published": "2026-08-10 02:30",
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:federal reserve stocks",
+   "source_type": "google",
+   "title": "U.S. 10-year Treasury Bond Yield Surpasses 4.6% Intraday On Mon. For First Time Since June Junior Caminero (LOUIXC4uN4) - Mshale",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Ibkx2NGVVTVFQTVlucnJ2SHdESVAyWXpNTF9FUWhCbkY2N2E0Y1FHRFlHMVZzaFlFYnFJb0Z6UERtbVg4bG52MXZfM2FMOTJVOTBlOHI4dzNRUnc?oc=5",
+   "published": "2026-08-10 20:52",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "tickers": [],
+   "sectors": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FLR",
+   "source_type": "yahoo_ticker",
+   "title": "Fluor targets energy over data centers",
+   "summary": "Demand for electricity projects better fits Fluor’s project profile than the data centers they power, CEO Jim Breuer said during the firm’s second-quarter earnings call.",
+   "link": "https://www.constructiondive.com/news/fluor-targets-energy-data-centers-earnings-ceo/827465/?.tsrc=rss",
+   "published": "2026-08-10 13:59",
+   "tickers": [
+    "FLR"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FLR",
+   "source_type": "yahoo_ticker",
+   "title": "Should You Buy, Sell or Hold NuScale Stock Post Q2 Earnings?",
+   "summary": "SMR's regulatory progress, supplier network and $1.9B liquidity support its outlook despite weak revenues and execution risks.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/buy-sell-hold-nuscale-stock-130100078.html?.tsrc=rss",
+   "published": "2026-08-10 13:01",
+   "tickers": [
+    "FLR"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-weak"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:FLR",
+   "source_type": "yahoo_ticker",
+   "title": "Company News for Aug 10, 2026",
+   "summary": "Companies In The Article Are:TTWO,UAA,WEN,FLR",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/company-news-aug-10-2026-104100904.html?.tsrc=rss",
+   "published": "2026-08-10 10:41",
+   "tickers": [
+    "FLR"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FLR",
+   "source_type": "yahoo_ticker",
+   "title": "Fluor (FLR) Is Up 13.6% After Backlog Climbs on Q2 Beat and Nuclear Board Hire",
+   "summary": "In the past week, Fluor Corporation reported second-quarter 2026 results with revenue of US$4,329 million and net income of US$114 million, alongside strong new awards of over US$6,000 million that lifted backlog to about US$26,900 million. At the same time, Fluor continued building its nuclear capabilities and governance bench by adding retired U.S. Navy Admiral James F. (Frank) Caldwell Jr. to i",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/fluor-flr-13-6-backlog-141203683.html?.tsrc=rss",
+   "published": "2026-08-08 14:12",
+   "tickers": [
+    "FLR"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 3,
+   "score_hits": [
+    "+climbs",
+    "+beat",
+    "+strong"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FLR",
+   "source_type": "yahoo_ticker",
+   "title": "Fluor Q2 Earnings Call Highlights",
+   "summary": "Fluor (NYSE:FLR) reported second-quarter revenue of $4.3 billion, up 9% from a year earlier, as strong project execution helped lift adjusted EBITDA to $149 million from $96 million in the prior-year period. Adjusted earnings per share rose to $0.91 from $0.43. The engineering and construction comp",
+   "link": "https://www.marketbeat.com/instant-alerts/fluor-q2-earnings-call-highlights-2026-08-08/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+   "published": "2026-08-08 08:03",
+   "tickers": [
+    "FLR"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+strong"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 5
+  },
+  {
+   "source": "Yahoo:FLR",
+   "source_type": "yahoo_ticker",
+   "title": "Fluor (FLR) Beat Expectations, Is The Stock Already Pricey?",
+   "summary": "Fluor’s earnings surprise and what it means for investors Fluor (FLR) surprised the market with second quarter 2026 results that exceeded consensus revenue and earnings expectations, despite earlier concerns about supply chain pressures and a weak trend in analyst earnings revisions. See our latest analysis for Fluor. Fluor’s recent earnings surprise has come alongside strong momentum in the stock",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/fluor-flr-beat-expectations-stock-071305012.html?.tsrc=rss",
+   "published": "2026-08-08 07:13",
+   "tickers": [
+    "FLR"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [
+    "+beat",
+    "+strong",
+    "-weak",
+    "-concerns"
+   ],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:NVDA",
+   "source_type": "yahoo_ticker",
+   "title": "Nvidia Stock Investors Just Got Major $500 Billion News",
+   "summary": "Nvidia Builds a $500 Billion War Chest for the Next AI Infrastructure Boom",
+   "link": "https://finance.yahoo.com/technology/ai/articles/nvidia-stock-investors-just-got-122927257.html?.tsrc=rss",
+   "published": "2026-08-11 12:29",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:NVDA",
+   "source_type": "yahoo_ticker",
+   "title": "Jamie Dimon Has a Warning for Investors: Inflation May Not Be Coming Down",
+   "summary": "Investors who have been hopeful that interest rates will come down in the near future may be disappointed.",
+   "link": "https://www.fool.com/investing/2026/08/11/jamie-dimon-has-a-warning-for-investors-inflation/?.tsrc=rss",
+   "published": "2026-08-11 12:25",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:NVDA",
+   "source_type": "yahoo_ticker",
+   "title": "Here's How Many Shares of Procter & Gamble You'd Need for $10,000 in Yearly Dividends.",
+   "summary": "Procter & Gamble has one of the longest dividend increase streaks of any American company, but it's not inexpensive to wring $10,000 in year payouts from this stock.",
+   "link": "https://www.fool.com/investing/2026/08/11/heres-how-many-shares-of-procter-gamble-youd-need/?.tsrc=rss",
+   "published": "2026-08-11 12:25",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:NVDA",
+   "source_type": "yahoo_ticker",
+   "title": "Michael Saylor's Strategy Has Spent $64 Billion Buying Bitcoin at an Average Price of $75,482 a Coin. Here's Why That Position Is Sitting on a $10 Billion Paper Loss Today.",
+   "summary": "Until the price of Bitcoin recovers, Strategy is going to have a hard time attracting new investors.",
+   "link": "https://www.fool.com/investing/2026/08/11/michael-saylors-strategy-has-spent-635-billion-buy/?.tsrc=rss",
+   "published": "2026-08-11 12:11",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:NVDA",
+   "source_type": "yahoo_ticker",
+   "title": "Cisco or Coherent: Which Stock Is Poised to Soar After Earnings?",
+   "summary": "Cisco and Coherent both report earnings the same afternoon, putting two very different AI networking bets head to head. One carries a 93% crowd-backed beat probability while the other just shed 14% in a single session, and only one belongs in a retirement portfolio.",
+   "link": "https://247wallst.com/investing/2026/08/11/cisco-or-coherent-which-stock-is-poised-to-soar-after-earnings/?.tsrc=rss",
+   "published": "2026-08-11 12:05",
+   "tickers": [
+    "COHR",
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 3,
+   "score_hits": [
+    "+soar",
+    "+beat"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:NVDA",
+   "source_type": "yahoo_ticker",
+   "title": "16 Wall Street Analysts Couldn't Disagree More on Sandisk's Price Target",
+   "summary": "Sandisk's wide-ranging price target overshadows the fact that most analysts rate the stock as a buy.",
+   "link": "https://www.fool.com/investing/2026/08/11/wall-street-analysts-couldnt-disagree-more-sandisk/?.tsrc=rss",
+   "published": "2026-08-11 12:05",
+   "tickers": [
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AAPL",
+   "source_type": "yahoo_ticker",
+   "title": "3 Stocks That Have Made Long-Term Investors Rich (and Could Do It Again)",
+   "summary": "Three businesses have quietly turned patient shareholders into millionaires over multiple decades, and the competitive moats that drove those returns are facing their biggest tests yet in 2026.",
+   "link": "https://247wallst.com/investing/2026/08/11/3-stocks-that-have-made-long-term-investors-rich-and-could-do-it-again-4/?.tsrc=rss",
+   "published": "2026-08-11 12:00",
+   "tickers": [
+    "AAPL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AAPL",
+   "source_type": "yahoo_ticker",
+   "title": "Apple’s Dip Below $310 is a Great Accumulation Opportunity",
+   "summary": "Apple just posted its strongest June quarter ever, yet the stock sits 7% lower and traders put even odds on it closing August above $310. Here is why that tension could matter more than the headline numbers.",
+   "link": "https://247wallst.com/investing/2026/08/11/apples-dip-below-310-is-a-great-accumulation-opportunity/?.tsrc=rss",
+   "published": "2026-08-11 11:50",
+   "tickers": [
+    "AAPL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AAPL",
+   "source_type": "yahoo_ticker",
+   "title": "With a New iPhone Coming, Here’s What $10,000 in Apple Since the First One Is Worth",
+   "summary": "Apple is approaching another iPhone launch with a $4.5 trillion market cap and nearly two decades of stock gains that have crushed the broader market at every turn. The question now is whether that compounding machine still has room to run or if the law of large numbers finally catches up.",
+   "link": "https://247wallst.com/investing/2026/08/11/with-a-new-iphone-coming-heres-what-10000-in-apple-since-the-first-one-is-worth/?.tsrc=rss",
+   "published": "2026-08-11 11:15",
+   "tickers": [
+    "AAPL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AAPL",
+   "source_type": "yahoo_ticker",
+   "title": "Is Berkshire Hathaway Stock a Buy as Warren Buffett Successor Greg Abel Starts to Deploy the Company's Cash Hoard?",
+   "summary": "Berkshire has finally started to put its cash to work.",
+   "link": "https://www.fool.com/investing/2026/08/11/is-berkshire-hathaway-stock-a-buy-as-warren-buffet/?.tsrc=rss",
+   "published": "2026-08-11 10:30",
+   "tickers": [
+    "AAPL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AAPL",
+   "source_type": "yahoo_ticker",
+   "title": "Klarna Group (KLAR) Will Provide Leasing For A New US Device Upgrade Program",
+   "summary": "Klarna Group (NYSE:KLAR) is providing the leasing and financing backbone for Apple's new Apple Upgrade program in the United States. The partnership integrates Klarna into one of Apple's core hardware ownership offerings, expanding Klarna's exposure to US Apple customers. The role places Klarna more directly in consumer electronics financing beyond its existing buy now, pay later services. This ki",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/klarna-group-klar-leasing-us-100958491.html?.tsrc=rss",
+   "published": "2026-08-11 10:09",
+   "tickers": [
+    "AAPL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+upgrade"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AAPL",
+   "source_type": "yahoo_ticker",
+   "title": "CoreWeave’s Forecast Is Key to Stopping Another Earnings Selloff",
+   "summary": "(Bloomberg) -- CoreWeave Inc. shares have been on a roll lately after a monthslong slump. Now, the neocloud provider’s earnings after the close Tuesday can give investors a sense of whether the rally is sustainable. Most Read from BloombergChina Unleashes $28 Trillion Capital Markets to Challenge US in AINvidia Taps Wall Street for $500 Billion Funding CommitmentTrump Makes Sweeping New Demands on",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/coreweave-forecast-key-stopping-another-084411013.html?.tsrc=rss",
+   "published": "2026-08-11 08:44",
+   "tickers": [
+    "AAPL",
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [
+    "+rally",
+    "-slump"
+   ],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:PLTR",
+   "source_type": "yahoo_ticker",
+   "title": "Palantir is a 'narrative play,' strategist explains",
+   "summary": "Laffer Tengler Investments CEO and CIO Nancy Tengler shares her thoughts on Palantir (PLTR) stock and why it's a buy.",
+   "link": "https://finance.yahoo.com/video/palantir-narrative-play-strategist-explains-120000920.html?.tsrc=rss",
+   "published": "2026-08-11 12:00",
+   "tickers": [
+    "PLTR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:PLTR",
+   "source_type": "yahoo_ticker",
+   "title": "Zeta Global Sees AI, Palantir Partnership Fueling Marketing Tech Growth",
+   "summary": "Zeta Global (NYSE:ZETA) executives outlined the company’s strategy to consolidate marketing technology tools, expand adoption of its artificial intelligence products and pursue joint-selling opportunities through partnerships during KeyBanc’s Technology Leadership Forum in Park City, Utah. Chris Gr",
+   "link": "https://www.marketbeat.com/instant-alerts/zeta-global-sees-ai-palantir-partnership-fueling-marketing-tech-growth-2026-08-11/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+   "published": "2026-08-11 11:01",
+   "tickers": [
+    "PLTR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:PLTR",
+   "source_type": "yahoo_ticker",
+   "title": "Palantir (PLTR) Q2 2026 Earnings Call Transcript",
+   "summary": "Revenue surged 93% year over year as AI demand accelerated across U.S. markets.",
+   "link": "https://www.fool.com/earnings/call-transcripts/2026/08/10/palantir-pltr-q2-2026-earnings-call-transcript/?.tsrc=rss",
+   "published": "2026-08-11 01:29",
+   "tickers": [
+    "PLTR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:PLTR",
+   "source_type": "yahoo_ticker",
+   "title": "S&P500, Nasdaq, Dow Futures Unchanged After Ending Session Mildly Lower As Investors Brace For Key Inflation Data — SPCX, TSLA, INTC, NFLX, PLTR In Focus",
+   "summary": "Intel’s stock dropped 4%, weighing on the Nasdaq after announcing a $15 billion stock offering.",
+   "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p500-nasdaq-dow-futures-unchanged/cZok3PvRJfL?.tsrc=rss",
+   "published": "2026-08-10 23:02",
+   "tickers": [
+    "PLTR",
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials",
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:PLTR",
+   "source_type": "yahoo_ticker",
+   "title": "Cathie Wood Invests $36.9 Million in Surging Stock",
+   "summary": "Fresh buying reveals where Wood sees better risk-reward",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-invests-36-9-201143798.html?.tsrc=rss",
+   "published": "2026-08-10 20:11",
+   "tickers": [
+    "PLTR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:PLTR",
+   "source_type": "yahoo_ticker",
+   "title": "Michael Burry Refreshes Bearish Palantir Trade Even As AI Rally Strains Short Bets",
+   "summary": "Famed \"Big Short\" investor Michael Burry buys new out-of-the-money puts on Palantir and adds to his Zoetis stake.",
+   "link": "https://stocktwits.com/news-articles/markets/equity/michael-burry-refreshes-bearish-palantir-trade/cZokb9jRJfQ?.tsrc=rss",
+   "published": "2026-08-10 20:01",
+   "tickers": [
+    "PLTR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "JPMorgan Sets Jaw-Dropping S&P 500 Target for Year-End 2026",
+   "summary": "S&P 500 Gets a Major Boost as JPMorgan Raises 2026 Target to 8,000",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-sets-jaw-dropping-p-122816094.html?.tsrc=rss",
+   "published": "2026-08-11 12:28",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "Veteran Analyst Firm Resets Microsoft Stock Price Target for 2027",
+   "summary": "Bernstein Raises Microsoft Price Target to $660, Pushes Back on AI Spending Fears",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/veteran-analyst-firm-resets-microsoft-122557497.html?.tsrc=rss",
+   "published": "2026-08-11 12:25",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "Empact Technologies Named No. 27 on the 2026 Inc. 5000 List, the Most Prestigious Ranking of America's Fastest-Growing Private Companies",
+   "summary": "Empact Technologies today announced it has been ranked No. 27 on the 2026 Inc. 5000 list, the annual list of the fastest-growing private companies in America. The list is the most prestigious ranking of the nation's most successful independent and entrepreneurial businesses, recognizing companies that have achieved remarkable growth while driving innovation, creating jobs, and shaping the future o",
+   "link": "https://finance.yahoo.com/small-business/articles/empact-technologies-named-no-27-121300051.html?.tsrc=rss",
+   "published": "2026-08-11 12:13",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 5
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "beehiiv Named No. 19 on the 2026 Inc. 5000 List of America’s Fastest-Growing Private Companies",
+   "summary": "More Than 100x Three-Year Revenue Growth Earns beehiiv a Place Among the Nation's Most Successful Independent Businesses The Inc. 5000 Builds on beehiiv's Summer Release Event and a Year of Industry Recognition Across Advertising, Media and Technology, Including ADWEEK AI Power 50, ADWEEK Tech Stack Awards, New York City Podcast Awards and Webby Award Nominations NEW YORK, Aug. 11, 2026 (GLOBE NEW",
+   "link": "https://finance.yahoo.com/small-business/articles/beehiiv-named-no-19-2026-120500063.html?.tsrc=rss",
+   "published": "2026-08-11 12:05",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:MSFT",
+   "source_type": "yahoo_ticker",
+   "title": "Shepherd Ranks No. 139 on 2026 Inc. 5000 With 2,234% Three-Year Growth",
+   "summary": "Shepherd, the AI-native commercial insurance platform for high-hazard industries, today announced it has been ranked No. 139 on the 2026 Inc. 5000 list, the annual list of the fastest-growing private companies in America.",
+   "link": "https://finance.yahoo.com/small-business/articles/shepherd-ranks-no-139-2026-120400229.html?.tsrc=rss",
+   "published": "2026-08-11 12:04",
+   "tickers": [
+    "MSFT"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:AMZN",
+   "source_type": "yahoo_ticker",
+   "title": "This AI Cloud Stock Is Obliterating Amazon, Microsoft, and Alphabet With a 1-Year Return of 275%. Is It Still a Buy?",
+   "summary": "Artificial intelligence has been a major tailwind for this budding cloud company.",
+   "link": "https://www.fool.com/investing/2026/08/11/this-ai-cloud-stock-alphabet-1-year-return-275-buy/?.tsrc=rss",
+   "published": "2026-08-11 08:55",
+   "tickers": [
+    "AMZN",
+    "GOOGL",
+    "MSFT"
+   ],
+   "sectors": [
+    "Consumer Discretionary",
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AMZN",
+   "source_type": "yahoo_ticker",
+   "title": "AMZN Stock to Close Above $300 by August End? Crypto Punters Bet on the Possibility Following Amazon's Impressive Q2 Performance",
+   "summary": "Cryptocurrency bettors are skeptical that Amazon.com Inc (NASDAQ: AMZN) will reach $300 or higher by the end of August, despite the stock’s steady start to the month. What is Polymarket Upto? The betting crowd on Polygon (CRYPTO: POL)-based Polymarket currently...",
+   "link": "https://www.benzinga.com/markets/prediction-markets/26/08/61098898/amzn-stock-polymarket-prediction-price-amazon-q2?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
+   "published": "2026-08-11 04:36",
+   "tickers": [
+    "AMZN"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AMZN",
+   "source_type": "yahoo_ticker",
+   "title": "Zuckerberg Plans to Spend $145 Billion on AI This Year. Barclays Says Major Productivity Gains Remain Elusive",
+   "summary": "Tech giants are pouring hundreds of billions into AI infrastructure, but a Barclays economist is pointing to a decades-old cautionary tale that suggests the productivity payoff could be further away than Wall Street expects.",
+   "link": "https://247wallst.com/investing/2026/08/11/zuckerberg-plans-to-spend-145-billion-on-ai-this-year-barclays-says-major-productivity-gains-remain-elusive/?.tsrc=rss",
+   "published": "2026-08-11 11:01",
+   "tickers": [
+    "AMZN"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AMZN",
+   "source_type": "yahoo_ticker",
+   "title": "Twitch Names Former Google Exec Christine Cassis Chief Marketing Officer",
+   "summary": "The marketing executive aims to capitalize on the growing demand for live programming.",
+   "link": "https://www.adweek.com/media/twitch-christine-cassis-chief-marketing-officer/?.tsrc=rss",
+   "published": "2026-08-11 11:00",
+   "tickers": [
+    "AMZN"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AMZN",
+   "source_type": "yahoo_ticker",
+   "title": "12 Nasdaq Stocks Doubled in 2026, But None Are Magnificent Seven",
+   "summary": "Twelve Nasdaq 100 stocks have doubled in 2026, and not a single the Magnificent Seven is among them. Here is why.",
+   "link": "https://beincrypto.com/nasdaq-100-stocks-doubled-2026/?.tsrc=rss",
+   "published": "2026-08-11 05:25",
+   "tickers": [
+    "AMZN"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:TSLA",
+   "source_type": "yahoo_ticker",
+   "title": "Energy Transition Update - ABB Partners With LevelTen To Advance Clean Energy Solutions",
+   "summary": "ABB has announced a strategic partnership and minority investment in LevelTen Energy, the largest clean energy marketplace worldwide. This partnership aims to enhance ABB's ability to support industrial and commercial customers in securing long-term, affordable clean energy, which is crucial to advancing the energy transition amid a complex grid environment. By integrating LevelTen's market-leadin",
+   "link": "https://finance.yahoo.com/energy/articles/energy-transition-abb-partners-levelten-113719756.html?.tsrc=rss",
+   "published": "2026-08-11 11:37",
+   "tickers": [
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TSLA",
+   "source_type": "yahoo_ticker",
+   "title": "Intel investors are banking on a comeback — and then some",
+   "summary": "When is a good time for a company to raise equity? When its shares are expensive, according to financial lore. Intel, which said on Monday that...",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/intel-investors-banking-comeback-then-110059331.html?.tsrc=rss",
+   "published": "2026-08-11 11:00",
+   "tickers": [
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TSLA",
+   "source_type": "yahoo_ticker",
+   "title": "Tesla Stock Will Rally If These 2 Things Happen",
+   "summary": "The electric-vehicle maker’s recent rally may be about to fizzle out ahead of inflation data that could determine what the Fed does next.",
+   "link": "https://finance.yahoo.com/m/3209be52-fb5e-35ff-822d-4ad25298759d/tesla-stock-will-rally-if.html?.tsrc=rss",
+   "published": "2026-08-11 10:18",
+   "tickers": [
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TSLA",
+   "source_type": "yahoo_ticker",
+   "title": "Larry Fink says Americans’ retirement savings need to fund $10 trillion AI infrastructure demands. Protect your wealth",
+   "summary": "Your 401(k) assets could be fueling the AI boom that could cost you your job. Here’s how you can protect yourself.",
+   "link": "https://finance.yahoo.com/technology/ai/articles/larry-fink-says-americans-retirement-101500090.html?.tsrc=rss",
+   "published": "2026-08-11 10:15",
+   "tickers": [
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TSLA",
+   "source_type": "yahoo_ticker",
+   "title": "Tesla and SpaceX Committed $16.8 Billion to One Chip Plant. Tesla's Entire Annual Profit Is $3.8 Billion.",
+   "summary": "The first phase of Terafab costs more than four times what the electric-car maker earned over the past year.",
+   "link": "https://www.fool.com/investing/2026/08/11/tesla-and-spacex-committed-168-billion-to-one-chip/?.tsrc=rss",
+   "published": "2026-08-11 09:32",
+   "tickers": [
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TSLA",
+   "source_type": "yahoo_ticker",
+   "title": "Byrna, Lucid, Park-Ohio, JELD-WEN, and Tesla Shares Skyrocket, What You Need To Know",
+   "summary": "A number of stocks jumped in the afternoon session after the July jobs report showed an unexpected loss of 23,000 jobs, signaling a cooling labor market. Economists had forecast a gain of around 80,000 nonfarm payrolls.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/byrna-lucid-park-ohio-jeld-004522285.html?.tsrc=rss",
+   "published": "2026-08-11 00:45",
+   "tickers": [
+    "TSLA"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+gain"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:META",
+   "source_type": "yahoo_ticker",
+   "title": "IBM, Together AI ink $240 million deal for Nvidia-powered AI inference cluster",
+   "summary": "IBM and startup Together AI have signed a $240 million multi-year ‌agreement to build a large-scale artificial intelligence ‌cluster on IBM Cloud using Nvidia systems, the companies ​said on Tuesday. The cluster will provide inference for open-source AI models, which have gained traction as businesses seek to rein in AI costs ‌and weigh concerns ⁠about cybersecurity incidents involving models from",
+   "link": "https://finance.yahoo.com/technology/ai/articles/ibm-together-ai-ink-240-120237670.html?.tsrc=rss",
+   "published": "2026-08-11 12:02",
+   "tickers": [
+    "META",
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-concerns"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AVGO",
+   "source_type": "yahoo_ticker",
+   "title": "Hock Tan Reaffirmed Broadcom's $100 Billion AI Forecast. Six Customers Carry Nearly All of It.",
+   "summary": "The AI target looks more achievable every quarter -- and almost all of it rests on six buyers.",
+   "link": "https://www.fool.com/investing/2026/08/11/hock-tan-reaffirmed-broadcoms-100-billion-ai-forec/?.tsrc=rss",
+   "published": "2026-08-11 08:01",
+   "tickers": [
+    "AVGO"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AVGO",
+   "source_type": "yahoo_ticker",
+   "title": "Broadcom Boosts VCF Security: Can it Fend Off Nutanix and IBM?",
+   "summary": "AVGO expands VCF security with faster vDefend deployment, on-prem malware sandboxing and API protection as rivals intensify competition.",
+   "link": "https://finance.yahoo.com/technology/articles/broadcom-boosts-vcf-security-fend-161900110.html?.tsrc=rss",
+   "published": "2026-08-10 16:19",
+   "tickers": [
+    "AVGO"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AVGO",
+   "source_type": "yahoo_ticker",
+   "title": "Broadcom Stock Looks Like a Screaming Deal",
+   "summary": "Broadcom has major momentum heading into 2027.",
+   "link": "https://www.fool.com/investing/2026/08/10/broadcom-stock-looks-like-a-screaming-deal/?.tsrc=rss",
+   "published": "2026-08-10 16:05",
+   "tickers": [
+    "AVGO"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AVGO",
+   "source_type": "yahoo_ticker",
+   "title": "Broadcom’s Brilliant Positioning is Why I Am Loading Up Over and Over",
+   "summary": "Every AI investor faces the same dilemma: pick the winner of the compute race or find the one company that gets paid no matter who wins. One stock quietly sits on the bill of materials for Google, Meta, OpenAI, and Anthropic all at once.",
+   "link": "https://247wallst.com/investing/2026/08/10/broadcoms-brilliant-positioning-is-why-i-am-loading-up-over-and-over/?.tsrc=rss",
+   "published": "2026-08-10 14:49",
+   "tickers": [
+    "AVGO"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AVGO",
+   "source_type": "yahoo_ticker",
+   "title": "2 Dividend Growth Stocks Worth Holding for the Long Haul",
+   "summary": "The shareholder-friendliness of these companies often floats under the radar.",
+   "link": "https://www.fool.com/investing/2026/08/10/2-dividend-growth-stocks-worth-holding-for-the/?.tsrc=rss",
+   "published": "2026-08-10 13:50",
+   "tickers": [
+    "AVGO"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:AVGO",
+   "source_type": "yahoo_ticker",
+   "title": "I’m Buying Nvidia Ahead of Aug. 26 Earnings Exactly For The Reason You Think",
+   "summary": "Every hyperscaler on the planet just committed to a spending spree that funnels through one chokepoint, and the Aug. 26 earnings report will either validate the conviction or expose the cracks in it.",
+   "link": "https://247wallst.com/investing/2026/08/11/im-buying-nvidia-ahead-of-aug-26-earnings-exactly-for-the-reason-you-think/?.tsrc=rss",
+   "published": "2026-08-11 11:12",
+   "tickers": [
+    "AVGO",
+    "NVDA"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:GOOGL",
+   "source_type": "yahoo_ticker",
+   "title": "Why Google and Amazon rank top among Cloud hyperscalers for AI",
+   "summary": "Sevens Report Research founder Tom Essaye explains why cloud capacity is the next critical bottleneck in AI infrastructure and ranks Google (GOOG), Amazon (AMZN), and Microsoft (MSFT) based on their cloud revenue opportunities.",
+   "link": "https://finance.yahoo.com/video/why-google-amazon-rank-top-143256903.html?.tsrc=rss",
+   "published": "2026-08-10 14:32",
+   "tickers": [
+    "AMZN",
+    "GOOGL",
+    "MSFT"
+   ],
+   "sectors": [
+    "Consumer Discretionary",
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:BTG",
+   "source_type": "yahoo_ticker",
+   "title": "B2Gold secures exploitation permit for Fekola Regional in Mali",
+   "summary": "Fekola Regional comprises the Menankoto and Dandoko permits and will be owned 65% by B2Gold and 35% by the State of Mali.",
+   "link": "https://www.mining-technology.com/news/b2gold-exploitation-permit-fekola-regional-mali/?.tsrc=rss",
+   "published": "2026-08-10 08:49",
+   "tickers": [
+    "BTG"
+   ],
+   "sectors": [
+    "Basic Materials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:BTG",
+   "source_type": "yahoo_ticker",
+   "title": "B2Gold (TSX:BTO) Stock May Still Trade At A Discount On Mali Permit News",
+   "summary": "B2Gold stock has delivered a strong run for long term holders over the past three years, yet the latest valuation checks still suggest the shares screen as inexpensive on several fronts. B2Gold has returned 87.7% over the past three years, which puts recent price strength in the spotlight for anyone reassessing upside from here. The newly granted Menankoto exploitation permit in Mali can support e",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/b2gold-tsx-bto-stock-may-091135882.html?.tsrc=rss",
+   "published": "2026-08-09 09:11",
+   "tickers": [
+    "BTG"
+   ],
+   "sectors": [
+    "Basic Materials"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+strong"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:BTG",
+   "source_type": "yahoo_ticker",
+   "title": "B2Gold (TSX:BTO) Could Be 30% Undervalued As Mali Permit Secures Growth",
+   "summary": "B2Gold (TSX:BTO) is back in focus after securing the Menankoto exploitation permit in Mali, completing the Fekola Regional package and clearing the way for new mining activities tied to this project. See our latest analysis for B2Gold. The fresh Menankoto permit has arrived just as B2Gold’s share price momentum has accelerated, with a 1 day share price return of 22.47% and 7 day share price return",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/b2gold-tsx-bto-could-30-071736965.html?.tsrc=rss",
+   "published": "2026-08-09 07:17",
+   "tickers": [
+    "BTG"
+   ],
+   "sectors": [
+    "Basic Materials"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:BTG",
+   "source_type": "yahoo_ticker",
+   "title": "B2Gold (TSX:BTO) Is Up 33.9% After Securing Menankoto Permit for Fekola Regional Expansion",
+   "summary": "In early August 2026, B2Gold Corp. announced that Mali granted its subsidiary the Menankoto exploitation permit, enabling development of the Fekola Regional project alongside the Dandoko permit as part of the Fekola Complex in southern Mali. This permit, issued under Mali’s 2023 Mining Code while the main Fekola Mine remains under the 2012 Mining Code, reshapes the ownership mix with the State of ",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/b2gold-tsx-bto-33-9-201224349.html?.tsrc=rss",
+   "published": "2026-08-08 20:12",
+   "tickers": [
+    "BTG"
+   ],
+   "sectors": [
+    "Basic Materials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:BSP",
+   "source_type": "yahoo_ticker",
+   "title": "US Stock Market Today: S&P 500 Futures Edge Higher As Rate Hike Fears Ease",
+   "summary": "The Morning Bull - US Market Morning Update Tuesday, Aug, 11 2026 US stock futures are slightly higher this morning, with E-mini S&P 500 contracts up about 0.1% and tech heavy Nasdaq futures gaining around 0.4%. Softer U.S. jobs data is a key driver. July payrolls fell by 23,000, which reduces the chance of another interest rate hike and can ease pressure on mortgages, credit cards and auto loans.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-081147026.html?.tsrc=rss",
+   "published": "2026-08-11 08:11",
+   "tickers": [
+    "BSP"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-pressure"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:TXG",
+   "source_type": "yahoo_ticker",
+   "title": "TXG Q2 Deep Dive: Atera Launch Signals Transition as Spatial Market Shifts",
+   "summary": "Biotech company 10x Genomics (NASDAQ:TXG) reported Q2 CY2026 results exceeding the market’s revenue expectations, but sales fell by 12.6% year on year to $151 million. The company’s full-year revenue guidance of $620 million at the midpoint came in 1% above analysts’ estimates. Its GAAP loss of $0.14 per share was 44.2% above analysts’ consensus estimates.",
+   "link": "https://finance.yahoo.com/healthcare/articles/txg-q2-deep-dive-atera-034122869.html?.tsrc=rss",
+   "published": "2026-08-10 03:41",
+   "tickers": [
+    "TXG"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:LITE",
+   "source_type": "yahoo_ticker",
+   "title": "Stocks Mostly Up Pre-Bell as Investors Assess Uncertainty Over US-Iran Deal",
+   "summary": "US equity markets were mostly trending higher before the open Tuesday as investors weigh fading opti",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/stocks-mostly-pre-bell-investors-114821965.html?.tsrc=rss",
+   "published": "2026-08-11 11:48",
+   "tickers": [
+    "LITE"
+   ],
+   "sectors": [
+    "Telecommunications"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:LITE",
+   "source_type": "yahoo_ticker",
+   "title": "“The Bottleneck Isn’t the Chips Anymore”: Goldman Sachs Says These Are AI’s Next Big Winners",
+   "summary": "A Goldman Sachs executive says the AI trade is quietly shifting away from chips toward a different hardware category entirely, and two companies are already racing to fill a supply gap that could take years to close.",
+   "link": "https://247wallst.com/investing/2026/08/11/the-bottleneck-isnt-the-chips-anymore-goldman-sachs-says-these-are-ais-next-big-winners/?.tsrc=rss",
+   "published": "2026-08-11 10:25",
+   "tickers": [
+    "LITE"
+   ],
+   "sectors": [
+    "Telecommunications"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:LITE",
+   "source_type": "yahoo_ticker",
+   "title": "LITE Vs. COHR Vs. AAOI Vs. IPGP: Which Photonics Stock Do Retail Traders Prefer?",
+   "summary": "AI data centers are steering the shift from copper to optical connectivity, putting photonics at the center of investor attention.",
+   "link": "https://stocktwits.com/news-articles/markets/equity/lite-vs-cohr-vs-aaoi-vs-ipgp-which-photonics-stock-do-retail-traders-prefer/cZoZotoRJQb?.tsrc=rss",
+   "published": "2026-08-11 07:47",
+   "tickers": [
+    "COHR",
+    "LITE"
+   ],
+   "sectors": [
+    "Technology",
+    "Telecommunications"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "Yahoo:LITE",
+   "source_type": "yahoo_ticker",
+   "title": "S&P 500 Falls Short of Record While Nasdaq Slips",
+   "summary": "Fresh off its best week since April, the stock market suffered a bit of a hangover on Monday. The Nasdaq Composite slipped 0.3%. The combination of higher oil prices and bond yields were pressuring stocks.",
+   "link": "https://finance.yahoo.com/m/8081c428-d178-318c-a9c5-d910f09c058f/s%26p-500-falls-short-of-record.html?.tsrc=rss",
+   "published": "2026-08-10 20:04",
+   "tickers": [
+    "LITE"
+   ],
+   "sectors": [
+    "Telecommunications"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:OKLO",
+   "source_type": "yahoo_ticker",
+   "title": "Should You Invest $500 in Oklo Stock Right Now?",
+   "summary": "It's a bit of a speculative investment right now, but there are encouraging signs.",
+   "link": "https://www.fool.com/investing/2026/08/11/should-you-invest-500-in-oklo-right-now/?.tsrc=rss",
+   "published": "2026-08-11 06:25",
+   "tickers": [
+    "OKLO"
+   ],
+   "sectors": [
+    "Utilities"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:OKLO",
+   "source_type": "yahoo_ticker",
+   "title": "OKLO Stock Faces New Reality Check: Wall Street Is Getting More Cautious, Retail Sentiment Slips",
+   "summary": "Oklo received a series of price target cuts from Wall Street analysts, even as retail sentiment on Stocktwits fell from ‘extremely bullish’ to ‘bullish’ over the past 24 hours.",
+   "link": "https://stocktwits.com/news-articles/markets/equity/oklo-stock-faces-new-reality-check-wall-street-is-getting-more-cautious-retail-sentiment-slips/cZoZN1PRJfw?.tsrc=rss",
+   "published": "2026-08-11 05:43",
+   "tickers": [
+    "OKLO"
+   ],
+   "sectors": [
+    "Utilities"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-cautious"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:OKLO",
+   "source_type": "yahoo_ticker",
+   "title": "Is Oklo a Millionaire Maker, or Is the Hype Overdone?",
+   "summary": "Oklo just reported its first-ever quarterly revenue.",
+   "link": "https://www.fool.com/investing/2026/08/10/is-oklo-a-millionaire-maker-or-is-the-hype-o/?.tsrc=rss",
+   "published": "2026-08-11 00:25",
+   "tickers": [
+    "OKLO"
+   ],
+   "sectors": [
+    "Utilities"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:OKLO",
+   "source_type": "yahoo_ticker",
+   "title": "Uranium Energy vs. Oklo: Which Nuclear Fuel Play Wins in 2026?",
+   "summary": "Uranium Energy and Oklo stand to benefit from powerful tailwinds behind the nuclear energy industry, but only one stock stands out as a better play right now.",
+   "link": "https://www.fool.com/investing/2026/08/10/uranium-energy-vs-oklo-which-nuclear-fuel-play-win/?.tsrc=rss",
+   "published": "2026-08-10 20:25",
+   "tickers": [
+    "OKLO"
+   ],
+   "sectors": [
+    "Utilities"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:OKLO",
+   "source_type": "yahoo_ticker",
+   "title": "OKLO Q2 Loss Widens Y/Y, Misses Estimates on Higher Costs",
+   "summary": "OKLO's Q2 performance reflects rising project execution costs, emerging acquisition-driven revenues and increased spending as nuclear development accelerates.",
+   "link": "https://finance.yahoo.com/energy/articles/oklo-q2-loss-widens-y-132000482.html?.tsrc=rss",
+   "published": "2026-08-10 13:20",
+   "tickers": [
+    "OKLO"
+   ],
+   "sectors": [
+    "Utilities"
+   ],
+   "score": -1,
+   "score_hits": [
+    "+acquisition",
+    "-misses estimates"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "Frontdoor’s (FTDR) Free Cash Flow Powers Upward Potential",
+   "summary": "Investment management company Curreen Capital released its second-quarter 2026 Investor letter. A copy of the letter can be downloaded here. In the second quarter, the fund returned 22.26% compared to 15.20% for the S&P 500 Index. The performance was driven by active special case investments, including buying a tender offer, a merger-spinoff, and investments in […]",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/frontdoor-ftdr-free-cash-flow-121324295.html?.tsrc=rss",
+   "published": "2026-08-11 12:13",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "Frontdoor, Inc. to Attend and Present at the KeyBanc Technology Leadership Forum",
+   "summary": "MEMPHIS, Tenn., August 10, 2026--Frontdoor, Inc. (NASDAQ: FTDR) today announced its CFO will participate in a fireside chat at the KeyBanc Technology Leadership Forum. Jason Bailey, Chief Financial Officer, will participate in a fireside chat on August 11, 2026 at 12:30 p.m. CT.",
+   "link": "https://finance.yahoo.com/technology/articles/frontdoor-inc-attend-present-keybanc-183000515.html?.tsrc=rss",
+   "published": "2026-08-10 18:30",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "3 Reasons Growth Investors Will Love Frontdoor (FTDR)",
+   "summary": "Frontdoor (FTDR) possesses solid growth attributes, which could help it handily outperform the market.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-growth-investors-love-164503142.html?.tsrc=rss",
+   "published": "2026-08-10 16:45",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 3,
+   "score_hits": [
+    "+outperform",
+    "+growth"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "All You Need to Know About Frontdoor (FTDR) Rating Upgrade to Buy",
+   "summary": "Frontdoor (FTDR) has been upgraded to a Zacks Rank #2 (Buy), reflecting growing optimism about the company's earnings prospects. This might drive the stock higher in the near term.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/know-frontdoor-ftdr-rating-upgrade-160006942.html?.tsrc=rss",
+   "published": "2026-08-10 16:00",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 5,
+   "score_hits": [
+    "+upgrade",
+    "+upgraded",
+    "+optimism"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "Frontdoor Inc. (FTDR) Hits Fresh High: Is There Still Room to Run?",
+   "summary": "Frontdoor (FTDR) is at a 52-week high, but can investors hope for more gains in the future? We take a look at the company's fundamentals for clues.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/frontdoor-inc-ftdr-hits-fresh-131504348.html?.tsrc=rss",
+   "published": "2026-08-10 13:15",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 4,
+   "score_hits": [
+    "+52-week high",
+    "+gains"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FTDR",
+   "source_type": "yahoo_ticker",
+   "title": "FTDR Q2 Deep Dive: Member Growth Returns and Margin Expansion Drive Guidance Raise",
+   "summary": "Home warranty company Frontdoor (NASDAQ:FTDR) met Wall Street’s revenue expectations in Q2 CY2026, with sales up 4.5% year on year to $645 million. The company expects next quarter’s revenue to be around $647 million, coming in 1% above analysts’ estimates. Its non-GAAP profit of $1.93 per share was 9.3% above analysts’ consensus estimates.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/ftdr-q2-deep-dive-member-073322653.html?.tsrc=rss",
+   "published": "2026-08-10 07:33",
+   "tickers": [
+    "FTDR"
+   ],
+   "sectors": [
+    "Consumer Discretionary"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:COHR",
+   "source_type": "yahoo_ticker",
+   "title": "Coherent (COHR) Stock Is Tumbling Today After Massive Optics vs. Memory Debate on Social Media This Weekend",
+   "summary": "A weekend debate on social media about optics replacing memory as the hottest AI trade sent optical stocks surging at Monday's open, then something unexpected happened within the first ten minutes of trading.",
+   "link": "https://247wallst.com/investing/2026/08/10/coherent-cohr-stock-is-tumbling-today-after-massive-optics-vs-memory-debate-on-social-media-this-weekend/?.tsrc=rss",
+   "published": "2026-08-10 19:37",
+   "tickers": [
+    "COHR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:COHR",
+   "source_type": "yahoo_ticker",
+   "title": "LYTE’s $72 Million Debut Masks a Concentration Bet on Three Optical Giants",
+   "summary": "Roundhill's new photonics ETF grabbed attention with a massive opening day, but underneath the excitement sits a 12-stock portfolio where a single earnings call or insider sale can move the entire fund.",
+   "link": "https://247wallst.com/investing/etf/2026/08/10/lytes-72-million-debut-masks-a-concentration-bet-on-three-optical-giants/?.tsrc=rss",
+   "published": "2026-08-10 18:13",
+   "tickers": [
+    "COHR"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:DDOG",
+   "source_type": "yahoo_ticker",
+   "title": "Datadog (DDOG) Grows Fast, Then Gets Punished For Slowing Down",
+   "summary": "Datadog (NASDAQ:DDOG) just posted one of its strongest quarters in years on July 22, and the stock fell 19% anyway. Earlier on July 16, the company also launched its platform on the AWS Europe (London) Region, giving UK customers a local option for storing observability and security data. That expansion lands at an odd moment. […]",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/datadog-ddog-grows-fast-then-193404859.html?.tsrc=rss",
+   "published": "2026-08-10 19:34",
+   "tickers": [
+    "DDOG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:DDOG",
+   "source_type": "yahoo_ticker",
+   "title": "Datadog's CEO Sellls Over 127,000 Shares for $36.5 Million. Here's a Closer Look at the Transaction.",
+   "summary": "The provider of monitoring and observability technology reported a notable insider sale amid a 113% one-year total return on its stock.",
+   "link": "https://www.fool.com/coverage/filings/2026/08/10/datadog-s-ceo-sellls-over-127-000-shares-for-usd36-5-million-here-s-a-closer-look-at-the-transaction/?.tsrc=rss",
+   "published": "2026-08-10 17:20",
+   "tickers": [
+    "DDOG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:DDOG",
+   "source_type": "yahoo_ticker",
+   "title": "Is DDOG Stock Worth Investing in After Q2 Beat & Solid '26 Guidance?",
+   "summary": "Datadog's Q2 beat, raised 2026 outlook, strong cash flow and AI momentum support growth, though the stock trades at a premium valuation.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/ddog-stock-worth-investing-q2-163200713.html?.tsrc=rss",
+   "published": "2026-08-10 16:32",
+   "tickers": [
+    "DDOG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 3,
+   "score_hits": [
+    "+growth",
+    "+beat",
+    "+strong"
+   ],
+   "label": "긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:DDOG",
+   "source_type": "yahoo_ticker",
+   "title": "DDOG Q2 Deep Dive: Market Reacts Negatively Despite Accelerating Core Growth and AI Momentum",
+   "summary": "Cloud monitoring platform Datadog (NASDAQ:DDOG) reported Q2 CY2026 results topping the market’s revenue expectations, with sales up 35.6% year on year to $1.12 billion. Guidance for next quarter’s revenue was optimistic at $1.14 billion at the midpoint, 2.9% above analysts’ estimates. Its non-GAAP profit of $0.65 per share was 11.4% above analysts’ consensus estimates.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/ddog-q2-deep-dive-market-010922675.html?.tsrc=rss",
+   "published": "2026-08-10 01:09",
+   "tickers": [
+    "DDOG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:DDOG",
+   "source_type": "yahoo_ticker",
+   "title": "Datadog coverage update: BofA stays bullish on weakness",
+   "summary": "Datadog Inc. (DDOG) spent last summer defending itself against one accusation: that its biggest customer was quietly building its way out the door. In July 2025, Guggenheim downgraded the stock to sell, warning that OpenAI was developing in-house monitoring tools that could carve a $150 million ...",
+   "link": "https://www.thestreet.com/investing/stocks/datadog-bofa-bullish-q3-guidance?.tsrc=rss",
+   "published": "2026-08-09 16:47",
+   "tickers": [
+    "DDOG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": -2,
+   "score_hits": [
+    "-downgraded"
+   ],
+   "label": "약부정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:DDOG",
+   "source_type": "yahoo_ticker",
+   "title": "Datadog’s largest customer renews deal but cuts usage",
+   "summary": "Datadog (DDOG) sells software that helps companies monitor the performance and security of cloud applications. Its tools track servers, applications, software logs, and other systems behind cloud and artificial intelligence products. Datadog reported second-quarter revenue of $1.12 billion, up 36% ...",
+   "link": "https://www.thestreet.com/investing/stocks/datadogs-largest-customer-renews-deal-but-cuts-usage?.tsrc=rss",
+   "published": "2026-08-08 00:17",
+   "tickers": [
+    "DDOG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:FIG",
+   "source_type": "yahoo_ticker",
+   "title": "How Figma Stock Jumped 37.4% Last Month",
+   "summary": "Short sellers and index funds moved Figma's stock in July. The company barely participated in the process.",
+   "link": "https://www.fool.com/investing/2026/08/10/how-figma-stock-jumped-374-last-month/?.tsrc=rss",
+   "published": "2026-08-10 19:16",
+   "tickers": [
+    "FIG"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:XE",
+   "source_type": "yahoo_ticker",
+   "title": "TRISO-X and Oak Ridge National Laboratory Extend Advanced Nuclear Fuel Research Partnership",
+   "summary": "OAK RIDGE, Tenn., Aug. 11, 2026 (GLOBE NEWSWIRE) -- TRISO-X, LLC (“TRISO-X” or the “Company”), a leading manufacturer of advanced nuclear fuels and wholly-owned subsidiary of X-Energy, Inc. (“X-energy”) (Nasdaq: XE), today announced the extension of its cooperative research and development relationship with the U.S. Department of Energy's Oak Ridge National Laboratory (\"ORNL\" or the “Lab”). The ag",
+   "link": "https://finance.yahoo.com/energy/articles/triso-x-oak-ridge-national-110000287.html?.tsrc=rss",
+   "published": "2026-08-11 11:00",
+   "tickers": [
+    "XE"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:XE",
+   "source_type": "yahoo_ticker",
+   "title": "Centrus Energy (LEU) Secures Reactor Fuel Contract That Funds Enrichment Buildout",
+   "summary": "Centrus Energy (NYSE:LEU) signed a definitive enrichment services contract with X-energy LLC to supply fuel for advanced small modular reactor deployments. The agreement covers both low-enriched uranium and high-assay, low-enriched uranium for an initial batch of X-energy SMRs. Prepayments under the contract support Centrus Energy's domestic commercial enrichment expansion and capital program. The",
+   "link": "https://finance.yahoo.com/energy/articles/centrus-energy-leu-secures-reactor-190734020.html?.tsrc=rss",
+   "published": "2026-08-09 19:07",
+   "tickers": [
+    "XE"
+   ],
+   "sectors": [
+    "Industrials"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Morgan Stanley sees more upside in these stocks as 'chipflation' worsens",
+   "summary": "Some names to play for 'chipflation'.",
+   "link": "https://finance.yahoo.com/markets/article/morgan-stanley-sees-more-upside-in-these-stocks-as-chipflation-worsens-115127413.html?.tsrc=rss",
+   "published": "2026-08-11 11:51",
+   "tickers": [
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Memory Price Surge Accelerating IT Hardware Spending, Morgan Stanley Says",
+   "summary": "Information technology hardware companies in the US will likely benefit from accelerated enterprise",
+   "link": "https://finance.yahoo.com/technology/articles/memory-price-surge-accelerating-hardware-203709359.html?.tsrc=rss",
+   "published": "2026-08-10 20:37",
+   "tickers": [
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+surge"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Everpure Lands New Design Win with Second Top-Five Hyperscaler",
+   "summary": "Everpure (NYSE: P), the company revolutionizing storage and data management, today announced a design win and supply agreement with a second top-five hyperscaler. This milestone builds on Everpure's landmark hyperscaler design win announced in late 2024, further reinforcing the company's technological leadership and software-driven advantage.",
+   "link": "https://finance.yahoo.com/technology/articles/everpure-lands-design-win-second-201000835.html?.tsrc=rss",
+   "published": "2026-08-10 20:10",
+   "tickers": [
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Does STX Stock Still Have More Room to Run After Solid Q4 Earnings?",
+   "summary": "Seagate's AI-driven storage boom, faster HAMR adoption and strong cash flow fuel growth, but a higher valuation makes the risk-reward more balanced.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/does-stx-stock-still-more-134600529.html?.tsrc=rss",
+   "published": "2026-08-10 13:46",
+   "tickers": [
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+growth",
+    "+strong"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Apple downgraded, HPE upgraded: Wall Street's top analyst calls",
+   "summary": "Apple downgraded, HPE upgraded: Wall Street's top analyst calls",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/apple-downgraded-hpe-upgraded-wall-133934661.html?.tsrc=rss",
+   "published": "2026-08-10 13:39",
+   "tickers": [
+    "AAPL",
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [
+    "+upgraded",
+    "-downgraded"
+   ],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:P",
+   "source_type": "yahoo_ticker",
+   "title": "Analyst turns more bullish on hardware stocks as ‘chipflation’ accelerates demand",
+   "summary": "Investing.com -- Morgan Stanley has turned more constructive on IT hardware, upgrading its industry view as it argued that memory \"chipflation\" is accelerating infrastructure demand rather than delaying it.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/analyst-turns-more-bullish-hardware-120927617.html?.tsrc=rss",
+   "published": "2026-08-10 12:09",
+   "tickers": [
+    "P"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:RBRK",
+   "source_type": "yahoo_ticker",
+   "title": "Why Rubrik Stock Bounced Almost 9% Higher on Monday",
+   "summary": "It was swept up in a broad cybersecurity stock rally.",
+   "link": "https://www.fool.com/investing/2026/08/10/why-rubrik-stock-bounced-almost-9-higher-on-monday/?.tsrc=rss",
+   "published": "2026-08-10 23:15",
+   "tickers": [
+    "RBRK"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rally"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:MXL",
+   "source_type": "yahoo_ticker",
+   "title": "MaxLinear Introduces RackCommander™ Control-Plane Portfolio for Next-Generation AI Infrastructure",
+   "summary": "CARLSBAD, Calif., August 11, 2026--MaxLinear launches RackCommander™, a control-plane portfolio enabling connectivity, monitoring, control, and power management for AI infrastructure.",
+   "link": "https://finance.yahoo.com/technology/ai/articles/maxlinear-introduces-rackcommander-control-plane-032300998.html?.tsrc=rss",
+   "published": "2026-08-11 03:23",
+   "tickers": [
+    "MXL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:MXL",
+   "source_type": "yahoo_ticker",
+   "title": "MaxLinear Expands AI Infrastructure Control-Plane Portfolio with Intelligent eFuse Solutions for Rack-Scale Power Protection and Telemetry",
+   "summary": "CARLSBAD, Calif., August 11, 2026--MaxLinear introduces intelligent eFuse solutions that enhance power protection, telemetry, and serviceability in AI infrastructure.",
+   "link": "https://finance.yahoo.com/technology/ai/articles/maxlinear-expands-ai-infrastructure-control-031800444.html?.tsrc=rss",
+   "published": "2026-08-11 03:18",
+   "tickers": [
+    "MXL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:MXL",
+   "source_type": "yahoo_ticker",
+   "title": "MaxLinear Introduces Carmel™ High-Speed USB-to-UART Product for Next-Generation AI Data Center Console Access",
+   "summary": "CARLSBAD, Calif., August 11, 2026--MaxLinear introduces Carmel™, a high-speed USB-to-UART device that enables low-latency console access for next-generation AI infrastructure.",
+   "link": "https://finance.yahoo.com/technology/ai/articles/maxlinear-introduces-carmel-high-speed-024100109.html?.tsrc=rss",
+   "published": "2026-08-11 02:41",
+   "tickers": [
+    "MXL"
+   ],
+   "sectors": [
+    "Technology"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TWST",
+   "source_type": "yahoo_ticker",
+   "title": "Twist Bioscience (TWST) Q3 2026 Earnings Call Transcript",
+   "summary": "AI-enabled drug discovery orders drive triple-digit growth as guidance rises.",
+   "link": "https://www.fool.com/earnings/call-transcripts/2026/08/10/twist-bioscience-twst-q3-2026-earnings-call-transcript/?.tsrc=rss",
+   "published": "2026-08-11 01:31",
+   "tickers": [
+    "TWST"
+   ],
+   "sectors": [
+    "Health Care"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+rises",
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:TWST",
+   "source_type": "yahoo_ticker",
+   "title": "Twist Bioscience (TWST) Is Up 26.3% After Capital Raise And Guidance Hike Amid Legal Settlement Talks - Has The Bull Case Changed?",
+   "summary": "In early August 2026, Twist Bioscience completed a US$300 million follow-on common stock offering at US$96 per share after raising its fiscal 2026 revenue guidance to US$456 million–US$457 million and reporting third-quarter sales of US$118.38 million despite a net loss of US$35.05 million. Alongside this capital raise and upgraded outlook, Twist is addressing legacy securities litigation through ",
+   "link": "https://finance.yahoo.com/healthcare/articles/twist-bioscience-twst-26-3-221136524.html?.tsrc=rss",
+   "published": "2026-08-08 22:11",
+   "tickers": [
+    "TWST"
+   ],
+   "sectors": [
+    "Health Care"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+upgraded"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:CORZ",
+   "source_type": "yahoo_ticker",
+   "title": "What’s Driving TeraWulf (WULF) Stock, and Are Its Peers Moving Too?",
+   "summary": "A 20-year lease with Anthropic and a massive asset sale have put one Bitcoin miner at the front of a pack racing to reinvent itself as AI infrastructure, but the real question is whether the stock's already-substantial gain leaves room for what comes next.",
+   "link": "https://247wallst.com/investing/2026/08/10/whats-driving-terawulf-wulf-stock-and-are-its-peers-moving-too/?.tsrc=rss",
+   "published": "2026-08-10 20:19",
+   "tickers": [
+    "CORZ"
+   ],
+   "sectors": [
+    "Finance"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+gain"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:CORZ",
+   "source_type": "yahoo_ticker",
+   "title": "Cipher Digital Delivered Early, But Its Growth Waits On Texas",
+   "summary": "The capacity already under contract arrived ahead of schedule, while the far larger pipeline behind it now waits on a Texas approval process with no date attached.",
+   "link": "https://www.trefis.com/articles/610764/cipher-digital-delivered-early-but-its-growth-waits-on-texas/2026-08-10?.tsrc=rss",
+   "published": "2026-08-10 19:27",
+   "tickers": [
+    "CORZ"
+   ],
+   "sectors": [
+    "Finance"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+growth"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:CORZ",
+   "source_type": "yahoo_ticker",
+   "title": "What Advanced Micro Devices (AMD)'s New Instinct Coder AI Stack and Data Center Push Means For Shareholders",
+   "summary": "In early August 2026, Advanced Micro Devices reported second-quarter 2026 results showing higher sales and net income versus a year earlier, while also issuing revenue guidance for the third quarter and unveiling AMD Instinct Coder, a turnkey enterprise AI inference solution built with Spectro Cloud and Supermicro on Instinct MI325X GPUs. Together with its planned acquisition of AI inference start",
+   "link": "https://finance.yahoo.com/technology/ai/articles/advanced-micro-devices-amd-instinct-181151722.html?.tsrc=rss",
+   "published": "2026-08-10 18:11",
+   "tickers": [
+    "CORZ"
+   ],
+   "sectors": [
+    "Finance"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+acquisition"
+   ],
+   "label": "약긍정",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:CORZ",
+   "source_type": "yahoo_ticker",
+   "title": "Core Scientific (CORZ) Shareholders Rejected a $9B Sale. Does the AMD Deal Vindicate Them?",
+   "summary": "Core Scientific, Inc. (NASDAQ:CORZ) announced a major infrastructure partnership with Advanced Micro Devices, Inc. (NASDAQ:AMD) on July 28, giving the chipmaker’s ecosystem access to more than 500 megawatts of U.S. data-center capacity beginning in 2027. The arrangement can expand to 2.5 gigawatts. Core Scientific shares rallied in premarket trading. The agreement is more substantial than […]",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/core-scientific-corz-shareholders-rejected-203304503.html?.tsrc=rss",
+   "published": "2026-08-09 20:33",
+   "tickers": [
+    "CORZ"
+   ],
+   "sectors": [
+    "Finance"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Yahoo:CORZ",
+   "source_type": "yahoo_ticker",
+   "title": "IREN (IREN) vs. CORZ and APLD: Can Its AI Cloud Buildout Turn Contracted Demand Into Profits?",
+   "summary": "Is IREN a good stock to buy? We came across a bullish thesis on IREN Limited on Compounding Your Wealth’s Substack by Sergey. In this article, we will summarize the bulls’ thesis on IREN. IREN Limited’s share was trading at $37.93 as of August 6th 2026. IREN’s trailing and forward P/E were 47.82 and 136.99 respectively according […]",
+   "link": "https://finance.yahoo.com/technology/ai/articles/iren-iren-vs-corz-apld-182431338.html?.tsrc=rss",
+   "published": "2026-08-09 18:24",
+   "tickers": [
+    "CORZ"
+   ],
+   "sectors": [
+    "Finance"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "is_macro": false,
+   "dup_count": 1
+  }
+ ]
+}
