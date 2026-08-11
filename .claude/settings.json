@@ -23,18 +23,24 @@
       "Bash(tail *)",
       "Bash(wc *)",
       "Bash(sed -n *)",
+      "Bash(grep *)",
+      "Bash(awk *)",
       "Bash(date *)",
       "Bash(TZ=* date *)",
 
       "PowerShell(Set-Location C:\\Users\\enair\\Desktop\\claude\\asset-insight*)",
       "PowerShell(git *)",
       "PowerShell(python tools/*)",
+      "PowerShell(python tools\\*)",
+      "Bash(python tools\\*)",
 
       "PowerShell(Get-ChildItem*)",
       "PowerShell(Get-Content*)",
       "PowerShell(Get-Date*)",
       "PowerShell(Select-String*)",
-      "PowerShell(Measure-Object*)"
+      "PowerShell(Measure-Object*)",
+      "PowerShell(Test-Path*)",
+      "PowerShell(findstr*)"
     ],
 
     "deny": [
