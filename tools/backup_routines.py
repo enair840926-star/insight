@@ -51,6 +51,15 @@ FILES = [
     ("asset-insight-evening.md",
      HOME / "scheduled-tasks" / "asset-insight-evening" / "SKILL.md",
      "저녁 루틴 (평일 21:12·22:12·23:12)"),
+    # 저장소의 .claude/settings.json 과 같은 내용인데 여기에도 둔다.
+    # 예약 루틴은 저장소 밖에서 시작해 나중에 cd 로 들어온다. Claude 는
+    # 프로젝트 설정을 '시작한 폴더' 기준으로 읽으므로 저장소 안에만 두면
+    # 루틴 세션에는 안 실린다 — 팝업에서 '항상 허용'을 눌러도 다음 실행이
+    # 또 다른 폴더에서 시작하니 남지 않는다. 매일 누르는데 매일 다시
+    # 묻던 것이 이 때문이다.
+    ("settings-사용자.json",
+     HOME / "settings.json",
+     "계정 전체 허용 목록. 루틴이 저장소 밖에서 시작해도 걸린다."),
 ]
 
 

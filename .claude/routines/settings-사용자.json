@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "//": "사용자 설정(~/.claude/settings.json). 저장소의 .claude/settings.json 과 같은 허용 목록을 계정 전체에 건다. 예약 루틴은 저장소 밖에서 시작해 나중에 cd로 들어오는데, Claude는 프로젝트 설정을 '시작한 폴더' 기준으로 읽는다. 그래서 저장소 안에만 두면 루틴 세션에는 실리지 않고 매번 승인을 묻는다 — 팝업에서 '항상 허용'을 눌러도 다음 실행이 또 다른 폴더에서 시작하니 남지 않는다.",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Write(insights/**)",
+      "Edit(insights/**)",
+      "Bash(cd /c/Users/enair/Desktop/claude/asset-insight*)",
+      "Bash(git *)",
+      "Bash(python tools/*)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(sed -n *)",
+      "Bash(grep *)",
+      "Bash(awk *)",
+      "Bash(date *)",
+      "Bash(TZ=* date *)",
+      "PowerShell(Set-Location C:\\Users\\enair\\Desktop\\claude\\asset-insight*)",
+      "PowerShell(git *)",
+      "PowerShell(python tools/*)",
+      "PowerShell(python tools\\*)",
+      "Bash(python tools\\*)",
+      "PowerShell(Get-ChildItem*)",
+      "PowerShell(Get-Content*)",
+      "PowerShell(Get-Date*)",
+      "PowerShell(Select-String*)",
+      "PowerShell(Measure-Object*)",
+      "PowerShell(Test-Path*)",
+      "PowerShell(findstr*)"
+    ],
+    "deny": [
+      "Bash(python insight.py*)",
+      "PowerShell(python insight.py*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "PowerShell(git reset --hard*)",
+      "PowerShell(git clean *)",
+      "PowerShell(git push --force*)",
+      "PowerShell(git push -f *)"
+    ]
+  }
+}
