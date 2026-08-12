@@ -110,6 +110,51 @@ def waiting_for_collection(market, now=None):
     return c < start.replace(tzinfo=None)
 
 
+# 개장을 안 지났어도 이만큼 묵었으면 쓰지 않는다. 실측 24건에서 정상의
+# 최대가 6.8시간(macro 01:29 → 08:19), 막아야 할 것의 최소가 10.8시간
+# (coin 08-11 21:31 → 08-12 08:16)이라 그 사이로 잡는다.
+#
+# 개장 판정만으로는 두 가지가 샌다 — 코인은 24시간 거래라 지나갈 개장이
+# 없고, 주말을 낀 금요일 데이터는 '다음 개장'이 월요일이라 30시간이 지나도
+# 개장 전으로 잡힌다(us 08-09 02:05 → 08-10 08:11).
+MAX_AGE_H = 8
+
+
+def too_late(market, now=None):
+    """대비하던 장이 이미 지났으면 True — 그 글은 이제 회고가 된다.
+
+    루틴이 밀리는 것을 막지 못했다. 실측(git 이력 24건)에서 11건이 수집
+    10시간 뒤에 쓰였고, 국장은 거의 매번 저녁에 쓰였다 — 08-12에는 08:07
+    데이터로 21:49에 '개장 1시간 전' 글이 나갔고, 08-07 데이터는 사흘 뒤인
+    08-10에 쓰였다(71.4시간).
+
+    아침 루틴이 안 돌면 저녁 루틴이 pending 출력을 그대로 받아 국장까지
+    쓰기 때문이다.
+
+    **시간 상한만으로는 못 가른다.** macro 08-05는 01:29에 받아 08:19에
+    썼는데(6.8시간) 09:00 개장 전이라 정상이다. 기준은 '얼마나 됐나'가
+    아니라 '대비하던 장이 아직 안 열렸나'다.
+    """
+    from core import session
+    c = collected_at(market)
+    if c is None:
+        return False
+    now = now or dt.datetime.now()
+    if getattr(now, "tzinfo", None) is not None:
+        now = now.replace(tzinfo=None)
+
+    # 너무 묵은 것은 개장이 안 지났어도 쓰지 않는다.
+    if (now - c).total_seconds() / 3600 > MAX_AGE_H:
+        return True
+
+    # 수집 시점 기준으로 그 프롬프트가 바라보던 개장을 되살린다.
+    # 코인은 24시간 거래라 next_open이 없고, 위 시간 상한만 적용된다.
+    d = session.describe(market, c.astimezone() if c.tzinfo else
+                         c.replace(tzinfo=dt.datetime.now().astimezone().tzinfo))
+    nxt = d.get("next_open")
+    return nxt is not None and now > nxt.replace(tzinfo=None)
+
+
 def pending(markets=MARKETS, now=None, wait=True):
     """(자산군, 사유) 목록. 다시 쓸 게 없으면 빈 목록."""
     out = []
@@ -121,6 +166,8 @@ def pending(markets=MARKETS, now=None, wait=True):
             continue                       # 이미 최신
         if wait and waiting_for_collection(m, now):
             continue                       # 곧 올 수집을 기다린다
+        if too_late(m, now):
+            continue                       # 대비하던 장이 이미 지났다
         if not w:
             out.append((m, "인사이트 없음"))
             continue
@@ -143,6 +190,11 @@ def main():
             need = any(x[0] == m for x in rows)
             if need:
                 state = "다시 써야 함"
+            elif c and (not w or c > w) and too_late(m):
+                # 새 데이터가 있는데도 안 쓴다. 이유가 안 보이면 버그로
+                # 오해하므로 몇 시간 지났는지 함께 보인다.
+                age = (dt.datetime.now() - c).total_seconds() / 3600
+                state = f"너무 늦음 (수집 {age:.1f}시간 전, 그 장은 지났음)"
             elif c and (not w or c > w) and waiting_for_collection(m):
                 # '최신'과 구분해야 한다. 새 데이터가 있는데도 안 쓰는
                 # 것이므로, 이유를 안 보이면 버그로 오해한다.
