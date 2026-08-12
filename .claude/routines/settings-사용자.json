@@ -1,46 +1,34 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "//": "사용자 설정(~/.claude/settings.json). 저장소의 .claude/settings.json 과 같은 허용 목록을 계정 전체에 건다. 예약 루틴은 저장소 밖에서 시작해 나중에 cd로 들어오는데, Claude는 프로젝트 설정을 '시작한 폴더' 기준으로 읽는다. 그래서 저장소 안에만 두면 루틴 세션에는 실리지 않고 매번 승인을 묻는다 — 팝업에서 '항상 허용'을 눌러도 다음 실행이 또 다른 폴더에서 시작하니 남지 않는다.",
+
+  "//": "루틴은 저장소 밖에서 시작하므로 asset-insight/.claude/settings.json 이 아예 안 실린다. 그래서 같은 허용 목록을 계정 수준에도 둔다. 두 곳에 있으니 어긋날 수 있어 tools/backup_routines.py 가 사본을 재고, 저장소 쪽이 정본이다. 규칙은 접두 매칭이라 동사별로 쪼개면 'git -C <경로> add' 가 안 맞으므로 'git *' 로 둔다.",
+
   "permissions": {
     "allow": [
       "Read",
-      "Glob",
-      "Grep",
       "Write(insights/**)",
       "Edit(insights/**)",
+      "Write(//C:/Users/enair/Desktop/claude/asset-insight/insights/**)",
+      "Edit(//C:/Users/enair/Desktop/claude/asset-insight/insights/**)",
+
       "Bash(cd /c/Users/enair/Desktop/claude/asset-insight*)",
       "Bash(git *)",
       "Bash(python tools/*)",
-      "Bash(ls *)",
-      "Bash(cat *)",
-      "Bash(head *)",
-      "Bash(tail *)",
-      "Bash(wc *)",
-      "Bash(sed -n *)",
-      "Bash(grep *)",
-      "Bash(awk *)",
-      "Bash(date *)",
-      "Bash(TZ=* date *)",
+
       "PowerShell(Set-Location C:\\Users\\enair\\Desktop\\claude\\asset-insight*)",
       "PowerShell(git *)",
-      "PowerShell(python tools/*)",
-      "PowerShell(python tools\\*)",
-      "Bash(python tools\\*)",
-      "PowerShell(Get-ChildItem*)",
-      "PowerShell(Get-Content*)",
-      "PowerShell(Get-Date*)",
-      "PowerShell(Select-String*)",
-      "PowerShell(Measure-Object*)",
-      "PowerShell(Test-Path*)",
-      "PowerShell(findstr*)"
+      "PowerShell(python tools/*)"
     ],
+
     "deny": [
       "Bash(python insight.py*)",
       "PowerShell(python insight.py*)",
+
       "Bash(git reset --hard*)",
       "Bash(git clean *)",
       "Bash(git push --force*)",
       "Bash(git push -f *)",
+
       "PowerShell(git reset --hard*)",
       "PowerShell(git clean *)",
       "PowerShell(git push --force*)",
