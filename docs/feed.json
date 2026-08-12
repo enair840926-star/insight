@@ -1,10 +1,10 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-08-12T08:16:54+09:00",
+ "generatedAt": "2026-08-12T21:35:25+09:00",
  "collectedAt": {
-  "macro": "2026-08-12T08:12:25",
-  "us": "2026-08-11T21:30:26"
+  "macro": "2026-08-12T21:34:56",
+  "us": "2026-08-12T21:34:36"
  },
  "context": {
   "eiaCrudeLevel": {
@@ -14,9 +14,9 @@
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "fearGreed": {
-   "value": 60.8,
+   "value": 60.9,
    "rating": "greed",
-   "weekAgo": 60.0
+   "weekAgo": 59.8
   },
   "yieldCurve": [
    {
@@ -31,23 +31,6 @@
    }
   ],
   "news": [
-   {
-    "date": "2026-08-11 17:00",
-    "title": "Gold Nears Two-Month High Ahead of Wednesday's CPI Report",
-    "source": "OilPrice",
-    "topics": [
-     "rate hike",
-     "inflation",
-     "cpi"
-    ],
-    "groups": [
-     "금속",
-     "지수선물",
-     "채권금리",
-     "환율"
-    ],
-    "link": "https://oilprice.com/Metals/Gold/Gold-Nears-Two-Month-High-Ahead-of-Wednesdays-CPI-Report.html"
-   },
    {
     "date": "2026-08-11 17:51",
     "title": "Gold price hits two-month high, retreats after Hormuz escalation spikes oil price",
@@ -66,6 +49,31 @@
     "link": "https://www.mining.com/gold-price-hits-two-month-high-retreats-after-hormuz-turns-oil/"
    },
    {
+    "date": "2026-08-12 12:30",
+    "title": "IEA: Global Oil Deficit To Hit 1.8 Million Bpd This Quarter",
+    "source": "OilPrice",
+    "topics": [
+     "barrel"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/IEA-Global-Oil-Deficit-To-Hit-18-Million-Bpd-This-Quarter.html"
+   },
+   {
+    "date": "2026-08-11 23:14",
+    "title": "US yields ease as CPI caution offsets Oil rally - tmgm.com",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "cpi"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxObXZfak94VWZ0VERmVDAtcHFyblpwd0xMdEhZZDYxQkNzNVNWaWdqQWl1dHhEUkJpVktHN181LWtDaTdha1h0OG1yTzBnbDF6eWxCdW9fWXpqOFdBWTNRX1BCZGdmcWFPSHdIX2tXak9kTVlvRklsQ0JCUnVETDdhR0NpTk9GY0YwUEZhUzVhdkF3VkhZVjY5bHZnbXY2bTlxN0o5b212LXdnOGtMOEdkRm5mRQ?oc=5"
+   },
+   {
     "date": "2026-08-10 13:43",
     "title": "고용지표에 따른 연준 기대 변화에 달러인덱스(USDX) 하락 - VT Markets",
     "source": "구글뉴스:dollar index",
@@ -82,14 +90,6 @@
     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPZEN2Y2JsSElYbjJRbndUV1JmY0R4S2ZxVmtZXzVzV0dlcTJPOExISHFYWm54amphQkZOcFV6QUQtSm9VUGNVSDVWaUVuNklaYlhyNmNYVmdmeDVodm9KV01QdG02WERPSW81cHFPTGFrSFFuLTE3TmowVU9mR1VyVUcyLV9Md2huWmd5TElhUVRUZVBKQlZz?oc=5"
    },
    {
-    "date": "2026-08-11 22:22",
-    "title": "Lumentum sees sales more than double as AI demand swells",
-    "source": "MarketWatch",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.marketwatch.com/story/lumentum-sees-sales-more-than-double-as-ai-demand-swells-6ebe6ef1?mod=mw_rss_topstories"
-   },
-   {
     "date": "2026-08-11 02:05",
     "title": "Silver Price Forecast: XAG/USD slips to near $66.00 on Fed hike fears, oil surge - tmgm.com",
     "source": "구글뉴스:gold price outlook",
@@ -102,34 +102,31 @@
     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQOG1velhvWUQzVURWWks3N1ZqQTl1M004OEVQbEkxMmJwbzczbHhYNy02R0I0eDZNTFZDUWNrZ1RIb1ZFRy1ybU1TdE5lcXJrTV91TlN3VWxmT2pnemROQ1RJT2thT3JNYlZJNTdzYTZ4RmlQYTRXbmI0RE44NUZfTElsZTFEQUVDWnl1U3JNR1ZXLWo4d2s4NnpnczRvVGZRU0YyUUJFYmdOLU9qT2ZNN3JQbGE5YlVUdmQ2cGdFXzR0TFE4cXloenhMcXpCVnBkNk45dTVSYWRMZw?oc=5"
    },
    {
-    "date": "2026-08-11 16:20",
-    "title": "Silver price slips as investors bank gains ahead of US CPI",
-    "source": "Mining.com",
+    "date": "2026-08-12 04:00",
+    "title": "Europe’s carbon mechanism is a tariff by another name",
+    "source": "FT마켓",
     "topics": [
-     "inflation",
-     "cpi",
-     "silver price"
+     "tariff"
     ],
     "groups": [
      "금속",
-     "채권금리"
+     "농산물",
+     "지수선물"
     ],
-    "link": "https://www.mining.com/silver-price-slips-as-investors-bank-gains-ahead-of-us-cpi/"
+    "link": "https://www.ft.com/content/99bbb4e9-32de-40cb-aa15-537937d70889"
    },
    {
-    "date": "2026-08-11 01:53",
-    "title": "United States Dollar Index consolidates below 100.00 as bulls await US CPI amid Iran risks - tmgm.com",
+    "date": "2026-08-10 08:13",
+    "title": "US Dollar Index Price Forecast: Decline to accelerate below 99.40 - tmgm.com",
     "source": "구글뉴스:dollar index",
     "topics": [
-     "cpi",
      "dollar index"
     ],
     "groups": [
      "금속",
-     "채권금리",
      "환율"
     ],
-    "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNWkZzWFpYZFlRcVJEeGFScms2bmFkLV91Ry1jenpyOGp3TzBaSHo5SDVTMGxXdUNtWGNPRUFNT2hIclJkdUpNZk9xNERHN2JZV3NsSXRZYU1VNXhjVjNvUlJ1M3JycVRWdVd6N3VpWnlmMjVLOFpVS0NVb0RiMlN4cG8zRU5NbFlveHkxMUxZNTREOUhyckktcHpqQmRHVVJZVVpjX0cyMkItV1Yyal93eUF3bGZmU3RHVkRBZlUzODJPdXF1dkh5V0pXS0FDRGFsUk9hRzB3eDJlaEF1MUw0X3VfU2tlWlRyTGlF?oc=5"
+    "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQbTlObWgzOGpzZ3hMTlZXNFdvTVJOb2ZkeXdLUHl0Tk93YnZ4T0pNVVdXQ0cweGNvalZlQUZrTGZnUnprb0FUMVF0T0dPMEg5c2pFZ19UTjVYQ3d6Z1VET20yM01xQlpJOEloQjJaYlVVZnhnZnRVdklWNm1xejBMdnBBT3l4bF9HVE5BVVBIYkR4Q1d4T1JrWlBvZmFsbEUyRzFybkZIeU9yYU5ra2NHRUNFWkYzdFQ1QThGUVlTdFNRNjNvd2s2Mg?oc=5"
    },
    {
     "date": "2026-08-11 22:50",
@@ -152,6 +149,21 @@
     "link": "https://www.mining.com/copper-price-back-at-records-edge-as-grasberg-smelter-halt-bites-aluminum-surges/"
    },
    {
+    "date": "2026-08-11 16:20",
+    "title": "Silver price slips as investors bank gains ahead of US CPI",
+    "source": "Mining.com",
+    "topics": [
+     "inflation",
+     "cpi",
+     "silver price"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://www.mining.com/silver-price-slips-as-investors-bank-gains-ahead-of-us-cpi/"
+   },
+   {
     "date": "2026-08-10 13:53",
     "title": "Largo shares surge 15% as it adds copper, PGMs to Brazil mine",
     "source": "Mining.com",
@@ -162,14 +174,6 @@
      "금속"
     ],
     "link": "https://www.mining.com/largo-shares-surge-15-as-it-adds-copper-pgms-to-brazil-mine/"
-   },
-   {
-    "date": "2026-08-11 19:37",
-    "title": "Asoexport says Colombia coffee exports halted after earthquake - Bloomberg",
-    "source": "Investing원자재",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.investing.com/news/commodities-news/asoexport-says-colombia-coffee-exports-halted-after-earthquake--bloomberg-93CH-4852500"
    },
    {
     "date": "2026-08-11 12:20",
@@ -209,43 +213,33 @@
     "link": "https://news.google.com/rss/articles/CBMizwJBVV95cUxNeUhuZzdocjB3VzNxV2F4ZjBfZEh4a0VISEE1MVVpRmRXOW5lMXdoYWgweGVpVnV2b1hybUdwWWJ0bUUzZmduaVFXZld2dE9vM293QjZ2RWtGdUFST3hHSnpMRmxXX1pMUFlQYjFqaWJxa1J1cHhrZzF1aXhaX3NtZzJuRldUYVFNMUhBR3NSLXVVWkk1bWZuOWhpdUJJNUdZd3dpVmE3SHp0ejM1bnBYcGdiTzBuVHhDZ0VHTDZVNV9FWE5ibG4wM3F5MVpvcUcyUlIzVW1jb2U1TDB0UG5sR0xHaEh2dmxHb3plS2tUT2dCME9zZncwSkR0dElLdjhGN0lMWGs3NmhidEN2T1o4MFYwd1RsSndEZ0JPNnduSXpBTnZ1WHVzOUlIZmdremQ1eUJzWDIzZDZyal9BdHE5MDdqR0t2SWQ3M05RS09zcw?oc=5"
    },
    {
-    "date": "2026-08-10 08:13",
-    "title": "US Dollar Index Price Forecast: Decline to accelerate below 99.40 - tmgm.com",
+    "date": "2026-08-11 01:53",
+    "title": "United States Dollar Index consolidates below 100.00 as bulls await US CPI amid Iran risks - tmgm.com",
     "source": "구글뉴스:dollar index",
     "topics": [
+     "cpi",
      "dollar index"
     ],
     "groups": [
      "금속",
+     "채권금리",
      "환율"
     ],
-    "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQbTlObWgzOGpzZ3hMTlZXNFdvTVJOb2ZkeXdLUHl0Tk93YnZ4T0pNVVdXQ0cweGNvalZlQUZrTGZnUnprb0FUMVF0T0dPMEg5c2pFZ19UTjVYQ3d6Z1VET20yM01xQlpJOEloQjJaYlVVZnhnZnRVdklWNm1xejBMdnBBT3l4bF9HVE5BVVBIYkR4Q1d4T1JrWlBvZmFsbEUyRzFybkZIeU9yYU5ra2NHRUNFWkYzdFQ1QThGUVlTdFNRNjNvd2s2Mg?oc=5"
+    "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNWkZzWFpYZFlRcVJEeGFScms2bmFkLV91Ry1jenpyOGp3TzBaSHo5SDVTMGxXdUNtWGNPRUFNT2hIclJkdUpNZk9xNERHN2JZV3NsSXRZYU1VNXhjVjNvUlJ1M3JycVRWdVd6N3VpWnlmMjVLOFpVS0NVb0RiMlN4cG8zRU5NbFlveHkxMUxZNTREOUhyckktcHpqQmRHVVJZVVpjX0cyMkItV1Yyal93eUF3bGZmU3RHVkRBZlUzODJPdXF1dkh5V0pXS0FDRGFsUk9hRzB3eDJlaEF1MUw0X3VfU2tlWlRyTGlF?oc=5"
    },
    {
-    "date": "2026-08-11 19:26",
-    "title": "Soybean futures decline ahead of USDA supply report",
-    "source": "Investing원자재",
-    "topics": [
-     "soybean"
-    ],
-    "groups": [
-     "농산물"
-    ],
-    "link": "https://www.investing.com/news/commodities-news/soybean-futures-decline-ahead-of-usda-supply-report-93CH-4852485"
-   },
-   {
-    "date": "2026-08-11 16:30",
-    "title": "Russian Crude Exports Drop to Lowest Since May",
+    "date": "2026-08-12 09:30",
+    "title": "Brent Tops $89 Amid U.S.-Iran Stalemate Over Hormuz",
     "source": "OilPrice",
     "topics": [
      "crude",
-     "barrel",
-     "refinery"
+     "oil price",
+     "barrel"
     ],
     "groups": [
      "에너지"
     ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Russian-Crude-Exports-Drop-to-Lowest-Since-May.html"
+    "link": "https://oilprice.com/Energy/Oil-Prices/Brent-Tops-89-Amid-US-Iran-Stalemate-Over-Hormuz.html"
    },
    {
     "date": "2026-08-11 15:23",
@@ -297,25 +291,63 @@
     "link": "https://www.mining.com/iamgold-defers-cote-expansion-studies-bigger-build/"
    },
    {
-    "date": "2026-08-11 21:01",
-    "title": "ICE canola futures drop as soyoil declines",
-    "source": "Investing원자재",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.investing.com/news/commodities-news/ice-canola-futures-drop-as-soyoil-declines-93CH-4852758"
-   },
-   {
-    "date": "2026-08-11 20:57",
-    "title": "Gold pulls back from over two-month high amid rising oil, caution ahead of CPI",
+    "date": "2026-08-12 12:18",
+    "title": "OPEC further lowers 2026 global oil demand growth forecast",
     "source": "Investing원자재",
     "topics": [
-     "cpi"
+     "opec"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/opec-further-lowers-2026-global-oil-demand-growth-forecast-4854821"
+   },
+   {
+    "date": "2026-08-12 11:43",
+    "title": "Gold sits above $4,400 as investors await U.S. inflation data",
+    "source": "Investing원자재",
+    "topics": [
+     "inflation"
     ],
     "groups": [
      "금속",
      "채권금리"
     ],
-    "link": "https://www.investing.com/news/commodities-news/gold-climbs-to-10week-high-as-fomo-china-demand-fuel-bullish-momentum-4850702"
+    "link": "https://www.investing.com/news/commodities-news/gold-rises-near-4400-as-hormuz-doubts-cpi-keep-fed-path-in-focus-4853602"
+   },
+   {
+    "date": "2026-08-12 10:59",
+    "title": "Silver could surge to $90 as investment demand takes over, Citi says",
+    "source": "Investing원자재",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.investing.com/news/commodities-news/silver-could-surge-to-90-as-investment-demand-takes-over-citi-says-4854387"
+   },
+   {
+    "date": "2026-08-12 10:49",
+    "title": "Morning Bid: Inflation obscures all",
+    "source": "Investing원자재",
+    "topics": [
+     "inflation"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/morning-bid-inflation-obscures-all-4854328"
+   },
+   {
+    "date": "2026-08-12 11:00",
+    "title": "AI’s costly buildout complicates the Fed’s inflation fight",
+    "source": "CNBC마켓",
+    "topics": [
+     "inflation"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://www.cnbc.com/2026/08/12/ais-costly-buildout-complicates-the-feds-inflation-fight.html"
    },
    {
     "date": "2026-08-11 18:34",
@@ -331,22 +363,6 @@
     "link": "https://www.cnbc.com/2026/08/11/an-inflation-report-wednesday-should-be-a-big-deal-for-the-fed-heres-what-to-expect.html"
    },
    {
-    "date": "2026-08-11 21:17",
-    "title": "CoreWeave’s stock soars as earnings show major AI momentum",
-    "source": "MarketWatch",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.marketwatch.com/story/coreweaves-stock-soars-as-earnings-show-major-ai-momentum-d3a5bede?mod=mw_rss_topstories"
-   },
-   {
-    "date": "2026-08-11 20:58",
-    "title": "We live on a farm and have $2.2 million saved for retirement. We’re ready to retire abroad. Can we afford it?",
-    "source": "MarketWatch",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.marketwatch.com/story/we-live-on-a-farm-and-have-2-2-million-saved-for-retirement-were-ready-to-retire-abroad-can-we-afford-it-85e56105?mod=mw_rss_topstories"
-   },
-   {
     "date": "2026-08-11 01:38",
     "title": "Yen sinks as effect of US-Japan intervention fades",
     "source": "FT마켓",
@@ -359,16 +375,29 @@
     "link": "https://www.ft.com/content/47d2ab3c-0423-49ed-89ca-68683761ed98?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-08-10 04:37",
-    "title": "US backs Australian rare earth miner to cut out China",
-    "source": "FT마켓",
+    "date": "2026-08-11 18:12",
+    "title": "Gold eases amid firm US Dollar as CPI and Hormuz risks loom - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
+    "topics": [
+     "cpi"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNMUE1cjR4RmRTZGIzX3ZhcmhiaXBIb1RhTkUwVncxRi1rb0R2MHY2eUZXX280LXl0RzQ2RFJKckFNaXV3Vi1OVXhRNFoxb29CdHFvQmxlTWFYRkxlcXpmRm5UUFV2WGJ5V2NyLUpwUHl5clROSmhrckNXV2t4YnhBTllDTEZWQkx6akN1Z0x5WFA5YkVnc0JoNHgtdUItU2NZNDhtbTZyMVFXUEhhUzdzYTh5cjJ6WnlNT2NHbFJJNGhUWHM?oc=5"
+   },
+   {
+    "date": "2026-08-11 09:19",
+    "title": "US Dollar: Volatility sinks as carry trades hold – ING - tmgm.com",
+    "source": "구글뉴스:treasury yields",
     "topics": [],
     "groups": [],
-    "link": "https://www.ft.com/content/d88b7e46-6806-4286-94d7-3bb16facee41?syn-25a6b1a6=1"
+    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOamU5Q3JPMERWTjgzMVc4eW12RUwyZUJockt3ZHpqUDBHNFVDcllVYnlrUEhaYWxRU3RtWU1RbWs5bWhFVFowLTh5YUlLMzNYY1pZTkR3cFc4TW10eFlEU25nSDUxMHpaNlR2SkZGMkJad1dDTVpHdWsxdGFULTNVWUFXQjBWNTczYlRaZW5kc2VfUVljNmIxNjkzNGxxNXdkVDRHQkFKRFpvNWFYZlJRaXNxTWF4Mkxt?oc=5"
    },
    {
     "date": "2026-08-10 19:12",
-    "title": "Dollar Index 99.71서 하락세, 단기 반등 신호 포착: 매시간 업데이트 - Investing.com 한국어",
+    "title": "Dollar Index 99.71서 하락세, 단기 반등 신호 포착: 매시간 업데이트 - kr.investing.com",
     "source": "구글뉴스:dollar index",
     "topics": [
      "dollar index"
@@ -378,19 +407,6 @@
      "환율"
     ],
     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9Tb0MwSXBnU0VUQ2xSUlp4NGllbDdPZExGU19Xb3VEdW5QMFZGMTVRXzRBU2hGSWN3Z1c4cXdtcXc1dFZHQWNuMXluY1Y1SUpNYzJYaEd2UnQ3R1ZGWk5MbnZDbGFqaktzdVdGU0hpTnhudlZRUUFV?oc=5"
-   },
-   {
-    "date": "2026-08-11 07:57",
-    "title": "[亞환시] 달러지수, 보합권서 등락…美 CPI 대기 | - 연합인포맥스",
-    "source": "구글뉴스:dollar index",
-    "topics": [
-     "cpi"
-    ],
-    "groups": [
-     "금속",
-     "채권금리"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5hbVhCeVlydUV0aGp2RjlLVERhU2czX2g3b2VXc2tJaDR4RmF2V09jWldzaEE4c0JmVlBpOUFMcEdocWp6aXZOangzaVVuMXU0bVVRUU1xMUgxWkM2cnpiWkp3ZU5pa0dsVFlMZ29vQ1V5Um5U?oc=5"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -402,72 +418,75 @@
    "unit": "bp",
    "fact": "미 10년물 4.684% (전일 4.699%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-08-12T08:12:25"
+   "asof": "2026-08-12T21:34:56"
   },
   "riskAppetite": {
-   "value": -0.18,
+   "value": 0.1,
    "unit": "pt",
-   "fact": "VIX 15.28 (전일 15.46)",
+   "fact": "VIX 15.38 (전일 15.28)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-08-12T08:12:25"
+   "asof": "2026-08-12T21:34:56"
   },
   "dollar": {
-   "value": 0.0,
+   "value": -0.03,
    "unit": "%",
-   "fact": "달러인덱스 99.812 (전일 대비 +0.00%)",
+   "fact": "달러인덱스 99.786 (전일 대비 -0.03%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-08-12T08:12:25"
+   "asof": "2026-08-12T21:34:56"
   },
   "breadth": {
-   "value": 38.8,
+   "value": 55.2,
    "unit": "%",
-   "fact": "상승 1,943 / 하락 2,953 (38.8%)",
+   "fact": "상승 2,763 / 하락 2,112 (55.2%)",
    "source": "Nasdaq screener 전종목",
-   "asof": "2026-08-11T21:30:26"
+   "asof": "2026-08-12T21:34:36"
+  },
+  "inventory": {
+   "value": 9.572,
+   "unit": "Mbbl",
+   "fact": "API Weekly Crude Oil Stock 실제 9.072M / 예상 -0.500M → 서프라이즈 +9.57백만 배럴",
+   "source": "API 2026-08-12",
+   "asof": "2026-08-12T21:34:36"
   },
   "rateDiff": {
-   "value": -6.2,
+   "value": 0.8,
    "unit": "bp",
-   "fact": "미 10년물 4.684% − 유로존 3.1993% = 148bp (전일 155bp)",
-   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-10",
-   "asof": "2026-08-12T08:12:25"
+   "fact": "미 10년물 4.684% − 유로존 3.1761% = 151bp (전일 150bp)",
+   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-11",
+   "asof": "2026-08-12T21:34:56"
   }
  },
  "levels": {
   "XAUUSD": {
-   "last": 4426.1,
-   "prevClose": 4361.7998046875,
+   "last": 4465.9,
+   "prevClose": 4383.0,
    "source": "Yahoo GC=F",
-   "asof": "2026-08-12T08:12:25",
-   "note": "금 · 당일 +1.47%"
+   "asof": "2026-08-12T21:34:56",
+   "note": "금 · 당일 +1.89%"
   },
   "USOIL": {
-   "last": 83.5,
-   "prevClose": 82.12999725341797,
+   "last": 83.75,
+   "prevClose": 83.19999694824219,
    "source": "Yahoo CL=F",
-   "asof": "2026-08-12T08:12:25",
-   "note": "WTI원유 · 당일 +1.67%"
+   "asof": "2026-08-12T21:34:56",
+   "note": "WTI원유 · 당일 +0.66%"
   },
   "EURUSD": {
-   "last": 1.1547,
+   "last": 1.1554,
    "prevClose": 1.1546411514282227,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-08-12T08:12:25",
-   "note": "유로달러 · 당일 +0.01%"
+   "asof": "2026-08-12T21:34:56",
+   "note": "유로달러 · 당일 +0.07%"
   },
   "NAS100": {
-   "last": 29651.25,
-   "prevClose": 29737.0,
+   "last": 29845.75,
+   "prevClose": 29626.0,
    "source": "Yahoo NQ=F",
-   "asof": "2026-08-12T08:12:25",
-   "note": "나스닥선물 · 당일 -0.29%"
+   "asof": "2026-08-12T21:34:56",
+   "note": "나스닥선물 · 당일 +0.74%"
   }
  },
  "missing": [
-  {
-   "key": "inventory",
-   "reason": "이번 캘린더에 컨센서스 있는 원유 재고 발표 없음 (API 화요일·EIA 수요일 발표) — 해당 요일이 아니면 정상"
-  },
   {
    "key": "realYield",
    "reason": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요"
