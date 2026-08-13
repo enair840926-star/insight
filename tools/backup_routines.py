@@ -22,7 +22,6 @@ git에 없으므로 PC가 죽으면 사라진다. 코드가 다 있어도 **무�
 같이 둔다. 바라는 대신 잰다.
 """
 import argparse
-import filecmp
 import os
 import shutil
 import sys
@@ -75,6 +74,19 @@ FILES = [
 ]
 
 
+def _same(p1, p2):
+    """줄바꿈 차이는 다른 것으로 세지 않는다.
+
+    git이 체크아웃하면서 저장소 쪽 파일을 CRLF로 바꾸는데(autocrlf) 실물은
+    LF 그대로라, 바이트로 비교하면 내용이 같아도 매번 '다름'이 뜬다.
+    실측 2026-08-14: settings.json 이 3456 vs 3377바이트로 갈렸고 차이는
+    \\r 79개가 전부였다. 늘 켜지는 경보는 안 켜지는 경보만큼 쓸모없다.
+    """
+    a = p1.read_bytes().replace(b"\r\n", b"\n")
+    b = p2.read_bytes().replace(b"\r\n", b"\n")
+    return a == b
+
+
 def _state(repo, live):
     if not live.exists() and not repo.exists():
         return "둘 다 없음"
@@ -82,7 +94,7 @@ def _state(repo, live):
         return "실물 없음 (복원 필요)"
     if not repo.exists():
         return "백업 없음 (저장 필요)"
-    return "같음" if filecmp.cmp(repo, live, shallow=False) else "다름"
+    return "같음" if _same(repo, live) else "다름"
 
 
 def main():
