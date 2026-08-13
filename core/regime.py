@@ -33,7 +33,10 @@
 #
 # 2026-08-13b: 마감 후 스냅샷에서 국장 축(방향·폭)을 켠다. 그전에는 개장 전만
 #              가정해 지수가 3.56% 오른 날에도 근거가 해외 선물 하나였다.
-VERSION = "2026-08-13b"
+# 2026-08-14: 매크로 위험자산 축에 나스닥을 더한다. S&P500만 쓰면 대형주는
+#             잠잠한데 기술주만 오른 날을 놓친다(실측 08-13: S&P500 +0.26%로
+#             임계 미달인데 나스닥은 +0.54%로 걸렸다).
+VERSION = "2026-08-14"
 
 # 신호 하나가 ±1이다. 크기를 다르게 주려면 실측이 먼저다 — 지금은 어느
 # 신호가 더 값을 하는지 모르므로 전부 같은 무게로 둔다.
@@ -280,9 +283,13 @@ def _macro(b):
     rec = {r.get("name"): r for r in (b.get("records") or [])
            if isinstance(r, dict)}
 
-    # [축 1] 위험자산 방향
-    out.append(_band(_get(rec, "S&P500", "change_pct"), TH["cap_weighted"],
-                     "S&P500"))
+    # [축 1] 위험자산 방향 — S&P500과 나스닥을 평균해 본다. 하나만 쓰면
+    # 대형주는 잠잠한데 기술주만 오른 날을 놓친다(위 VERSION 실측 참고).
+    # `_kr`의 미국 선물 평균과 같은 이유로 따로 세지 않고 하나로 합친다.
+    idx = [_get(rec, k, "change_pct") for k in ("S&P500", "나스닥")]
+    idx = [x for x in idx if x is not None]
+    out.append(_band(sum(idx) / len(idx), TH["cap_weighted"], "S&P500·나스닥")
+               if idx else None)
     # [축 2] 변동성
     out.append(_band(_get(rec, "VIX", "change_pct"), TH["vix"], "VIX",
                      invert=True, up="변동성 진정", down="변동성 확대"))
