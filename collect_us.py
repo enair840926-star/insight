@@ -68,9 +68,13 @@ def run():
     # 야후 quoteSummary가 401이라 미장에는 펀더멘털이 없다. 나스닥 실적
     # 서프라이즈가 그 자리를 메운다 (러너에서도 되는 것을 probe로 확인).
     us_market.enrich_surprise(selected, U.MAX_WORKERS)
+    # 수집이 개장 1시간 전이라 프리마켓은 이미 4시간 반이 지나 있다. 일봉으로는
+    # 안 보여 분봉을 따로 받는다 (30개에 2초).
+    n_pre = us_market.enrich_premarket(selected, U.MAX_WORKERS)
     indices = us_market.get_indices(U.INDICES)
     n_sur = sum(1 for r in selected if r.get("surprise"))
-    print(f"{len(selected)}종목 (실적 서프라이즈 {n_sur}개) / 지수 {len(indices)}개")
+    print(f"{len(selected)}종목 (실적 서프라이즈 {n_sur}개 / 프리마켓 {n_pre}개)"
+          f" / 지수 {len(indices)}개")
 
     print("[4/5] 뉴스 …", end=" ", flush=True)
     picked, deduped, news_stats = us_news.collect(
@@ -218,12 +222,22 @@ def build_prompt(b):
     A("선별 사유: 관심종목(항상 포함) / 거래대금상위 / 급등 / 급락 / 섹터대표")
     A("**사유를 보고 판단하라** — '급등'으로 뽑힌 종목과 '거래대금상위'로")
     A("뽑힌 종목은 의미가 다르다. 전자는 이벤트, 후자는 자금 집중이다.")
+    A("")
+    A("**프리마켓 값에는 거래량이 없다.** 야후가 프리마켓 5분봉에 거래량을")
+    A("채우지 않아(실측: 55개 봉 전부 0) 그 등락이 실제 수급인지 얇은 호가에")
+    A("한 번 튄 것인지 구분할 수가 없다. 대신 **체결된 5분 구간 수**를 함께")
+    A("냈다 — 같은 시간인데 55개인 종목이 있고 20개인 종목이 있다. 구간이")
+    A("적으면 띄엄띄엄 거래된 것이므로 그 등락률을 얇게 읽어라. 이 값은")
+    A("'오늘의 픽' 점수에 들어가 있지 않다.")
     for r in b["selected"]:
         A(f"\n### {r['symbol']} — {r['name']}")
         A(f"- 사유: {', '.join(r['reasons'])} | 섹터: {r.get('sector') or '-'}"
           f" | 업종: {r.get('industry') or '-'}")
         A(f"- 주가 ${r.get('price') or 0:,.2f} ({pct(r.get('change_pct'),0)}),"
           f" 시총 ${bn(r['market_cap'])}, 거래대금 ${r['turnover']/1e9:,.2f}B")
+        if r.get("pre_change_pct") is not None:
+            A(f"- 프리마켓 {r['pre_change_pct']:+.2f}% (직전 정규장 종가 대비,"
+              f" 체결 구간 {r['pre_bars']}개)")
         parts = []
         for key, label in (("change_5d_pct", "5일"), ("change_20d_pct", "20일"),
                            ("vs_ma20_pct", "20일선대비"), ("vs_ma60_pct", "60일선대비")):

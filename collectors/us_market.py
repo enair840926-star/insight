@@ -17,6 +17,12 @@ from core.screen import to_num
 YAHOO_CHART = ("https://query1.finance.yahoo.com/v8/finance/chart/{s}"
                "?range={r}&interval=1d")
 
+# 프리마켓은 일봉으로 못 본다. `includePrePost=true`를 붙여도 일봉 meta에는
+# preMarketPrice가 아예 없고(실측: 5종목 전부 없음, 대신 hasPrePostMarketData만
+# True), v7/quote는 막혀 있다. 분봉을 따로 받아야 한다.
+YAHOO_INTRADAY = ("https://query1.finance.yahoo.com/v8/finance/chart/{s}"
+                  "?range=1d&interval=5m&includePrePost=true")
+
 
 # ---------------------------------------------------------------- 스냅샷
 def screener_snapshot(url):
@@ -81,6 +87,65 @@ def _detail(args):
         out["from_52w_high_pct"] = round((price / hi - 1) * 100, 1)
 
     return symbol, out
+
+
+def _premarket(symbol):
+    """프리마켓 등락률과 체결된 봉 수. 개장 전 수집일 때만 값이 있다.
+
+    미장 수집은 개장 1시간 전(21:30 KST)에 도는데, 그때 프리마켓은 이미
+    4시간 반이 지나 있다. 그 구간을 통째로 못 보고 전일 종가만 들고 개장 전
+    글을 쓰고 있었다.
+
+    **기준은 `regularMarketPrice`(직전 정규장 종가)다.** `previousClose`는
+    그보다 하루 더 전이라(실측: NVDA가 224.09 vs 217.5) 그걸로 재면 프리마켓
+    등락에 하루치 등락이 섞인다 — 처음 재봤을 때 ±10%가 나온 것이 그 때문이다.
+    제대로 재면 -1.75%~+2.88%, 중간값 +0.27%다.
+
+    **거래량은 안 온다.** 프리마켓 5분봉의 volume이 None이 아니라 전부 0이다
+    (NVDA 55개 봉 전부). 그래서 얇은 호가에 한 번 튄 값인지 실제 수급인지
+    구분할 방법이 없고, 대신 **체결된 봉 수**를 함께 낸다 — 같은 4시간 반인데
+    55봉인 종목이 있고 20봉인 종목이 있다.
+    """
+    j = fetch_json(YAHOO_INTRADAY.format(s=quote(symbol)))
+    try:
+        res = j["chart"]["result"][0]
+        meta, ts = res["meta"], res.get("timestamp") or []
+        closes = res["indicators"]["quote"][0].get("close") or []
+        pre = meta["tradingPeriods"]["pre"][0][0]
+    except (TypeError, KeyError, IndexError):
+        return symbol, None
+
+    base = meta.get("regularMarketPrice")
+    last, bars = None, 0
+    for i, t in enumerate(ts):
+        if pre["start"] <= t < pre["end"]:
+            bars += 1
+            c = closes[i] if i < len(closes) else None
+            if c is not None:
+                last = c
+    if last is None or not base:
+        return symbol, None
+    return symbol, {"pre_change_pct": round((last / base - 1) * 100, 2),
+                    "pre_bars": bars}
+
+
+def enrich_premarket(selected, max_workers=8):
+    """선별 종목에 프리마켓 등락률을 붙인다. 30개에 2.0초.
+
+    점수(`core/pick.py`)에는 넣지 않는다. 거래량이 없어 신뢰도를 잴 수 없는
+    값이라, 점수에 섞으면 나중에 픽이 틀렸을 때 어느 근거가 틀렸는지 되짚을
+    수가 없다 — 목표주가·투자등급을 점수에서 뺀 것과 같은 이유다.
+    개장 시가가 어디서 시작하는지 알려주는 '사실'이므로 프롬프트에는 낸다.
+    """
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        got = dict(ex.map(_premarket, [r["symbol"] for r in selected]))
+    n = 0
+    for r in selected:
+        d = got.get(r["symbol"])
+        if d:
+            r.update(d)
+            n += 1
+    return n
 
 
 def enrich_details(selected, rng="3mo", max_workers=8):

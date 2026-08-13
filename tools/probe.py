@@ -105,6 +105,13 @@ TARGETS = [
     ("시세", "야후 파이낸스 차트",
      "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=5d&interval=1d",
      "지수·원자재·환율·금리 전부(매크로의 심장)", "chart"),
+    # 프리마켓은 이 분봉으로만 온다. 일봉 meta에는 includePrePost를 붙여도
+    # preMarketPrice가 없고 v7/quote는 막힌다. PC에서는 선별 30개 중 29개에
+    # 붙었다 — **러너에서도 tradingPeriods가 오는지가 관건이다.**
+    ("시세", "야후 분봉 (프리마켓)",
+     "https://query1.finance.yahoo.com/v8/finance/chart/AAPL"
+     "?range=1d&interval=5m&includePrePost=true",
+     "개장 전 프리마켓 등락 — 미장 수집이 개장 1시간 전이라 필요", "chart"),
     ("시세", "야후 티커 RSS",
      "https://feeds.finance.yahoo.com/rss/2.0/headline?s=AAPL&region=US&lang=en-US",
      "종목별 뉴스", None),
