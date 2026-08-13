@@ -38,11 +38,16 @@ ENOUGH = history.ENOUGH
 _pairs = history.pairs
 _verdict = history.verdict
 _wilson_gap = history.coin_flip_gap
+_abs_verdict = history.abs_verdict
+FLAT_K = history.FLAT_K
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("markets", nargs="*", default=None)
+    ap.add_argument("--flat", type=float, default=FLAT_K, metavar="배수",
+                    help=f"횡보로 볼 폭. 하루 변동폭의 몇 배까지인가 "
+                         f"(기본 {FLAT_K}). 0을 주면 횡보를 안 가른다.")
     ap.add_argument("--signals", action="store_true", help="신호별 기여도까지")
     a = ap.parse_args()
     markets = a.markets or MARKETS
@@ -88,6 +93,29 @@ def main():
         print(f"  {m:6s} {hits*100/n:5.1f}% ({hits}/{n})  "
               f"평균 초과 {st.mean(ex):+6.2f}%{note}")
         print(f"         {_wilson_gap(hits, n)}")
+
+    # ------------------------------------------------- 2b. 절대 등락 기준
+    print("\n[2b] 절대 등락 — 근거대로 올랐나·내렸나·횡보했나")
+    print("     벤치마크를 빼지 않는다. 코스피 방향은 이 시스템의 예측")
+    print("     대상이 아니라 초과수익은 거래로 옮길 수 없기 때문이다.")
+    print(f"     평소 하루 변동폭의 {a.flat}배 안쪽은 '횡보'로 따로 센다"
+          " (--flat 로 바꾼다).")
+    for m in markets:
+        xs = [(p, o, v) for p, o in rows if p["market"] == m
+              for v in [_abs_verdict(p, o, a.flat)] if v]
+        if not xs:
+            continue
+        hit = sum(1 for _, _, v in xs if v == "맞음")
+        miss = sum(1 for _, _, v in xs if v == "틀림")
+        flat = sum(1 for _, _, v in xs if v == "횡보")
+        rets = [o["ret_pct"] for _, o, _ in xs]
+        # 횡보를 분모에서 뺀다. 틀림으로 세면 조용한 장에서 규칙이 나쁜
+        # 것처럼 보이고, 맞음으로 세면 반대로 부푼다.
+        d = hit + miss
+        rate = f"{hit*100/d:5.1f}% ({hit}/{d})" if d else "  —  (방향 0건)"
+        print(f"  {m:6s} {rate}  횡보 {flat}건  평균 등락 {st.mean(rets):+6.2f}%")
+        if d:
+            print(f"         {_wilson_gap(hit, d)}")
 
     # ---------------------------------------------------------- 3. 점수-결과
     print("\n[3] 점수와 결과 — 점수가 높으면 실제로 나은가")

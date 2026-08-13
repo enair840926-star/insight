@@ -298,6 +298,41 @@ def pairs(markets=None):
     return [(p, outs[p["id"]]) for p in best.values() if p["id"] in outs]
 
 
+# 절대 등락으로 셀 때 '횡보'로 볼 폭. 그 종목의 평소 하루 변동폭(20일
+# 변동성)에 곱한다. 고정 퍼센트로 두면 안 된다 — 비트코인의 0.5%와
+# 삼성전자의 0.5%는 다른 사건이라, 고정값이면 변동성 큰 종목만 계속
+# 맞거나 계속 틀린 것으로 잡힌다.
+#
+# 0.5배인 이유: 이보다 작은 움직임은 방향이라기보다 그날의 잡음이다.
+# +0.01%를 '맞음'으로 세면 적중률이 부풀고, 그 숫자로는 규칙이 나아졌는지
+# 알 수 없다.
+FLAT_K = 0.5
+
+
+def abs_verdict(pick, out, k=FLAT_K):
+    """절대 등락 기준 판정. 반환: '맞음' · '틀림' · '횡보' · None.
+
+    `correct` 는 벤치마크 대비 초과수익으로 잰다 — 시장이 다 오르는 날의
+    상승은 정보가 아니기 때문이다. 그건 **규칙이 값을 하는가**에 답한다.
+
+    이쪽은 벤치마크를 빼지 않는다. 코스피 방향은 이 시스템의 예측 대상이
+    아니라서, 지수를 함께 공매도하는 게 아니라면 초과수익은 거래로 옮길
+    수가 없다. 실제로 손에 쥐는 것은 절대 등락이고, 이건 **근거대로
+    움직였는가**에 답한다. 어느 쪽도 틀리지 않아 둘 다 남긴다.
+    """
+    want = _WANT.get(pick.get("kind"))
+    if want is None:                      # 팽팽은 방향이 없다
+        return None
+    ret = out.get("ret_pct")
+    if ret is None:
+        return None
+    vol = pick.get("vol_20d")
+    band = k * vol if vol else 0.0        # 변동성이 없으면 횡보를 안 가른다
+    if abs(ret) < band:
+        return "횡보"
+    return "맞음" if ret * want > 0 else "틀림"
+
+
 def verdict(n, need, claim):
     if n >= need:
         return claim
