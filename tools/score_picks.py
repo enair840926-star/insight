@@ -41,6 +41,7 @@ _wilson_gap = history.coin_flip_gap
 _abs_verdict = history.abs_verdict
 FLAT_K = history.FLAT_K
 _daily_sums = history.daily_sums
+CUM_MARKETS = history.CUM_MARKETS
 
 
 def main():
@@ -119,11 +120,16 @@ def main():
             print(f"         {_wilson_gap(hit, d)}")
 
     # ------------------------------------------------------ 2c. 누적 등락
-    print("\n[2c] 누적 등락 — 그날 픽을 같은 무게로 들었다면")
+    print("\n[2c] 누적 등락 — 그날 픽을 같은 무게로 들었다면 (국장·미장)")
     print("     하루 합계 = 그날 픽들의 등락 합(하락 픽은 부호를 뒤집는다).")
     print("     적중률은 '몇 번 맞았나'만 답하고 폭을 안 본다. 아홉 번")
     print("     +0.1%로 맞고 한 번 -5%로 틀리면 적중률 90%에 누적은 마이너스다.")
-    for m in markets:
+    skipped = [m for m in markets if m not in CUM_MARKETS]
+    if skipped:
+        print(f"     선물({'·'.join(skipped)})은 뺀다 — 대상이 BTC·ETH / 금·WTI로")
+        print("     고정이라 누적이 규칙이 아니라 그 넷의 시장 수익률을 잰다.")
+        print("     방향은 위 [2]·[2b]에서 그대로 센다.")
+    for m in [m for m in markets if m in CUM_MARKETS]:
         days = _daily_sums(rows, m)
         if not days:
             continue
