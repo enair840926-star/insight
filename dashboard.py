@@ -905,7 +905,12 @@ body{background:var(--bg);color:var(--tx);
 .v,.sprice,td,.sstats,.kv .v{font-variant-numeric:tabular-nums}
 
 header{position:sticky;top:0;z-index:10;background:var(--bg);
-  border-bottom:1px solid var(--line);padding:14px 14px 0}
+  border-bottom:1px solid var(--line);padding:14px 14px 0;
+  /* 제목줄이 접히는 동안(.hrow의 max-height 전환) 브라우저 스크롤
+     앵커링이 화면 맨 위·고정 요소의 높이 변화를 보정하려고 스크롤
+     위치를 미세하게 흔든다 — 휠 한 칸이 접히는 경계(90px)에 걸리면
+     그게 떨림으로 보인다. 이 헤더 안에서는 그 보정을 끈다. */
+  overflow-anchor:none}
 h1{font-size:16px;font-weight:700;letter-spacing:-.01em}
 .stamp{color:var(--dim);font-size:11.5px;margin-top:3px;font-variant-numeric:tabular-nums}
 /* 스크롤하면 제목줄을 접어 탭만 남긴다. 헤더가 111px로 화면의 14%를
