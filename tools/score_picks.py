@@ -40,6 +40,7 @@ _verdict = history.verdict
 _wilson_gap = history.coin_flip_gap
 _abs_verdict = history.abs_verdict
 FLAT_K = history.FLAT_K
+_daily_sums = history.daily_sums
 
 
 def main():
@@ -116,6 +117,25 @@ def main():
         print(f"  {m:6s} {rate}  횡보 {flat}건  평균 등락 {st.mean(rets):+6.2f}%")
         if d:
             print(f"         {_wilson_gap(hit, d)}")
+
+    # ------------------------------------------------------ 2c. 누적 등락
+    print("\n[2c] 누적 등락 — 그날 픽을 같은 무게로 들었다면")
+    print("     하루 합계 = 그날 픽들의 등락 합(하락 픽은 부호를 뒤집는다).")
+    print("     적중률은 '몇 번 맞았나'만 답하고 폭을 안 본다. 아홉 번")
+    print("     +0.1%로 맞고 한 번 -5%로 틀리면 적중률 90%에 누적은 마이너스다.")
+    for m in markets:
+        days = _daily_sums(rows, m)
+        if not days:
+            continue
+        print(f"  [{m}]")
+        for day, n, s_, run in days[-10:]:
+            print(f"    {day}  {n}종  {s_:+7.2f}%   누적 {run:+7.2f}%")
+        wins = sum(1 for _, _, s_, _ in days if s_ > 0)
+        best = max(days, key=lambda d: d[2])
+        worst = min(days, key=lambda d: d[2])
+        print(f"    → {len(days)}일 중 플러스 {wins}일 · "
+              f"최고 {best[2]:+.2f}%({best[0]}) · 최저 {worst[2]:+.2f}%({worst[0]})")
+        print(f"       {_verdict(len(days), 60, '누적 흐름을 읽을 만하다')}")
 
     # ---------------------------------------------------------- 3. 점수-결과
     print("\n[3] 점수와 결과 — 점수가 높으면 실제로 나은가")

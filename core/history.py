@@ -333,6 +333,41 @@ def abs_verdict(pick, out, k=FLAT_K):
     return "맞음" if ret * want > 0 else "틀림"
 
 
+def daily_sums(rows, market):
+    """날짜별 픽 등락 합계와 누적. 반환: [(날짜, 종목수, 합계, 누적)].
+
+    그날 픽을 같은 무게로 하나씩 들었다고 보고 등락을 더한다 — 3종이
+    합쳐 3% 오르면 그날은 +3이다. 적중률은 '몇 번 맞았나'만 답하고
+    폭을 안 보는데, 아홉 번 +0.1%로 맞고 한 번 -5%로 틀리면 적중률은
+    90%지만 누적은 마이너스다. 그 차이를 여기서 본다.
+
+    **하락 픽은 부호를 뒤집는다.** '하락'·'피할 것'이 실제로 내렸으면
+    맞은 것이므로 플러스로 센다. 그래야 상승 픽과 같은 잣대가 된다.
+    팽팽은 방향이 없어 뺀다.
+
+    합계는 자산군 안에서만 이어 볼 수 있다. 자산군마다 픽 수가 다르고
+    (주식 3종·선물 2종) 변동성도 달라, 섞으면 큰 쪽이 전부를 가린다.
+    """
+    by_day = {}
+    for p, o in rows:
+        if p.get("market") != market:
+            continue
+        want = _WANT.get(p.get("kind"))
+        ret = o.get("ret_pct")
+        if want is None or ret is None:
+            continue
+        day = (p.get("at") or "")[:10]
+        d = by_day.setdefault(day, [0, 0.0])
+        d[0] += 1
+        d[1] += ret * want
+    out, run = [], 0.0
+    for day in sorted(by_day):
+        n, s = by_day[day]
+        run += s
+        out.append((day, n, round(s, 2), round(run, 2)))
+    return out
+
+
 def verdict(n, need, claim):
     if n >= need:
         return claim
