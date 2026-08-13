@@ -31,49 +31,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from core import history
 
-MARKETS = ["kr", "us", "coin", "macro"]
-# 표본이 이보다 적으면 숫자를 내되 판단하지 말라고 적는다.
-ENOUGH = {"calib": 100, "score": 200, "signal": 1000}
-
-
-def _pairs(markets):
-    """(픽, 결과) 쌍. 자산군·날짜별로 마지막 픽만 쓴다.
-
-    예약이 겹쳐 하루에 여러 번 수집되면 같은 자산군의 픽이 여러 줄 쌓인다.
-    전부 세면 그날 하루가 여러 번 반영돼 표본이 부풀고, 같은 종목이
-    중복돼 특정 날에 결과가 쏠린다.
-    """
-    picks, outs = history.load()
-    best = {}
-    for p in picks.values():
-        if p.get("market") not in markets:
-            continue
-        day = (p.get("at") or "")[:10]
-        k = (p["market"], day, p.get("key"))
-        if k not in best or p["at"] > best[k]["at"]:
-            best[k] = p
-    return [(p, outs[p["id"]]) for p in best.values() if p["id"] in outs]
-
-
-def _verdict(n, need, claim):
-    if n >= need:
-        return claim
-    return f"표본 {n}건 — {need}건은 모여야 판단할 수 있다. 아직 읽지 마라."
-
-
-def _wilson_gap(hits, n):
-    """정말 동전 던지기와 다른가. 반환: 설명 문자열.
-
-    p=0.5의 표준오차는 0.5/sqrt(n)이다. 2배를 못 넘으면 우연과 구별되지
-    않는다 — 그 상태에서 규칙을 고치면 노이즈를 쫓는 것이다.
-    """
-    if not n:
-        return ""
-    p = hits / n
-    se = 0.5 / (n ** 0.5)
-    if abs(p - 0.5) > 2 * se:
-        return f"동전 던지기와 다르다 (오차 범위 ±{2*se*100:.0f}%p)"
-    return f"우연과 구별 안 됨 (오차 범위 ±{2*se*100:.0f}%p)"
+# 집계·판정 기준은 core/history.py 가 갖는다. 대시보드도 같은 함수를 쓰므로
+# 여기 사본을 두면 화면과 도구가 다른 숫자를 말하게 된다.
+MARKETS = history.MARKETS
+ENOUGH = history.ENOUGH
+_pairs = history.pairs
+_verdict = history.verdict
+_wilson_gap = history.coin_flip_gap
 
 
 def main():

@@ -16,7 +16,7 @@ import socket
 import subprocess
 import datetime as dt
 
-from core import read
+from core import history, read
 from pathlib import Path
 
 # 주의: stdout 재설정은 모듈 최상단에 두면 안 된다.
@@ -285,6 +285,63 @@ def insight_slot(market_name):
             f'<div class="empty"><p>아직 없습니다.</p>'
             f'<p class="dim">Claude에게 <code>/인사이트</code>라고 하면 '
             f'최신 데이터로 써서 1분 안에 여기 반영됩니다.</p></div></section>'), []
+
+
+def picks_scorecard(market):
+    """픽이 맞았는지. 집계는 core/history.py 가 하고 여기서는 보이기만 한다.
+
+    **적중률을 크게 띄우지 않는다.** 지금 표본이 자산군당 8~12건이라 동전
+    던지기와 구별되지 않는데, 숫자만 크게 보이면 우연을 실력으로 읽는다.
+    그래서 표본 경고를 숫자 바로 옆에 붙이고, 접힌 상태의 한 줄 요약에도
+    '아직 판단 못 함'을 적는다.
+
+    결과가 나쁘게 나올 수 있다. 그건 실패가 아니라 이 기록의 성공이다 —
+    그전에는 아예 모르는 채로 쓰고 있었다.
+    """
+    try:
+        s = history.summary([market])
+    except Exception as e:
+        # 조용히 빠지면 패널이 없는 것과 구별이 안 된다. 무엇이 실패했는지 남긴다.
+        return card("픽 성적",
+                    f'<p class="dim">집계 실패 — {esc(type(e).__name__)}: '
+                    f'{esc(str(e)[:80])}</p>', fold=True, note="집계 실패")
+
+    d = (s.get("markets") or {}).get(market)
+    if not d:
+        return card("픽 성적",
+                    '<p class="dim">결과가 채워진 픽이 아직 없습니다. 픽 하나는 '
+                    f'다음 세션({history.MIN_HOURS}시간 뒤)이 지나야 채점됩니다.</p>',
+                    fold=True, note="기록 없음")
+
+    h, c = d.get("hit"), d.get("calib")
+    n = (h or c or {}).get("n", 0)
+    body = ""
+    if h:
+        bench = "코스피" if market == "kr" else "S&P500" if market == "us" \
+            else "코인 총시총" if market == "coin" else None
+        base = (f"{bench} 대비" if h["vs_bench"] and bench
+                else "절대 등락 (벤치마크 없음)")
+        body += kv_grid([
+            ("방향이 맞은 비율", f'{h["pct"]}% <span class="dim">({h["hits"]}/{h["n"]})</span>'),
+            (f"평균 초과수익 · {base}", f'{h["excess"]:+.2f}%'),
+        ])
+        body += f'<p class="dim">{esc(h["gap"])}</p>'
+    if c:
+        body += (f'<p class="dim">\'오늘 볼 선\'이 실제로 깨진 비율 '
+                 f'{c["pct"]}% ({c["broke"]}/{c["n"]}) — 하루 변동폭 1배라 '
+                 f'정규분포라면 15.9%다.</p>')
+    if not (h and h["enough"]):
+        body += ('<p class="warn">이 숫자로 규칙을 고치지 마라. '
+                 f'{s["need"]["score"]}건은 모여야 점수가 값을 하는지 알 수 있고, '
+                 f"'오늘 볼 선'은 {s['need']['calib']}건이면 대략 답이 나온다.</p>")
+    if s.get("mixed_rules"):
+        body += ('<p class="warn">규칙 버전이 섞여 있습니다 — '
+                 f'{esc(", ".join(s["versions"]))}. 직접 비교하면 안 됩니다.</p>')
+
+    note = (f'{h["pct"]}% ({n}건)' if h else f"{n}건")
+    if not (h and h["enough"]):
+        note += " · 아직 판단 못 함"
+    return card("픽 성적", body, fold=True, note=note)
 
 
 def watch_strip(items):
@@ -850,6 +907,9 @@ tr:last-child td{border:none}
 .flat{color:var(--flat)}
 .dim{color:var(--dim);font-weight:400}
 .brk{color:var(--warn);font-weight:700}
+/* 표본이 모자란다는 경고. 적중률 옆에 붙어야 숫자만 떼어 읽히지 않는다 */
+p.warn{color:var(--warn);background:var(--warn-bg);border-radius:5px;
+  padding:8px 10px;font-size:12px;line-height:1.5;margin:8px 0 0}
 .chip{display:inline-block;background:var(--warn-bg);color:var(--warn);
   border-radius:3px;padding:1px 6px;font-size:11px;font-weight:650}
 
@@ -1125,7 +1185,7 @@ def _body():
         if j:
             iso = j.get("collected_at", "")
             stamps.append(iso[:16].replace("T", " "))
-            body = _age_line(iso) + RENDERERS[key](j)
+            body = _age_line(iso) + RENDERERS[key](j) + picks_scorecard(key)
         else:
             body = card("데이터 없음",
                         f'<p class="dim">collect_{key}.py를 먼저 실행하세요.</p>')

@@ -34,6 +34,7 @@ PC도 따로 커밋하므로, 줄 단위로 쌓여야 병합에서 잃는 것이
 """
 import datetime as dt
 import json
+import statistics as stat
 from pathlib import Path
 
 from core import pick, session, store
@@ -216,6 +217,121 @@ def _hours(a, b):
                 - dt.datetime.fromisoformat(a)).total_seconds() / 3600
     except (TypeError, ValueError):
         return 0.0
+
+
+# ---------------------------------------------------------------- 집계
+# 표본이 이보다 적으면 숫자를 내되 판단하지 말라고 함께 적는다.
+# 답이 나오는 순서가 다르다 — 캘리브레이션이 먼저 답하고 신호별이 제일 늦다.
+ENOUGH = {"calib": 100, "score": 200, "signal": 1000}
+
+MARKETS = ["kr", "us", "coin", "macro"]
+
+
+def pairs(markets=None):
+    """(픽, 결과) 쌍. 자산군·날짜별로 마지막 픽만 쓴다.
+
+    예약이 겹쳐 하루에 여러 번 수집되면 같은 자산군의 픽이 여러 줄 쌓인다.
+    전부 세면 그날 하루가 여러 번 반영돼 표본이 부풀고, 같은 종목이
+    중복돼 특정 날에 결과가 쏠린다.
+    """
+    markets = markets or MARKETS
+    picks, outs = load()
+    best = {}
+    for p in picks.values():
+        if p.get("market") not in markets:
+            continue
+        day = (p.get("at") or "")[:10]
+        k = (p["market"], day, p.get("key"))
+        if k not in best or p["at"] > best[k]["at"]:
+            best[k] = p
+    return [(p, outs[p["id"]]) for p in best.values() if p["id"] in outs]
+
+
+def verdict(n, need, claim):
+    if n >= need:
+        return claim
+    return f"표본 {n}건 — {need}건은 모여야 판단할 수 있다. 아직 읽지 마라."
+
+
+def coin_flip_gap(hits, n):
+    """정말 동전 던지기와 다른가. 반환: 설명 문자열.
+
+    p=0.5의 표준오차는 0.5/sqrt(n)이다. 2배를 못 넘으면 우연과 구별되지
+    않는다 — 그 상태에서 규칙을 고치면 노이즈를 쫓는 것이다.
+    """
+    if not n:
+        return ""
+    p = hits / n
+    se = 0.5 / (n ** 0.5)
+    if abs(p - 0.5) > 2 * se:
+        return f"동전 던지기와 다르다 (오차 범위 ±{2*se*100:.0f}%p)"
+    return f"우연과 구별 안 됨 (오차 범위 ±{2*se*100:.0f}%p)"
+
+
+def summary(markets=None):
+    """픽 성적 집계. `tools/score_picks.py`와 대시보드가 함께 쓴다.
+
+    집계를 여기 두는 이유는 사본을 만들지 않기 위해서다. 화면에 찍는 숫자와
+    도구가 찍는 숫자가 다르면 어느 쪽을 믿어야 할지 알 수 없고, 한쪽만
+    고쳐진 채로 오래 간다.
+
+    **표본 충분 여부를 값마다 함께 낸다.** 적중률만 떼어 크게 보이면 우연을
+    실력으로 읽는다 — 동전을 45번 던져 21번 앞면이 나온 것과 규칙이 나쁜
+    것은 이 표본으로 구별되지 않는다.
+    """
+    markets = markets or MARKETS
+    rows = pairs(markets)
+    out = {"n": len(rows), "need": dict(ENOUGH), "markets": {},
+           "versions": sorted({p.get("rules") for p, _ in rows if p.get("rules")}),
+           "buckets": [], "bucket_total": 0}
+    out["mixed_rules"] = len(out["versions"]) > 1
+    if not rows:
+        return out
+
+    for m in markets:
+        d = {"calib": None, "hit": None}
+
+        # 변동성을 못 받은 픽은 분모에서 뺀다. 넣으면 '안 깨졌다'로 세어져
+        # 비율이 실제보다 낮게 나온다 — 코인에는 이 값이 아예 없다.
+        xs = [o for p, o in rows if p["market"] == m and p.get("vol_20d")]
+        if xs:
+            broke = sum(1 for o in xs if o.get("broke_1sigma"))
+            d["calib"] = {"n": len(xs), "broke": broke,
+                          "pct": round(broke * 100 / len(xs), 1),
+                          "enough": len(xs) >= ENOUGH["calib"]}
+
+        ys = [(p, o) for p, o in rows
+              if p["market"] == m and o.get("correct") is not None]
+        if ys:
+            hits = sum(1 for _, o in ys if o["correct"])
+            ex = [o["excess_pct"] for _, o in ys]
+            d["hit"] = {"n": len(ys), "hits": hits,
+                        "pct": round(hits * 100 / len(ys), 1),
+                        "excess": round(stat.mean(ex), 2),
+                        "vs_bench": any(o.get("vs_bench") for _, o in ys),
+                        "gap": coin_flip_gap(hits, len(ys)),
+                        "enough": len(ys) >= ENOUGH["score"]}
+        if d["calib"] or d["hit"]:
+            out["markets"][m] = d
+
+    buckets = {}
+    for p, o in rows:
+        if o.get("correct") is None:
+            continue
+        s = abs(p["score"])
+        label = "3~4점" if s <= 4 else "5~6점" if s <= 6 else "7점 이상"
+        # 하락·피할 것은 부호를 뒤집어야 '판정이 맞은 정도'가 된다.
+        buckets.setdefault(label, []).append(
+            o["excess_pct"] * (1 if p["kind"] in ("상승",) else -1))
+    for label in ("3~4점", "5~6점", "7점 이상"):
+        xs = buckets.get(label) or []
+        if xs:
+            out["buckets"].append({"label": label, "n": len(xs),
+                                   "mean": round(stat.mean(xs), 2),
+                                   "median": round(stat.median(xs), 2)})
+    out["bucket_total"] = sum(len(v) for v in buckets.values())
+    out["bucket_enough"] = out["bucket_total"] >= ENOUGH["score"]
+    return out
 
 
 def open_keys(market, limit=6):
