@@ -16,7 +16,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import coin_universe as U
 from collectors import coin_market as cm, coin_news, coin_okx as okx
-from core import history, pick, session
+from core import history, pick, regime, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -303,6 +303,7 @@ def build_prompt(b):
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
 
+    A(regime.text("coin", b))
     A(pick.block("coin", b))
 
     A(session.request_block("coin", extra_sections="""

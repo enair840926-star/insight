@@ -22,7 +22,7 @@ import universe
 import us_universe
 from collectors import macro_market, macro_news, macro, commodity, eia, ecb
 from collectors import us_market
-from core import env, history, pick, session
+from core import env, history, pick, regime, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -427,6 +427,7 @@ def build_prompt(b):
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
 
+    A(regime.text("macro", b))
     A(pick.block("macro", b))
 
     A(session.request_block("macro", extra_sections="""

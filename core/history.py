@@ -37,7 +37,7 @@ import json
 import statistics as stat
 from pathlib import Path
 
-from core import pick, session, store
+from core import pick, regime, session, store
 
 # 규칙을 바꾸면 올린다. 이 값이 다르면 기록끼리 직접 비교하면 안 된다.
 # 신호 목록도 함께 남기므로 사후에 어떤 규칙이었는지 역추적할 수 있다.
@@ -93,8 +93,34 @@ def load(months=6):
                 r = json.loads(line)
             except ValueError:
                 continue      # 병합이 줄을 반토막 냈을 수 있다. 버린다.
-            (outs if r.get("t") == "out" else picks)[r.get("id")] = r
+            t = r.get("t")
+            if t == "regime":
+                continue      # 시장 판정은 load_regimes()가 따로 읽는다
+            (outs if t == "out" else picks)[r.get("id")] = r
     return picks, outs
+
+
+def load_regimes(months=6):
+    """시장 판정 기록. 반환: id -> 레코드.
+
+    픽과 같은 파일에 두되 `t`로 가른다. 두 파일로 나누면 union 병합이
+    두 배로 어긋난다.
+    """
+    out = {}
+    if not DIR.is_dir():
+        return out
+    for f in sorted(DIR.glob("picks-*.jsonl"))[-months:]:
+        for line in f.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                r = json.loads(line)
+            except ValueError:
+                continue
+            if r.get("t") == "regime":
+                out[r.get("id")] = r
+    return out
 
 
 # ---------------------------------------------------------------- 기록
@@ -196,8 +222,32 @@ def settle(market, bundle, partial=False):
     return _append(rows)
 
 
+def record_regime(market, bundle, partial=False):
+    """시장 판정을 남긴다. 반환: 남긴 줄 수.
+
+    **판정을 안 남기면 픽 때와 같은 자리로 돌아간다** — 매일 '우호'라고
+    써 놓고 그것이 맞았는지 아무도 못 재는 상태다. 임계값이 지금은 실측이
+    아니라 추정이라 더욱 남겨야 한다. 표본이 차면 이 기록으로 고친다.
+    """
+    if partial:
+        return 0
+    r = regime.judge(market, bundle)
+    if r["state"] == "알 수 없음":
+        return 0                      # 잴 재료가 없던 것까지 남기지는 않는다
+    at = bundle.get("collected_at") or ""
+    stamp = at.replace("-", "").replace("T", "_").replace(":", "")[:13]
+    return _append([{
+        "t": "regime",
+        "id": f"regime|{market}|{stamp}",
+        "market": market, "at": at,
+        "state": r["state"], "score": r["score"], "n": r["n"],
+        "signals": r["why"],
+        "rules": regime.VERSION,
+    }])
+
+
 def track(market, bundle):
-    """수집기가 부르는 입구. 결과를 먼저 채우고 이번 픽을 남긴다.
+    """수집기가 부르는 입구. 결과를 먼저 채우고 이번 픽과 판정을 남긴다.
 
     장중 판단을 수집기 넷이 각자 하면 하나가 틀려도 모른다. 여기서 한 번만
     한다 — `pick.block`이 같은 자리에서 같은 방식으로 판단한다.
@@ -208,6 +258,7 @@ def track(market, bundle):
     n_out = settle(market, bundle, partial)
     picks, _ = pick.compute(pick.BY_MARKET[market](bundle),
                             market=market, partial=partial)
+    record_regime(market, bundle, partial)
     return n_out, record(market, picks, bundle, partial)
 
 

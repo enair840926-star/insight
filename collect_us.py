@@ -17,7 +17,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import us_universe as U
 from collectors import us_market, us_news, macro
-from core import history, pick, screen, session
+from core import history, pick, regime, screen, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -311,6 +311,7 @@ def build_prompt(b):
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
 
+    A(regime.text("us", b))
     A(pick.block("us", b))
 
     A(session.request_block("us", extra_sections="""

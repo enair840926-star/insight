@@ -18,7 +18,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 import config
 from collectors import kr_market, kr_news, macro, dart, kr_screen, ecos
-from core import rules, env, history, pick, screen, session
+from core import rules, env, history, pick, regime, screen, session
 
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -510,6 +510,7 @@ def build_prompt(b):
         if n.get("summary"):
             A(f"    {n['summary'][:160]}")
 
+    A(regime.text("kr", b))
     A(pick.block("kr", b))
 
     A(session.request_block("kr", extra_sections="""

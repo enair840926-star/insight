@@ -16,7 +16,7 @@ import socket
 import subprocess
 import datetime as dt
 
-from core import history, read
+from core import history, read, regime
 from pathlib import Path
 
 # 주의: stdout 재설정은 모듈 최상단에 두면 안 된다.
@@ -285,6 +285,43 @@ def insight_slot(market_name):
             f'<div class="empty"><p>아직 없습니다.</p>'
             f'<p class="dim">Claude에게 <code>/인사이트</code>라고 하면 '
             f'최신 데이터로 써서 1분 안에 여기 반영됩니다.</p></div></section>'), []
+
+
+def regime_card(market, j):
+    """장 자체가 어떤 상태인가. 픽 위에 놓인다.
+
+    **픽과 섞지 않는다.** 점수에 곱하지 않았으므로 화면에서도 따로 세운다 —
+    "장은 이런 상태다, 그 위에서 저 셋이 뽑혔다"로 읽혀야 한다.
+    """
+    try:
+        r = regime.judge(market, j)
+    except Exception as e:
+        return card("장 상태",
+                    f'<p class="dim">판정 실패 — {esc(type(e).__name__)}: '
+                    f'{esc(str(e)[:80])}</p>')
+
+    if r["state"] == "알 수 없음":
+        return card("장 상태",
+                    '<p class="dim">판정할 재료가 없습니다. 이번 스냅샷에서 '
+                    '시장 수준 신호가 하나도 걸리지 않았습니다 — 장이 잠잠한 '
+                    '것이 아니라 <b>재지 못한 것</b>일 수 있습니다.</p>')
+
+    cls = {"우호": "up", "비우호": "down"}.get(r["state"], "flat")
+    head = (f'<div class="kv"><span class="k">판정</span>'
+            f'<span class="v {cls}">{esc(r["state"])}</span></div>'
+            f'<div class="kv"><span class="k">신호</span>'
+            f'<span class="v">{r["n"]}개 · 합계 {r["score"]:+d}</span></div>')
+    items = "".join(
+        f'<li><span class="{"up" if s > 0 else "down"}">{s:+d}</span> '
+        f'{esc(t)}</li>' for s, t in r["signed"])
+    basis = (f'<p class="dim">{esc(r["basis"])}</p>' if r["basis"] else "")
+    return card("장 상태",
+                f'<div class="grid">{head}</div>{basis}'
+                f'<ul class="sig">{items}</ul>'
+                '<p class="dim">이 판정은 아래 \'오늘의 픽\' 점수에 들어가 '
+                '있지 않습니다. 픽은 종목 자체의 근거로만 뽑혔고, 이것은 그 '
+                '위에 놓이는 배경입니다. 임계값은 아직 실측이 아니라 추정이라 '
+                '판정도 함께 기록해 두고 있습니다.</p>')
 
 
 def picks_scorecard(market):
@@ -910,6 +947,12 @@ tr:last-child td{border:none}
 /* 표본이 모자란다는 경고. 적중률 옆에 붙어야 숫자만 떼어 읽히지 않는다 */
 p.warn{color:var(--warn);background:var(--warn-bg);border-radius:5px;
   padding:8px 10px;font-size:12px;line-height:1.5;margin:8px 0 0}
+/* 장 상태의 신호 목록. 부호를 앞에 세워 무엇이 어느 쪽인지 훑어보게 한다 */
+ul.sig{list-style:none;margin:8px 0 0;padding:0}
+ul.sig li{padding:4px 0;font-size:13px;border-bottom:1px solid var(--line-soft)}
+ul.sig li:last-child{border-bottom:none}
+ul.sig span{display:inline-block;min-width:26px;font-weight:700;
+  font-variant-numeric:tabular-nums}
 .chip{display:inline-block;background:var(--warn-bg);color:var(--warn);
   border-radius:3px;padding:1px 6px;font-size:11px;font-weight:650}
 
@@ -1185,7 +1228,8 @@ def _body():
         if j:
             iso = j.get("collected_at", "")
             stamps.append(iso[:16].replace("T", " "))
-            body = _age_line(iso) + RENDERERS[key](j) + picks_scorecard(key)
+            body = (_age_line(iso) + regime_card(key, j)
+                    + RENDERERS[key](j) + picks_scorecard(key))
         else:
             body = card("데이터 없음",
                         f'<p class="dim">collect_{key}.py를 먼저 실행하세요.</p>')
