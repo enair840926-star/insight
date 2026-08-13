@@ -852,6 +852,15 @@ RENDERERS = {"kr": render_kr, "us": render_us,
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 
+/* 스크롤 90px에서 헤더 제목줄이 접힌다(아래 .hrow). 문서 높이가 그만큼
+   줄어들면 브라우저 스크롤 앵커링이 "보던 자리를 유지"하려고 scrollY를
+   자동으로 내린다 — 그러면 90 밑으로 내려가 제목줄이 다시 펴지고,
+   문서 높이가 늘어 앵커링이 이번엔 scrollY를 다시 올린다. 이 왕복이
+   경계 근처에 머무는 한 안 끝나 "한 칸 내린 채로 계속 떨리는" 것으로
+   보인다(실측 2026-08-14, 크롬). 헤더 하나에만 걸면 앵커 후보가 다른
+   요소로 잡혀 안 먹으므로 문서 스크롤 컨테이너(html)에서 통째로 끈다. */
+html{overflow-anchor:none}
+
 /* 토큰만 테마별로 재정의한다. 컴포넌트는 토큰을 통해서만 색을 참조하므로
    미디어쿼리와 data-theme 토글이 서로 싸우지 않는다. */
 :root{
@@ -905,12 +914,7 @@ body{background:var(--bg);color:var(--tx);
 .v,.sprice,td,.sstats,.kv .v{font-variant-numeric:tabular-nums}
 
 header{position:sticky;top:0;z-index:10;background:var(--bg);
-  border-bottom:1px solid var(--line);padding:14px 14px 0;
-  /* 제목줄이 접히는 동안(.hrow의 max-height 전환) 브라우저 스크롤
-     앵커링이 화면 맨 위·고정 요소의 높이 변화를 보정하려고 스크롤
-     위치를 미세하게 흔든다 — 휠 한 칸이 접히는 경계(90px)에 걸리면
-     그게 떨림으로 보인다. 이 헤더 안에서는 그 보정을 끈다. */
-  overflow-anchor:none}
+  border-bottom:1px solid var(--line);padding:14px 14px 0}
 h1{font-size:16px;font-weight:700;letter-spacing:-.01em}
 .stamp{color:var(--dim);font-size:11.5px;margin-top:3px;font-variant-numeric:tabular-nums}
 /* 스크롤하면 제목줄을 접어 탭만 남긴다. 헤더가 111px로 화면의 14%를
@@ -1181,13 +1185,17 @@ setInterval(freshen,60000);
 addEventListener('visibilitychange',()=>{if(!document.hidden)freshen()});
 
 // 스크롤하면 헤더의 제목줄을 접는다. 탭은 계속 보인다.
+// 경계 하나(90px)로 켜고 끄면, 제목줄이 접히며 문서 높이가 줄어드는
+// 것 자체가 다음 scroll 이벤트를 유발해 그 경계 근처에서 계속
+// 왕복한다(위 overflow-anchor 주석 참고). 켜는 값과 끄는 값을 벌려
+// 한 번 넘으면 반대쪽 경계를 넘기 전까지 안 흔들리게 한다.
 const hd=document.querySelector('header');
-let last=0;
+let min=false;
 addEventListener('scroll',()=>{
   const y=window.scrollY;
-  if(Math.abs(y-last)<6) return;   // 손떨림으로 깜빡이지 않게
-  hd?.classList.toggle('min', y>90);
-  last=y;
+  if(!min && y>100) min=true;
+  else if(min && y<70) min=false;
+  hd?.classList.toggle('min', min);
 },{passive:true});
 """
 
