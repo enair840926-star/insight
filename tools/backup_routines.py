@@ -37,14 +37,15 @@ HOME = Path.home() / ".claude"
 # (2026-08-09 실측: 저장 7분 뒤 새로 연 세션에서도 "한국어로 답한다"를
 # 비롯해 한 줄도 안 들어왔다). 파일이 실물이므로 여기서 잰다.
 
-# (저장소 안 파일명, 실물 경로, 설명)
+# (저장소 안 파일명, 실물 경로, 설명, 저장소 쪽 경로)
+# 마지막 칸이 None 이면 .claude/routines/<파일명> 을 사본으로 쓴다.
 FILES = [
     ("CLAUDE-사용자.md",
      HOME / "CLAUDE.md",
-     "모든 프로젝트에 적용되는 공통 작업 지침"),
+     "모든 프로젝트에 적용되는 공통 작업 지침", None),
     ("인사이트-포인터.md",
      HOME / "skills" / "인사이트" / "SKILL.md",
-     "/인사이트 진입점. 저장소의 지침을 읽으라는 포인터."),
+     "/인사이트 진입점. 저장소의 지침을 읽으라는 포인터.", None),
     # 예약 시각은 여기 적지 않는다. 실제 예약은 Claude 앱 안에 있어 이
     # 도구가 잴 수 없는데(재는 것은 지침 파일이다), 못 재는 값을 사본으로
     # 들고 있으면 조용히 어긋난다 — 실제로 저녁 시각이 21:12·22:12·23:12로
@@ -52,24 +53,29 @@ FILES = [
     # 정본은 notes/routines.md 의 예약표다.
     ("asset-insight-morning.md",
      HOME / "scheduled-tasks" / "asset-insight-morning" / "SKILL.md",
-     "아침 루틴 (시각은 notes/routines.md)"),
+     "아침 루틴 (시각은 notes/routines.md)", None),
     ("asset-insight-evening.md",
      HOME / "scheduled-tasks" / "asset-insight-evening" / "SKILL.md",
-     "저녁 루틴 (시각은 notes/routines.md)"),
+     "저녁 루틴 (시각은 notes/routines.md)", None),
     # 저장소의 .claude/settings.json 과 같은 내용인데 여기에도 둔다.
     # 예약 루틴은 저장소 밖에서 시작해 나중에 cd 로 들어온다. Claude 는
     # 프로젝트 설정을 '시작한 폴더' 기준으로 읽으므로 저장소 안에만 두면
     # 루틴 세션에는 안 실린다 — 팝업에서 '항상 허용'을 눌러도 다음 실행이
     # 또 다른 폴더에서 시작하니 남지 않는다. 매일 누르는데 매일 다시
     # 묻던 것이 이 때문이다.
+    # 사본을 .claude/routines/ 에 따로 두면 사본이 셋이 된다. 그때는 계정
+    # 파일이 '백업본'과만 비교되어 저장소의 .claude/settings.json 과 어긋난
+    # 것을 아무도 못 잰다 — 실측 2026-08-14, 저장소 40개 / 계정 22개로
+    # 갈려 있었고 계정에 없던 21개가 Glob·ls·cat 같은 읽기 명령이라 루틴이
+    # 매번 승인을 물었다. 그래서 저장소 정본과 **직접** 비교한다.
     ("settings-사용자.json",
      HOME / "settings.json",
-     "계정 전체 허용 목록. 루틴이 저장소 밖에서 시작해도 걸린다."),
+     "계정 전체 허용 목록. 저장소의 .claude/settings.json 과 같아야 한다.",
+     ROOT / ".claude" / "settings.json"),
 ]
 
 
-def _state(name, live):
-    repo = BACKUP / name
+def _state(repo, live):
     if not live.exists() and not repo.exists():
         return "둘 다 없음"
     if not live.exists():
@@ -88,9 +94,9 @@ def main():
 
     BACKUP.mkdir(parents=True, exist_ok=True)
     bad = 0
-    for name, live, note in FILES:
-        repo = BACKUP / name
-        st = _state(name, live)
+    for name, live, note, repo in FILES:
+        repo = repo or (BACKUP / name)
+        st = _state(repo, live)
 
         if a.save and live.exists():
             shutil.copy2(live, repo)
