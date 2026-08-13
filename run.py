@@ -2,7 +2,7 @@
 """전체 실행 — 수집 + 인사이트 + 대시보드 + 배포
 
     python run.py                # 4개 자산군 전부
-    python run.py kr             # 국장만 (개장 1시간 전에 돌리는 용도)
+    python run.py kr             # 국장만 (프리마켓 08:00 전에 돌리는 용도)
     python run.py us macro coin  # 미장 저녁 묶음
     python run.py --auto         # 곧 열릴 장을 알아서 골라 갱신
     python run.py --skip-collect # 수집 건너뛰고 대시보드만 다시 굽기
@@ -24,6 +24,8 @@ import datetime as dt
 import shutil
 from pathlib import Path
 
+from core import session
+
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).parent
@@ -39,7 +41,7 @@ ORDER = ["kr", "us", "macro", "coin"]
 
 # 자주 쓰는 조합에 이름을 붙여 둔다. 예약 실행에서 인자를 짧게 쓰려고.
 GROUPS = {
-    "아침": ["kr", "macro"],            # 국장 08:00 (개장 1시간 전)
+    "아침": ["kr", "macro"],            # 국장 06:20 (프리마켓 08:00 전)
     "저녁": ["us", "macro", "coin"],    # 미장 21:30 (서머타임 기준 1시간 전)
     "morning": ["kr", "macro"],
     "evening": ["us", "macro", "coin"],
@@ -48,7 +50,10 @@ GROUPS = {
 # --auto가 "개장 임박"으로 보는 창. 미국 서머타임이 바뀌면 개장이 한 시간
 # 밀리므로 넉넉히 잡는다. 예약을 21:30과 22:30에 둘 다 걸어 두면 여름·겨울
 # 모두 걸리고, 겹치는 쪽은 아래 FRESH_H 가드가 걸러 준다.
-AUTO_WINDOW_H = 2.5
+#
+# 값은 core/session.py가 갖는다. tools/pending.py도 같은 창을 봐야 하는데,
+# 여기 사본을 두면 한쪽만 고쳤을 때 수집과 루틴이 어긋난다.
+AUTO_WINDOW_H = session.PRE_OPEN_WINDOW_H
 FRESH_H = 3.0          # 이 시간 안에 이미 받은 자산군은 --auto에서 건너뛴다
 
 # 수집기 하나당 제한 시간. 로컬에서 국장이 13초인데 러너는 한국까지
@@ -111,7 +116,6 @@ def auto_markets(now=None, skip_fresh=True):
     아무 데도 해당 안 되면 빈 리스트를 돌려준다 — 잘못 걸린 예약이
     전체 수집을 돌려 버리는 것보다 아무것도 안 하는 게 낫다.
     """
-    from core import session
     picked = []
     for m in ("kr", "us"):
         d = session.describe(m, now)

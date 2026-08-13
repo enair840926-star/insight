@@ -45,12 +45,17 @@ FILES = [
     ("인사이트-포인터.md",
      HOME / "skills" / "인사이트" / "SKILL.md",
      "/인사이트 진입점. 저장소의 지침을 읽으라는 포인터."),
+    # 예약 시각은 여기 적지 않는다. 실제 예약은 Claude 앱 안에 있어 이
+    # 도구가 잴 수 없는데(재는 것은 지침 파일이다), 못 재는 값을 사본으로
+    # 들고 있으면 조용히 어긋난다 — 실제로 저녁 시각이 21:12·22:12·23:12로
+    # 굳어 있는 동안 진짜 예약은 21:00부터 30분마다였다.
+    # 정본은 notes/routines.md 의 예약표다.
     ("asset-insight-morning.md",
      HOME / "scheduled-tasks" / "asset-insight-morning" / "SKILL.md",
-     "아침 루틴 (평일 07:22·08:22·09:22)"),
+     "아침 루틴 (시각은 notes/routines.md)"),
     ("asset-insight-evening.md",
      HOME / "scheduled-tasks" / "asset-insight-evening" / "SKILL.md",
-     "저녁 루틴 (평일 21:12·22:12·23:12)"),
+     "저녁 루틴 (시각은 notes/routines.md)"),
     # 저장소의 .claude/settings.json 과 같은 내용인데 여기에도 둔다.
     # 예약 루틴은 저장소 밖에서 시작해 나중에 cd 로 들어온다. Claude 는
     # 프로젝트 설정을 '시작한 폴더' 기준으로 읽으므로 저장소 안에만 두면

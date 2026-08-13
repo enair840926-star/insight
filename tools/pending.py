@@ -21,7 +21,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core import store
+from core import session, store
 
 ROOT = store.ROOT
 MARKETS = ["kr", "us", "macro", "coin"]
@@ -64,8 +64,10 @@ def written_at(market):
 # 더 가까운 쪽, 코인은 미국 세션과 같이 움직인다.
 FOLLOWS = {"kr": "kr", "us": "us", "macro": None, "coin": "us"}
 
-# --auto가 개장 몇 시간 전부터 수집하는가. run.AUTO_WINDOW_H와 같아야 한다.
-WINDOW_H = 2.5
+# --auto가 개장 몇 시간 전부터 수집하는가. 값은 core/session.py가 갖는다 —
+# run.py와 여기가 각자 숫자를 들고 있으면 한쪽만 고쳤을 때, 수집은 앞당겨졌는데
+# 루틴은 그 데이터를 '이번 세션 것이 아니다'로 보고 계속 기다리게 된다.
+WINDOW_H = session.PRE_OPEN_WINDOW_H
 
 
 def waiting_for_collection(market, now=None):
@@ -82,7 +84,6 @@ def waiting_for_collection(market, now=None):
     기다린다. 장이 열리면 더 기다리지 않고 쓴다 — 수집이 아예 안 왔을
     수도 있으므로 무한정 미루면 안 된다.
     """
-    from core import session
     ref = FOLLOWS.get(market, market)
     if ref is None:                       # 매크로 — 더 가까운 개장을 따른다
         cands = [session.describe(k, now) for k in ("kr", "us")]
@@ -135,7 +136,6 @@ def too_late(market, now=None):
     썼는데(6.8시간) 09:00 개장 전이라 정상이다. 기준은 '얼마나 됐나'가
     아니라 '대비하던 장이 아직 안 열렸나'다.
     """
-    from core import session
     c = collected_at(market)
     if c is None:
         return False
