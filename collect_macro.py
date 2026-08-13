@@ -282,13 +282,17 @@ def build_prompt(b):
 
     A("## 시세")
     A("형식: 이름 | 현재가 | 당일 | 5일 | 20일 | 20일선대비 | 52주위치(0=최저,100=최고) | 20일변동성")
+    A("**대괄호가 붙은 것은 선물이고 그 안이 계약월이다**(금·원유가 그렇다).")
+    A("현물 시세로 읽지 마라. 계약이 롤오버되면 월이 바뀌므로, 어제와 비교할")
+    A("때는 같은 계약인지 함께 보라.")
     for group, items in by_group.items():
         A(f"\n### {group}")
         for r in items:
             if r.get("error"):
                 A(f"- {r['name']}: 조회 실패")
                 continue
-            A(f"- {r['name']}: {fmt_price(r)} | {fmt_pct(r.get('change_pct'),0)}"
+            con = f" [{r['contract']}]" if r.get("contract") else ""
+            A(f"- {r['name']}{con}: {fmt_price(r)} | {fmt_pct(r.get('change_pct'),0)}"
               f" | 5일 {fmt_pct(r.get('change_5d_pct'),0)}"
               f" | 20일 {fmt_pct(r.get('change_20d_pct'),0)}"
               f" | 20MA대비 {fmt_pct(r.get('vs_ma20_pct'),0)}"

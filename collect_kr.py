@@ -186,7 +186,8 @@ def report(b):
     for name, r in b["macro"].items():
         pct = r.get("change_pct")
         tail = f"{pct:+6.2f}%" if pct is not None else ""
-        print(f"  {name:10s} {fmt_num(r['price']):>12s}  {tail}")
+        con = f"  [{r['contract']}]" if r.get("contract") else ""
+        print(f"  {name:10s} {fmt_num(r['price']):>12s}  {tail}{con}")
 
     km = b.get("kr_macro") or {}
     if km:
@@ -332,10 +333,15 @@ def build_prompt(b):
         A(f"- {ix['name']}: {ix['close']:,} ({ix['change_pct']:+.2f}%)")
 
     A("\n## 매크로")
+    A("금·원유는 **선물**이다. 계약월이 대괄호에 있고, 롤오버되면 바뀐다 —")
+    A("현물 시세로 읽지 말고 어제와 비교할 때도 같은 계약인지 보라.")
+    A("나스닥은 지수와 선물이 함께 있다. 국장 개장 전이면 미장은 이미 마감한")
+    A("뒤라 **지수는 밤사이 결과이고 선물은 그 뒤의 움직임**이다.")
     for name, r in b["macro"].items():
         pct = r.get("change_pct")
-        A(f"- {name}: {r['price']:,} ({pct:+.2f}%)" if pct is not None
-          else f"- {name}: {r['price']}")
+        con = f" [{r['contract']}]" if r.get("contract") else ""
+        A(f"- {name}{con}: {r['price']:,} ({pct:+.2f}%)" if pct is not None
+          else f"- {name}{con}: {r['price']}")
 
     km = b.get("kr_macro") or {}
     if km:

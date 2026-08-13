@@ -49,6 +49,11 @@ def _fetch_one(args):
         "currency": meta.get("currency"),
         "history_days": len(closes),
     }
+    # 선물이면 어느 계약인지 밝힌다. 여기 40종의 절반 이상이 선물인데
+    # 이름만 '금'·'WTI원유'면 현물로 읽히고, 롤오버로 근월물이 바뀌어도
+    # 모른 채 어제와 오늘을 비교하게 된다.
+    if meta.get("instrumentType") == "FUTURE":
+        rec["contract"] = meta.get("shortName") or meta.get("longName")
     if price and prev:
         rec["change_pct"] = round((price / prev - 1) * 100, 2)
 

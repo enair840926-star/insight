@@ -649,7 +649,12 @@ def render_macro(j):
                 tail = f'<span class="rd {cls}">{esc(lean)}</span>'
                 if bias:
                     tail += f' <span class="dim">{esc(bias)}</span>'
-            rows.append([esc(n), num(r.get("price"), 2), pct(r.get("change_pct")),
+            # 선물이면 계약월을 이름 옆에 붙인다. '금'만 있으면 현물로
+            # 읽히고, 롤오버로 근월물이 바뀌어도 모른 채 어제와 비교한다.
+            label = esc(n)
+            if r.get("contract"):
+                label += f' <span class="dim">{esc(r["contract"])}</span>'
+            rows.append([label, num(r.get("price"), 2), pct(r.get("change_pct")),
                          pct(r.get("change_20d_pct")),
                          f'<span class="dim">{esc(read.pos_52w(r.get("pos_52w")))}</span>',
                          tail])

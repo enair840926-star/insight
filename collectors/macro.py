@@ -24,6 +24,11 @@ def _quote(item):
     prev = meta.get("chartPreviousClose") or meta.get("previousClose")
     rec = {"symbol": symbol, "price": price, "prev_close": prev,
            "currency": meta.get("currency")}
+    # 선물이면 어느 계약인지 밝힌다. 이름만 '금'이면 현물로 읽히고, 롤오버로
+    # 근월물이 바뀌어도 모른 채 어제와 오늘을 비교하게 된다 — 코인 파생을
+    # 거래소별로 구분해 두는 것과 같은 이유다.
+    if meta.get("instrumentType") == "FUTURE":
+        rec["contract"] = meta.get("shortName") or meta.get("longName")
     if price and prev:
         rec["change_pct"] = round((price / prev - 1) * 100, 2)
     return name, rec
