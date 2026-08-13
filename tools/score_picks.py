@@ -55,6 +55,38 @@ def _pairs(markets):
     return [(p, outs[p["id"]]) for p in best.values() if p["id"] in outs]
 
 
+# 절대 등락으로 셀 때 '횡보'로 볼 폭. 그 종목의 평소 하루 변동폭(20일
+# 변동성)에 곱한다. 고정 퍼센트로 두면 안 된다 — 비트코인의 0.5%와
+# 삼성전자의 0.5%는 다른 사건이고, 변동성이 큰 종목만 계속 맞거나 계속
+# 틀린 것으로 잡힌다.
+#
+# 0.5배를 쓰는 이유: 이보다 작은 움직임은 방향이라기보다 그날의 잡음이다.
+# +0.01%를 '맞음'으로 세면 적중률이 부풀고, 그 숫자로는 규칙이 나아졌는지
+# 알 수 없다.
+FLAT_K = 0.5
+
+
+def _abs_verdict(pick, out, k=FLAT_K):
+    """절대 등락 기준 판정. 반환: '맞음' · '틀림' · '횡보' · None.
+
+    벤치마크를 빼지 않는다. 지수 방향을 못 맞히면 초과수익은 거래로
+    옮길 수가 없다 — 지수를 함께 공매도하는 게 아니라면 실제로 손에
+    쥐는 것은 절대 등락이다. 벤치마크 기준은 규칙이 값을 하는지 재고,
+    이쪽은 거래하는 쪽에서 무슨 일이 있었는지 잰다. 둘 다 남긴다.
+    """
+    want = history._WANT.get(pick.get("kind"))
+    if want is None:                      # 팽팽은 방향이 없다
+        return None
+    ret = out.get("ret_pct")
+    if ret is None:
+        return None
+    vol = pick.get("vol_20d")
+    band = k * vol if vol else 0.0        # 변동성이 없으면 횡보를 안 가른다
+    if abs(ret) < band:
+        return "횡보"
+    return "맞음" if ret * want > 0 else "틀림"
+
+
 def _verdict(n, need, claim):
     if n >= need:
         return claim
@@ -80,8 +112,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("markets", nargs="*", default=None)
     ap.add_argument("--signals", action="store_true", help="신호별 기여도까지")
+    ap.add_argument("--flat", type=float, default=FLAT_K, metavar="배수",
+                    help=f"횡보로 볼 폭. 하루 변동폭의 몇 배까지인가 "
+                         f"(기본 {FLAT_K}). 0을 주면 횡보를 안 가른다.")
     a = ap.parse_args()
     markets = a.markets or MARKETS
+    flat_k = a.flat
 
     rows = _pairs(markets)
     if not rows:
@@ -124,6 +160,29 @@ def main():
         print(f"  {m:6s} {hits*100/n:5.1f}% ({hits}/{n})  "
               f"평균 초과 {st.mean(ex):+6.2f}%{note}")
         print(f"         {_wilson_gap(hits, n)}")
+
+    # ------------------------------------------------- 2b. 절대 등락 기준
+    print("\n[2b] 절대 등락 — 근거대로 올랐나·내렸나·횡보했나")
+    print(f"     벤치마크를 빼지 않는다. 지수 방향은 예측 대상이 아니라")
+    print(f"     초과수익은 거래로 옮길 수 없기 때문이다. 평소 하루")
+    print(f"     변동폭의 {flat_k}배 안쪽은 '횡보'로 따로 센다 (--flat 로 바꾼다).")
+    for m in markets:
+        xs = [(p, o, v) for p, o in rows if p["market"] == m
+              for v in [_abs_verdict(p, o, flat_k)] if v]
+        n = len(xs)
+        if not n:
+            continue
+        hit = sum(1 for _, _, v in xs if v == "맞음")
+        miss = sum(1 for _, _, v in xs if v == "틀림")
+        flat = sum(1 for _, _, v in xs if v == "횡보")
+        rets = [o["ret_pct"] for _, o, _ in xs]
+        # 횡보를 뺀 방향 판정만으로 잰 적중률. 횡보를 틀림으로 세면
+        # 조용한 장에서 규칙이 나쁜 것처럼 보인다.
+        d = hit + miss
+        rate = f"{hit*100/d:5.1f}% ({hit}/{d})" if d else "  —  (방향 0건)"
+        print(f"  {m:6s} {rate}  횡보 {flat}건  평균 등락 {st.mean(rets):+6.2f}%")
+        if d:
+            print(f"         {_wilson_gap(hit, d)}")
 
     # ---------------------------------------------------------- 3. 점수-결과
     print("\n[3] 점수와 결과 — 점수가 높으면 실제로 나은가")
