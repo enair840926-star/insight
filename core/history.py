@@ -348,24 +348,35 @@ def abs_verdict(pick, out, k=FLAT_K):
 # 애초에 그쪽에 바라는 전부다.
 CUM_MARKETS = ["kr", "us"]
 
+# 누적을 읽을 만해지는 날 수. 건수가 아니라 **날 수**로 센다 — 누적은
+# 하루가 한 점이라 픽 60건이 20일치면 점이 20개뿐이다.
+CUM_DAYS = 60
+
 
 def daily_sums(rows, market):
-    """날짜별 픽 등락 합계와 누적. 반환: [(날짜, 종목수, 합계, 누적)].
+    """날짜별 픽 평균 등락과 그 누적. 반환: [(날짜, 종목수, 평균, 누적)].
 
-    그날 픽을 같은 무게로 하나씩 들었다고 보고 등락을 더한다 — 3종이
-    합쳐 3% 오르면 그날은 +3이다. 적중률은 '몇 번 맞았나'만 답하고
-    폭을 안 보는데, 아홉 번 +0.1%로 맞고 한 번 -5%로 틀리면 적중률은
-    90%지만 누적은 마이너스다. 그 차이를 여기서 본다.
+    그날 픽 3종에 돈을 똑같이 나눠 넣었다고 보고 등락을 **평균**낸다.
+    적중률은 '몇 번 맞았나'만 답하고 폭을 안 보는데, 아홉 번 +0.1%로 맞고
+    한 번 -5%로 틀리면 적중률은 90%지만 누적은 마이너스다. 그 차이를
+    여기서 본다.
+
+    **합이 아니라 평균이다.** 합은 3종을 각각 한 몫씩 들었다는 뜻이라
+    3배로 굴린 값이 되어 손에 쥐는 것과 다르다. 게다가 날마다 픽 수가
+    같지 않다 — 실측 2026-08-13 국장은 3종·3종·2종·1종이었고, 그대로
+    더하면 종목이 많은 날이 그 이유만으로 크게 잡혀 날끼리 비교가 안 된다.
+    평균이면 '그날 픽을 들었으면 얼마'가 되어 날짜가 같은 잣대로 이어진다.
+
+    **벤치마크를 빼지 않는다.** 지수와 무관한 절대 손익이다 — 코스피가
+    오르든 내리든 계좌에 찍히는 것은 이 값이다.
 
     **하락 픽은 부호를 뒤집는다.** '하락'·'피할 것'이 실제로 내렸으면
     맞은 것이므로 플러스로 센다. 그래야 상승 픽과 같은 잣대가 된다.
     팽팽은 방향이 없어 뺀다.
 
-    합계는 자산군 안에서만 이어 볼 수 있다. 자산군마다 픽 수가 다르고
-    (주식 3종·선물 2종) 변동성도 달라, 섞으면 큰 쪽이 전부를 가린다.
-
-    부르는 쪽은 `CUM_MARKETS` 만 넘긴다 — 선물은 대상이 고정이라 누적이
-    규칙이 아니라 시장을 재게 된다.
+    자산군 안에서만 이어 볼 수 있다. 변동성이 달라 섞으면 큰 쪽이 전부를
+    가린다. 부르는 쪽은 `CUM_MARKETS` 만 넘긴다 — 선물은 대상이 고정이라
+    누적이 규칙이 아니라 시장을 재게 된다.
     """
     by_day = {}
     for p, o in rows:
@@ -376,14 +387,13 @@ def daily_sums(rows, market):
         if want is None or ret is None:
             continue
         day = (p.get("at") or "")[:10]
-        d = by_day.setdefault(day, [0, 0.0])
-        d[0] += 1
-        d[1] += ret * want
+        by_day.setdefault(day, []).append(ret * want)
     out, run = [], 0.0
     for day in sorted(by_day):
-        n, s = by_day[day]
-        run += s
-        out.append((day, n, round(s, 2), round(run, 2)))
+        xs = by_day[day]
+        avg = stat.mean(xs)
+        run += avg
+        out.append((day, len(xs), round(avg, 2), round(run, 2)))
     return out
 
 
@@ -429,7 +439,7 @@ def summary(markets=None):
         return out
 
     for m in markets:
-        d = {"calib": None, "hit": None}
+        d = {"calib": None, "hit": None, "abs": None, "cum": None}
 
         # 변동성을 못 받은 픽은 분모에서 뺀다. 넣으면 '안 깨졌다'로 세어져
         # 비율이 실제보다 낮게 나온다 — 코인에는 이 값이 아예 없다.
@@ -451,7 +461,40 @@ def summary(markets=None):
                         "vs_bench": any(o.get("vs_bench") for _, o in ys),
                         "gap": coin_flip_gap(hits, len(ys)),
                         "enough": len(ys) >= ENOUGH["score"]}
-        if d["calib"] or d["hit"]:
+        # 절대 등락 — 지수와 무관하게 근거대로 움직였나. 화면에 크게 내는
+        # 것은 이쪽이다. 초과수익은 지수를 함께 공매도해야 손에 쥐는 값이라
+        # 계좌에 찍히는 숫자가 아니다.
+        zs = [(p, o, v) for p, o in rows if p["market"] == m
+              for v in [abs_verdict(p, o)] if v]
+        if zs:
+            hit = sum(1 for _, _, v in zs if v == "맞음")
+            miss = sum(1 for _, _, v in zs if v == "틀림")
+            flat = sum(1 for _, _, v in zs if v == "횡보")
+            dd = hit + miss          # 횡보는 분모에서 뺀다
+            d["abs"] = {
+                "n": len(zs), "hits": hit, "miss": miss, "flat": flat,
+                "denom": dd,
+                "pct": round(hit * 100 / dd, 1) if dd else None,
+                "mean": round(stat.mean([o["ret_pct"] for _, o, _ in zs]), 2),
+                "gap": coin_flip_gap(hit, dd) if dd else "",
+                "enough": dd >= ENOUGH["score"],
+            }
+
+        # 누적 손익 — 주식만. 선물은 대상이 고정이라 시장을 재게 된다.
+        if m in CUM_MARKETS:
+            days = daily_sums(rows, m)
+            if days:
+                d["cum"] = {
+                    "days": days,
+                    "total": days[-1][3],
+                    "wins": sum(1 for _, _, a, _ in days if a > 0),
+                    "n_days": len(days),
+                    "best": max(days, key=lambda x: x[2]),
+                    "worst": min(days, key=lambda x: x[2]),
+                    "enough": len(days) >= CUM_DAYS,
+                }
+
+        if d["calib"] or d["hit"] or d.get("abs"):
             out["markets"][m] = d
 
     buckets = {}

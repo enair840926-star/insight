@@ -350,33 +350,75 @@ def picks_scorecard(market):
                     f'다음 세션({history.MIN_HOURS}시간 뒤)이 지나야 채점됩니다.</p>',
                     fold=True, note="기록 없음")
 
-    h, c = d.get("hit"), d.get("calib")
-    n = (h or c or {}).get("n", 0)
+    h, c, ab, cu = d.get("hit"), d.get("calib"), d.get("abs"), d.get("cum")
+    n = (ab or h or c or {}).get("n", 0)
     body = ""
+
+    # 절대 등락을 위에 둔다. 초과수익은 지수를 함께 공매도해야 손에 쥐는
+    # 값이라 계좌에 찍히는 숫자가 아니다 — 크게 띄우면 실제 손익으로 읽힌다.
+    if ab:
+        rate = (f'{ab["pct"]}% <span class="dim">({ab["hits"]}/{ab["denom"]})</span>'
+                if ab["denom"] else '<span class="dim">방향 0건</span>')
+        rows_ = [("근거대로 움직인 비율", rate),
+                 ("평균 등락", f'{ab["mean"]:+.2f}%')]
+        if cu:
+            rows_.append(("누적 손익 · 지수 무관",
+                          f'{cu["total"]:+.2f}% '
+                          f'<span class="dim">({cu["n_days"]}일)</span>'))
+        body += kv_grid(rows_)
+        if ab["flat"]:
+            body += (f'<p class="dim">횡보 {ab["flat"]}건은 분모에서 뺐습니다 — '
+                     '그 종목 평소 하루 변동폭의 절반 안쪽이라 방향이 아니라 '
+                     '잡음입니다.</p>')
+        if ab["gap"]:
+            body += f'<p class="dim">{esc(ab["gap"])}</p>'
+
+    if cu:
+        # 누적은 하루가 한 점이다. 마지막 값만 내면 어떻게 왔는지 안 보여
+        # 한 번의 큰 날과 꾸준함이 같아 보인다.
+        line = " · ".join(f'{day[5:]} {avg:+.2f}%' for day, _, avg, _ in
+                          cu["days"][-5:])
+        body += (f'<p class="dim">최근 {min(5, cu["n_days"])}일 '
+                 f'{esc(line)} — {cu["n_days"]}일 중 플러스 {cu["wins"]}일. '
+                 '그날 픽에 돈을 똑같이 나눠 넣었다고 보고 평균낸 값입니다.</p>')
+
     if h:
         bench = "코스피" if market == "kr" else "S&P500" if market == "us" \
             else "코인 총시총" if market == "coin" else None
-        base = (f"{bench} 대비" if h["vs_bench"] and bench
-                else "절대 등락 (벤치마크 없음)")
-        body += kv_grid([
-            ("방향이 맞은 비율", f'{h["pct"]}% <span class="dim">({h["hits"]}/{h["n"]})</span>'),
-            (f"평균 초과수익 · {base}", f'{h["excess"]:+.2f}%'),
-        ])
-        body += f'<p class="dim">{esc(h["gap"])}</p>'
+        if h["vs_bench"] and bench:
+            body += (f'<p class="dim">참고 — {bench} 대비로 재면 '
+                     f'{h["pct"]}% ({h["hits"]}/{h["n"]}), '
+                     f'평균 초과 {h["excess"]:+.2f}%. 시장이 다 오른 날의 '
+                     '상승을 빼고 본 값이라 규칙이 값을 하는지에 답합니다.</p>')
     if c:
         body += (f'<p class="dim">\'오늘 볼 선\'이 실제로 깨진 비율 '
                  f'{c["pct"]}% ({c["broke"]}/{c["n"]}) — 하루 변동폭 1배라 '
                  f'정규분포라면 15.9%다.</p>')
-    if not (h and h["enough"]):
-        body += ('<p class="warn">이 숫자로 규칙을 고치지 마라. '
-                 f'{s["need"]["score"]}건은 모여야 점수가 값을 하는지 알 수 있고, '
-                 f"'오늘 볼 선'은 {s['need']['calib']}건이면 대략 답이 나온다.</p>")
+    if not (ab and ab["enough"]):
+        warn = ('이 숫자로 규칙을 고치지 마라. '
+                f'{s["need"]["score"]}건은 모여야 점수가 값을 하는지 알 수 있고, '
+                f"'오늘 볼 선'은 {s['need']['calib']}건이면 대략 답이 나온다.")
+        if cu and not cu["enough"]:
+            # 누적은 하루가 한 점이라 건수로 세면 실제보다 다 찬 것처럼 보인다.
+            warn += (f' 누적은 {history.CUM_DAYS}일치가 있어야 하는데 지금 '
+                     f'{cu["n_days"]}일이다.')
+        body += f'<p class="warn">{warn}</p>'
     if s.get("mixed_rules"):
         body += ('<p class="warn">규칙 버전이 섞여 있습니다 — '
                  f'{esc(", ".join(s["versions"]))}. 직접 비교하면 안 됩니다.</p>')
 
-    note = (f'{h["pct"]}% ({n}건)' if h else f"{n}건")
-    if not (h and h["enough"]):
+    # 접힌 줄에도 절대 등락을 먼저 낸다. 펼치기 전에 보이는 한 줄이
+    # 벤치마크 대비면, 펼쳤을 때와 다른 숫자를 말하는 셈이 된다.
+    if cu:
+        note = f'누적 {cu["total"]:+.2f}%'
+        if ab and ab["pct"] is not None:
+            note += f' · {ab["pct"]}%'
+        note += f' ({n}건)'
+    elif ab and ab["pct"] is not None:
+        note = f'{ab["pct"]}% ({n}건)'
+    else:
+        note = f"{n}건"
+    if not (ab and ab["enough"]):
         note += " · 아직 판단 못 함"
     return card("픽 성적", body, fold=True, note=note)
 
