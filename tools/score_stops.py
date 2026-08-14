@@ -43,10 +43,14 @@
 (변동폭 10.06%)이 장중에 진입가 아래로 한 번도 안 내려가고 +8.36%로
 끝났다. 그 추정으로 만들었던 '변동폭 상한' 규칙을 그래서 뺐다.
 
-**미장에는 이 값이 없다.** 야후 차트 응답에 시가·고가·저가가 다 들어 있는데
-`collectors/us_market.py`의 `_detail`이 종가와 거래량만 쓰고 버린다. 정작
-표본에서 가장 큰 손실(FLR -8.33%)이 미장이라, **손절이 그것을 막았을지는
-아직 답이 없다.**
+**미장은 2026-08-14 수집부터 쌓인다.** 야후 차트 응답에 시가·고가·저가가
+다 들어 있는데 `collectors/us_market.py`의 `_detail`이 종가와 거래량만 쓰고
+버리고 있었다. 같은 이름·같은 모양으로 남기게 고쳤으므로 그 뒤 픽부터는
+국장과 똑같이 [1b]에서 잰다. **그전 픽은 영영 못 잰다** — 표본이 쌓이길
+기다린다고 생기는 값이 아니라 그때 안 남겨서 없는 것이다.
+
+정작 표본에서 가장 큰 손실(FLR -8.33%)이 미장이라, **손절이 그 꼬리를
+막았을지는 미장 표본이 쌓일 때까지 답이 없다.**
 
 갭하락은 국장에서 [1b]가 함께 센다. 시가가 손절선 아래로 열리면 손절은
 그 자리에 체결되므로 손실을 못 막는다.
@@ -174,17 +178,31 @@ def _ev_with_touch(rows, x):
     return st.mean(vals), st.mean(cut), len(vals)
 
 
-def _intraday(_rows=None):
+# 스냅샷에서 일별 OHLC를 꺼내는 법. (파일 패턴, 종목 배열 키, 종목 코드 키,
+# '개장 전'으로 볼 시각 상한)
+#
+# 마지막 값은 **수집 시각(KST) 기준으로 그 장이 아직 안 열렸다고 볼 시각**이다.
+# 국장은 09:00 개장이라 9, 미장은 22:30 개장(서머타임 때 23:30)이라 22를 쓴다.
+# 그 시각 전에 낸 픽은 **같은 날짜의 장**을 겨냥한 것이므로, 그날 봉의
+# 시가·저가와 픽 가격을 비교하면 된다.
+#
+# 코인·매크로는 없다. 대상이 고정된 선물이라 손절 규칙을 안 걸고
+# (`notes/trading-rules.md`), 스냅샷에 일별 OHLC도 없다.
+_INTRADAY_SRC = {
+    "kr": ("kr_*.json", "stocks", "code", 9),
+    "us": ("us_*.json", "selected", "symbol", 22),
+}
+
+
+def _intraday(markets=None):
     """픽별 (갭%, 장중최저%)를 실측한다. 반환: [(pick, out, 갭, 최저)].
 
-    **국장만 된다.** `cloud/kr_*.json` 의 종목마다 `ohlcv_tail`(일별 OHLC
-    5일치)이 들어 있어서, 픽을 낸 뒤 열린 장의 시가·저가를 그대로 쓸 수
-    있다. 미장 스냅샷에는 이 값이 없다 — 야후 차트 응답에는 있는데
-    `collectors/us_market.py`의 `_detail`이 종가만 쓰고 버린다.
+    스냅샷의 종목마다 `ohlcv_tail`(일별 OHLC 5일치)이 들어 있어서, 픽을 낸
+    뒤 열린 장의 시가·저가를 그대로 쓸 수 있다. `history/`에는 다음 스냅샷의
+    가격만 남아(`core/history.py`의 record_out) 이걸로만 잴 수 있다.
 
-    **개장 전에 낸 픽만 센다.** 마감 후(15시 이후) 스냅샷의 픽에 그날 장을
-    결과로 붙이면 이미 지나간 장을 결과로 쓰는 것이 된다. 그 픽이 겨냥한
-    것은 다음 장이다.
+    **개장 전에 낸 픽만 센다.** 장이 열린 뒤 낸 픽에 그날 장을 결과로 붙이면
+    이미 지나간 장을 결과로 쓰는 것이 된다. 그 픽이 겨냥한 것은 다음 장이다.
 
     **`history.pairs()` 를 그대로 못 쓴다.** 그쪽은 날짜·종목별로 **마지막**
     픽만 남기는데, 국장은 저녁에도 수집되므로 그 마지막이 저녁 픽이다.
@@ -194,35 +212,44 @@ def _intraday(_rows=None):
 
     이 함수가 있는 이유: 손절이 걸리는 비율을 모형으로 추정했다가 크게
     빗나갔다. 실측 −3% 27% vs 추정 48%. 잴 수 있으면 재야 한다.
+
+    **미장은 2026-08-14부터 쌓인다.** 그전 스냅샷에는 `ohlcv_tail`이 없어
+    빈 값으로 나온다 — 없는 것과 못 받은 것을 구분해야 하므로 0으로 세지
+    않고 아예 빼고, 부르는 쪽이 자산군별 건수를 함께 찍는다.
     """
-    tail = {}
-    for path in glob.glob(os.path.join(_ROOT, "cloud", "kr_*.json")):
-        try:
-            with open(path, encoding="utf-8") as fp:
-                snap = json.load(fp)
-        except (OSError, ValueError):
-            continue
-        for s in snap.get("stocks") or []:
-            for r in s.get("ohlcv_tail") or []:
-                tail.setdefault(s.get("code"), {})[str(r.get("date"))] = r
+    markets = [m for m in (markets or MARKETS) if m in _INTRADAY_SRC]
+    tail = defaultdict(dict)
+    for m in markets:
+        pattern, arr_key, code_key, _ = _INTRADAY_SRC[m]
+        for path in glob.glob(os.path.join(_ROOT, "cloud", pattern)):
+            try:
+                with open(path, encoding="utf-8") as fp:
+                    snap = json.load(fp)
+            except (OSError, ValueError):
+                continue
+            for s in snap.get(arr_key) or []:
+                for r in s.get("ohlcv_tail") or []:
+                    tail[(m, s.get(code_key))][str(r.get("date"))] = r
 
     picks, outs = history.load()
     best = {}
     for p in picks.values():
         at = p.get("at") or ""
-        if p.get("market") != "kr" or not p.get("price") or len(at) < 13:
+        m = p.get("market")
+        if m not in markets or not p.get("price") or len(at) < 13:
             continue
-        if int(at[11:13]) >= 9:
-            continue                      # 개장 후 픽 — 그날 장은 이미 지났다
+        if int(at[11:13]) >= _INTRADAY_SRC[m][3]:
+            continue                      # 개장 후 픽 — 그 장은 이미 지났다
         if _held(p, outs.get(p["id"]) or {}) is None:
             continue                      # 결과가 아직 없거나 방향이 없다
-        k = (at[:10], p.get("key"))
+        k = (m, at[:10], p.get("key"))
         if k not in best or p["at"] > best[k]["at"]:
             best[k] = p
 
     out = []
     for p in sorted(best.values(), key=lambda x: x["at"]):
-        r = tail.get(p.get("key"), {}).get(p["at"][:10].replace("-", ""))
+        r = tail.get((p["market"], p.get("key")), {}).get(
+            p["at"][:10].replace("-", ""))
         if not r or not r.get("open") or not r.get("low"):
             continue
         base = p["price"]
@@ -328,10 +355,18 @@ def main():
     print("    벌어지면, 걸리는 대부분이 스쳤다 돌아온 자리라는 뜻이다.")
 
     # ------------------------------------- 1b. 장중 저가로 직접 (국장만)
-    intra = _intraday(rows)
+    intra = _intraday(markets)
     if intra:
-        print(f"\n[1b] 장중 저가로 직접 잰 것 — 국장 개장 전 픽 {len(intra)}건")
-        print("     추정이 아니다. cloud/kr_*.json 의 ohlcv_tail 을 그대로 쓴다.")
+        by_m = defaultdict(int)
+        for p, _, _, _ in intra:
+            by_m[p["market"]] += 1
+        got = " · ".join(f"{m} {by_m[m]}건" for m in markets if by_m.get(m))
+        missing = [m for m in markets if m in _INTRADAY_SRC and not by_m.get(m)]
+        print(f"\n[1b] 장중 저가로 직접 잰 것 — 개장 전 픽 {len(intra)}건 ({got})")
+        print("     추정이 아니다. 스냅샷의 ohlcv_tail 을 그대로 쓴다.")
+        if missing:
+            print(f"     ※ {'·'.join(missing)}는 아직 0건이다 — 없는 게 아니라")
+            print("       ohlcv_tail 이 쌓이기 전 스냅샷이라 못 받은 것이다.")
         print(f"  {'손절선':>8s} {'실제로 닿음':>12s} {'추정이었다면':>13s} "
               f"{'갭으로 통과':>11s}")
         for s in stops:
@@ -369,36 +404,44 @@ def main():
     print("\n[4] 장중에 스쳐서 잘리는 것까지 넣으면")
     print("    종가는 실측이지만 장중 저가는 기록에 없다. 하루 변동폭에서")
     print("    추정한 값이다 — 정확한 값이 아니라 방향을 보는 것이다.")
-    print(f"  {'손절선':>8s} {'기대 손익':>10s} {'잘리는 비율':>11s}   "
-          f"(자산군별 기대 손익)")
-    base = st.mean([_held(p, o) for p, o in rows if p.get("vol_20d")])
-    print(f"  {'없음':>8s} {base:+9.2f}% {'—':>11s}")
-    for s in stops:
-        r = _ev_with_touch(rows, s)
-        if not r:
-            continue
-        line = f"  {f'-{s:g}%':>8s} {r[0]:+9.2f}% {r[1]*100:10.0f}%   "
-        for m in markets:
-            sub = [(p, o) for p, o in rows if p["market"] == m]
-            rm = _ev_with_touch(sub, s)
-            if rm:
-                line += f" {m} {rm[0]:+.2f}%"
-        print(line)
-    print("    손절 없이 든 값보다 낮으면, 그 손절선은 잡음에 잘리고 있다.")
+    # 변동성이 없으면 스침을 추정할 방법이 없다 — 코인이 그렇다.
+    with_vol = [(p, o) for p, o in rows if p.get("vol_20d")]
+    if not with_vol:
+        print("    변동성 기록이 있는 픽이 없어 잴 수 없다.")
+    else:
+        print(f"  {'손절선':>8s} {'기대 손익':>10s} {'잘리는 비율':>11s}   "
+              f"(자산군별 기대 손익)")
+        base = st.mean([_held(p, o) for p, o in with_vol])
+        print(f"  {'없음':>8s} {base:+9.2f}% {'—':>11s}")
+        for s in stops:
+            r = _ev_with_touch(rows, s)
+            if not r:
+                continue
+            line = f"  {f'-{s:g}%':>8s} {r[0]:+9.2f}% {r[1]*100:10.0f}%   "
+            for m in markets:
+                sub = [(p, o) for p, o in rows if p["market"] == m]
+                rm = _ev_with_touch(sub, s)
+                if rm:
+                    line += f" {m} {rm[0]:+.2f}%"
+            print(line)
+        print("    손절 없이 든 값보다 낮으면 잡음에 잘리고 있다는 뜻인데,")
+        print("    **이 추정은 실제보다 과하게 잘린다.** [1b]와 비교해서 읽어라.")
 
-    # -------------------------------- 5. 변동폭이 큰 픽을 빼면 달라지나
-    print("\n[5] 변동폭이 큰 픽을 아예 안 들면 — 고정 손절이 통하는 종목만")
-    print("    고정 %는 하루에 크게 움직이는 종목에서 반드시 스친다.")
-    print("    손절값으로 덮으려 하지 말고 드는 대상으로 가른다.")
-    for s in stops:
-        print(f"  [-{s:g}% 손절]  " + "  ".join(
-            f"{'상한없음' if c is None else f'변동폭 {c:g}%'}:" +
-            (lambda r: f"{r[0]:+.2f}%({r[2]}건,{r[1]*100:.0f}%컷)"
-             if r else "—")(_ev_with_touch(
-                 [(p, o) for p, o in rows
-                  if c is None or (p.get("vol_20d") or 99) <= c], s))
-            for c in (None, 5.0, 4.0, 3.0)))
-    print("    '건수'가 확 줄면 그만큼 드는 날이 줄어든다는 뜻이다.")
+        # ---------------------------- 5. 변동폭이 큰 픽을 빼면 달라지나
+        print("\n[5] 변동폭이 큰 픽을 아예 안 들면")
+        print("    한때 이 표를 근거로 '변동폭 3% 넘는 픽은 안 든다'를 규칙에")
+        print("    넣었다가 뺐다. 여기 쓰인 스침이 추정이라 그렇다 — [1b]에서")
+        print("    실측하니 변동폭 10%인 종목이 장중에 진입가 아래로 한 번도")
+        print("    안 내려가고 +8.36%로 끝났다. 실측이 있으면 그쪽을 믿어라.")
+        for s in stops:
+            print(f"  [-{s:g}% 손절]  " + "  ".join(
+                f"{'상한없음' if c is None else f'변동폭 {c:g}%'}:" +
+                (lambda r: f"{r[0]:+.2f}%({r[2]}건,{r[1]*100:.0f}%컷)"
+                 if r else "—")(_ev_with_touch(
+                     [(p, o) for p, o in rows
+                      if c is None or (p.get("vol_20d") or 99) <= c], s))
+                for c in (None, 5.0, 4.0, 3.0)))
+        print("    '건수'가 확 줄면 그만큼 드는 날이 줄어든다는 뜻이다.")
 
     # -------------------------------------------- 6. 한 건이 끌고 가는가
     if a.drop_worst:

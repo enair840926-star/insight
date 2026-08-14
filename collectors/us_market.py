@@ -86,6 +86,31 @@ def _detail(args):
         out["pos_52w"] = round((price - lo) / (hi - lo) * 100, 1)
         out["from_52w_high_pct"] = round((price / hi - 1) * 100, 1)
 
+    # 일별 OHLC 꼬리. **여기까지 이미 받아 놓고 버리던 값이다** — 위에서
+    # 종가와 거래량만 쓰고 시가·고가·저가는 응답에 있는 채로 흘려보냈다.
+    #
+    # 이게 없으면 "손절선이 장중에 걸렸는가"를 못 잰다. history 에는 다음
+    # 스냅샷의 가격만 남아(`core/history.py`의 record_out) 종가 기준 근사밖에
+    # 안 되고, 그 근사는 실제와 크게 어긋난다 — 국장에서 재 보니 -3% 손절이
+    # 걸릴 확률을 모형으로 48%로 추정했는데 실측은 27%였다.
+    #
+    # 국장(`kr_market.py`)이 같은 이름·같은 모양으로 5일치를 남기므로 맞춘다.
+    # 도구가 자산군을 안 가리고 읽을 수 있어야 한다.
+    ts = res.get("timestamp") or []
+    cols = {k: (quotes.get(k) or []) for k in
+            ("open", "high", "low", "close", "volume")}
+    tail = []
+    for i, t in enumerate(ts):
+        row = {k: v[i] for k, v in cols.items() if i < len(v)}
+        if row.get("close") is None or row.get("low") is None:
+            continue                      # 거래정지일 등 — 빈 봉은 버린다
+        # 미국 정규장은 UTC로도 같은 날짜에 열리므로 UTC 날짜를 그대로 쓴다.
+        row["date"] = dt.datetime.fromtimestamp(
+            t, dt.timezone.utc).strftime("%Y%m%d")
+        tail.append(row)
+    if tail:
+        out["ohlcv_tail"] = tail[-5:]
+
     return symbol, out
 
 
