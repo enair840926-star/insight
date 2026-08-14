@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
-"""손절선을 걸었으면 어땠을지 재는 도구 — 개인 거래규칙을 표본으로 고치기 위해
+"""손절·익절을 걸었으면 어땠을지 재는 도구 — 개인 거래규칙을 표본으로 고치기 위해
 
     python tools/score_stops.py            # 전체
     python tools/score_stops.py kr us      # 자산군 지정
-    python tools/score_stops.py --stops 2,3,4     # 고정 %로 잴 값
-    python tools/score_stops.py --mults 1,1.5,2   # 하루 변동폭 배수로 잴 값
+    python tools/score_stops.py --stops 2,3,4     # 고정 %로 잴 손절선
+    python tools/score_stops.py --tps 1,2,3,5     # 잴 익절선
+    python tools/score_stops.py --mults 1,1.5,2   # 하루 변동폭 배수로 잴 손절선
 
-`score_picks.py`가 "그 픽이 맞았는가"를 잰다면 이건 **"거기에 손절선을
+`score_picks.py`가 "그 픽이 맞았는가"를 잰다면 이건 **"거기에 손절·익절선을
 걸었으면 손에 쥐는 것이 달라졌는가"**를 잰다. 규칙을 고르는 일과 그 위에서
 거래하는 일은 다른 문제라 따로 잰다.
+
+**실측은 [1b]·[1c]다.** 나머지 표는 종가 기준 근사와 모형 추정이라, 실측과
+어긋나면 실측을 믿어야 한다 — 실제로 그렇게 어긋나서 규칙 하나를 뺐다.
 
 개인 규칙은 `notes/trading-rules.md` 에 있다. 이 도구는 그 규칙을 표본이
 쌓인 뒤 다시 재기 위한 것이다 — 두 곳의 숫자가 어긋나면 안 되므로 문서에
@@ -28,15 +32,21 @@
 손절값 하나로는 못 덮는다. 그래서 이 도구는 고정 %와 **하루 변동폭 배수**를
 나란히 찍고, 변동폭이 큰 픽을 빼면 달라지는지도 함께 본다([5]).
 
-## 국장은 장중 저가로 직접 잰다 — 미장은 아직 못 잰다
+## 실측이 어디서 오나 — 그리고 왜 history 에 넣었나
 
-`history/`에는 다음 스냅샷의 가격만 남아(`record_out`) 손절이 장중에
-걸렸는지를 못 잰다. 그래서 [2]·[3]은 **종가 기준 근사**이고 손절이 실제보다
-덜 걸린 것으로 나온다.
+`record_out` 은 다음 스냅샷의 가격만 남긴다. 그것만으로는 손절이 장중에
+걸렸는지도, 익절선까지 올라갔는지도 모른다. 그래서 [2]~[5]는 **종가 기준
+근사**이고 손절이 실제보다 덜 걸린 것으로 나온다.
 
-**다만 국장은 잴 수 있다.** `cloud/kr_*.json` 의 종목마다 `ohlcv_tail`
-(일별 OHLC 5일치)이 들어 있어서 픽 다음 장의 시가·저가를 그대로 쓸 수
-있다. [1b]가 그것이다.
+그래서 `core/history.settle` 이 결과를 채울 때 그 장이 어디까지 갔는지를
+함께 남긴다 — `gap_pct`(시가) · `mfe_pct`(고가) · `mae_pct`(저가). [1b]·[1c]가
+그 값을 쓴다.
+
+**`cloud/` 에서 읽으면 안 된다.** `core/store.py`의 `publish(keep=2)`가
+자산군당 스냅샷을 2세대만 남기고 지운다. 표본 100건이 쌓일 때쯤이면 그
+픽이 겨냥했던 장의 OHLC는 작업 트리에서 이미 사라져 있다. `history/*.jsonl`
+은 덧붙이기만 하는 영구 기록이라(`.gitattributes`의 merge=union) 거기 넣어야
+남는다. 그 값이 없는 옛 픽만 `cloud/` 로 보강하는데, 그것도 며칠이면 사라진다.
 
 이걸 붙이고 나서 **모형 추정이 크게 빗나간 것을 알았다** — -3%가 걸릴 확률을
 48%로 추정했는데 실측은 27%였고, "변동성이 크면 반드시 스친다"고 본 종목
@@ -45,15 +55,20 @@
 
 **미장은 2026-08-14 수집부터 쌓인다.** 야후 차트 응답에 시가·고가·저가가
 다 들어 있는데 `collectors/us_market.py`의 `_detail`이 종가와 거래량만 쓰고
-버리고 있었다. 같은 이름·같은 모양으로 남기게 고쳤으므로 그 뒤 픽부터는
-국장과 똑같이 [1b]에서 잰다. **그전 픽은 영영 못 잰다** — 표본이 쌓이길
-기다린다고 생기는 값이 아니라 그때 안 남겨서 없는 것이다.
+버리고 있었다. 국장과 같은 이름·같은 모양(`ohlcv_tail`)으로 남기게 고쳤다.
+**그전 픽은 영영 못 잰다** — 표본이 쌓이길 기다린다고 생기는 값이 아니라
+그때 안 남겨서 없는 것이다. 정작 표본에서 가장 큰 손실(FLR -8.33%)이
+미장이라, **손절이 그 꼬리를 막았을지는 미장 표본이 쌓일 때까지 답이 없다.**
 
-정작 표본에서 가장 큰 손실(FLR -8.33%)이 미장이라, **손절이 그 꼬리를
-막았을지는 미장 표본이 쌓일 때까지 답이 없다.**
+갭하락은 [1b]가 함께 센다. 시가가 손절선 아래로 열리면 손절은 그 자리에
+체결되므로 손실을 못 막는다.
 
-갭하락은 국장에서 [1b]가 함께 센다. 시가가 손절선 아래로 열리면 손절은
-그 자리에 체결되므로 손실을 못 막는다.
+## 손절과 익절을 함께 건 성적은 낼 수 없다
+
+일봉에는 순서가 없다. 손절선과 익절선이 **둘 다** 닿은 날은 어느 쪽이 먼저
+체결됐을지 알 수 없고, 분봉을 받지 않는 한 못 푼다. [1c]가 그런 날이 몇
+건인지 함께 찍는다 — 그 칸이 커지면 두 선을 합친 표는 사실이 아니라 가정이
+되므로 아예 내지 않는다.
 
 ## 한 건이 전부를 끌고 가는지 반드시 보라
 
@@ -89,6 +104,7 @@ ENOUGH_STOP = 100
 
 DEFAULT_STOPS = (2.0, 2.5, 3.0, 4.0)
 DEFAULT_MULTS = (0.8, 1.0, 1.5, 2.0)
+DEFAULT_TPS = (1.0, 2.0, 3.0, 5.0)
 
 
 def _held(pick, out):
@@ -195,11 +211,16 @@ _INTRADAY_SRC = {
 
 
 def _intraday(markets=None):
-    """픽별 (갭%, 장중최저%)를 실측한다. 반환: [(pick, out, 갭, 최저)].
+    """픽이 겨냥한 장이 어디까지 갔나. 반환: [(pick, out, 갭%, 최고%, 최저%)].
 
-    스냅샷의 종목마다 `ohlcv_tail`(일별 OHLC 5일치)이 들어 있어서, 픽을 낸
-    뒤 열린 장의 시가·저가를 그대로 쓸 수 있다. `history/`에는 다음 스냅샷의
-    가격만 남아(`core/history.py`의 record_out) 이걸로만 잴 수 있다.
+    **먼저 `history/*.jsonl` 의 `gap_pct`·`mfe_pct`·`mae_pct` 를 쓴다.**
+    `core/history.settle` 이 결과를 채울 때 함께 남기는 값이고, 덧붙이기만
+    하는 영구 기록이라 지워지지 않는다.
+
+    없으면 `cloud/*.json` 의 `ohlcv_tail` 로 보강한다 — 그 기록을 남기기
+    전에 낸 픽이 그렇다. **다만 `core/store.py`의 `publish(keep=2)`가
+    자산군당 스냅샷을 2세대만 남기고 지우므로 이 보강은 며칠이면 사라진다.**
+    영구 답은 위쪽 경로다.
 
     **개장 전에 낸 픽만 센다.** 장이 열린 뒤 낸 픽에 그날 장을 결과로 붙이면
     이미 지나간 장을 결과로 쓰는 것이 된다. 그 픽이 겨냥한 것은 다음 장이다.
@@ -248,14 +269,69 @@ def _intraday(markets=None):
 
     out = []
     for p in sorted(best.values(), key=lambda x: x["at"]):
+        o = outs[p["id"]]
+        if o.get("mfe_pct") is not None and o.get("mae_pct") is not None:
+            out.append((p, o, o.get("gap_pct"), o["mfe_pct"], o["mae_pct"]))
+            continue
         r = tail.get((p["market"], p.get("key")), {}).get(
             p["at"][:10].replace("-", ""))
-        if not r or not r.get("open") or not r.get("low"):
+        if not r or not r.get("open") or not r.get("high") or not r.get("low"):
             continue
         base = p["price"]
-        out.append((p, outs[p["id"]], (r["open"] / base - 1) * 100,
+        out.append((p, o, (r["open"] / base - 1) * 100,
+                    (r["high"] / base - 1) * 100,
                     (r["low"] / base - 1) * 100))
     return out
+
+
+def _take_profit(intra, tps, stops=()):
+    """익절선을 걸었으면 어땠을지. `intra` 는 _intraday() 결과.
+
+    **최고가(mfe)가 있어야 답할 수 있는 질문이다.** 종가만 보면 "얼마까지
+    갔다가 돌아왔는지"가 안 보여서, 익절선을 어디에 두든 결과가 같아 보인다.
+
+    익절은 지정가라 그 값에 닿으면 체결된 것으로 본다(손절과 다르다 —
+    손절은 갭이 나면 더 나쁜 값에 체결된다).
+
+    ## 일봉으로는 못 푸는 것
+
+    손절선과 익절선이 **둘 다** 닿은 날은, 어느 쪽이 먼저였는지 일봉으로는
+    알 수 없다. 분봉을 받지 않는 한 못 푼다. 그런 날이 몇 건인지 함께 찍고,
+    둘을 합친 표는 내지 않는다 — 순서를 모르는 채로 합치면 그 숫자는
+    사실이 아니라 가정이 된다.
+    """
+    print(f"\n[1c] 익절선을 걸었으면 — 그 장의 최고가로 잰다 ({len(intra)}건)")
+    mfes = sorted(m for _, _, _, m, _ in intra)
+    held = [_held(p, o) for p, o, _, _, _ in intra]
+    give = [m - h for (_, _, _, m, _), h in zip(intra, held)]
+    q = lambda xs, f: xs[min(len(xs) - 1, int(len(xs) * f))]
+    print(f"     그 장의 최고점(진입가 대비): 중간 {st.median(mfes):+.2f}%  "
+          f"하위25% {q(mfes, .25):+.2f}%  상위25% {q(mfes, .75):+.2f}%")
+    print(f"     최고점에서 결과까지 되돌린 폭: 중간 {st.median(give):+.2f}%p")
+    print("     되돌림이 크면 익절이 값을 하고, 작으면 걸어도 별 차이가 없다.")
+
+    base = st.mean(held)
+    print(f"\n  {'익절선':>8s} {'닿음':>11s} {'실현 평균':>10s} "
+          f"{'익절 없음 대비':>13s}")
+    print(f"  {'없음':>8s} {'—':>11s} {base:+9.2f}%")
+    for x in tps:
+        n = sum(1 for _, _, _, m, _ in intra if m >= x)
+        vals = [x if m >= x else h
+                for (_, _, _, m, _), h in zip(intra, held)]
+        avg = st.mean(vals)
+        print(f"  {f'+{x:g}%':>8s} {n:5d}/{len(intra):<3d} "
+              f"({n*100/len(intra):3.0f}%) {avg:+9.2f}% {avg-base:+12.2f}%p")
+
+    # 손절선과 익절선이 같은 날 둘 다 닿은 건수 — 순서를 모르는 자리다.
+    if stops:
+        print("\n     손절·익절이 같은 날 둘 다 닿아 순서를 모르는 건수:")
+        for s in stops:
+            row = "  ".join(
+                f"+{x:g}%:{sum(1 for _, _, _, m, low in intra if low <= -s and m >= x)}건"
+                for x in tps)
+            print(f"       -{s:g}% 손절과  {row}")
+        print("     일봉에는 순서가 없다. 이 칸이 커지면 두 선을 함께 건")
+        print("     성적은 분봉을 받기 전에는 못 낸다.")
 
 
 def _row(label, rows, stop_pct=None, mult=None):
@@ -302,6 +378,8 @@ def main():
                     help="고정 %로 잴 손절선 (쉼표)")
     ap.add_argument("--mults", default=None, metavar="1,1.5,2",
                     help="하루 변동폭 배수로 잴 손절선 (쉼표)")
+    ap.add_argument("--tps", default=None, metavar="1,2,3,5",
+                    help="잴 익절선 (쉼표). 그 장의 최고가로 잰다")
     ap.add_argument("--drop-worst", type=int, default=1, metavar="N",
                     help="최악 N건을 뺀 값도 함께 찍는다 (기본 1, 0이면 안 찍음)")
     a = ap.parse_args()
@@ -311,6 +389,8 @@ def main():
              else list(DEFAULT_STOPS))
     mults = ([float(x) for x in a.mults.split(",")] if a.mults
              else list(DEFAULT_MULTS))
+    tps = ([float(x) for x in a.tps.split(",")] if a.tps
+           else list(DEFAULT_TPS))
 
     rows = [(p, o) for p, o in _pairs(markets) if _held(p, o) is not None]
     if not rows:
@@ -354,25 +434,27 @@ def main():
     print("    실제로 그 아래로 **마감한** 건수는 아래 [2]에 있다. 둘이 크게")
     print("    벌어지면, 걸리는 대부분이 스쳤다 돌아온 자리라는 뜻이다.")
 
-    # ------------------------------------- 1b. 장중 저가로 직접 (국장만)
+    # --------------------------------- 1b. 장중 고가·저가로 직접 (실측)
     intra = _intraday(markets)
     if intra:
         by_m = defaultdict(int)
-        for p, _, _, _ in intra:
+        for p, _, _, _, _ in intra:
             by_m[p["market"]] += 1
         got = " · ".join(f"{m} {by_m[m]}건" for m in markets if by_m.get(m))
         missing = [m for m in markets if m in _INTRADAY_SRC and not by_m.get(m)]
-        print(f"\n[1b] 장중 저가로 직접 잰 것 — 개장 전 픽 {len(intra)}건 ({got})")
-        print("     추정이 아니다. 스냅샷의 ohlcv_tail 을 그대로 쓴다.")
+        print(f"\n[1b] 장중 고가·저가로 직접 잰 것 — 개장 전 픽 "
+              f"{len(intra)}건 ({got})")
+        print("     추정이 아니다. 그 장이 실제로 어디까지 갔는지를 쓴다.")
         if missing:
             print(f"     ※ {'·'.join(missing)}는 아직 0건이다 — 없는 게 아니라")
-            print("       ohlcv_tail 이 쌓이기 전 스냅샷이라 못 받은 것이다.")
+            print("       그 값을 남기기 전 픽이라 못 받은 것이다.")
         print(f"  {'손절선':>8s} {'실제로 닿음':>12s} {'추정이었다면':>13s} "
               f"{'갭으로 통과':>11s}")
         for s in stops:
-            n = sum(1 for _, _, _, low in intra if low <= -s)
-            gaps = sum(1 for _, _, g, _ in intra if g <= -s)
-            vs = [p["vol_20d"] for p, _, _, _ in intra if p.get("vol_20d")]
+            n = sum(1 for _, _, _, _, low in intra if low <= -s)
+            gaps = sum(1 for _, _, g, _, _ in intra
+                       if g is not None and g <= -s)
+            vs = [p["vol_20d"] for p, _, _, _, _ in intra if p.get("vol_20d")]
             est = (f"{st.mean([_touch(s, v) for v in vs])*100:11.0f}%"
                    if vs else f"{'—':>12s}")
             print(f"  {f'-{s:g}%':>8s} {n:6d}/{len(intra):<3d} "
@@ -380,18 +462,22 @@ def main():
         print("     추정이 실측보다 크게 높으면 모형이 과하게 흔든 것이다.")
 
         print("\n     실제 체결로 실현한 손익 (갭이면 시가에 체결):")
-        base = st.mean([_held(p, o) for p, o, _, _ in intra])
+        base = st.mean([_held(p, o) for p, o, _, _, _ in intra])
         print(f"       {'손절 없음':>10s} {base:+8.2f}%")
         for s in stops:
             vals = []
-            for p, o, gap, low in intra:
-                vals.append((gap if gap <= -s else -s) if low <= -s
-                            else _held(p, o))
-            cut = sum(1 for _, _, _, low in intra if low <= -s)
+            for p, o, gap, _, low in intra:
+                if low <= -s:
+                    vals.append(gap if (gap is not None and gap <= -s) else -s)
+                else:
+                    vals.append(_held(p, o))
+            cut = sum(1 for _, _, _, _, low in intra if low <= -s)
             print(f"       {f'-{s:g}%':>10s} {st.mean(vals):+8.2f}%  "
                   f"{cut}건 잘림")
         print("     손절 없음보다 낮아도 놀랄 것 없다 — 손절의 값은 평균이")
         print("     아니라 꼬리에서 나오는데, 표본에 꼬리가 없으면 비용만 남는다.")
+
+        _take_profit(intra, tps, stops)
 
     # ------------------------------------------------------- 2·3. 두 방식
     _table("[2] 고정 % 손절 — 자산군에 상관없이 같은 숫자를 쓸 때",
