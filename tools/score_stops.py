@@ -10,19 +10,23 @@
 걸었으면 손에 쥐는 것이 달라졌는가"**를 잰다. 규칙을 고르는 일과 그 위에서
 거래하는 일은 다른 문제라 따로 잰다.
 
+개인 규칙은 `notes/trading-rules.md` 에 있다. 이 도구는 그 규칙을 표본이
+쌓인 뒤 다시 재기 위한 것이다 — 두 곳의 숫자가 어긋나면 안 되므로 문서에
+적은 표는 전부 여기서 나온다.
+
 ## 왜 고정 %를 그대로 믿으면 안 되는가
 
--2%는 자산군마다 완전히 다른 사건이다. 실측(2026-08-14, 상승픽 32건):
+-2%는 종목마다 완전히 다른 사건이다. 실측(2026-08-14, 국장·미장 21건):
 
-    자산군   하루 변동폭 중간   -2%는 그 몇 배인가
-    미장          4.58%            0.44배
-    국장          3.39%            0.59배
-    매크로        2.62%            0.76배
+    자산군   하루 변동폭 중간   -2%는 그 몇 배   -3%는
+    미장          4.58%            0.44배        0.66배
+    국장          3.39%            0.59배        0.88배
 
 미장 픽에 -2%를 걸면 평소 하루 움직임의 **절반도 안 되는 폭**에 손절이
-걸린다. 근거가 깨져서가 아니라 그냥 그날 흔들려서 잘린다. 같은 -2%가
-매크로에서는 하루치에 가까워 뜻이 전혀 다르다. 그래서 이 도구는 고정 %와
-**하루 변동폭 배수**를 나란히 찍는다.
+걸린다. 근거가 깨져서가 아니라 그냥 그날 흔들려서 잘린다. 국장 픽은
+변동폭이 2.4%부터 11.2%까지 갈려(대형주와 급등 중소형주가 섞여 나온다)
+손절값 하나로는 못 덮는다. 그래서 이 도구는 고정 %와 **하루 변동폭 배수**를
+나란히 찍고, 변동폭이 큰 픽을 빼면 달라지는지도 함께 본다([5]).
 
 ## 이 도구가 못 재는 것
 
@@ -40,11 +44,13 @@
 ## 한 건이 전부를 끌고 가는지 반드시 보라
 
 표본이 작을 때 손절의 이득은 대개 **가장 크게 틀린 한 건**에서 나온다.
-실측에서 미장 FLR -8.33% 하나를 빼자 -2% 손절의 이득이 +0.27%p에서
-+0.08%p로 줄었다 — 남은 것은 잡음이다. 그래서 `--drop-worst`로 최악 한 건을
-빼고 다시 찍어 준다. 두 값이 크게 다르면 그 결론은 아직 한 건짜리다.
+실측(국장·미장)에서 미장 FLR -8.33% 하나를 빼자 -2% 손절의 이득이
++0.38%p에서 +0.09%p로 줄었다 — 남은 것은 잡음이다. 그래서 `--drop-worst`로
+최악 한 건을 빼고 다시 찍어 준다. 두 값이 크게 다르면 그 결론은 아직
+한 건짜리다.
 """
 import argparse
+import math
 import os
 import statistics as st
 import sys
@@ -108,6 +114,51 @@ def _apply(rows, stop_pct=None, mult=None):
         else:
             out.append((r, False))
     return out
+
+
+def _phi(z):
+    return 0.5 * (1 + math.erf(z / math.sqrt(2)))
+
+
+def _touch(x, vol):
+    """하루 안에 -x%를 찍을 확률 추정. **실측이 아니라 모형값이다.**
+
+    장중 저가가 기록에 없어 실측으로는 못 잰다. 무추세 임의보행에서
+    장중 최저가가 -x% 아래로 내려갈 확률은 종가가 -x% 아래로 마감할
+    확률의 약 2배다(반사원리). 그 근사를 쓴다.
+
+    실제 장중 움직임은 이보다 덜 흔들릴 수 있어 손절이 덜 걸릴 수 있다.
+    방향은 믿을 만하고 정확한 값은 아니다.
+    """
+    return min(1.0, 2 * _phi(-x / vol))
+
+
+def _ev_with_touch(rows, x):
+    """장중 스침까지 넣은 기대 손익. 반환: (기대값, 잘리는 비율, 건수).
+
+    종가가 이미 -x% 아래면 확실히 잘린 것으로 본다. 종가는 버텼어도
+    장중에 스쳤을 수 있으므로, 그 조건부 확률만큼 -x% 로 바꾼다.
+    P(스침 & 종가 생존) / P(종가 생존) = Φ(-x/σ) / (1 - Φ(-x/σ)).
+
+    **손절 없이 든 값과 비교할 때만 뜻이 있다.** 절대 수준은 모형에 기댄다.
+    """
+    vals, cut = [], []
+    for p, o in rows:
+        r = _held(p, o)
+        vol = p.get("vol_20d")
+        if r is None or not vol:
+            continue
+        if r <= -x:
+            vals.append(-x)
+            cut.append(1.0)
+        else:
+            z = _phi(-x / vol)
+            q = z / (1 - z) if z < 1 else 1.0
+            vals.append(q * (-x) + (1 - q) * r)
+            cut.append(q)
+    if not vals:
+        return None
+    return st.mean(vals), st.mean(cut), len(vals)
 
 
 def _row(label, rows, stop_pct=None, mult=None):
@@ -194,6 +245,18 @@ def main():
         print(f"  {m:6s} {len(v):4d} {md:15.2f}%  {cols}")
     print("    0.5배 근처면 근거가 깨져서가 아니라 그날 흔들려서 잘린다.")
 
+    print("\n    손절이 걸릴 확률 (픽별 변동폭에서 추정 — 실측 아님):")
+    for m in markets:
+        v = [p["vol_20d"] for p, _ in rows
+             if p["market"] == m and p.get("vol_20d")]
+        if not v:
+            continue
+        cols = "  ".join(f"-{s:g}% {st.mean([_touch(s, x) for x in v])*100:3.0f}%"
+                         for s in stops)
+        print(f"      {m:6s} {cols}")
+    print("    실제로 그 아래로 **마감한** 건수는 아래 [2]에 있다. 둘이 크게")
+    print("    벌어지면, 걸리는 대부분이 스쳤다 돌아온 자리라는 뜻이다.")
+
     # ------------------------------------------------------- 2·3. 두 방식
     _table("[2] 고정 % 손절 — 자산군에 상관없이 같은 숫자를 쓸 때",
            rows, markets, "pct", stops)
@@ -201,11 +264,46 @@ def main():
            rows, markets, "mult", mults)
     print("     변동성이 없는 픽은 분모에서 뺀다 (코인에 이 값이 없다).")
 
-    # -------------------------------------------- 4. 한 건이 끌고 가는가
+    # ------------------------------------------------ 4. 장중 스침까지
+    print("\n[4] 장중에 스쳐서 잘리는 것까지 넣으면")
+    print("    종가는 실측이지만 장중 저가는 기록에 없다. 하루 변동폭에서")
+    print("    추정한 값이다 — 정확한 값이 아니라 방향을 보는 것이다.")
+    print(f"  {'손절선':>8s} {'기대 손익':>10s} {'잘리는 비율':>11s}   "
+          f"(자산군별 기대 손익)")
+    base = st.mean([_held(p, o) for p, o in rows if p.get("vol_20d")])
+    print(f"  {'없음':>8s} {base:+9.2f}% {'—':>11s}")
+    for s in stops:
+        r = _ev_with_touch(rows, s)
+        if not r:
+            continue
+        line = f"  {f'-{s:g}%':>8s} {r[0]:+9.2f}% {r[1]*100:10.0f}%   "
+        for m in markets:
+            sub = [(p, o) for p, o in rows if p["market"] == m]
+            rm = _ev_with_touch(sub, s)
+            if rm:
+                line += f" {m} {rm[0]:+.2f}%"
+        print(line)
+    print("    손절 없이 든 값보다 낮으면, 그 손절선은 잡음에 잘리고 있다.")
+
+    # -------------------------------- 5. 변동폭이 큰 픽을 빼면 달라지나
+    print("\n[5] 변동폭이 큰 픽을 아예 안 들면 — 고정 손절이 통하는 종목만")
+    print("    고정 %는 하루에 크게 움직이는 종목에서 반드시 스친다.")
+    print("    손절값으로 덮으려 하지 말고 드는 대상으로 가른다.")
+    for s in stops:
+        print(f"  [-{s:g}% 손절]  " + "  ".join(
+            f"{'상한없음' if c is None else f'변동폭 {c:g}%'}:" +
+            (lambda r: f"{r[0]:+.2f}%({r[2]}건,{r[1]*100:.0f}%컷)"
+             if r else "—")(_ev_with_touch(
+                 [(p, o) for p, o in rows
+                  if c is None or (p.get("vol_20d") or 99) <= c], s))
+            for c in (None, 5.0, 4.0, 3.0)))
+    print("    '건수'가 확 줄면 그만큼 드는 날이 줄어든다는 뜻이다.")
+
+    # -------------------------------------------- 6. 한 건이 끌고 가는가
     if a.drop_worst:
         worst = sorted(rows, key=lambda x: _held(*x))[:a.drop_worst]
         kept = [r for r in rows if r not in worst]
-        print(f"\n[4] 최악 {a.drop_worst}건을 빼면 — 결론이 한 건짜리인지 본다")
+        print(f"\n[6] 최악 {a.drop_worst}건을 빼면 — 결론이 한 건짜리인지 본다")
         for p, o in worst:
             print(f"    뺀 것: {p['market']} {p['key']} {_held(p, o):+.2f}% "
                   f"({p['at'][:10]}, 하루 변동폭 "
