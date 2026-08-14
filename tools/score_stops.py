@@ -28,18 +28,28 @@
 손절값 하나로는 못 덮는다. 그래서 이 도구는 고정 %와 **하루 변동폭 배수**를
 나란히 찍고, 변동폭이 큰 픽을 빼면 달라지는지도 함께 본다([5]).
 
-## 이 도구가 못 재는 것
+## 국장은 장중 저가로 직접 잰다 — 미장은 아직 못 잰다
 
-**장중 저가가 기록에 없다.** `history/`에는 다음 세션의 종가만 남는다
-(`core/history.py`의 `record_out`). 그래서 여기서 "손절에 걸렸다"는
-**종가가 그 아래로 마감했다**는 뜻이지 장중에 찍었다는 뜻이 아니다.
+`history/`에는 다음 스냅샷의 가격만 남아(`record_out`) 손절이 장중에
+걸렸는지를 못 잰다. 그래서 [2]·[3]은 **종가 기준 근사**이고 손절이 실제보다
+덜 걸린 것으로 나온다.
 
-실제 손절은 장중 저가에 걸리므로 **여기 나오는 손절 건수는 실제보다 적고,
-손절을 건 성적은 실제보다 좋게 나온다.** 이 값을 그대로 "손절이 이득이었다"로
-읽으면 안 된다. 없는 것과 못 받은 것을 구분하라는 규칙이 여기에도 걸린다.
+**다만 국장은 잴 수 있다.** `cloud/kr_*.json` 의 종목마다 `ohlcv_tail`
+(일별 OHLC 5일치)이 들어 있어서 픽 다음 장의 시가·저가를 그대로 쓸 수
+있다. [1b]가 그것이다.
 
-갭하락도 못 본다. 국장·미장 픽은 밤을 넘겨 재므로 -3% 손절을 걸어도 시가가
--8%에 열리면 그 자리에 체결된다. 그런 경우 손절은 손실을 못 막는다.
+이걸 붙이고 나서 **모형 추정이 크게 빗나간 것을 알았다** — -3%가 걸릴 확률을
+48%로 추정했는데 실측은 27%였고, "변동성이 크면 반드시 스친다"고 본 종목
+(변동폭 10.06%)이 장중에 진입가 아래로 한 번도 안 내려가고 +8.36%로
+끝났다. 그 추정으로 만들었던 '변동폭 상한' 규칙을 그래서 뺐다.
+
+**미장에는 이 값이 없다.** 야후 차트 응답에 시가·고가·저가가 다 들어 있는데
+`collectors/us_market.py`의 `_detail`이 종가와 거래량만 쓰고 버린다. 정작
+표본에서 가장 큰 손실(FLR -8.33%)이 미장이라, **손절이 그것을 막았을지는
+아직 답이 없다.**
+
+갭하락은 국장에서 [1b]가 함께 센다. 시가가 손절선 아래로 열리면 손절은
+그 자리에 체결되므로 손실을 못 막는다.
 
 ## 한 건이 전부를 끌고 가는지 반드시 보라
 
@@ -50,13 +60,16 @@
 한 건짜리다.
 """
 import argparse
+import glob
+import json
 import math
 import os
 import statistics as st
 import sys
 from collections import defaultdict
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, _ROOT)
 
 from core import history
 
@@ -161,6 +174,63 @@ def _ev_with_touch(rows, x):
     return st.mean(vals), st.mean(cut), len(vals)
 
 
+def _intraday(_rows=None):
+    """픽별 (갭%, 장중최저%)를 실측한다. 반환: [(pick, out, 갭, 최저)].
+
+    **국장만 된다.** `cloud/kr_*.json` 의 종목마다 `ohlcv_tail`(일별 OHLC
+    5일치)이 들어 있어서, 픽을 낸 뒤 열린 장의 시가·저가를 그대로 쓸 수
+    있다. 미장 스냅샷에는 이 값이 없다 — 야후 차트 응답에는 있는데
+    `collectors/us_market.py`의 `_detail`이 종가만 쓰고 버린다.
+
+    **개장 전에 낸 픽만 센다.** 마감 후(15시 이후) 스냅샷의 픽에 그날 장을
+    결과로 붙이면 이미 지나간 장을 결과로 쓰는 것이 된다. 그 픽이 겨냥한
+    것은 다음 장이다.
+
+    **`history.pairs()` 를 그대로 못 쓴다.** 그쪽은 날짜·종목별로 **마지막**
+    픽만 남기는데, 국장은 저녁에도 수집되므로 그 마지막이 저녁 픽이다.
+    저녁 픽은 다음 장을 겨냥한 것이라 개장 전 필터에서 통째로 빠지고,
+    정작 그날 장을 겨냥했던 아침 픽까지 같이 사라진다(실측: 11건이 9건으로).
+    그래서 여기서는 **개장 전 픽 안에서** 날짜·종목별 마지막을 고른다.
+
+    이 함수가 있는 이유: 손절이 걸리는 비율을 모형으로 추정했다가 크게
+    빗나갔다. 실측 −3% 27% vs 추정 48%. 잴 수 있으면 재야 한다.
+    """
+    tail = {}
+    for path in glob.glob(os.path.join(_ROOT, "cloud", "kr_*.json")):
+        try:
+            with open(path, encoding="utf-8") as fp:
+                snap = json.load(fp)
+        except (OSError, ValueError):
+            continue
+        for s in snap.get("stocks") or []:
+            for r in s.get("ohlcv_tail") or []:
+                tail.setdefault(s.get("code"), {})[str(r.get("date"))] = r
+
+    picks, outs = history.load()
+    best = {}
+    for p in picks.values():
+        at = p.get("at") or ""
+        if p.get("market") != "kr" or not p.get("price") or len(at) < 13:
+            continue
+        if int(at[11:13]) >= 9:
+            continue                      # 개장 후 픽 — 그날 장은 이미 지났다
+        if _held(p, outs.get(p["id"]) or {}) is None:
+            continue                      # 결과가 아직 없거나 방향이 없다
+        k = (at[:10], p.get("key"))
+        if k not in best or p["at"] > best[k]["at"]:
+            best[k] = p
+
+    out = []
+    for p in sorted(best.values(), key=lambda x: x["at"]):
+        r = tail.get(p.get("key"), {}).get(p["at"][:10].replace("-", ""))
+        if not r or not r.get("open") or not r.get("low"):
+            continue
+        base = p["price"]
+        out.append((p, outs[p["id"]], (r["open"] / base - 1) * 100,
+                    (r["low"] / base - 1) * 100))
+    return out
+
+
 def _row(label, rows, stop_pct=None, mult=None):
     xs = _apply(rows, stop_pct, mult)
     if not xs:
@@ -256,6 +326,37 @@ def main():
         print(f"      {m:6s} {cols}")
     print("    실제로 그 아래로 **마감한** 건수는 아래 [2]에 있다. 둘이 크게")
     print("    벌어지면, 걸리는 대부분이 스쳤다 돌아온 자리라는 뜻이다.")
+
+    # ------------------------------------- 1b. 장중 저가로 직접 (국장만)
+    intra = _intraday(rows)
+    if intra:
+        print(f"\n[1b] 장중 저가로 직접 잰 것 — 국장 개장 전 픽 {len(intra)}건")
+        print("     추정이 아니다. cloud/kr_*.json 의 ohlcv_tail 을 그대로 쓴다.")
+        print(f"  {'손절선':>8s} {'실제로 닿음':>12s} {'추정이었다면':>13s} "
+              f"{'갭으로 통과':>11s}")
+        for s in stops:
+            n = sum(1 for _, _, _, low in intra if low <= -s)
+            gaps = sum(1 for _, _, g, _ in intra if g <= -s)
+            vs = [p["vol_20d"] for p, _, _, _ in intra if p.get("vol_20d")]
+            est = (f"{st.mean([_touch(s, v) for v in vs])*100:11.0f}%"
+                   if vs else f"{'—':>12s}")
+            print(f"  {f'-{s:g}%':>8s} {n:6d}/{len(intra):<3d} "
+                  f"({n*100/len(intra):3.0f}%) {est} {gaps:9d}건")
+        print("     추정이 실측보다 크게 높으면 모형이 과하게 흔든 것이다.")
+
+        print("\n     실제 체결로 실현한 손익 (갭이면 시가에 체결):")
+        base = st.mean([_held(p, o) for p, o, _, _ in intra])
+        print(f"       {'손절 없음':>10s} {base:+8.2f}%")
+        for s in stops:
+            vals = []
+            for p, o, gap, low in intra:
+                vals.append((gap if gap <= -s else -s) if low <= -s
+                            else _held(p, o))
+            cut = sum(1 for _, _, _, low in intra if low <= -s)
+            print(f"       {f'-{s:g}%':>10s} {st.mean(vals):+8.2f}%  "
+                  f"{cut}건 잘림")
+        print("     손절 없음보다 낮아도 놀랄 것 없다 — 손절의 값은 평균이")
+        print("     아니라 꼬리에서 나오는데, 표본에 꼬리가 없으면 비용만 남는다.")
 
     # ------------------------------------------------------- 2·3. 두 방식
     _table("[2] 고정 % 손절 — 자산군에 상관없이 같은 숫자를 쓸 때",
