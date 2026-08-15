@@ -101,6 +101,24 @@ jobs:
           echo "실행 인자: $ARGS"
           python run.py $ARGS --no-insight --no-deploy --publish
 
+      # 지금은 아무 일도 일어나지 않는다. Secrets가 비어 있으면
+      # `notify.send()`가 빈 dict를 돌려주고 끝난다(`core/notify.py`).
+      #
+      # 시중에 낼 때 아래 Secrets에 값을 넣으면 **그때부터 자동으로 간다.**
+      # 워크플로도 코드도 다시 고칠 것이 없다 — 켜는 일과 고치는 일을
+      # 갈라 두려고 이렇게 뒀다.
+      #
+      # 보내기가 실패해도 수집을 죽이면 안 된다. notify가 예외를 안 내보내지만
+      # 만약을 위해 continue-on-error 를 함께 건다 — 알림 때문에 그날 데이터를
+      # 통째로 잃는 것이 훨씬 나쁘다.
+      - name: 알림 (설정돼 있을 때만)
+        continue-on-error: true
+        env:
+          NOTIFY_TELEGRAM_TOKEN: ${{ secrets.NOTIFY_TELEGRAM_TOKEN }}
+          NOTIFY_TELEGRAM_CHAT: ${{ secrets.NOTIFY_TELEGRAM_CHAT }}
+          NOTIFY_DISCORD_WEBHOOK: ${{ secrets.NOTIFY_DISCORD_WEBHOOK }}
+        run: python tools/notify.py --send
+
       - name: 커밋
         run: |
           git config user.name  "github-actions[bot]"
