@@ -96,20 +96,30 @@ def _detail(args):
     #
     # 국장(`kr_market.py`)이 같은 이름·같은 모양으로 5일치를 남기므로 맞춘다.
     # 도구가 자산군을 안 가리고 읽을 수 있어야 한다.
-    ts = res.get("timestamp") or []
-    cols = {k: (quotes.get(k) or []) for k in
-            ("open", "high", "low", "close", "volume")}
-    tail = []
-    for i, t in enumerate(ts):
-        row = {k: v[i] for k, v in cols.items() if i < len(v)}
-        if row.get("close") is None or row.get("low") is None:
-            continue                      # 거래정지일 등 — 빈 봉은 버린다
-        # 미국 정규장은 UTC로도 같은 날짜에 열리므로 UTC 날짜를 그대로 쓴다.
-        row["date"] = dt.datetime.fromtimestamp(
-            t, dt.timezone.utc).strftime("%Y%m%d")
-        tail.append(row)
-    if tail:
-        out["ohlcv_tail"] = tail[-5:]
+    # **여기서 예외가 나가면 미장 수집이 통째로 죽는다.** `enrich_details`가
+    # `dict(ex.map(_detail, tasks))` 로 받으므로 한 종목이 던지면 30종목이
+    # 같이 넘어간다. 이 경로는 살아 있는 야후 응답으로 검증하지 못했으므로
+    # (작업 환경에서 야후가 막혀 합성 응답으로만 확인) 가둬 둔다.
+    # `core/http.py` 와 같은 이유다 — 한 소스가 죽어도 앱이 죽으면 안 된다.
+    try:
+        ts = res.get("timestamp") or []
+        cols = {k: (quotes.get(k) or []) for k in
+                ("open", "high", "low", "close", "volume")}
+        tail = []
+        for i, t in enumerate(ts):
+            if not t:
+                continue
+            row = {k: v[i] for k, v in cols.items() if i < len(v)}
+            if row.get("close") is None or row.get("low") is None:
+                continue                  # 거래정지일 등 — 빈 봉은 버린다
+            # 미국 정규장은 UTC로도 같은 날짜에 열리므로 UTC 날짜를 쓴다.
+            row["date"] = dt.datetime.fromtimestamp(
+                t, dt.timezone.utc).strftime("%Y%m%d")
+            tail.append(row)
+        if tail:
+            out["ohlcv_tail"] = tail[-5:]
+    except (TypeError, ValueError, KeyError, IndexError, OSError, OverflowError):
+        pass                              # 꼬리만 빠진다. 나머지 값은 그대로 나간다.
 
     return symbol, out
 
