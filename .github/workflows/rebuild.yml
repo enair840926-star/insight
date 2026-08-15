@@ -14,6 +14,11 @@ on:
     paths:
       - 'insights/**'
 
+# 러너는 UTC로 돈다. 여기 한 번 걸어 모든 단계가 한국시간을 쓰게 한다.
+# 커밋 메시지의 `인사이트 반영 HH:MM`이 UTC로 찍히고 있었다.
+env:
+  TZ: Asia/Seoul
+
 permissions:
   contents: write
 
@@ -41,8 +46,6 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: 대시보드 다시 굽기
-        env:
-          TZ: Asia/Seoul
         # 수집 없이 cloud/에 있는 최신 데이터로만 그린다.
         run: python run.py --skip-collect --no-insight --no-deploy
 

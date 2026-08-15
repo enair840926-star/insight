@@ -51,6 +51,15 @@ on:
     paths:
       - '.github/workflows/collect.yml'
 
+# 러너는 UTC로 돈다. 여기 한 번 걸어 **모든 단계**가 한국시간을 쓰게 한다.
+#
+# 단계마다 걸면 빠뜨린 곳이 UTC로 남는다 — 실제로 커밋 단계에 없어서
+# `자동 수집 2026-08-14 12:31`이 찍혔는데 그 커밋이 담은 파일은
+# `us_20260814_2130.json`(21:30 KST)이었다. 같은 순간이 이력에서는 9시간
+# 어긋나 보인다. 파일명과 collected_at은 수집 단계에 TZ가 있어 KST였다.
+env:
+  TZ: Asia/Seoul
+
 permissions:
   contents: write
 
@@ -81,7 +90,6 @@ jobs:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
-          TZ: Asia/Seoul
         run: |
           ARGS="${{ github.event.inputs.markets }}"
           if [ -z "$ARGS" ] && [ "${{ github.event_name }}" = "push" ]; then
