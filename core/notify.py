@@ -31,7 +31,7 @@ import os
 
 import requests
 
-from core import history
+from core import history, pick, regime, store
 
 # 알림에 넣을 순서. 화면 탭과 같은 순서라야 눌렀을 때 헷갈리지 않는다.
 MARKETS = [("kr", "국장"), ("us", "미장"), ("macro", "매크로"), ("coin", "코인")]
@@ -51,36 +51,30 @@ def configured():
     return out
 
 
-def _newest_per_market(records):
-    """자산군별로 `at`이 가장 늦은 레코드 하나. 반환: {market: record}."""
-    out = {}
-    for r in records:
-        m, at = r.get("market"), r.get("at") or ""
-        if not m or not at:
-            continue
-        if m not in out or at > (out[m].get("at") or ""):
-            out[m] = r
-    return out
+def _snapshot(market):
+    """그 자산군의 최신 스냅샷에서 (수집시각, 픽, 장 상태). 없으면 None.
 
+    **기록(`history`)이 아니라 스냅샷에서 계산한다.** 화면(`dashboard.py`)이
+    그렇게 하기 때문이다 — 두 곳이 출처를 달리하면 같은 날 다른 픽을 말한다.
+    실제로 기록을 읽던 동안, 화면은 코인을 '하락 -6'으로 알림은 '상승 +1'로
+    냈다. 기록에는 남았지만 `publish(keep=2)`에 밀려 스냅샷이 지워진 회차가
+    있어서였다. 폰에 뜬 것과 앱에 뜬 것이 다르면 어느 쪽도 못 믿는다.
 
-def _latest_by_market():
-    """자산군별 가장 최근 픽 묶음과 장 상태. 반환: ({m: (at, [pick])}, {m: regime}).
-
-    `history` 를 읽는다. 스냅샷을 다시 계산하지 않는 이유는, **화면과 알림이
-    다른 숫자를 말하면 안 되기 때문이다.** 기록된 것이 곧 그때 낸 판단이다.
-
-    `load_regimes()` 는 id로 키를 잡으므로 자산군별 최신으로 다시 묶는다.
+    셋 다 `pick.current` · `regime.judge` 를 통과하므로 프롬프트·화면·알림이
+    전부 같은 함수를 쓴다.
     """
-    picks, _ = history.load()
-    newest = _newest_per_market(picks.values())
-    latest = {}
-    for m, r in newest.items():
-        at = r["at"]
-        ps = [p for p in picks.values()
-              if p.get("market") == m and p.get("at") == at]
-        ps.sort(key=lambda x: x.get("rank") or 99)
-        latest[m] = (at, ps)
-    return latest, _newest_per_market(history.load_regimes().values())
+    j = store.bundle(market)
+    if not j:
+        return None
+    try:
+        picks, _ = pick.current(market, j)
+    except Exception:
+        picks = []
+    try:
+        r = regime.judge(market, j)
+    except Exception:
+        r = None
+    return j.get("collected_at") or "", picks, r
 
 
 def _yesterday_line():
@@ -108,27 +102,27 @@ def _yesterday_line():
 def build(markets=None):
     """보낼 본문을 만든다. 설정과 무관하게 언제나 만들 수 있다(미리보기용)."""
     want = [m for m in (markets or [k for k, _ in MARKETS])]
-    latest, regimes = _latest_by_market()
 
     lines = ["📊 자산 인사이트"]
     for key, label in MARKETS:
         if key not in want:
             continue
-        got = latest.get(key)
+        got = _snapshot(key)
         if not got:
             # 조용히 빼면 '별일 없었다'로 읽힌다. 빠졌다고 쓴다.
-            lines.append(f"\n[{label}] 오늘 기록 없음 — 수집이 안 됐거나 픽이 안 나왔습니다")
+            lines.append(f"\n[{label}] 데이터 없음 — 수집이 안 됐습니다")
             continue
-        at, ps = got
-        r = regimes.get(key)
+        at, ps, r = got
         head = f"\n[{label}] {at[5:16].replace('T', ' ')}"
         if r and r.get("state"):
             head += f" · 장 상태 {r['state']}"
         lines.append(head)
-        for p in ps:
+        if not ps:
+            lines.append("  뽑힌 것 없음 — 근거가 없거나 서로 맞섭니다")
+        for i, p in enumerate(ps, 1):
             kind = p.get("kind") or ""
             name = (p.get("label") or p.get("key") or "").split(" — ")[0]
-            lines.append(f"  {p.get('rank')}. {name} · {kind} ({p.get('score'):+d}점)")
+            lines.append(f"  {i}. {name} · {kind} ({p.get('score'):+d}점)")
 
     y = _yesterday_line()
     if y:

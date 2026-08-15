@@ -11,6 +11,7 @@ PC를 켜면 된다 — 그때 다시 수집할 필요가 없다.
 방금 만든 것처럼 보인다. 파일명에 박힌 수집 시각으로 정렬한다.
 """
 import glob
+import json
 import os
 import re
 from pathlib import Path
@@ -42,6 +43,21 @@ def latest(pattern):
     # 수집 시각(파일명) 우선, 같으면 mtime으로 가른다
     files.sort(key=lambda p: (_stamp(p), os.path.getmtime(p)))
     return Path(files[-1])
+
+
+def bundle(market):
+    """그 자산군의 최신 스냅샷을 읽어 dict로. 없거나 깨졌으면 None.
+
+    `latest()`가 경로만 주므로 읽는 쪽마다 같은 try/except를 두게 된다.
+    화면·알림이 같은 파일을 보게 하려고 여기 한 번만 둔다.
+    """
+    p = latest(f"{market}_2*.json")
+    if not p:
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return None
 
 
 def publish(markets, dest=CLOUD, keep=2):

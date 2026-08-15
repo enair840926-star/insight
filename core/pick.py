@@ -1024,18 +1024,30 @@ def from_macro(b):
 BY_MARKET = {"kr": from_kr, "us": from_us, "coin": from_coin, "macro": from_macro}
 
 
-def block(market, bundle, partial=None):
-    """수집기가 부르는 입구. 프롬프트에 붙일 텍스트를 돌려준다.
+def current(market, bundle, partial=None):
+    """그 스냅샷에서 뽑힌 픽. 반환: (픽 리스트, 탈락 리스트).
 
-    partial(장중 수집이라 거래량이 덜 찼는가)은 넘기지 않으면 여기서
-    장 상태로 판단한다. 수집기 넷이 각자 계산하면 하나가 틀려도 모른다.
+    **프롬프트·화면·알림이 전부 여기를 통과해야 한다.** 각자 `compute()`를
+    부르면 `partial` 판단이 갈려서 같은 스냅샷을 놓고 다른 픽을 말하게 된다.
+    실제로 화면은 스냅샷에서 계산하고 알림은 기록을 읽어, 같은 날 코인 픽이
+    한쪽은 '상승 +1' 다른 쪽은 '하락 -6'으로 나온 적이 있다.
+
+    partial(장중 수집이라 거래량이 덜 찼는가)은 넘기지 않으면 장 상태로
+    판단한다. 수집기 넷이 각자 계산하면 하나가 틀려도 모른다.
     """
     adapt = BY_MARKET.get(market)
     if not adapt:
-        return ""
+        return [], []
     if partial is None:
         partial = "장중" in (session.describe(market).get("state") or "")
-    picks, dropped = compute(adapt(bundle), market=market, partial=partial)
+    return compute(adapt(bundle), market=market, partial=partial)
+
+
+def block(market, bundle, partial=None):
+    """수집기가 부르는 입구. 프롬프트에 붙일 텍스트를 돌려준다."""
+    if market not in BY_MARKET:
+        return ""
+    picks, dropped = current(market, bundle, partial)
     return render(picks, dropped, market)
 
 

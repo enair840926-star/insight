@@ -16,7 +16,7 @@ import socket
 import subprocess
 import datetime as dt
 
-from core import history, read, regime
+from core import history, pick, read, regime, session
 from pathlib import Path
 
 # 주의: stdout 재설정은 모듈 최상단에 두면 안 된다.
@@ -1004,6 +1004,14 @@ tr:last-child td{border:none}
 p.warn{color:var(--warn);background:var(--warn-bg);border-radius:5px;
   padding:8px 10px;font-size:12px;line-height:1.5;margin:8px 0 0}
 /* 장 상태의 신호 목록. 부호를 앞에 세워 무엇이 어느 쪽인지 훑어보게 한다 */
+/* '오늘' 탭의 픽 목록. 순위를 앞에 세워 훑을 때 눈이 걸리게 한다. */
+ol.picks{list-style:none;margin:8px 0 0;padding:0}
+ol.picks li{padding:6px 0;font-size:14px;border-bottom:1px solid var(--line-soft);
+  display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+ol.picks li:last-child{border-bottom:none}
+ol.picks .rank{flex:0 0 auto;min-width:18px;font-weight:700;color:var(--acc)}
+a.goto{color:var(--acc);text-decoration:none}
+a.goto:hover{text-decoration:underline}
 ul.sig{list-style:none;margin:8px 0 0;padding:0}
 ul.sig li{padding:4px 0;font-size:13px;border-bottom:1px solid var(--line-soft)}
 ul.sig li:last-child{border-bottom:none}
@@ -1142,6 +1150,15 @@ document.querySelectorAll('nav button').forEach(b=>{
     try{localStorage.setItem('tab',cur)}catch(e){}
   };
 });
+// '오늘' 카드의 "자세히 →"가 해당 시장 탭을 연다. 탭 전환은 nav 버튼이
+// 갖고 있으므로(스크롤 위치 기억이 거기 걸려 있다) 그 버튼을 눌러 준다.
+document.querySelectorAll('a.goto').forEach(a=>{
+  a.onclick=e=>{
+    e.preventDefault();
+    const b=document.querySelector(`nav button[data-m="${a.dataset.goto}"]`);
+    if(b){b.click(); window.scrollTo(0,0);}
+  };
+});
 try{
   const t=localStorage.getItem('tab');
   if(t){const b=document.querySelector(`nav button[data-m="${t}"]`); if(b)b.click();}
@@ -1276,10 +1293,132 @@ def _age_line(iso):
             f'<span class="old" data-warn="{ts}"{hide}>갱신 필요</span></div>')
 
 
+def _today_picks(key, j):
+    """그 스냅샷에서 규칙이 뽑은 픽. 반환: (픽 리스트, 실패 사유 또는 None).
+
+    **`history`가 아니라 스냅샷에서 다시 계산한다.** 기록을 읽으면 히스토리가
+    없는 클론에서 빈 화면이 되고, 무엇보다 지금 화면에 뜬 데이터와 픽이
+    다른 스냅샷일 수 있다. 여기서 계산하면 아래 시장 탭이 보여 주는 바로
+    그 데이터에서 나온 픽이 된다.
+
+    `pick.block()`이 프롬프트를 만들 때 쓰는 것과 같은 경로다 — 화면과
+    프롬프트가 다른 픽을 말하면 안 된다.
+    """
+    try:
+        picks, _dropped = pick.current(key, j)
+        return picks, None
+    except Exception as e:                      # 한 자산군이 죽어도 나머지는 뜬다
+        return [], f"{type(e).__name__}: {str(e)[:60]}"
+
+
+def _last_result_line():
+    """직전 픽이 어떻게 됐는지 한 줄. 없으면 None.
+
+    적중률을 여기서 크게 내지 않는다 — 표본이 차기 전에는 그 숫자가 동전과
+    구별되지 않는다(`score_picks.py`가 매번 그렇게 말한다). 자산군별 성적은
+    각 탭의 '픽 성적' 카드가 신뢰구간까지 함께 낸다.
+    """
+    try:
+        rows = history.pairs()
+        if not rows:
+            return None
+        day = max((p.get("at") or "")[:10] for p, _ in rows)
+        same = [(p, o) for p, o in rows if (p.get("at") or "")[:10] == day]
+        vs = [v for p, o in same for v in [history.abs_verdict(p, o)] if v]
+        hit = sum(1 for v in vs if v == "맞음")
+        flat = sum(1 for v in vs if v == "횡보")
+        d = len(vs) - flat
+        if not d:
+            return (f'{esc(day)} 픽 {len(vs)}종 — 전부 횡보'
+                    f'<span class="dim"> (방향이라 할 만한 움직임이 없었음)</span>')
+        return (f'{esc(day)} 픽 {d}종 중 <b>{hit}종</b>이 방향대로'
+                + (f'<span class="dim"> · 횡보 {flat}종</span>' if flat else ""))
+    except Exception:
+        return None
+
+
+def today_panel():
+    """4개 자산군을 한 화면에 — 오늘 무엇이 뽑혔고 장이 어떤 상태인가.
+
+    탭 하나가 12~15화면이라 오늘 전체를 보려면 네 번 들어갔다 나와야 했다.
+    매일 보는 것은 그중 두 줄뿐이다.
+
+    **여기서 픽을 직접 낸다.** 그전에는 픽이 화면에 오르는 길이 손으로 쓴
+    인사이트 글뿐이었다(`fold_insight`가 글의 h4를 칩으로 뽑는다). 그래서
+    루틴을 놓친 날은 규칙이 계산해 둔 픽이 아예 안 보였다 — 실측으로 미장
+    인사이트가 운영 6일 중 4일만 쓰였다. 글은 못 써도 픽은 나와 있어야 한다.
+
+    **자세한 것은 안 넣는다.** 근거 목록도 뉴스도 지표도 시장 탭에 이미 있다.
+    여기 다 옮기면 한 화면이라는 이유가 사라진다.
+    """
+    h = ""
+    last = _last_result_line()
+    if last:
+        h += card("직전 픽 결과", f'<p>{last}</p>'
+                  '<p class="dim">자산군별 성적과 표본이 충분한지는 각 탭의 '
+                  '&#39;픽 성적&#39;에 있습니다.</p>')
+
+    for key, label, icon in MARKETS:
+        j = latest_json(key)
+        if not j:
+            h += card(f"{icon} {esc(label)}",
+                      '<p class="dim">데이터 없음 — 아직 수집되지 않았습니다.</p>')
+            continue
+
+        rows = [_age_line(j.get("collected_at", ""))]
+
+        try:
+            r = regime.judge(key, j)
+            cls = {"우호": "up", "비우호": "down"}.get(r["state"], "flat")
+            rows.append(f'<div class="grid">'
+                        f'<div class="kv"><span class="k">장 상태</span>'
+                        f'<span class="v {cls}">{esc(r["state"])}</span></div>'
+                        f'<div class="kv"><span class="k">신호</span>'
+                        f'<span class="v">{r["n"]}개 · 합계 {r["score"]:+d}'
+                        f'</span></div></div>')
+        except Exception:
+            rows.append('<p class="dim">장 상태를 판정하지 못했습니다.</p>')
+
+        picks, err = _today_picks(key, j)
+        if err:
+            rows.append(f'<p class="dim">픽 계산 실패 — {esc(err)}</p>')
+        elif not picks:
+            # 빈 것과 못 잰 것은 다르다. 왜 비었는지 밝힌다.
+            rows.append('<p class="dim">뽑힌 것이 없습니다 — 점수가 0 근처면 '
+                        '근거가 없거나 서로 맞선다는 뜻이라 빠집니다.</p>')
+        else:
+            items = ""
+            for i, p in enumerate(picks, 1):
+                k = p.get("kind") or ""
+                kc = {"상승": "up", "하락": "down",
+                      "피할 것": "down"}.get(k, "flat")
+                n = len(p.get("why") or [])
+                items += (f'<li><span class="rank">{i}</span> '
+                          f'{esc(p.get("label") or p.get("key"))} '
+                          f'<span class="{kc}">{esc(k)}</span> '
+                          f'<span class="dim">{p.get("score"):+d}점 · '
+                          f'근거 {n}개</span></li>')
+            rows.append(f'<ol class="picks">{items}</ol>')
+
+        # 탭 전환은 해시가 아니라 nav 버튼이 갖고 있다(위치 기억이 걸려 있다).
+        # 그래서 링크가 아니라 그 버튼을 눌러 준다.
+        rows.append(f'<p class="dim"><a href="#" class="goto" '
+                    f'data-goto="{key}">{esc(label)} 자세히 →</a></p>')
+        h += card(f"{icon} {esc(label)}", "".join(rows))
+
+    h += ('<p class="dim" style="padding:0 14px 18px">점수는 오를 확률이 아니라 '
+          '<b>오를 근거가 얼마나 두껍게 쌓였는지</b>입니다. '
+          '방향이 틀렸다고 볼 조건은 각 탭의 인사이트에 있습니다.</p>')
+    return h
+
+
 def _body():
     """헤더 + 탭 + 패널. 단독 HTML과 아티팩트가 공유한다."""
     panels, tabs, stamps = "", "", []
-    first = True
+    # '오늘'을 첫 탭으로 둔다. 매일 여는 화면이 여기여야 한다.
+    tabs += '<button data-m="today" class="on">📅 오늘</button>'
+    panels += f'<div class="panel on" id="p-today">{today_panel()}</div>'
+    first = False
     for key, label, icon in MARKETS:
         j = latest_json(key)
         on = " on" if first else ""
