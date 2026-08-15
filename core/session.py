@@ -17,9 +17,86 @@ except Exception:                      # zoneinfo가 없으면 고정 오프셋
     KST = dt.timezone(dt.timedelta(hours=9))
     NY = None
 
-# 한국 공휴일까지는 다루지 않는다. 주말만 거른다 —
-# 휴장일에 실행해도 데이터는 직전 영업일 것이 그대로 오므로
-# 인사이트가 틀리지는 않고, "다음 개장"만 하루 밀린다.
+# ---------------------------------------------------------------- 휴장일
+#
+# 주말만 거르던 동안 광복절에도 "개장 1시간 전"이라고 썼다. 그냥 문구가
+# 틀리는 것에 그치지 않는다 — 휴장일에도 수집이 돌아 직전 영업일 종가로
+# 픽이 다시 기록되고, 24시간 뒤 `settle`이 등락 0%로 채점한다. `FLAT_K`
+# 덕에 '틀림'은 면하지만 **'횡보'로 세어져 표본만 부푼다.** 규칙을 고치려고
+# 모으는 중인 그 기록이다.
+#
+# **모르는 날은 넣지 않는다.** 틀린 휴장일은 없는 것보다 나쁘다 — 정상
+# 개장일을 막아 그날 수집도 글도 통째로 빠진다. 안 넣으면 지금까지의
+# 동작 그대로이므로, 빠뜨리는 쪽이 안전한 방향이다.
+#
+# 주말에 걸리는 공휴일은 어차피 주말 필터가 거른다. 여기 필요한 것은
+# **평일에 걸리는 날**과 **대체공휴일**뿐이다.
+KR_HOLIDAYS = {
+    # 확인함 (2026-08-15 검색): 광복절이 토요일이라 17일 월요일이 대체공휴일
+    "2026-08-17",
+    # 확인함: 설날 2/17(화) 당일, 추석 9/25(금) 당일 — 앞뒤가 연휴다
+    "2026-02-16", "2026-02-17", "2026-02-18",
+    "2026-09-24", "2026-09-25",
+    # 확인함: 신정, 연말 폐장일(KRX는 12/31에 쉰다)
+    "2026-01-01", "2026-12-31",
+    # 날짜가 고정이고 2026년에 평일에 걸리는 것들
+    "2026-05-05",            # 어린이날 (화)
+    "2026-10-09",            # 한글날 (금)
+    "2026-12-25",            # 성탄절 (금)
+    # 대체공휴일 — 주말에 걸린 공휴일의 다음 평일. 규칙 자체는 8/17로
+    # 확인했지만 아래 셋은 그 규칙을 적용한 **추정**이다. 틀렸다면 그날
+    # 수집이 빠지므로, 해당 주에 한 번 확인하는 것이 좋다.
+    "2026-03-02",            # 삼일절(3/1 일) 대체
+    "2026-09-28",            # 추석 연휴(9/26 토) 대체
+    "2026-10-05",            # 개천절(10/3 토) 대체
+}
+
+# **부처님오신날이 빠져 있다.** 음력 4월 8일이라 해마다 옮겨 다니는데
+# 2026년 날짜를 확인하지 못했다. 넣지 않았으므로 그날은 예전처럼 동작한다.
+
+# 미국 증시(NYSE·나스닥은 같은 달력). 확인함 (2026-08-15 검색, NYSE 공고 기준).
+US_HOLIDAYS = {
+    "2026-01-01",            # 신정
+    "2026-01-19",            # 마틴 루터 킹 데이
+    "2026-02-16",            # 워싱턴 탄생일
+    "2026-04-03",            # 성금요일
+    "2026-05-25",            # 메모리얼 데이
+    "2026-06-19",            # 준틴스
+    "2026-07-03",            # 독립기념일 대체 (7/4가 토요일)
+    "2026-09-07",            # 노동절
+    "2026-11-26",            # 추수감사절
+    "2026-12-25",            # 성탄절
+}
+# 조기 폐장(11/27, 12/24 미국시간 13시)은 넣지 않았다. 이 앱은 개장 전에
+# 수집하므로 마감 시각이 판정을 바꾸지 않는다.
+
+HOLIDAYS = {"kr": KR_HOLIDAYS, "us": US_HOLIDAYS}
+
+# 이 표가 어디까지 채워졌는가. 넘어가면 **표가 낡았다고 말한다** — 조용히
+# 주말만 거르는 상태로 돌아가면 그 사실조차 모르게 된다.
+HOLIDAYS_THROUGH = dt.date(2026, 12, 31)
+
+
+def is_holiday(market, d):
+    """그 날짜가 그 시장의 휴장일인가. 표에 없으면 False(= 평소대로 개장)."""
+    return d.isoformat() in HOLIDAYS.get(market, ())
+
+
+def is_trading_day(market, d):
+    """평일이고 휴장일이 아닌가."""
+    return d.weekday() < 5 and not is_holiday(market, d)
+
+
+def calendar_stale(now=None):
+    """휴장일 표가 다 떨어졌으면 한 줄로 알린다. 아니면 None."""
+    now = now or _now()
+    if now.date() <= HOLIDAYS_THROUGH:
+        return None
+    return (f"휴장일 표가 {HOLIDAYS_THROUGH}까지만 채워져 있습니다 — "
+            f"core/session.py 의 KR_HOLIDAYS·US_HOLIDAYS 를 갱신하십시오. "
+            f"그때까지는 주말만 거릅니다.")
+
+
 SESSIONS = {
     "kr": {"label": "국내 증시(코스피·코스닥)", "open": (9, 0), "close": (15, 30)},
     "us": {"label": "미국 증시", "ny_open": (9, 30), "ny_close": (16, 0)},
@@ -45,12 +122,20 @@ def _now():
     return dt.datetime.now(KST)
 
 
-def _next_weekday_at(now, hh, mm):
-    """다음 평일 hh:mm (오늘이 이미 지났으면 다음 영업일)"""
+def _next_weekday_at(now, hh, mm, market=None):
+    """다음 영업일 hh:mm (오늘이 이미 지났으면 다음 영업일).
+
+    market을 주면 그 시장의 휴장일도 건너뛴다. 이 한 곳만 고치면
+    `--auto`(run.py)와 루틴(tools/pending.py)이 함께 따라온다 — 둘 다
+    '다음 개장까지 몇 시간'으로 판단하므로, 휴장일을 건너뛰면 개장이
+    멀어져서 자동으로 그 장을 안 고른다.
+    """
     t = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
     if t <= now:
         t += dt.timedelta(days=1)
-    while t.weekday() >= 5:            # 토(5)·일(6)
+    for _ in range(30):                # 연휴가 길어도 끝난다. 무한 루프 방지.
+        if t.weekday() < 5 and not (market and is_holiday(market, t.date())):
+            return t
         t += dt.timedelta(days=1)
     return t
 
@@ -58,33 +143,44 @@ def _next_weekday_at(now, hh, mm):
 def _us_open_kst(now):
     """미국 정규장 개장을 한국 시간으로. 서머타임에 따라 22:30 또는 23:30."""
     if NY is None:
-        return _next_weekday_at(now, 23, 30)
-    for d in range(0, 6):
+        return _next_weekday_at(now, 23, 30, "us")
+    # 연휴가 길 수 있으므로 넉넉히 본다(추수감사절 주 등).
+    for d in range(0, 12):
         ny_day = (now.astimezone(NY) + dt.timedelta(days=d)).date()
-        if ny_day.weekday() >= 5:
+        if not is_trading_day("us", ny_day):
             continue
         ny_open = dt.datetime.combine(ny_day, dt.time(9, 30), tzinfo=NY)
         kst_open = ny_open.astimezone(KST)
         if kst_open > now:
             return kst_open
-    return _next_weekday_at(now, 23, 30)
+    return _next_weekday_at(now, 23, 30, "us")
 
 
 def _kr_state(now):
+    """반환: (상태, 다음 개장). 상태는 '장중'·'장마감'·'휴장'.
+
+    **'휴장'을 따로 둔다.** '장마감'으로 뭉뚱그리면 프롬프트가 "다음 개장까지
+    N시간"만 말해서, 글이 오늘 장이 있는 줄 알고 대비형으로 쓰인다.
+    """
+    nxt = _next_weekday_at(now, 9, 0, "kr")
+    if not is_trading_day("kr", now.date()):
+        return "휴장", nxt
     o = now.replace(hour=9, minute=0, second=0, microsecond=0)
     c = now.replace(hour=15, minute=30, second=0, microsecond=0)
-    if now.weekday() < 5 and o <= now <= c:
+    if o <= now <= c:
         return "장중", c
-    return "장마감", _next_weekday_at(now, 9, 0)
+    return "장마감", nxt
 
 
 def _us_state(now):
     if NY is None:
-        return "장마감", _next_weekday_at(now, 23, 30)
+        return "장마감", _next_weekday_at(now, 23, 30, "us")
     ny = now.astimezone(NY)
+    if not is_trading_day("us", ny.date()):
+        return "휴장", _us_open_kst(now)
     o = ny.replace(hour=9, minute=30, second=0, microsecond=0)
     c = ny.replace(hour=16, minute=0, second=0, microsecond=0)
-    if ny.weekday() < 5 and o <= ny <= c:
+    if o <= ny <= c:
         return "장중", c.astimezone(KST)
     return "장마감", _us_open_kst(now)
 
@@ -159,15 +255,25 @@ def describe(market, now=None):
 
     state, nxt = (_kr_state(now) if market == "kr" else _us_state(now))
     label = spec.get("label", market)
+    hrs = (nxt - now).total_seconds() / 3600
     if state == "장중":
-        hrs = (nxt - now).total_seconds() / 3600
         text = (f"현재 {now:%Y-%m-%d %H:%M} (한국시간). {label}는 **장중**이며 "
                 f"약 {hrs:.1f}시간 뒤 마감된다. 남은 장에서 확인할 것을 중심으로 써라.")
+    elif state == "휴장":
+        # 오늘 장이 없다는 사실을 먼저 말한다. 안 그러면 "다음 개장까지
+        # N시간"만 보고 오늘 열리는 줄 알고 대비형으로 쓴다.
+        text = (f"현재 {now:%Y-%m-%d %H:%M} (한국시간). "
+                f"**오늘 {label}는 휴장이다.** 다음 개장은 "
+                f"{nxt:%m-%d %H:%M}(한국시간), 약 {hrs:.1f}시간 뒤다. "
+                f"지금 데이터는 직전 영업일 것이므로 오늘 장을 대비하는 "
+                f"글을 쓰면 안 된다.")
     else:
-        hrs = (nxt - now).total_seconds() / 3600
         text = (f"현재 {now:%Y-%m-%d %H:%M} (한국시간). {label}는 **마감** 상태이고, "
                 f"다음 개장까지 약 {hrs:.1f}시간 남았다"
                 f"(개장 {nxt:%m-%d %H:%M} 한국시간).")
+    stale = calendar_stale(now)
+    if stale:
+        text += f" ※ {stale}"
     return {"now": now, "state": state, "next_open": nxt,
             "hours_until": hrs, "text": text}
 
