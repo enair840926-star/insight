@@ -51,6 +51,15 @@ on:
     paths:
       - '.github/workflows/collect.yml'
 
+# 러너는 UTC로 돈다. 여기 한 번 걸어 **모든 단계**가 한국시간을 쓰게 한다.
+#
+# 단계마다 걸면 빠뜨린 곳이 UTC로 남는다 — 실제로 커밋 단계에 없어서
+# `자동 수집 2026-08-14 12:31`이 찍혔는데 그 커밋이 담은 파일은
+# `us_20260814_2130.json`(21:30 KST)이었다. 같은 순간이 이력에서는 9시간
+# 어긋나 보인다. 파일명과 collected_at은 수집 단계에 TZ가 있어 KST였다.
+env:
+  TZ: Asia/Seoul
+
 permissions:
   contents: write
 
@@ -81,7 +90,6 @@ jobs:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
-          TZ: Asia/Seoul
         run: |
           ARGS="${{ github.event.inputs.markets }}"
           if [ -z "$ARGS" ] && [ "${{ github.event_name }}" = "push" ]; then
@@ -92,6 +100,24 @@ jobs:
           if [ -z "$ARGS" ]; then ARGS="--auto"; fi
           echo "실행 인자: $ARGS"
           python run.py $ARGS --no-insight --no-deploy --publish
+
+      # 지금은 아무 일도 일어나지 않는다. Secrets가 비어 있으면
+      # `notify.send()`가 빈 dict를 돌려주고 끝난다(`core/notify.py`).
+      #
+      # 시중에 낼 때 아래 Secrets에 값을 넣으면 **그때부터 자동으로 간다.**
+      # 워크플로도 코드도 다시 고칠 것이 없다 — 켜는 일과 고치는 일을
+      # 갈라 두려고 이렇게 뒀다.
+      #
+      # 보내기가 실패해도 수집을 죽이면 안 된다. notify가 예외를 안 내보내지만
+      # 만약을 위해 continue-on-error 를 함께 건다 — 알림 때문에 그날 데이터를
+      # 통째로 잃는 것이 훨씬 나쁘다.
+      - name: 알림 (설정돼 있을 때만)
+        continue-on-error: true
+        env:
+          NOTIFY_TELEGRAM_TOKEN: ${{ secrets.NOTIFY_TELEGRAM_TOKEN }}
+          NOTIFY_TELEGRAM_CHAT: ${{ secrets.NOTIFY_TELEGRAM_CHAT }}
+          NOTIFY_DISCORD_WEBHOOK: ${{ secrets.NOTIFY_DISCORD_WEBHOOK }}
+        run: python tools/notify.py --send
 
       - name: 커밋
         run: |

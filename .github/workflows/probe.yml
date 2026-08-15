@@ -13,6 +13,12 @@ on:
       - 'tools/probe.py'
       - '.github/workflows/probe.yml'
 
+# 러너는 UTC로 돈다. 여기 한 번 걸어 모든 단계가 한국시간을 쓰게 한다.
+# `probe.py`가 notes/probe-github.md 에 찍는 '실행' 시각이 UTC였다 —
+# 기록에 `2026-08-08 15:21`로 남았지만 실제로는 다음 날 00:21 KST다.
+env:
+  TZ: Asia/Seoul
+
 permissions:
   contents: write
 

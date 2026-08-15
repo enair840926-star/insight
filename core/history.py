@@ -172,6 +172,57 @@ def record(market, picks, bundle, partial=False):
 _WANT = {"상승": 1, "하락": -1, "피할 것": -1}
 
 
+# 스냅샷에서 종목 배열을 꺼내는 법과, 그 장이 아직 안 열렸다고 볼 시각(KST).
+# 국장 09:00, 미장 22:30(서머타임 23:30) 개장이다. 그 전에 낸 픽은 **같은
+# 날짜의 장**을 겨냥한 것이므로 그날 봉과 비교하면 된다.
+#
+# 코인·매크로는 없다. 24시간 거래라 '그날 장'이 없거나 일별 OHLC를 안 받는다.
+_SESSION_SRC = {
+    "kr": ("stocks", "code", 9),
+    "us": ("selected", "symbol", 22),
+}
+
+
+def _excursion(market, bundle, pick):
+    """픽이 겨냥한 장이 어디까지 갔나. 반환: (갭%, 최고%, 최저%) 또는 None.
+
+    **`cloud/` 에서 나중에 읽으면 안 되기 때문에 여기서 남긴다.**
+    `core/store.py`의 `publish(keep=2)`가 자산군당 스냅샷을 2세대만 남기고
+    지운다. 표본 100건이 쌓일 때쯤이면 그 픽이 겨냥했던 장의 시가·고가·저가는
+    작업 트리에서 이미 사라져 있다. `history/*.jsonl` 은 덧붙이기만 하는
+    영구 기록이라(`.gitattributes`의 merge=union) 여기 넣어야 남는다.
+
+    이 셋이 있어야 답할 수 있는 것:
+      갭   — 손절 주문이 그 값에 체결됐을까, 아니면 시가에 밀렸을까
+      최저 — 손절선이 장중에 걸렸을까 (종가만으로는 덜 걸린 것으로 나온다)
+      최고 — **익절선을 어디에 두면 얼마를 쥐었을까**
+
+    최고가 없으면 익절 수치는 영영 못 찾는다. 종가만 보면 "얼마까지 갔다가
+    돌아왔는지"가 안 보이기 때문이다.
+    """
+    src = _SESSION_SRC.get(market)
+    at, base = pick.get("at") or "", pick.get("price")
+    if not src or not base or len(at) < 13:
+        return None
+    arr_key, code_key, open_h = src
+    if int(at[11:13]) >= open_h:
+        return None            # 장이 열린 뒤 낸 픽 — 그 장은 이미 지났다
+    want_date = at[:10].replace("-", "")
+    for s in bundle.get(arr_key) or []:
+        if s.get(code_key) != pick.get("key"):
+            continue
+        for r in s.get("ohlcv_tail") or []:
+            if str(r.get("date")) != want_date:
+                continue
+            o, h, l = r.get("open"), r.get("high"), r.get("low")
+            if not (o and h and l):
+                return None
+            return (round((o / base - 1) * 100, 3),
+                    round((h / base - 1) * 100, 3),
+                    round((l / base - 1) * 100, 3))
+    return None
+
+
 def settle(market, bundle, partial=False):
     """아직 결과가 없는 픽에 이번 스냅샷의 가격을 채운다. 반환: 채운 수."""
     if partial:
@@ -203,11 +254,16 @@ def settle(market, bundle, partial=False):
         excess = round(ret - b_ret, 3) if b_ret is not None else round(ret, 3)
 
         want = _WANT.get(p.get("kind"))
+        exc = _excursion(market, bundle, p)
         rows.append({
             "t": "out",
             "id": p["id"], "market": market, "at": now_at,
             "hours": round(hours, 1),
             "price": now, "ret_pct": round(ret, 3),
+            # 그 장이 어디까지 갔나 — 손절·익절 수치를 나중에 찾기 위한 값.
+            # 못 받으면 키를 아예 안 넣는다. 0으로 채우면 '안 움직였다'로
+            # 읽혀서, 없는 것과 못 받은 것이 구별되지 않는다.
+            **(dict(zip(("gap_pct", "mfe_pct", "mae_pct"), exc)) if exc else {}),
             "bench_ret_pct": round(b_ret, 3) if b_ret is not None else None,
             "excess_pct": excess,
             # 벤치마크가 없는 매크로는 절대 등락으로 잰다는 사실을 남긴다.

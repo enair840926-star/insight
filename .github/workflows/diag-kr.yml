@@ -9,6 +9,10 @@ name: 국장 수집 진단
 on:
   workflow_dispatch:
 
+# 러너는 UTC로 돈다. 여기 한 번 걸어 모든 단계가 한국시간을 쓰게 한다.
+env:
+  TZ: Asia/Seoul
+
 permissions:
   contents: write
 
@@ -29,7 +33,6 @@ jobs:
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
-          TZ: Asia/Seoul
         run: |
           set +e
           mkdir -p notes
