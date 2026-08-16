@@ -335,6 +335,75 @@ def record_regime(market, bundle, partial=False):
     }])
 
 
+def record_signals(market, bundle, partial=False):
+    """후보 전체에서 신호가 몇 번 켜졌는지 남긴다. 반환: 남긴 줄 수.
+
+    **스냅샷에서 나중에 다시 세면 되지 않느냐** — 안 된다. `core/store.py`의
+    `publish(keep=2)`가 자산군당 스냅샷을 2세대만 남기고 지운다. 며칠만
+    지나도 그때 후보가 몇 개였고 어느 신호가 걸렸는지 알 방법이 없다.
+    `mfe_pct`를 기록에 넣은 것과 같은 이유다.
+
+    **픽 기록으로는 대신할 수 없다.** 픽은 점수가 높아서 뽑힌 셋뿐이라
+    거기서 신호를 세면 선택 편향이 걸린다(`pick.tally`의 설명 참조).
+    죽은 신호도 상수 신호도 후보 전체를 봐야 보인다.
+
+    장중 스냅샷은 남기지 않는다 — 거래량 게이트가 그때만 걸려서 탈락
+    분포가 달라진다. 섞으면 둘 다 못 읽는다.
+    """
+    if partial:
+        return 0
+    try:
+        t = pick.tally(market, bundle, partial)
+    except Exception:
+        return 0                      # 집계 때문에 수집이 죽으면 안 된다
+    if not t.get("cands"):
+        return 0
+    at = bundle.get("collected_at") or ""
+    stamp = at.replace("-", "").replace("T", "_").replace(":", "")[:13]
+    return _append([{
+        "t": "signals",
+        "id": f"signals|{market}|{stamp}",
+        "market": market, "at": at,
+        "cands": t["cands"], "n": t["n"], "gated": t["gated"],
+        "gate_why": t["gate_why"], "dirs": t["dirs"], "sig": t["sig"],
+        "rules": RULES_VERSION,
+    }])
+
+
+def load_signals(months=6, markets=None, per_day=True):
+    """신호 집계 기록. 반환: [레코드].
+
+    기본은 **자산군·날짜별 마지막 하나**다. 하루에 여러 번 수집되므로
+    전부 세면 그날이 여러 번 반영돼 분포가 부푼다 — `pairs()`·
+    `regime_probe.snapshots()`와 같은 처리다.
+    """
+    rows = []
+    if not DIR.is_dir():
+        return rows
+    for f in sorted(DIR.glob("picks-*.jsonl"))[-months:]:
+        for line in f.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                r = json.loads(line)
+            except ValueError:
+                continue
+            if r.get("t") != "signals":
+                continue
+            if markets and r.get("market") not in markets:
+                continue
+            rows.append(r)
+    if per_day:
+        best = {}
+        for r in rows:
+            k = (r.get("market"), (r.get("at") or "")[:10])
+            if k not in best or (r.get("at") or "") > best[k].get("at", ""):
+                best[k] = r
+        rows = list(best.values())
+    return sorted(rows, key=lambda r: (r.get("market", ""), r.get("at", "")))
+
+
 def settle_regime(market, bundle, partial=False):
     """결과가 없는 판정에 이번 스냅샷의 벤치마크를 채운다. 반환: 채운 수.
 
@@ -463,6 +532,8 @@ def track(market, bundle):
     picks, _ = pick.compute(pick.BY_MARKET[market](bundle),
                             market=market, partial=partial)
     record_regime(market, bundle, partial)
+    # 후보 전체의 신호 분포. 픽 셋만으로는 죽은 신호도 상수 신호도 못 본다.
+    record_signals(market, bundle, partial)
     return n_out, record(market, picks, bundle, partial)
 
 

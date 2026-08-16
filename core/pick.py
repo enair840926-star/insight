@@ -35,6 +35,7 @@
 규칙이 자산군별로 흩어지면 넷이 서로 어긋난다.
 """
 import datetime as dt
+import re
 import statistics
 
 from core import read, rules, session
@@ -1036,6 +1037,93 @@ def from_macro(b):
 
 
 BY_MARKET = {"kr": from_kr, "us": from_us, "coin": from_coin, "macro": from_macro}
+
+
+def signal_name(text):
+    """신호 설명에서 값을 지우고 이름만 남긴다.
+
+    안 그러면 '20일선 위 +6.1%'와 '20일선 위 +3.9%'가 다른 신호로 세어져
+    전부 1회씩 흩어진다 — 몇 번 켜졌는지 세려고 만든 값인데 그 숫자가
+    안 나온다. `tools/regime_probe.py`의 `_name()`과 같은 일을 한다.
+
+    **부호는 여기서 지운다.** 방향은 따로 세야 하기 때문이다 — 같은
+    조건이 +로만 걸리는지 -로도 걸리는지가 이 집계의 알맹이다.
+
+    **숫자를 다 지우면 안 된다.** `20일선 위`가 `일선 위`가 되고
+    `5일·20일 추세`가 `일·일 추세`가 되어 읽을 수가 없다. 실측에서
+    문구가 갈리는 규칙이 뚜렷했다.
+
+        값       부호가 붙거나(+3.7%, -15.2%p) 소수점이 있다(10.0배, 0.8201)
+        이름     부호 없는 정수다 (20일선 · 52주 · 1년 · 4분기 · S&P500)
+
+    그래서 **부호 있는 수와 소수점 값만 지우고 정수는 남긴다.**
+    `5일 연속`과 `7일 연속`이 따로 세어지는데, 그건 오히려 봐야 할
+    구분이라 그대로 둔다.
+    """
+    t = re.sub(r"^\([+-]\d+\)\s*", "", text or "")
+    t = t.split(" —")[0]
+    t = re.sub(r"\s*\([^)]*\)", "", t)               # 괄호 안 (수치·개수)
+    t = re.sub(r"[-+]\d[\d,]*(?:\.\d+)?%?p?", "", t)  # 부호 있는 값
+    t = re.sub(r"\b\d[\d,]*\.\d+%?", "", t)           # 소수점 값
+    return re.sub(r"\s+", " ", t).strip() or (text or "")
+
+
+def tally(market, bundle, partial=None):
+    """후보 전체에서 신호가 얼마나 켜지나. 반환: dict.
+
+    **픽이 아니라 후보 전체에서 센다.** 픽은 점수가 높아서 뽑힌 것이라
+    거기서 신호를 세면 한쪽으로 보이는 게 당연하다 — 선택 편향이다.
+    실측(2026-08-16): 픽 85건에서는 '뉴스 호재'가 69회/악재 0회였는데,
+    후보 109개에서 다시 세니 74회/3회였다. 방향은 같지만 **픽에서 잰
+    숫자는 애초에 그 질문에 답할 수 없다.**
+
+    이 집계가 답하는 것은 넷이다.
+      1. 한 번도 안 걸리는 신호가 있나 — 죽은 조건이다(임계값이 범위 밖,
+         필드 이름이 안 맞음). 실제로 코인 임계값을 `read.py`에서 그대로
+         가져왔다가 OKX 스케일에서 한 번도 안 걸린 적이 있다.
+      2. 모두에게 걸리는 신호가 있나 — 그건 신호가 아니라 상수다.
+      3. 방향이 한쪽으로만 나오나 — 판정이 아니라 라벨이 된다.
+      4. 후보들의 점수가 한쪽으로 굳었나 — 국장이 66개 중 59개 '상승'으로
+         굳은 적이 있다.
+
+    **`compute()`와 같은 경로를 탄다**(`_relative` → `gate` → `_bull`).
+    따로 계산하면 화면에 뜬 신호와 여기 세는 신호가 달라진다.
+    """
+    cands = BY_MARKET[market](bundle) if market in BY_MARKET else []
+    if partial is None:
+        partial = "장중" in (session.describe(market).get("state") or "")
+    _relative(cands)
+
+    sig, gate_why = {}, {}
+    pos = neg = zero = 0
+    for c in cands:
+        why = gate(c, partial)
+        if why:
+            k = signal_name(why)
+            gate_why[k] = gate_why.get(k, 0) + 1
+            continue
+        score, why_list, _ = _bull(c)
+        if score > 0:
+            pos += 1
+        elif score < 0:
+            neg += 1
+        else:
+            zero += 1
+        for s in why_list:
+            m = re.match(r"^\(([+-])\d+\)", s or "")
+            if not m:
+                continue
+            row = sig.setdefault(signal_name(s), [0, 0])
+            row[0 if m.group(1) == "+" else 1] += 1
+
+    return {
+        "n": pos + neg + zero,          # 게이트를 통과해 점수가 매겨진 수
+        "cands": len(cands),
+        "gated": len(cands) - (pos + neg + zero),
+        "gate_why": gate_why,
+        "dirs": {"상승": pos, "하락": neg, "0": zero},
+        "sig": sig,
+    }
 
 
 def current(market, bundle, partial=None):
