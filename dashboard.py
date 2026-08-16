@@ -637,6 +637,39 @@ def render_us(j):
 
 
 # ---------------------------------------------------------------- 매크로
+# 접힌 카드의 한 줄 요약에 **반드시** 넣을 지표.
+#
+# 그전에는 '가장 크게 움직인 둘'만 넣었는데, 그러면 매일 확인하는 기준
+# 지표가 **그날 잠잠했다는 이유로** 사라진다. 실측(2026-08-14): 글로벌지수
+# 요약이 "항셍 -1.10% · 독일DAX +0.86%"라 나스닥 +0.81%이 안 보였고,
+# 환율도 유로달러가 밀렸다. 카드를 펼치기 전에는 없는 것처럼 읽힌다.
+#
+# 큰 움직임은 여전히 붙인다 — 고정 지표 뒤에 하나. 둘이 겹치면 생략한다.
+MACRO_PINNED = {
+    "글로벌지수": ("나스닥", "S&P500"),
+    "환율": ("원달러", "유로달러"),
+    "지수선물": ("나스닥선물", "S&P500선물"),
+    "채권금리": ("미10년물",),
+    "변동성": ("VIX",),
+}
+
+
+def _macro_note(group, items):
+    """접힌 상태에서 보이는 한 줄. 고정 지표 + 가장 크게 움직인 하나."""
+    def cell(r):
+        return f'{esc(r["name"])} {pct(r["change_pct"])}'
+
+    live = [r for r in items if r.get("change_pct") is not None]
+    by_name = {r["name"]: r for r in live}
+    pinned = [by_name[n] for n in MACRO_PINNED.get(group, ()) if n in by_name]
+
+    # 고정이 없는 묶음(원자재 등)은 예전처럼 큰 것 둘.
+    n_movers = 1 if pinned else 2
+    rest = sorted((r for r in live if r not in pinned),
+                  key=lambda r: -abs(r["change_pct"]))[:n_movers]
+    return " · ".join(cell(r) for r in pinned + rest)
+
+
 def render_macro(j):
     h = ""
     recs = j.get("records") or []
@@ -702,11 +735,8 @@ def render_macro(j):
                          tail])
         # 수급 판정이 하나도 없는 묶음(환율·금리 등)은 열을 줄인다
         has_bias = any(r[5] for r in rows)
-        # 접힌 상태에서도 무슨 일이 있었는지 보이게 대표 움직임을 요약한다
-        movers = sorted((r for r in items if r.get("change_pct") is not None),
-                        key=lambda r: -abs(r["change_pct"]))[:2]
-        note = " · ".join(f'{esc(r["name"])} {pct(r["change_pct"])}'
-                          for r in movers)
+        # 접힌 상태에서도 무슨 일이 있었는지 보이게 요약한다
+        note = _macro_note(g, items)
         if has_bias:
             h += card(g, rows_table(
                 ["이름", "현재가", "당일", "20일", "52주", "수급"],
