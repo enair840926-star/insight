@@ -20,7 +20,9 @@ python tools/probe.py            # 데이터 소스 접속 검증 (키 상태까
 python tools/pending.py -v       # 인사이트를 다시 써야 하는 자산군
 python tools/lint_insight.py     # 인사이트에 전문용어가 남았는지
 python tools/score_picks.py      # 픽이 맞았는지 (표본이 모자라면 그렇다고 말한다)
-python tools/regime_probe.py -v  # 시장 판정의 신호가 실제로 걸리는지
+python tools/score_stops.py kr us  # 손절·익절을 걸었으면 달랐는지
+python tools/regime_probe.py -v  # 시장 판정의 신호가 걸리는지 · 그 판정이 맞았는지
+python tools/signal_probe.py     # 픽 신호가 걸리는지 (픽 말고 **후보 전체**에서)
 python tools/backup_routines.py  # 저장소 밖 파일이 사본과 같은지
 ```
 
@@ -287,6 +289,14 @@ COT는 '포지션'이라 서로 다른 것을 잰다. 이 셋을 붙이자 근�
 
 **`RULES_VERSION`을 올리는 것을 잊지 마라.** 임계값이나 신호를 바꿨는데 버전이
 같으면, 몇 달 뒤 기록끼리 비교가 안 되는데 그 사실조차 모르게 된다.
+
+**신호가 걸리는지는 픽이 아니라 후보 전체에서 세라.** 픽은 점수가 높아서
+뽑힌 것이라 거기서 세면 신호가 한쪽으로 보이는 것이 당연하다. 실측
+(2026-08-16): 픽 85건에서는 '뉴스 호재'가 69회·악재 0회였는데 후보 109개로
+다시 세니 74회·3회였다. 방향은 같지만 **픽에서 잰 숫자는 애초에 그 질문에
+답할 수 없다.** `history.record_signals`가 수집 때마다 후보 전체를 세어
+남기고 `tools/signal_probe.py`가 읽는다 — 스냅샷은 `publish(keep=2)`로
+2세대만 남아 나중에 다시 셀 수가 없다.
 
 **표본이 모이기 전에 규칙을 고치지 마라.** 답이 나오는 순서가 다르다 —
 캘리브레이션은 표본 100, 점수-결과는 200, 신호별 기여도는 1000(6개월 남짓)이
