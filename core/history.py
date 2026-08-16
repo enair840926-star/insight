@@ -278,12 +278,43 @@ def settle(market, bundle, partial=False):
     return _append(rows)
 
 
+# 판정을 채점할 잣대.
+#
+# **판정이 맞았다 = 판정한 방향대로 그 시장이 다음 세션에 움직였다.**
+# '중립'은 방향을 주장하지 않았으므로 채점하지 않는다 — 픽의 '팽팽'과 같다.
+#
+# 매크로만 픽과 다른 것을 쓴다. 픽의 `BENCH["macro"]`가 None인 이유는 금과
+# 원유를 함께 재는 지수가 없어서인데, **판정이 재는 것은 금·원유 자체가
+# 아니라 그 배경인 위험 선호다**(`core/regime.py`의 `_macro`). 그래서
+# S&P500을 대리로 쓴다. 미장 판정과 같은 잣대가 되지만, 두 판정이 갈리는
+# 것 자체가 정보다 — 신호 구성이 다르기 때문이다.
+REGIME_BENCH = {
+    "kr": "코스피", "us": "S&P500", "coin": "코인 총시총",
+    "macro": "S&P500 (위험 선호 대리)",
+}
+
+_REGIME_WANT = {"우호": 1, "비우호": -1}     # 중립은 없다 = 채점 안 함
+
+
+def _regime_bench(market, bundle):
+    """판정 채점용 벤치마크 수준. 없으면 None."""
+    if market == "macro":
+        for r in bundle.get("records") or []:
+            if isinstance(r, dict) and r.get("name") == "S&P500":
+                return r.get("price")
+        return None
+    return _bench_value(market, bundle)
+
+
 def record_regime(market, bundle, partial=False):
     """시장 판정을 남긴다. 반환: 남긴 줄 수.
 
     **판정을 안 남기면 픽 때와 같은 자리로 돌아간다** — 매일 '우호'라고
     써 놓고 그것이 맞았는지 아무도 못 재는 상태다. 임계값이 지금은 실측이
     아니라 추정이라 더욱 남겨야 한다. 표본이 차면 이 기록으로 고친다.
+
+    **벤치마크 수준을 함께 남긴다.** 판정만 남기면 '무엇과 비교해 맞았나'를
+    나중에 정할 수가 없다 — 그때의 지수 값이 있어야 다음 세션 등락을 낸다.
     """
     if partial:
         return 0
@@ -298,8 +329,122 @@ def record_regime(market, bundle, partial=False):
         "market": market, "at": at,
         "state": r["state"], "score": r["score"], "n": r["n"],
         "signals": r["why"],
+        "bench": _regime_bench(market, bundle),
+        "bench_name": REGIME_BENCH.get(market),
         "rules": regime.VERSION,
     }])
+
+
+def settle_regime(market, bundle, partial=False):
+    """결과가 없는 판정에 이번 스냅샷의 벤치마크를 채운다. 반환: 채운 수.
+
+    `settle()`이 픽에 하는 일을 판정에 한다. 같은 이유로 `MIN_HOURS`를
+    지킨다 — 예약이 겹쳐 1분 뒤에 또 수집되면 등락 0%를 결과로 쓰게 된다.
+
+    **'맞았다/틀렸다'를 여기서 정하지 않는다.** 등락만 남기고 판정은
+    `regime_verdict()`가 한다. 횡보로 볼 폭을 지금은 모르기 때문이다 —
+    상수를 박아 두면 나중에 분포를 보고도 못 고친다.
+    """
+    if partial:
+        return 0
+    regs, outs = load_regimes(), load_regime_outs()
+    now_at = bundle.get("collected_at") or ""
+    now_bench = _regime_bench(market, bundle)
+    if not now_bench:
+        return 0
+
+    rows = []
+    for r in regs.values():
+        if r.get("market") != market or r["id"] in outs or not r.get("bench"):
+            continue
+        if r.get("state") not in _REGIME_WANT:
+            continue                  # 중립은 방향 주장이 없어 채점 대상이 아니다
+        if not r.get("at") or r["at"] >= now_at:
+            continue
+        hours = _hours(r["at"], now_at)
+        if hours < MIN_HOURS:
+            continue
+        rows.append({
+            "t": "regime_out",
+            "id": r["id"], "market": market, "at": now_at,
+            "hours": round(hours, 1),
+            "bench": now_bench,
+            "bench_ret_pct": round((now_bench / r["bench"] - 1) * 100, 3),
+        })
+    return _append(rows)
+
+
+def load_regime_outs(months=6):
+    """판정 결과. 반환: id -> 레코드."""
+    out = {}
+    if not DIR.is_dir():
+        return out
+    for f in sorted(DIR.glob("picks-*.jsonl"))[-months:]:
+        for line in f.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                r = json.loads(line)
+            except ValueError:
+                continue
+            if r.get("t") == "regime_out":
+                out[r.get("id")] = r
+    return out
+
+
+def regime_pairs(markets=None):
+    """(판정, 결과) 쌍. 자산군·날짜별 마지막 판정만 쓴다.
+
+    하루에 여러 번 수집되므로 전부 세면 그날이 여러 번 반영돼 표본이
+    부푼다 — `pairs()`와 같은 이유다.
+    """
+    markets = markets or MARKETS
+    regs, outs = load_regimes(), load_regime_outs()
+    best = {}
+    for r in regs.values():
+        if r.get("market") not in markets:
+            continue
+        k = (r["market"], (r.get("at") or "")[:10])
+        if k not in best or r["at"] > best[k]["at"]:
+            best[k] = r
+    return [(r, outs[r["id"]]) for r in best.values() if r["id"] in outs]
+
+
+def regime_flat_band(rows, market, k=None):
+    """횡보로 볼 폭. **상수를 안 쓴다** — 그 시장 벤치마크가 실제로 얼마나
+    움직였는지에서 낸다.
+
+    코스피의 0.3%와 코인 총시총의 0.3%는 다른 사건이다. 그렇다고 지금
+    자산군별 상수를 박으면 분포를 모르는 채로 정하는 것이라, 기록에서
+    중간 절대 등락을 구해 그 `k`배를 쓴다.
+
+    표본이 모자라면 0을 돌려준다 — 가르지 않는다는 뜻이다. 없는 기준으로
+    '횡보'를 만들면 적중률이 그 임의값에 끌려간다.
+    """
+    xs = [abs(o["bench_ret_pct"]) for r, o in rows
+          if r.get("market") == market and o.get("bench_ret_pct") is not None]
+    if len(xs) < REGIME_BAND_MIN:
+        return 0.0
+    return (FLAT_K if k is None else k) * stat.median(xs)
+
+
+def regime_verdict(reg, out, band=0.0):
+    """판정이 맞았나. 반환: '맞음' · '틀림' · '횡보' · None(중립·자료없음)."""
+    want = _REGIME_WANT.get(reg.get("state"))
+    ret = out.get("bench_ret_pct")
+    if want is None or ret is None:
+        return None
+    if band and abs(ret) < band:
+        return "횡보"
+    return "맞음" if ret * want > 0 else "틀림"
+
+
+# 횡보 폭을 낼 수 있는 최소 표본. 이보다 적으면 가르지 않는다.
+REGIME_BAND_MIN = 10
+
+# 판정을 읽을 만해지는 표본. 픽의 캘리브레이션과 같은 자리에 둔다.
+ENOUGH_REGIME = 100
 
 
 def track(market, bundle):
@@ -312,6 +457,9 @@ def track(market, bundle):
     """
     partial = "장중" in (session.describe(market).get("state") or "")
     n_out = settle(market, bundle, partial)
+    # 판정 결과를 픽 결과와 같은 자리에서 채운다. 따로 부르게 두면
+    # 한쪽만 불리는 날이 생기고, 그러면 기록이 어긋난 채로 쌓인다.
+    settle_regime(market, bundle, partial)
     picks, _ = pick.compute(pick.BY_MARKET[market](bundle),
                             market=market, partial=partial)
     record_regime(market, bundle, partial)
