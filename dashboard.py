@@ -173,6 +173,18 @@ _OPEN_SECTIONS = ("개장 전 브리핑", "오늘의 픽", "오늘 주목할 것
 _CHIP_SECTIONS = (("오늘의 픽", "p"), ("주목할 것", "w"))
 
 
+def short_name(full):
+    """칩에 넣을 짧은 이름. 글의 소제목과 픽 라벨이 같은 규칙을 써야
+    둘을 맞대어 앵커를 찾을 수 있다."""
+    # 'A — B' 형식이면 앞이 대상이다. 구분자가 없으면 제목 전체가
+    # 문장일 수 있으니 칩에서만 줄여 쓴다.
+    short = _re.split(r"\s[—–-]\s", full)[0].strip(" -–—:")
+    # 칩은 16자뿐이다. 종목코드·티커 괄호가 그 절반을 먹으면 정작
+    # 이름이 잘린다 ('한화에어로스페이스 (0124…').
+    short = _re.sub(r"\s*\([^)]*\)\s*$", "", short).strip() or short
+    return short[:15] + "…" if len(short) > 16 else short
+
+
 def fold_insight(html, market=""):
     """<h3>로 나뉜 인사이트를 섹션별 접기로 바꾼다.
 
@@ -206,14 +218,7 @@ def fold_insight(html, market=""):
                 # md가 이미 이스케이프한 문자를 되돌린다. 안 하면 esc()가
                 # 한 번 더 걸려 S&amp;P500처럼 보인다.
                 full = _re.sub(r"^\d+[.)]\s*", "", _html.unescape(t).strip())
-                # 'A — B' 형식이면 앞이 대상이다. 구분자가 없으면 제목
-                # 전체가 문장일 수 있으니 칩에서만 줄여 쓴다.
-                short = _re.split(r"\s[—–-]\s", full)[0].strip(" -–—:")
-                # 칩은 16자뿐이다. 종목코드·티커 괄호가 그 절반을 먹으면
-                # 정작 이름이 잘린다 ('한화에어로스페이스 (0124…').
-                short = _re.sub(r"\s*\([^)]*\)\s*$", "", short).strip() or short
-                if len(short) > 16:
-                    short = short[:15] + "…"
+                short = short_name(full)
                 if short:
                     picked.append((short, full, f"{market}-{tag}{k}"))
             found[key] = picked
@@ -429,18 +434,78 @@ def watch_strip(items):
     인사이트 안에 묻혀 있으면 스크롤을 한참 해야 보인다. 결론부터
     보이는 게 폰에서는 맞다.
 
-    칩은 링크다. 폰에서는 긴 제목이 잘릴 수밖에 없으므로, 누르면
-    본문의 해당 항목으로 뛰어 전체를 읽게 한다. 잘린 글자를 늘리는
-    것보다 이쪽이 낫다 — 칩의 역할은 요약이 아니라 이정표다.
+    칩은 글의 해당 항목으로 뛰는 링크다. 폰에서는 긴 제목이 잘릴 수밖에
+    없으므로, 누르면 본문에서 전체를 읽게 한다 — 칩의 역할은 요약이
+    아니라 이정표다. **글에 그 항목이 없으면 링크가 아니라 그냥 칩이다**
+    (앵커가 없는데 링크를 걸면 눌러도 아무 일이 안 일어난다).
     """
     if not items:
         return ""
-    chips = "".join(
-        f'<a class="wc" href="#{esc(aid)}" title="{esc(full)}">{esc(short)}</a>'
-        for short, full, aid in items[:6])
+    chips = ""
+    for short, full, aid in items[:6]:
+        if aid:
+            chips += (f'<a class="wc" href="#{esc(aid)}" '
+                      f'title="{esc(full)}">{esc(short)}</a>')
+        else:
+            chips += f'<span class="wc" title="{esc(full)}">{esc(short)}</span>'
+    sub = ("눌러서 자세히 보기" if any(a for _, _, a in items[:6])
+           else "인사이트 글이 아직 이 대상을 안 다룹니다")
     return (f'<section class="card watch"><h2>오늘 주목</h2>'
             f'<div class="wchips">{chips}</div>'
-            f'<div class="csub">눌러서 자세히 보기</div></section>')
+            f'<div class="csub">{sub}</div></section>')
+
+
+def picks_card(market, j, anchors=()):
+    """규칙이 계산한 오늘의 픽. **글이 없어도 나온다.**
+
+    그전에는 픽이 시장 탭에 오르는 길이 손으로 쓴 인사이트 글뿐이었다
+    (`fold_insight`가 글의 h4를 뽑는다). 그래서 루틴을 놓친 날이나 규칙이
+    바뀐 직후에는 화면이 옛 글을 그대로 보여 줬다 — 실측: 매크로 대상을
+    넷으로 늘렸는데 08-14에 쓰인 글 때문에 화면에는 계속 둘만 보였다.
+
+    글은 서술이고 픽은 계산이다. 계산 쪽을 화면의 정본으로 둔다.
+    """
+    picks, err = _today_picks(market, j)
+    if err:
+        return card("오늘의 픽", f'<p class="dim">계산 실패 — {esc(err)}</p>')
+    if not picks:
+        return card("오늘의 픽",
+                    '<p class="dim">뽑힌 것이 없습니다 — 점수가 0 근처면 '
+                    '근거가 없거나 서로 맞선다는 뜻이라 빠집니다.</p>')
+    by_short = {s: a for s, _f, a in anchors}
+    items = ""
+    for i, p in enumerate(picks, 1):
+        name = p.get("label") or p.get("key") or ""
+        k = p.get("kind") or ""
+        kc = {"상승": "up", "하락": "down", "피할 것": "down"}.get(k, "flat")
+        aid = by_short.get(short_name(name))
+        label = (f'<a href="#{esc(aid)}">{esc(name)}</a>' if aid
+                 else esc(name))
+        cau = "".join(f'<div class="dim">⚠ {esc(c)}</div>'
+                      for c in (p.get("caution") or []))
+        items += (f'<li><span class="rank">{i}</span> {label} '
+                  f'<span class="{kc}">{esc(k)}</span> '
+                  f'<span class="dim">{p.get("score"):+d}점 · '
+                  f'근거 {len(p.get("why") or [])}개</span>{cau}</li>')
+    return card("오늘의 픽", f'<ol class="picks">{items}</ol>',
+                "규칙이 계산한 값입니다. 점수는 오를 확률이 아니라 "
+                "근거가 얼마나 쌓였는지입니다")
+
+
+def watch_items(market, j, prose):
+    """칩 목록. **규칙이 계산한 픽이 정본**이고, 글에 같은 대상이 있으면
+    그 자리로 링크한다. 픽을 못 내면 예전처럼 글에서 뽑은 것으로 물러선다.
+    """
+    picks, err = _today_picks(market, j)
+    if err or not picks:
+        return prose
+    by_short = {s: a for s, _f, a in prose}
+    out = []
+    for p in picks:
+        name = p.get("label") or p.get("key") or ""
+        s = short_name(name)
+        out.append((s, name, by_short.get(s)))
+    return out
 
 
 # ---------------------------------------------------------------- 국장
@@ -457,8 +522,11 @@ def render_kr(j):
         idx.append(("시총가중", pct(a.get("market_cap_weighted_pct"))))
     h += card("지수 · 시장폭", kv_grid(idx))
 
-    ins, watch = insight_slot("kr")
-    h = watch_strip(watch) + h + ins
+    ins, prose = insight_slot("kr")
+    # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
+    # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
+    h = (watch_strip(watch_items("kr", j, prose))
+         + picks_card("kr", j, prose) + h + ins)
 
     km = j.get("kr_macro") or {}
     if km:
@@ -549,8 +617,11 @@ def render_us(j):
                                  f'<span class="down">{br["down"]:,}</span>'))
         idx.append(("시총가중", pct(a.get("market_cap_weighted_pct"))))
     h += card("지수 · 시장폭", kv_grid(idx))
-    ins, watch = insight_slot("us")
-    h = watch_strip(watch) + h + ins
+    ins, prose = insight_slot("us")
+    # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
+    # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
+    h = (watch_strip(watch_items("us", j, prose))
+         + picks_card("us", j, prose) + h + ins)
 
     secs = a.get("sectors") or []
     if secs:
@@ -698,8 +769,11 @@ def render_macro(j):
                                         rows, ["l", "r", "l", "l"]),
                   "장기금리 − 단기금리. 마이너스가 되면 역전이라 부르고 "
                   "침체 신호로 읽습니다")
-    ins, watch = insight_slot("macro")
-    h = watch_strip(watch) + h + ins
+    ins, prose = insight_slot("macro")
+    # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
+    # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
+    h = (watch_strip(watch_items("macro", j, prose))
+         + picks_card("macro", j, prose) + h + ins)
 
     dv = j.get("divergences") or []
     if dv:
@@ -860,8 +934,11 @@ def render_coin(j):
     if j.get("usdkrw"):
         pairs.append(("원달러", f'{num(j["usdkrw"], 2)}원'))
     h += card("시장 전체", kv_grid(pairs))
-    ins, watch = insight_slot("coin")
-    h = watch_strip(watch) + h + ins
+    ins, prose = insight_slot("coin")
+    # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
+    # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
+    h = (watch_strip(watch_items("coin", j, prose))
+         + picks_card("coin", j, prose) + h + ins)
 
     sel = j.get("selected") or []
     if sel:
