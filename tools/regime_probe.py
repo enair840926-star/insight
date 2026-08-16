@@ -22,7 +22,7 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core import regime, store
+from core import history, regime, store
 
 MARKETS = ["kr", "us", "coin", "macro"]
 
@@ -115,7 +115,51 @@ def main():
         print(f"  {n:3d}회  {m}: {k}")
     print("\n한 번도 안 나온 신호는 위 목록에 없다 — 죽은 조건인지 확인하라.")
     print("스냅샷이 적으면 안 걸린 것과 걸릴 수 없는 것이 구별되지 않는다.")
+
+    _scoreboard(a.markets or MARKETS)
     return 0
+
+
+def _scoreboard(markets):
+    """판정이 실제로 맞았나. 위쪽이 '신호가 걸리나'를 센다면 이건 '그 판정이
+    맞았나'를 센다 — 둘은 다른 질문이다.
+
+    **'중립'은 세지 않는다.** 방향을 주장하지 않았으므로 맞고 틀릴 것이
+    없다(픽의 '팽팽'과 같다). 대신 몇 건이 중립이었는지는 함께 찍는다 —
+    대부분이 중립이면 판정이 일을 안 하고 있다는 뜻이다.
+    """
+    rows = history.regime_pairs(markets)
+    print(f"\n{'='*70}\n판정이 맞았나 (결과가 채워진 것만)")
+    if not rows:
+        print("  아직 없다. 판정 하나는 다음 세션"
+              f"({history.MIN_HOURS}시간 뒤)이 지나야 채점된다.")
+        print("  **2026-08-16 이전 판정은 영영 못 잰다** — 그때는 벤치마크")
+        print("  수준을 같이 안 남겨서 다음 세션 등락을 낼 수가 없다.")
+        return
+
+    for m in markets:
+        xs = [(r, o) for r, o in rows if r.get("market") == m]
+        if not xs:
+            continue
+        band = history.regime_flat_band(rows, m)
+        vs = [v for r, o in xs for v in [history.regime_verdict(r, o, band)] if v]
+        hit = sum(1 for v in vs if v == "맞음")
+        flat = sum(1 for v in vs if v == "횡보")
+        neutral = sum(1 for r, _ in xs if r.get("state") == "중립")
+        d = hit + sum(1 for v in vs if v == "틀림")
+        bench = history.REGIME_BENCH.get(m)
+        rate = f"{hit*100/d:5.1f}% ({hit}/{d})" if d else "  —  (방향 0건)"
+        band_txt = (f"횡보폭 {band:.2f}%" if band else
+                    f"횡보 안 가름 (표본 {history.REGIME_BAND_MIN}건 미만)")
+        print(f"  {m:6s} {rate}  중립 {neutral}건 · 횡보 {flat}건  "
+              f"[{bench}] {band_txt}")
+        if d:
+            print(f"         {history.coin_flip_gap(hit, d)}")
+
+    print(f"  → {history.verdict(len(rows), history.ENOUGH_REGIME, '판정을 손댈 만하다')}")
+    print("  매크로 벤치마크는 S&P500이다 — 판정이 재는 것이 금·원유 자체가")
+    print("  아니라 그 배경인 위험 선호라서다. 미장과 같은 잣대이므로 두")
+    print("  판정이 갈리면 그 자체가 정보다(신호 구성이 다르다).")
 
 
 if __name__ == "__main__":
