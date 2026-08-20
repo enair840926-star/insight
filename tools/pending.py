@@ -111,14 +111,14 @@ def waiting_for_collection(market, now=None):
     return c < start.replace(tzinfo=None)
 
 
-# 개장을 안 지났어도 이만큼 묵었으면 쓰지 않는다. 실측 24건에서 정상의
-# 최대가 6.8시간(macro 01:29 → 08:19), 막아야 할 것의 최소가 10.8시간
-# (coin 08-11 21:31 → 08-12 08:16)이라 그 사이로 잡는다.
+# 개장을 안 지났어도 이만큼 묵었으면 쓰지 않는다. 값과 그 근거는
+# `core/session.py`가 갖는다 — `dashboard.py`도 같은 값을 봐야 해서
+# (화면이 "글이 데이터보다 오래됐다"를 같은 기준으로 말한다) 한곳에 뒀다.
 #
 # 개장 판정만으로는 두 가지가 샌다 — 코인은 24시간 거래라 지나갈 개장이
 # 없고, 주말을 낀 금요일 데이터는 '다음 개장'이 월요일이라 30시간이 지나도
 # 개장 전으로 잡힌다(us 08-09 02:05 → 08-10 08:11).
-MAX_AGE_H = 8
+MAX_AGE_H = session.MAX_INSIGHT_AGE_H
 
 
 def too_late(market, now=None):

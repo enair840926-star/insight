@@ -256,12 +256,43 @@ def _written_at(path):
         return None
 
 
-def insight_slot(market_name):
+def _behind_note(when, collected):
+    """글이 화면의 숫자보다 오래됐으면 그렇게 말하는 줄. 아니면 ''.
+
+    **글의 나이만으로는 이걸 못 말한다.** 카드에 이미 '3일 전'이 뜨는데,
+    주말을 낀 사흘 전 글은 정상이라 그것만으로는 고장인지 알 수 없다.
+    말해야 하는 것은 나이가 아니라 **간격**이다 — 지금 화면에 뜬 스냅샷이
+    이 글보다 나중 것이면, 이 글은 저 숫자를 안 보고 쓴 것이다.
+
+    실제로 2026-08-18~21에 루틴이 사흘 내리 실패했는데 화면은 옛 글을
+    그대로 보여 줬고, 아무것도 그 사실을 말하지 않았다. 수집은 정상이라
+    '수집 갱신 필요'도 안 떴다 — 숫자는 새것이고 글만 옛것이었기 때문이다.
+    """
+    if not (when and collected):
+        return ""
+    try:
+        c = dt.datetime.fromisoformat(str(collected))
+    except (TypeError, ValueError):
+        return ""
+    if c.tzinfo is not None:
+        c = c.astimezone().replace(tzinfo=None)
+    gap = (c - when).total_seconds() / 3600
+    if gap < session.MAX_INSIGHT_AGE_H:
+        return ""      # 같은 세션 안이다. 곧 다시 쓰거나 이미 최신이다.
+    return ('<div class="warn">이 글은 위 숫자보다 <b>'
+            f'{_ago_text(gap).replace(" 전", "")}</b> 앞서 쓰였습니다 — '
+            '새 데이터로 아직 다시 쓰지 않았습니다. '
+            '숫자와 픽은 최신이고 <b>글만 옛것</b>입니다.</div>')
+
+
+def insight_slot(market_name, collected=None):
     """생성된 인사이트가 있으면 렌더링하고, 없으면 안내를 띄운다.
 
     insights/에서 먼저 찾는다. 인사이트는 PC에서 만들고 수집은 클라우드가
     하는데, data/는 .gitignore 대상이라 러너에 없다. 거기 두면 클라우드가
     대시보드를 다시 구울 때마다 인사이트가 빈 자리로 덮인다.
+
+    `collected`를 주면 글이 그 스냅샷보다 오래됐는지 함께 말한다.
     """
     src = INSIGHTS / f"insight_{market_name}.md"
     if not src.exists():
@@ -282,9 +313,11 @@ def insight_slot(market_name):
                        f'<span class="ago" data-ts="{ts}">{_ago_text(hrs)}</span>'
                        f'</span>')
             body, watch = fold_insight(md.render(text), market_name)
+            behind = _behind_note(when, collected)
             return (f'<section class="card insight has"><h2>인사이트</h2>'
                     f'<div class="csub">{stamp}{old} · '
                     f'방향 판정은 규칙 계산이며 결과를 보장하지 않습니다</div>'
+                    f'{behind}'
                     f'<div class="md">{body}</div></section>'), watch
     return (f'<section class="card insight"><h2>인사이트</h2>'
             f'<div class="empty"><p>아직 없습니다.</p>'
@@ -522,7 +555,7 @@ def render_kr(j):
         idx.append(("시총가중", pct(a.get("market_cap_weighted_pct"))))
     h += card("지수 · 시장폭", kv_grid(idx))
 
-    ins, prose = insight_slot("kr")
+    ins, prose = insight_slot("kr", j.get("collected_at"))
     # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
     # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
     h = (watch_strip(watch_items("kr", j, prose))
@@ -617,7 +650,7 @@ def render_us(j):
                                  f'<span class="down">{br["down"]:,}</span>'))
         idx.append(("시총가중", pct(a.get("market_cap_weighted_pct"))))
     h += card("지수 · 시장폭", kv_grid(idx))
-    ins, prose = insight_slot("us")
+    ins, prose = insight_slot("us", j.get("collected_at"))
     # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
     # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
     h = (watch_strip(watch_items("us", j, prose))
@@ -769,7 +802,7 @@ def render_macro(j):
                                         rows, ["l", "r", "l", "l"]),
                   "장기금리 − 단기금리. 마이너스가 되면 역전이라 부르고 "
                   "침체 신호로 읽습니다")
-    ins, prose = insight_slot("macro")
+    ins, prose = insight_slot("macro", j.get("collected_at"))
     # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
     # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
     h = (watch_strip(watch_items("macro", j, prose))
@@ -934,7 +967,7 @@ def render_coin(j):
     if j.get("usdkrw"):
         pairs.append(("원달러", f'{num(j["usdkrw"], 2)}원'))
     h += card("시장 전체", kv_grid(pairs))
-    ins, prose = insight_slot("coin")
+    ins, prose = insight_slot("coin", j.get("collected_at"))
     # 칩과 픽은 규칙에서 낸다. 글은 서술이라 늦거나 없을 수 있는데,
     # 그때 화면이 옛 픽을 그대로 보여 주면 안 된다.
     h = (watch_strip(watch_items("coin", j, prose))
@@ -1114,7 +1147,8 @@ tr:last-child td{border:none}
 .dim{color:var(--dim);font-weight:400}
 .brk{color:var(--warn);font-weight:700}
 /* 표본이 모자란다는 경고. 적중률 옆에 붙어야 숫자만 떼어 읽히지 않는다 */
-p.warn{color:var(--warn);background:var(--warn-bg);border-radius:5px;
+/* div도 받는다 — 인사이트 카드의 '글이 숫자보다 오래됐다'가 div로 온다. */
+p.warn,div.warn{color:var(--warn);background:var(--warn-bg);border-radius:5px;
   padding:8px 10px;font-size:12px;line-height:1.5;margin:8px 0 0}
 /* 장 상태의 신호 목록. 부호를 앞에 세워 무엇이 어느 쪽인지 훑어보게 한다 */
 /* '오늘' 탭의 픽 목록. 순위를 앞에 세워 훑을 때 눈이 걸리게 한다. */
