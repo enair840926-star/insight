@@ -80,6 +80,13 @@ def load(months=6):
 
     같은 id가 여러 줄이면 뒤엣것이 이긴다. union 병합이 중복을 만들 수
     있는데, 픽 내용은 같으므로 덮어써도 잃는 것이 없다.
+
+    **가져올 것을 이름으로 고른다.** 처음에는 `t == "regime"`만 걸러 내고
+    나머지를 전부 픽으로 넣었는데, 그 뒤에 `t="signals"`·`t="regime_out"`이
+    생기자 `key`가 없는 줄이 픽 dict에 섞여 `open_keys()`가 `KeyError: 'key'`
+    로 죽었다 — 미장 수집이 2026-08-17부터 사흘 동안 저녁마다 통째로
+    실패했다. 한 파일에 여러 줄 종류를 두는 이상, 읽는 쪽은 **아는 것만
+    받아야** 새 종류가 생겨도 옛 독자가 안 깨진다.
     """
     picks, outs = {}, {}
     if not DIR.is_dir():
@@ -93,10 +100,12 @@ def load(months=6):
                 r = json.loads(line)
             except ValueError:
                 continue      # 병합이 줄을 반토막 냈을 수 있다. 버린다.
-            t = r.get("t")
-            if t == "regime":
-                continue      # 시장 판정은 load_regimes()가 따로 읽는다
-            (outs if t == "out" else picks)[r.get("id")] = r
+            t = r.get("t") or "pick"   # `t` 없던 시절 기록은 픽이다
+            if t == "pick":
+                picks[r.get("id")] = r
+            elif t == "out":
+                outs[r.get("id")] = r
+            # 그 밖(regime · regime_out · signals)은 각자 읽는 함수가 있다
     return picks, outs
 
 
