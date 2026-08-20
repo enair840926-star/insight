@@ -1,9 +1,9 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-08-20T06:46:22+09:00",
+ "generatedAt": "2026-08-20T21:16:07+09:00",
  "collectedAt": {
-  "macro": "2026-08-20T06:45:56",
+  "macro": "2026-08-20T21:15:38",
   "us": "2026-08-17T21:02:16"
  },
  "context": {
@@ -14,9 +14,9 @@
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "fearGreed": {
-   "value": 56.3,
+   "value": 57,
    "rating": "greed",
-   "weekAgo": 62.9
+   "weekAgo": 66.6
   },
   "yieldCurve": [
    {
@@ -32,17 +32,17 @@
   ],
   "news": [
    {
-    "date": "2026-08-19 16:00",
-    "title": "UK Inflation Jumps to 2.9% as Energy Bills Bite",
+    "date": "2026-08-20 06:45",
+    "title": "Elevated Oil Prices Push Japan’s Imports to an All-Time High",
     "source": "OilPrice",
     "topics": [
-     "inflation"
+     "crude",
+     "oil price"
     ],
     "groups": [
-     "금속",
-     "채권금리"
+     "에너지"
     ],
-    "link": "https://oilprice.com/Energy/Energy-General/UK-Inflation-Jumps-to-29-as-Energy-Bills-Bite.html"
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Elevated-Oil-Prices-Push-Japans-Imports-to-an-All-Time-High.html"
    },
    {
     "date": "2026-08-19 17:00",
@@ -60,19 +60,6 @@
     "link": "https://www.mining.com/copper-inventories-surge-50-easing-lme-squeeze/"
    },
    {
-    "date": "2026-08-19 04:00",
-    "title": "Kazakh tenge soars as foreigners pile into government debt",
-    "source": "FT마켓",
-    "topics": [
-     "interest rate"
-    ],
-    "groups": [
-     "채권금리",
-     "환율"
-    ],
-    "link": "https://www.ft.com/content/17625ee5-4bcc-4ef4-aec8-6e4b513e223a?syn-25a6b1a6=1"
-   },
-   {
     "date": "2026-08-18 15:23",
     "title": "미 연준 금리 인상 기대 약화에 금값 4,400달러 근접, 지정학 리스크가 안전자산 수요 견인 - InteractiveCrypto",
     "source": "구글뉴스:gold price outlook",
@@ -87,6 +74,46 @@
      "환율"
     ],
     "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1iRUdGY2pOZE5aSE9BN3oyTW9EdDdVd0V2T3FSMVBOc2M0Q2lpVjNvVjA1VVhqeVlNTlJiakl5MjZTZ2pJdm00aUVpUllnZkFYaXQzRmtTRFltemJnYUI1SQ?oc=5"
+   },
+   {
+    "date": "2026-08-19 15:48",
+    "title": "금 가격 전망: 미 국채 금리 하락에 금값 4,500달러 돌파, 상승세 이어질까? - TradingKey",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "국채",
+     "금값"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPY29WNXM5a0J0RDN1MXp6M25weUNWOE1zV2dBNlBCV2kwN3dmRGZRM0NicEhSYUhhV2o1cGJSRjh1dGtEMlpLSnJ5bFFacmhvQl90dzJYZXZnY3VncmFHZkhKZU1BelZjMVVwOFhCbmpLLU9yYjhBUUtoMzF6S3pkOGpKTGU0WnBNNlAzREd0V1lXdDZLWl9wSF82TUtpMlExYlpTdEpwZXlDU1hzeHRhOUxwS3dYQjhfOE9uWVN4ZlBHQmdIUzFpdGNuSXBVeDNlYTJWSUp5ZXNEanVHenU0?oc=5"
+   },
+   {
+    "date": "2026-08-20 11:42",
+    "title": "연준 유동성 약속과 달러 약세가 BTC 가격의 다음 움직임을 좌우할 수 있다: 크립토 데일리 - CoinDesk",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "연준"
+    ],
+    "groups": [
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQT1VSb2s4ckZTd2dlMjVib0x4cHMxYjl0ZC1QWHo5MVJmM1lCT2lGbWluMmkzQnhWLWJoY01pWVRZZ0R6WUF0VGRfTTRyWk1nX2xBVGRvWEV2cDZQSjhtYXhWbm94R3h4X2xsV1BhT18taG9kcGhxUUpLeE5pdjhzWDJwN1JSZ2IweHhrdkF2QUFFODcwRnZKRHczRGNuanJ6bDRHN0lmMDF3M0M5aGc2cml4bWZSdjA1YTl4SzZHVldkUQ?oc=5"
+   },
+   {
+    "date": "2026-08-20 08:00",
+    "title": "Middle East Oil Crisis Sends Supertanker Prices to Record Highs",
+    "source": "OilPrice",
+    "topics": [
+     "crude"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Middle-East-Oil-Crisis-Sends-Supertanker-Prices-to-Record-Highs.html"
    },
    {
     "date": "2026-08-19 09:03",
@@ -121,56 +148,25 @@
     "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOUEY2UlFuQXk2bzBaaHNkTmhlS2F1b29qbVI2U0lWX2Y5NHRodDkwUEctR2t1c0l1RHRRY0NxVFFBQkZTejJPQzlCTmhGUGU1RS1pdVJuT0pQZ2cxb3lEY2g2MUJveWlrNGRaaFVSUG9Qb3VwNXZUTjN4b216dUl5ejZoN2ZfeGVRcFhjRGF3NzJDd2RuUXlWcW5LRlFKZHRrdVRTV25nZ19tT05TMjVvRkNHUEhDZTc1ZC1JY0hIamp1RlR0bks4d1BZSng1bkRsRThHOW9zR29pTW9mZWMxZmxMMnpmTU9F?oc=5"
    },
    {
-    "date": "2026-08-19 11:30",
-    "title": "Murban Crude Jumps to 4-Month High",
-    "source": "OilPrice",
+    "date": "2026-08-19 14:52",
+    "title": "United States Dollar Index falls as US Treasury doubles long-dated debt buybacks - tmgm.com",
+    "source": "구글뉴스:treasury yields",
     "topics": [
-     "crude"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Murban-Crude-Jumps-to-4-Month-High-as-ADNOC-Curbs-Supply-to-Asia.html"
-   },
-   {
-    "date": "2026-08-19 13:30",
-    "title": "Trump Dangles Keystone XL Revival as Canada Tariff Deadline Looms",
-    "source": "OilPrice",
-    "topics": [
-     "tariff"
+     "dollar index"
     ],
     "groups": [
      "금속",
-     "농산물",
-     "지수선물"
+     "환율"
     ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Trump-Dangles-Keystone-XL-Revival-as-Canada-Tariff-Deadline-Looms.html"
+    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQZnZReGMtcE1iRVNac2Q5V2JqMkk5X3dNWDViYWY1RUdGR0NBRUxCNXg4ZVpjNWtLbnBHUVliWnZEMEtISVBqZWlycHFoaHU2UzBmWkhLcDhhQmdCLXo2cUV3ajd3MkpZa29nU01JdldmZWZOdl90RzQycGhqaDNfWV9xTTVsWUVYdTJMWm93cUNDT0VUX2ZvMEZnbUJlWVlsWEZrZVhfemJDb05IaGEzUlBjUUJFYnpCWlRYdzJ3MUVDX1ZpWHFoLW02ZjJEaDlyNEdid0xLR1hnbGJHTnFr?oc=5"
    },
    {
-    "date": "2026-08-19 02:34",
-    "title": "Trump says deal reached with Canada and pauses tariffs",
+    "date": "2026-08-19 20:18",
+    "title": "US government debt hits $40tn as borrowing rises at historic rate",
     "source": "FT마켓",
-    "topics": [
-     "tariff"
-    ],
-    "groups": [
-     "금속",
-     "농산물",
-     "지수선물"
-    ],
-    "link": "https://www.ft.com/content/8a256a34-5e8d-459a-80a3-78ba6aa121af?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-18 11:15",
-    "title": "Gold Price Forecast: XAU/USD eases below $4,400 as US yields rally - tmgm.com",
-    "source": "구글뉴스:gold price outlook",
-    "topics": [
-     "gold price"
-    ],
-    "groups": [
-     "금속"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOa1l0ZDRqRmdKSG9zTUNxUTViZnJjTkk4Smc4dmsyYWR0ZU1jTGV6Zy1pcVdSS19IWjJNX0ZHWWdyeUl4aTdvSWpFVFhQOGxKVy1jNnY1WjJVdEtiYkFqZmswcDloSWFRelo5ZWdjS2dXWm9kMjBvMjhoS29HeTVuLWJYYnlJdGVYMHlKM25RWWhwcm4yak00bjdpNU5hNkZpNlJad1RPS1B1SV9rZ1N0TFk5VmJkaDZIRTI5ZjVqalg0d1g1dTdJY2Jn?oc=5"
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/673f8c35-1433-479f-803f-0597cbe7ef74?syn-25a6b1a6=1"
    },
    {
     "date": "2026-08-17 14:20",
@@ -196,20 +192,27 @@
     "groups": [
      "채권금리"
     ],
-    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWWtMeUJCaGtjV2ZDNjBBcFlEdDlQcjd2NDlPaFlHaHl6dnVIakFza1Z1S0JkalQ0cWc1ZkxxMGlBbk9kYTA4aHdQMGRWc0lBZTBhUERuV0ZOcEc4THpvMElSQ0xqS015bHRNTVNxVVJnMC1WSjExUnU3blUtMmQ4aTBKZXBJdDRRUUpLR3FvZUFKR3ZFOG95N3ZaN3g3QXNVZnZyNVl5MWlSZ3JOeHA0Zg?oc=5"
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE85STVZak5iVmFMUG5mNVRzal9yQnRNUnp4TzQtQlFvbDVORDdQUzZyQWh1eEJpS29VNUFyTHdCSUJ0QmtvRzFYbExPOVgySWVHZVBfVDZJR0I2c2hSaGc?oc=5"
    },
    {
-    "date": "2026-08-17 19:12",
-    "title": "Dollar Index, 변곡점서 반전·하락 공존: 매시간 업데이트 - Investing.com 한국어",
-    "source": "구글뉴스:dollar index",
+    "date": "2026-08-18 11:15",
+    "title": "Gold Price Forecast: XAU/USD eases below $4,400 as US yields rally - tmgm.com",
+    "source": "구글뉴스:treasury yields",
     "topics": [
-     "dollar index"
+     "gold price"
     ],
     "groups": [
-     "금속",
-     "환율"
+     "금속"
     ],
-    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5KRXh6TU5SRXNqTWtqOXpUUC1HYi1SWW4wOXM4QVNWUWlHYWtJdFR5dUV0MUNVaTVlSWNLcmRRcEJvNmV5TE1fdGtoalVEZGRCOElDdV9Bd0FSTXEtcDN4bjFYLUJneVZjNXkxNUNsV0NENnFqbkRj?oc=5"
+    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOa1l0ZDRqRmdKSG9zTUNxUTViZnJjTkk4Smc4dmsyYWR0ZU1jTGV6Zy1pcVdSS19IWjJNX0ZHWWdyeUl4aTdvSWpFVFhQOGxKVy1jNnY1WjJVdEtiYkFqZmswcDloSWFRelo5ZWdjS2dXWm9kMjBvMjhoS29HeTVuLWJYYnlJdGVYMHlKM25RWWhwcm4yak00bjdpNU5hNkZpNlJad1RPS1B1SV9rZ1N0TFk5VmJkaDZIRTI5ZjVqalg0d1g1dTdJY2Jn?oc=5"
+   },
+   {
+    "date": "2026-08-19 17:17",
+    "title": "Gold soars toward $4,500 as Treasury buyback sinks US yields - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
+    "topics": [],
+    "groups": [],
+    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQkxnU29uNi1ZYW9wUVVoaXB1ZkhqUXU4MnROS2JFSEZGS3FTc1J6cC01c3hnWFlVV3RwMmNKRFFVM1dKYXhJUzVJMm9sUTd2b0xoaldJVWZtcDJoMVV5ZjlNN1MzbTRvODYwM19UNE9UVTlKdlk1V1lpNmY0azc2eC1ZbHlxenlTQWxKYVFXMkstNS0zVGtwVTZ5VEtVMFVydXQxYjZkQk5mUWVWbmxkUm5md3k0T1dMVENIMUVINjlGQ3M?oc=5"
    },
    {
     "date": "2026-08-18 11:28",
@@ -224,6 +227,18 @@
     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNaXU3WDFXLVB3S0hvRW83WUhNQkdCc1EtTXlCVk80d3hJTWZ4LXBfTlV4XzM0aDdCQm1aMkpubWlOazEwemJpM2ZzejRLV0RaLUdxMmxwb1lCZ2xPSU16emVSRmExdURuLUV3bVpCQ3NSTlRaaVFFMTNCc3FPbDJHZkFaZ1llTDU2OEtaLUxkLWdhdXZfMkRQT1VCa0pWemJLSW1Ka3BvdEFFVTFCOU5acG1OLTh2ZkNIOG03MDRzSUVMME05T3dzbkJR?oc=5"
    },
    {
+    "date": "2026-08-20 05:05",
+    "title": "Kospi rises on SK hynix shareholder returns, easing U.S. Treasury yields - 매일경제",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "treasury yield"
+    ],
+    "groups": [
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE50Q3k0MDZSMnNlNmhBTUk1YlJCQmJDSk5HNWpNa1lUMUNQVmVBNVl4VEdZWEUxTkpWZi00WkM5LW1RaHRoemFGTVZUWmtzM3JRSERJ?oc=5"
+   },
+   {
     "date": "2026-08-18 17:49",
     "title": "A two-decade yield high buys the Dollar Index nothing - tmgm.com",
     "source": "구글뉴스:treasury yields",
@@ -235,6 +250,20 @@
      "환율"
     ],
     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTmtzbkEySzhEbzY4WE5rNGtOUllmVmhJU0EyVGRTWG5EV2hpZjMtWURhU05hc3dRVkN6MmwzLWVuX1FmNGhqdlRHOVhEMVpNUFNuVjlvZjBWXy1pYmRDVUhWVmJYNWtVdjlUbDR1WU1hdk5waVlFMWwzQjk3eHFjSzA3MXpsSlMwX29icmpwdl9LZ25JbU1NUmwwMlRGcHdOaXhDOXFWMkZ2VW5WNHhpbnd6cUxGcWZYZ0tj?oc=5"
+   },
+   {
+    "date": "2026-08-20 11:30",
+    "title": "Brent Oil Price Tops $93 as U.S.-Iran Impasse Persists",
+    "source": "OilPrice",
+    "topics": [
+     "crude",
+     "oil price",
+     "barrel"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Brent-Oil-Price-Tops-93-as-US-Iran-Impasse-Persists.html"
    },
    {
     "date": "2026-08-19 12:58",
@@ -277,6 +306,26 @@
     "link": "https://www.mining.com/oceanagold-expands-to-australia-with-553m-ausgold-buy/"
    },
    {
+    "date": "2026-08-20 09:55",
+    "title": "Gold retreats after Treasury buybacks fuel rally to more than 2-month high",
+    "source": "Investing원자재",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.investing.com/news/commodities-news/gold-holds-near-2month-high-as-treasury-buybacks-push-yields-dollar-lower-4868639"
+   },
+   {
+    "date": "2026-08-20 09:02",
+    "title": "Oil prices rise to highest level in nearly a month amid Hormuz impasse",
+    "source": "Investing원자재",
+    "topics": [
+     "oil price"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/oil-prices-steady-after-trump-announces-more-economic-sanctions-on-iran-4868505"
+   },
+   {
     "date": "2026-08-19 21:29",
     "title": "Trump bemoans Fed interest rate policy, says U.S. should be paying much less",
     "source": "CNBC마켓",
@@ -290,28 +339,24 @@
     "link": "https://www.cnbc.com/2026/08/19/trump-bemoans-fed-interest-rate-policy-says-us-should-be-paying-much-less.html"
    },
    {
-    "date": "2026-08-19 21:42",
-    "title": "ServiceNow’s stock leads a software rally. Here’s what’s energizing investors.",
+    "date": "2026-08-20 11:37",
+    "title": "Treasury’s buyback blitz may end up driving bond yields higher, warns JPMorgan. Here’s its advice for investors.",
     "source": "MarketWatch",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.marketwatch.com/story/servicenows-stock-leads-a-software-rally-heres-whats-energizing-investors-0ad74dd1?mod=mw_rss_topstories"
+    "topics": [
+     "bond yield"
+    ],
+    "groups": [
+     "채권금리"
+    ],
+    "link": "https://www.marketwatch.com/story/treasurys-bond-buyback-blitz-may-end-up-driving-yields-higher-warns-jpmorgan-heres-their-investment-advice-b8f507be?mod=mw_rss_topstories"
    },
    {
-    "date": "2026-08-19 20:28",
-    "title": "Moderna’s cancer-vaccine breakthrough drives broad biopharma stock rally",
-    "source": "MarketWatch",
+    "date": "2026-08-20 04:00",
+    "title": "Demand for tankers soars as Gulf oil producers search for ways to export cargoes",
+    "source": "FT마켓",
     "topics": [],
     "groups": [],
-    "link": "https://www.marketwatch.com/story/modernas-cancer-vaccine-breakthrough-drives-broad-biopharma-stock-rally-ff2816aa?mod=mw_rss_topstories"
-   },
-   {
-    "date": "2026-08-19 20:10",
-    "title": "Hidden Valley Ranch dressing may be a victim of this summer’s salad scare",
-    "source": "MarketWatch",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.marketwatch.com/story/hidden-valley-ranch-dressing-may-be-a-victim-of-this-summers-salad-scare-f8537cd5?mod=mw_rss_topstories"
+    "link": "https://www.ft.com/content/a8056598-14dd-4a9e-a21d-ad68e9891cc1?syn-25a6b1a6=1"
    },
    {
     "date": "2026-08-19 19:02",
@@ -323,61 +368,23 @@
    },
    {
     "date": "2026-08-19 16:55",
-    "title": "Grain prices surge as Ukraine war chokes off Black Sea ports",
+    "title": "Grain prices surge after Ukraine war chokes off seaborne exports",
     "source": "FT마켓",
     "topics": [],
     "groups": [],
     "link": "https://www.ft.com/content/91f17b0f-9c31-483e-b828-d90dad931a2f?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-08-19 11:00",
-    "title": "We need to rethink how we pay for water",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/8b4a32a0-f14b-4069-a2e5-5e4d55b0906d?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-19 07:35",
-    "title": "Chinese humanoid robot maker surges 600% in trading debut",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/14cd8246-7fb1-4f8f-81b4-8de11ced79e5?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-19 04:00",
-    "title": "Revolut to allow fivefold increase in Storonsky’s borrowing against his stake",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/a1e7a6e3-f7b9-4ed4-a823-b5e6274aab9b?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-19 04:00",
-    "title": "Borrowing costs hit multi-decade highs",
-    "source": "FT마켓",
+    "date": "2026-08-19 17:00",
+    "title": "The Strongest El Niño on Record Lands on the Tightest Energy Market in Years",
+    "source": "OilPrice",
     "topics": [
-     "inflation"
+     "drought"
     ],
     "groups": [
-     "금속",
-     "채권금리"
+     "농산물"
     ],
-    "link": "https://www.ft.com/content/8405e5ab-949e-4ddc-9acb-a6a27ced6b04?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-18 20:36",
-    "title": "US chip stocks slide as government borrowing costs hit multiyear highs",
-    "source": "FT마켓",
-    "topics": [
-     "inflation"
-    ],
-    "groups": [
-     "금속",
-     "채권금리"
-    ],
-    "link": "https://www.ft.com/content/61354e68-c4ba-4716-b849-b332608c8c65?syn-25a6b1a6=1"
+    "link": "https://oilprice.com/Energy/Energy-General/The-Strongest-El-Nio-on-Record-Lands-on-the-Tightest-Energy-Market-in-Years.html"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -389,21 +396,21 @@
    "unit": "bp",
    "fact": "미 10년물 4.653% (전일 4.706%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-08-20T06:45:56"
+   "asof": "2026-08-20T21:15:38"
   },
   "riskAppetite": {
-   "value": -0.95,
+   "value": 0.69,
    "unit": "pt",
-   "fact": "VIX 14.89 (전일 15.84)",
+   "fact": "VIX 15.58 (전일 14.89)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-08-20T06:45:56"
+   "asof": "2026-08-20T21:15:38"
   },
   "dollar": {
-   "value": -0.85,
+   "value": -0.01,
    "unit": "%",
-   "fact": "달러인덱스 98.8 (전일 대비 -0.85%)",
+   "fact": "달러인덱스 98.823 (전일 대비 -0.01%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-08-20T06:45:56"
+   "asof": "2026-08-20T21:15:38"
   },
   "breadth": {
    "value": 51.4,
@@ -413,41 +420,41 @@
    "asof": "2026-08-17T21:02:16"
   },
   "rateDiff": {
-   "value": -9.9,
+   "value": -4.3,
    "unit": "bp",
-   "fact": "미 10년물 4.653% − 유로존 3.2886% = 136bp (전일 146bp)",
-   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-18",
-   "asof": "2026-08-20T06:45:56"
+   "fact": "미 10년물 4.653% − 유로존 3.2782% = 137bp (전일 142bp)",
+   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-08-19",
+   "asof": "2026-08-20T21:15:38"
   }
  },
  "levels": {
   "XAUUSD": {
-   "last": 4580.7,
-   "prevClose": 4366.0,
+   "last": 4510.6,
+   "prevClose": 4489.39990234375,
    "source": "Yahoo GC=F",
-   "asof": "2026-08-20T06:45:56",
-   "note": "금 · 당일 +4.92%"
+   "asof": "2026-08-20T21:15:38",
+   "note": "금 · 당일 +0.47%"
   },
   "USOIL": {
-   "last": 84.4,
-   "prevClose": 84.94000244140625,
+   "last": 87.26,
+   "prevClose": 85.83000183105469,
    "source": "Yahoo CL=F",
-   "asof": "2026-08-20T06:45:56",
-   "note": "WTI원유 · 당일 -0.64%"
+   "asof": "2026-08-20T21:15:38",
+   "note": "WTI원유 · 당일 +1.67%"
   },
   "EURUSD": {
-   "last": 1.168,
+   "last": 1.1688,
    "prevClose": 1.1579434871673584,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-08-20T06:45:56",
-   "note": "유로달러 · 당일 +0.87%"
+   "asof": "2026-08-20T21:15:38",
+   "note": "유로달러 · 당일 +0.94%"
   },
   "NAS100": {
-   "last": 29561.0,
-   "prevClose": 29586.0,
+   "last": 29317.5,
+   "prevClose": 29512.75,
    "source": "Yahoo NQ=F",
-   "asof": "2026-08-20T06:45:56",
-   "note": "나스닥선물 · 당일 -0.08%"
+   "asof": "2026-08-20T21:15:38",
+   "note": "나스닥선물 · 당일 -0.66%"
   }
  },
  "missing": [
