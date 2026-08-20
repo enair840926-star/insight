@@ -221,7 +221,7 @@ def describe(market, now=None):
     if spec.get("always"):
         return {
             "now": now, "state": "24시간 거래", "next_open": None,
-            "hours_until": None,
+            "closes_at": None, "hours_until": None,
             "text": (f"현재 {now:%Y-%m-%d %H:%M} (한국시간). "
                      f"암호화폐는 24시간 거래되지만, 아시아 세션이 "
                      f"{'진행 중' if 8 <= now.hour < 17 else '아직'}이고 "
@@ -244,7 +244,7 @@ def describe(market, now=None):
         live_txt = (f"지금은 {'·'.join(live)}이 열려 있다. " if live else "")
         return {
             "now": now, "state": f"국장 {kr_state} / 미장 {us_state}",
-            "next_open": nearest, "hours_until": hrs,
+            "next_open": nearest, "closes_at": None, "hours_until": hrs,
             "text": (f"현재 {now:%Y-%m-%d %H:%M} (한국시간). "
                      f"국내 증시는 {kr_state}, 미국 증시는 {us_state}. "
                      f"{live_txt}"
@@ -255,7 +255,22 @@ def describe(market, now=None):
 
     state, nxt = (_kr_state(now) if market == "kr" else _us_state(now))
     label = spec.get("label", market)
-    hrs = (nxt - now).total_seconds() / 3600
+
+    # _kr_state/_us_state는 장중이면 '마감 시각'을 돌려준다. 그걸 그대로
+    # `next_open`이라는 이름에 담으면 읽는 쪽이 개장으로 읽는다. 매크로가
+    # 위에서 이미 그렇게 틀렸고(236번째 줄 주석), 고쳐 놓고도 이 갈래는
+    # 그대로 둔 탓에 `tools/pending.too_late`가 같은 자리에 걸렸다 —
+    # 미장 장중(02:23) 스냅샷에 "다음 개장 05:00"(사실은 마감)이 붙어
+    # 개장이 아직 안 지난 것으로 읽혔고, 장중 스냅샷으로 대비형 글을 쓰라고
+    # 가리켰다. 장중이면 마감은 `closes_at`으로 따로 내고 `next_open`에는
+    # 언제나 **진짜 다음 개장**을 담는다.
+    closes_at = None
+    if state == "장중":
+        closes_at = nxt
+        nxt = (_next_weekday_at(now, 9, 0, "kr") if market == "kr"
+               else _us_open_kst(now))
+
+    hrs = ((closes_at or nxt) - now).total_seconds() / 3600
     if state == "장중":
         text = (f"현재 {now:%Y-%m-%d %H:%M} (한국시간). {label}는 **장중**이며 "
                 f"약 {hrs:.1f}시간 뒤 마감된다. 남은 장에서 확인할 것을 중심으로 써라.")
@@ -275,7 +290,7 @@ def describe(market, now=None):
     if stale:
         text += f" ※ {stale}"
     return {"now": now, "state": state, "next_open": nxt,
-            "hours_until": hrs, "text": text}
+            "closes_at": closes_at, "hours_until": hrs, "text": text}
 
 
 # ---------------------------------------------------------------- 공통 요청문

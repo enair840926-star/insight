@@ -122,7 +122,17 @@ MAX_AGE_H = 8
 
 
 def too_late(market, now=None):
-    """대비하던 장이 이미 지났으면 True — 그 글은 이제 회고가 된다.
+    """대비하던 장이 이미 지났으면 True — 그 글은 이제 회고가 된다."""
+    return bool(too_late_why(market, now))
+
+
+def too_late_why(market, now=None):
+    """왜 안 쓰는지 한 줄. 쓸 수 있으면 빈 문자열.
+
+    이유를 문자열로 돌려주는 이유는 `-v`가 그것을 그대로 보이기 때문이다.
+    불리언만 돌려주던 동안 `-v`는 걸린 이유와 무관하게 늘 "그 장은
+    지났음"이라고 찍었고, 장중 스냅샷이 걸렸을 때 "수집 0.1시간 전,
+    그 장은 지났음"이라는 앞뒤가 안 맞는 줄이 나왔다.
 
     루틴이 밀리는 것을 막지 못했다. 실측(git 이력 24건)에서 11건이 수집
     10시간 뒤에 쓰였고, 국장은 거의 매번 저녁에 쓰였다 — 08-12에는 08:07
@@ -138,21 +148,40 @@ def too_late(market, now=None):
     """
     c = collected_at(market)
     if c is None:
-        return False
+        return ""
     now = now or dt.datetime.now()
     if getattr(now, "tzinfo", None) is not None:
         now = now.replace(tzinfo=None)
 
+    age = (now - c).total_seconds() / 3600
     # 너무 묵은 것은 개장이 안 지났어도 쓰지 않는다.
-    if (now - c).total_seconds() / 3600 > MAX_AGE_H:
-        return True
+    if age > MAX_AGE_H:
+        return f"너무 묵음 (수집 {age:.1f}시간 전, 상한 {MAX_AGE_H}시간)"
 
     # 수집 시점 기준으로 그 프롬프트가 바라보던 개장을 되살린다.
     # 코인은 24시간 거래라 next_open이 없고, 위 시간 상한만 적용된다.
     d = session.describe(market, c.astimezone() if c.tzinfo else
                          c.replace(tzinfo=dt.datetime.now().astimezone().tzinfo))
+
+    # **장중에 받은 스냅샷으로는 대비형 글을 쓰지 않는다.** 그 숫자는 결과가
+    # 절반 섞인 값이라(거래량이 덜 차고 등락이 확정 전이다) 대비가 아니라
+    # 회고가 된다. 신선도만으로는 안 걸린다 — 실측 2026-08-21 02:23에 미장을
+    # 장중에 받았더니 '4분 전 데이터'라 시간 상한을 통과했고, 개장 판정도
+    # 다음 개장이 22:30이라 안 걸렸다.
+    #
+    # 저장소의 다른 자리는 이미 장중을 거른다 — `history`는 장중 픽을
+    # 기록하지 않고 `dashboard`는 `partial`로 판정을 접는다. 여기만
+    # 열려 있었다.
+    #
+    # **국장·미장에만 건다.** 매크로는 두 시장의 배경이라 한쪽이 열려
+    # 있다고 값이 반토막 나지 않고, 코인은 24시간 거래라 '장중'이 늘 참이다.
+    if market in ("kr", "us") and d.get("state") == "장중":
+        return f"장중 스냅샷 (수집 {c:%H:%M}에 이미 열려 있었음)"
+
     nxt = d.get("next_open")
-    return nxt is not None and now > nxt.replace(tzinfo=None)
+    if nxt is not None and now > nxt.replace(tzinfo=None):
+        return f"그 장은 지났음 (대비하던 개장 {nxt:%m-%d %H:%M})"
+    return ""
 
 
 def pending(markets=MARKETS, now=None, wait=True):
@@ -190,11 +219,10 @@ def main():
             need = any(x[0] == m for x in rows)
             if need:
                 state = "다시 써야 함"
-            elif c and (not w or c > w) and too_late(m):
+            elif c and (not w or c > w) and too_late_why(m):
                 # 새 데이터가 있는데도 안 쓴다. 이유가 안 보이면 버그로
-                # 오해하므로 몇 시간 지났는지 함께 보인다.
-                age = (dt.datetime.now() - c).total_seconds() / 3600
-                state = f"너무 늦음 (수집 {age:.1f}시간 전, 그 장은 지났음)"
+                # 오해하므로 어느 규칙에 걸렸는지 그대로 보인다.
+                state = "안 씀 — " + too_late_why(m)
             elif c and (not w or c > w) and waiting_for_collection(m):
                 # '최신'과 구분해야 한다. 새 데이터가 있는데도 안 쓰는
                 # 것이므로, 이유를 안 보이면 버그로 오해한다.
