@@ -780,6 +780,40 @@ def _macro_note(group, items):
     return " · ".join(cell(r) for r in pinned + rest)
 
 
+def _gold_spot_card(j, recs):
+    """금 선물과 현물을 나란히. 없으면 ''.
+
+    화면의 '금'은 COMEX 선물이다(`config.MACRO_SYMBOLS`가 `GC=F`). 실제로
+    거래하는 것이 현물이면 수준이 다르다 — 실측 격차가 30~73포인트로
+    흔들렸고 하루는 방향까지 반대였다. 그걸 모르고 보면 앱의 숫자와
+    거래 화면의 숫자가 안 맞는 이유를 알 수 없다.
+
+    **격차는 같은 스냅샷 안에서만 본다.** 어제 격차와 이으면 안 된다 —
+    만기가 가까워지면 줄고 롤오버 때 튄다.
+    """
+    gs = j.get("gold_spot") or {}
+    if gs.get("price") is None:
+        return ""
+    fut = next((r for r in recs
+                if r.get("name") == "금" and not r.get("error")), None)
+    rows = [["현물 <span class=\"dim\">gold-api</span>",
+             num(gs["price"], 2), '<span class="dim">거래되는 값</span>']]
+    sub = "현물만 받았습니다 — 선물 시세를 못 받았습니다"
+    if fut and fut.get("price") is not None:
+        gap = fut["price"] - gs["price"]
+        rows.insert(0, [
+            f'선물 <span class="dim">{esc(fut.get("contract") or "GC=F")}</span>',
+            num(fut["price"], 2),
+            '<span class="dim">아래 표·픽이 쓰는 값</span>'])
+        rows.append(['<b>격차</b>', f'<b>{gap:+,.2f}</b>',
+                     '<span class="dim">선물 − 현물</span>'])
+        # card()가 sub를 이스케이프하므로 태그를 넣지 않는다.
+        sub = ("아래 표와 오늘의 픽은 선물 기준입니다. "
+               "격차는 만기·롤오버로 흔들리니 오늘 것끼리만 보십시오")
+    return card("금 — 선물과 현물",
+                rows_table(["", "가격", ""], rows, ["l", "r", "l"]), sub)
+
+
 def render_macro(j):
     h = ""
     recs = j.get("records") or []
@@ -787,6 +821,8 @@ def render_macro(j):
     for r in recs:
         if not r.get("error"):
             groups.setdefault(r["group"], []).append(r)
+
+    h += _gold_spot_card(j, recs)
 
     yc = j.get("yield_curve") or []
     if yc:
