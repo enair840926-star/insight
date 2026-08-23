@@ -22,6 +22,13 @@
 못 채우는 것 — realYield·inflation(FRED), rateDiff(독일 10년물).
 소스가 이 환경에서 막혀 있다. 넣을 수 없는 것을 추측으로 채우지
 않는다. 빠진 팩터는 매크로 데스크가 지금처럼 직접 구하면 된다.
+
+realYield·inflation은 **대체 소스를 찾아 뒀다**(FMP). 다만 이 환경에
+그 API 키가 없어 아직 못 붙인다 — `notes/feed-missing.md` 참고.
+
+`levels`의 키 이름은 내용과 같아야 한다. `XAUUSD`·`USOIL`이 현물
+표기인데 선물 값을 담고 있어 `*_FUT`로 옮기는 중이다. 옛 키는 같은
+값으로 당분간 함께 나가고 `deprecated`가 붙는다.
 """
 import datetime as dt
 import json
@@ -203,16 +210,43 @@ def build(macro=None, us=None):
 
     # --- 자산별 가격. 엔진의 position 계산이 last/prevClose를 쓴다.
     levels = {}
-    for md_name, our_name in (("XAUUSD", "금"), ("USOIL", "WTI원유"),
-                              ("EURUSD", "유로달러"), ("NAS100", "나스닥선물")):
+    notices = []
+    for md_name, our_name in _LEVEL_KEYS:
         r = _rec(recs, our_name)
-        if r and r.get("price") is not None:
-            levels[md_name] = {
-                "last": r["price"], "prevClose": r.get("prev_close"),
-                "source": f"Yahoo {r.get('symbol')}", "asof": asof_macro,
-                "note": f"{our_name} · 당일 {r.get('change_pct'):+.2f}%"
-                        if r.get("change_pct") is not None else our_name,
-            }
+        if not (r and r.get("price") is not None):
+            continue
+        note = our_name
+        if r.get("change_pct") is not None:
+            note = f"{our_name} · 당일 {r['change_pct']:+.2f}%"
+        # 선물이면 계약월을 함께 낸다. 수집기가 이미 알고 있는 값인데
+        # 여기서 버리고 있었다 — 롤오버로 계약이 바뀌면 값이 튀는데
+        # 받는 쪽은 그 사실을 알 방법이 없었다.
+        if r.get("contract"):
+            note += f" · 선물 {r['contract']}"
+        levels[md_name] = {
+            "last": r["price"], "prevClose": r.get("prev_close"),
+            "contract": r.get("contract"),
+            "source": f"Yahoo {r.get('symbol')}", "asof": asof_macro,
+            "note": note,
+        }
+
+    # 옛 이름도 당분간 함께 낸다. 지우면 받는 쪽이 조용히 깨진다.
+    for old_name, new_name in _LEVEL_ALIAS.items():
+        if new_name not in levels:
+            continue
+        levels[old_name] = dict(levels[new_name])
+        levels[old_name]["deprecated"] = True
+        levels[old_name]["replacedBy"] = new_name
+        levels[old_name]["note"] = (
+            f"{levels[new_name]['note']} — **이 키는 현물이 아니다.** "
+            f"이름이 현물 표기라 오해를 부르므로 `{new_name}`로 옮겨라. "
+            f"이 키는 옮길 시간을 준 뒤 뺀다."
+        )
+        notices.append(
+            f"levels.{old_name} 는 현물이 아니라 선물이다"
+            f"({levels[new_name].get('contract') or '계약월 미상'}). "
+            f"`{new_name}` 로 옮겨라. 옛 키는 당분간 같은 값으로 함께 나간다."
+        )
 
     # 팩터가 아닌 배경 숫자. factors와 섞으면 단위가 다른 값이 팩터로
     # 들어갈 수 있어 따로 둔다. 서수형 팩터(안전자산·지정학·OPEC+ 등)를
@@ -260,17 +294,63 @@ def build(macro=None, us=None):
         "factors": factors,
         "levels": levels,
         "missing": _missing(factors),
+        "notices": notices,
     }
 
+
+# 매크로 데스크로 나가는 가격 키. **이름이 내용과 같아야 한다.**
+#
+# `XAUUSD`·`USOIL`은 현물 표기인데 담기던 값은 선물이었다
+# (`config.MACRO_SYMBOLS`: 금 GC=F, WTI원유 CL=F). 2026-08-21 스냅샷에서
+# 금은 `Gold Dec 26`(COMEX 12월물)이고 원유는 `Crude Oil Sep 26`이다.
+#
+# 격차는 상수가 아니라 못 본 척할 수 없다. 실측 제보(2026-08-23)에서
+# 금 현물과 선물의 차이가 8/10~8/14에 30.6~73.2포인트로 흔들렸고,
+# **8/11에는 일간 방향까지 반대였다**(현물 -21.18 / 선물 +21.4).
+# 만기가 가까워지면 줄고 롤오버 때 튄다 — 고정 오프셋으로 환산할 수 없다.
+# (선물 쪽 값은 FMP GCUSD로 재확인했다: 8/10~8/14 4419.7·4441.1·4467.5·
+#  4420.4·4437.3. 현물 쪽은 이 환경에서 못 받아 제보 값을 그대로 인용한다.)
+#
+# 현물로 바꾸는 것(`XAUUSD=X`)은 아직 안 했다. 그 심볼의 OHLC 품질과
+# prev_close 정의를 실호출로 검증하지 않았기 때문이다 — 검증 없이 바꾸면
+# 이름만 맞고 값이 틀리는, 지금보다 나쁜 상태가 된다.
+_LEVEL_KEYS = (
+    ("XAUUSD_FUT", "금"),
+    ("USOIL_FUT", "WTI원유"),
+    ("EURUSD", "유로달러"),
+    ("NAS100", "나스닥선물"),
+)
+
+# 옛 이름 → 새 이름. 받는 쪽(매크로 데스크)은 다른 저장소라 한 번에 못
+# 바꾼다. 지우는 대신 같은 값으로 함께 내보내고 `deprecated`를 달아 둔다.
+_LEVEL_ALIAS = {"XAUUSD": "XAUUSD_FUT", "USOIL": "USOIL_FUT"}
 
 _NUMERIC_FACTORS = ("usRates", "riskAppetite", "breadth", "dollar",
                     "inventory", "realYield", "inflation", "rateDiff")
 
-# FRED는 이 PC와 GitHub 러너 양쪽에서 타임아웃이다(실측). 대체 소스를
-# 찾기 전까지는 매크로 데스크가 지금처럼 직접 구해야 한다.
+# FRED는 이 PC와 GitHub 러너 양쪽에서 타임아웃이다(실측).
+#
+# **대체 소스는 찾았는데 쓸 수가 없다.** FMP의 `economics-indicators`
+# name=`inflationRate`가 FRED T10YIE와 같은 값을 일별로 준다(제보자가 FRED와
+# 직접 대조했고, 이쪽에서도 같은 값을 재확인했다 — 08-17~08-21이 2.28·2.30·
+# 2.30·2.34·2.34). `treasury-rates`의 year10과 빼면 실질금리가 나온다
+# (4.74 - 2.34 = 2.40). 정의상 DFII10과 같다.
+#
+# 못 쓰는 이유는 **이 환경에 FMP API 키가 없어서**다. 수집기는 평문 HTTP
+# (`core/http.fetch_json`)로 도는데 `.env`에도 GitHub Secrets에도 FMP 키가
+# 없다(있는 것은 DART·ECOS·EIA뿐). 키가 생기면 그때 붙이면 되고, 그 방법은
+# `notes/feed-missing.md`에 적어 뒀다.
+#
+# 사유를 정확히 적는 이유는 이 저장소의 원칙 그대로다 — 없는 것과 못 받은
+# 것을 구분한다. "FRED가 막혔다"만 적어 두면 대체 소스를 이미 찾았다는
+# 사실이 사라져서 다음 사람이 같은 길을 다시 판다.
 _WHY_MISSING = {
-    "realYield": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요",
-    "inflation": "FRED T10YIE 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요",
+    "realYield": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) + 대체 소스 "
+                 "FMP는 확인했으나 API 키 없음 — 직접 확인 필요 "
+                 "(붙이는 법: notes/feed-missing.md)",
+    "inflation": "FRED T10YIE 접속 불가(PC·러너 모두 타임아웃) + 대체 소스 "
+                 "FMP는 확인했으나 API 키 없음 — 직접 확인 필요 "
+                 "(붙이는 법: notes/feed-missing.md)",
     "rateDiff": "유로존 10년물 조회 실패 — 직접 확인 필요",
     # 재고는 매일 나오는 게 아니다. 발표가 없는 날 빠지는 건 정상이고,
     # 그걸 수집 실패로 읽으면 없는 문제를 쫓게 된다.
