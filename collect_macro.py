@@ -21,6 +21,7 @@ import universe
 # 새 소스가 아니라 안 쓰던 것을 옮기는 것이다.
 import us_universe
 from collectors import macro_market, macro_news, macro, commodity, eia, ecb
+from collectors import gold_spot
 from collectors import us_market
 from core import env, history, pick, regime, session
 
@@ -68,8 +69,13 @@ def run():
     # 유로존 10년물 — 야후에 독일 국채 심볼이 없어 ECB에서 따로 받는다.
     # 미-유로존 금리차 계산에 쓴다.
     eu10 = ecb.get_10y()
+    # 금 현물 — 화면·피드의 참고값이다. 픽 계열(GC=F 선물)은 그대로 둔다.
+    # 현물로 갈아탈 수 있는 소스가 없다는 것을 러너에서 다 재 봤다
+    # (collectors/gold_spot.py 주석에 결과가 있다). 실패해도 수집은 계속한다.
+    gold = gold_spot.get()
     print(f"커브 {len(curve)} / 관계 {len(diverg)}(깨짐 {broken})"
-          + (f" / 유로존10Y {eu10['price']}%" if eu10 else " / 유로존10Y 실패"))
+          + (f" / 유로존10Y {eu10['price']}%" if eu10 else " / 유로존10Y 실패")
+          + (f" / 금현물 {gold['price']:,}" if gold else " / 금현물 실패"))
 
     print("[3/4] 원자재 심화 (COT·선물커브·ETF) …", end=" ", flush=True)
     front = {r["name"]: r["price"] for r in records
@@ -108,6 +114,7 @@ def run():
         "divergences": diverg,
         "outliers": tops,
         "eurozone_10y": eu10,
+        "gold_spot": gold,
         "cot": cot,
         "cot_extremes": cot_ext,
         "curves": curves,

@@ -260,6 +260,30 @@ def build(macro=None, us=None):
             "period": inv.get("period"),
             "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다.",
         }
+    # 금 현물. **levels가 아니라 여기 둔다** — 엔진의 position 계산이
+    # last/prevClose를 쌍으로 쓰는데 현물 소스에 이력이 없어 prevClose를
+    # 못 만든다. 없는 값을 0이나 last로 채우면 등락 0%가 되어 '변화 없음'
+    # 이라는 없는 근거가 생긴다.
+    #
+    # 쓸모는 격차에 있다. levels.XAUUSD_FUT는 COMEX 선물이라 현물과 수준이
+    # 다른데(실측 30~73포인트) 그동안 받는 쪽이 얼마나 다른지 알 방법이
+    # 없었다. **같은 스냅샷 안의 두 값이므로 격차 비교는 정당하다** —
+    # 다만 어제 격차와 오늘 격차를 잇지는 마라. 만기가 가까우면 줄고
+    # 롤오버 때 튄다.
+    gs = macro.get("gold_spot") or {}
+    if gs.get("price") is not None:
+        fut = (levels.get("XAUUSD_FUT") or {}).get("last")
+        gap = round(fut - gs["price"], 2) if fut is not None else None
+        context["goldSpot"] = {
+            "last": gs["price"],
+            "source": gs.get("source"),
+            "asof": gs.get("asof"),
+            "vsFutures": gap,
+            "note": ("현물이다. levels.XAUUSD_FUT는 COMEX 선물이라 수준이 "
+                     "다르다. 격차는 같은 스냅샷 안에서만 비교하라 — "
+                     "만기·롤오버로 흔들린다."),
+        }
+
     fg = (macro.get("sentiment") or {}).get("us_fear_greed") or {}
     if fg:
         context["fearGreed"] = {"value": fg.get("score"),
