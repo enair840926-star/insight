@@ -112,19 +112,30 @@ TARGETS = [
      "https://query1.finance.yahoo.com/v8/finance/chart/AAPL"
      "?range=1d&interval=5m&includePrePost=true",
      "개장 전 프리마켓 등락 — 미장 수집이 개장 1시간 전이라 필요", "chart"),
-    # 금을 현물로 바꾸려고 후보를 잰다. 지금 쓰는 GC=F는 COMEX 선물이라
-    # (실측 `Gold Dec 26`) 사용자가 실제로 보는 FOREX.com 현물 XAUUSD와
-    # 다르다 — 제보 실측에서 격차가 30.6~73.2포인트로 흔들렸고 하루는
-    # 방향까지 반대였다. **바꾸기 전에 러너에서 되는지부터 본다.**
-    # 이 컨테이너에서는 야후가 통째로 막혀 있어 여기서는 못 잰다.
-    ("시세", "야후 금 현물 XAUUSD=X",
-     "https://query1.finance.yahoo.com/v8/finance/chart/"
-     "XAUUSD%3DX?range=1mo&interval=1d",
-     "금을 선물(GC=F) 대신 현물로 받기 위한 1순위 후보", "chart"),
-    ("시세", "야후 금 현물 XAU=X (대안)",
-     "https://query1.finance.yahoo.com/v8/finance/chart/"
-     "XAU%3DX?range=1mo&interval=1d",
-     "XAUUSD=X가 안 되면 쓸 2순위", "chart"),
+    # 금 현물 후보. 지금 쓰는 GC=F는 COMEX 선물이라(실측 `Gold Dec 26`)
+    # 사용자가 실제로 거래하는 FOREX.com 현물 XAUUSD와 다르다 — 제보 실측에서
+    # 격차가 30.6~73.2포인트로 흔들렸고 하루는 방향까지 반대였다.
+    #
+    # **야후는 이 자리에 못 쓴다.** 러너에서 실측(2026-08-24): XAUUSD=X와
+    # XAU=X 둘 다 HTTP 404 "symbol may be delisted"인데, 같은 회차에서
+    # 야후 차트(AAPL)는 OK였다. 심볼이 없는 것이지 야후가 막힌 게 아니다.
+    #
+    # 대체 후보는 **일별 이력이 나와야** 한다. 20일선·20일 변동성·5일/20일
+    # 추세가 전부 종가 시계열에서 나오므로, 현재가만 주는 소스는 혼자서는
+    # 못 쓴다(그런 것은 아래에 '현재가만'이라고 적어 뒀다).
+    ("시세", "stooq 금현물 일봉 CSV",
+     "https://stooq.com/q/d/l/?s=xauusd&i=d",
+     "금 현물 1순위 — 일별 종가 이력이 통째로 온다", "Close"),
+    ("시세", "LBMA 금 오후 고시 (일별)",
+     "https://prices.lbma.org.uk/json/gold_pm.json",
+     "금 현물 2순위 — 연속 시세는 아니고 하루 한 번 고시값", "\"v\""),
+    ("시세", "exchangerate.host XAU 시계열",
+     "https://api.exchangerate.host/timeseries"
+     "?base=XAU&symbols=USD&start_date=2026-08-01&end_date=2026-08-21",
+     "금 현물 3순위 — 무료 키 필요 여부 확인용", "rates"),
+    ("시세", "gold-api 현재가 (현재가만)",
+     "https://api.gold-api.com/price/XAU",
+     "금 현물 참고 — 이력이 없어 혼자서는 못 쓴다", "price"),
 
     ("시세", "야후 티커 RSS",
      "https://feeds.finance.yahoo.com/rss/2.0/headline?s=AAPL&region=US&lang=en-US",
