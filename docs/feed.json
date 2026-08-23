@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-08-21T21:58:45+09:00",
+ "generatedAt": "2026-08-24T01:48:46+09:00",
  "collectedAt": {
   "macro": "2026-08-21T21:15:16",
   "us": "2026-08-21T21:14:52"
@@ -414,23 +414,26 @@
   }
  },
  "levels": {
-  "XAUUSD": {
+  "XAUUSD_FUT": {
    "last": 4654.5,
    "prevClose": 4516.2998046875,
+   "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
    "asof": "2026-08-21T21:15:16",
-   "note": "금 · 당일 +3.06%"
+   "note": "금 · 당일 +3.06% · 선물 Gold Dec 26"
   },
-  "USOIL": {
+  "USOIL_FUT": {
    "last": 86.91,
    "prevClose": 87.83000183105469,
+   "contract": "Crude Oil Sep 26",
    "source": "Yahoo CL=F",
    "asof": "2026-08-21T21:15:16",
-   "note": "WTI원유 · 당일 -1.05%"
+   "note": "WTI원유 · 당일 -1.05% · 선물 Crude Oil Sep 26"
   },
   "EURUSD": {
    "last": 1.1701,
    "prevClose": 1.1673787832260132,
+   "contract": null,
    "source": "Yahoo EURUSD=X",
    "asof": "2026-08-21T21:15:16",
    "note": "유로달러 · 당일 +0.23%"
@@ -438,9 +441,30 @@
   "NAS100": {
    "last": 29481.75,
    "prevClose": 29300.5,
+   "contract": "Nasdaq 100 Sep 26",
    "source": "Yahoo NQ=F",
    "asof": "2026-08-21T21:15:16",
-   "note": "나스닥선물 · 당일 +0.62%"
+   "note": "나스닥선물 · 당일 +0.62% · 선물 Nasdaq 100 Sep 26"
+  },
+  "XAUUSD": {
+   "last": 4654.5,
+   "prevClose": 4516.2998046875,
+   "contract": "Gold Dec 26",
+   "source": "Yahoo GC=F",
+   "asof": "2026-08-21T21:15:16",
+   "note": "금 · 당일 +3.06% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "deprecated": true,
+   "replacedBy": "XAUUSD_FUT"
+  },
+  "USOIL": {
+   "last": 86.91,
+   "prevClose": 87.83000183105469,
+   "contract": "Crude Oil Sep 26",
+   "source": "Yahoo CL=F",
+   "asof": "2026-08-21T21:15:16",
+   "note": "WTI원유 · 당일 -1.05% · 선물 Crude Oil Sep 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "deprecated": true,
+   "replacedBy": "USOIL_FUT"
   }
  },
  "missing": [
@@ -450,11 +474,15 @@
   },
   {
    "key": "realYield",
-   "reason": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요"
+   "reason": "FRED DFII10 접속 불가(PC·러너 모두 타임아웃) + 대체 소스 FMP는 확인했으나 API 키 없음 — 직접 확인 필요 (붙이는 법: notes/feed-missing.md)"
   },
   {
    "key": "inflation",
-   "reason": "FRED T10YIE 접속 불가(PC·러너 모두 타임아웃) — 직접 확인 필요"
+   "reason": "FRED T10YIE 접속 불가(PC·러너 모두 타임아웃) + 대체 소스 FMP는 확인했으나 API 키 없음 — 직접 확인 필요 (붙이는 법: notes/feed-missing.md)"
   }
+ ],
+ "notices": [
+  "levels.XAUUSD 는 현물이 아니라 선물이다(Gold Dec 26). `XAUUSD_FUT` 로 옮겨라. 옛 키는 당분간 같은 값으로 함께 나간다.",
+  "levels.USOIL 는 현물이 아니라 선물이다(Crude Oil Sep 26). `USOIL_FUT` 로 옮겨라. 옛 키는 당분간 같은 값으로 함께 나간다."
  ]
 }
