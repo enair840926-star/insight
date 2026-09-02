@@ -1,60 +1,43 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-09-03T00:22:16+09:00",
+ "generatedAt": "2026-09-03T08:23:29+09:00",
  "collectedAt": {
-  "macro": "2026-09-03T00:21:42",
+  "macro": "2026-09-03T08:23:17",
   "us": "2026-09-03T00:21:20"
  },
  "context": {
   "eiaCrudeLevel": {
-   "weeklyChangeKbbl": 95.0,
-   "vs5yAvgPct": 1.6,
-   "period": "2026-08-21",
+   "weeklyChangeKbbl": -4450.0,
+   "vs5yAvgPct": 0.7,
+   "period": "2026-08-28",
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "goldSpot": {
-   "last": 4368.6,
+   "last": 4383.9,
    "source": "gold-api.com XAU",
-   "asof": "2026-09-02T15:21:22Z",
-   "vsFutures": 54.9,
+   "asof": "2026-09-02T23:22:53Z",
+   "vsFutures": 46.1,
    "note": "현물이다. levels.XAUUSD_FUT는 COMEX 선물이라 수준이 다르다. 격차는 같은 스냅샷 안에서만 비교하라 — 만기·롤오버로 흔들린다."
   },
   "fearGreed": {
-   "value": 34.9,
+   "value": 33.2,
    "rating": "fear",
    "weekAgo": 53.9
   },
   "yieldCurve": [
    {
     "label": "10Y-2Y",
-    "spreadBp": 103.2,
+    "spreadBp": 102.4,
     "inverted": false
    },
    {
     "label": "30Y-10Y",
-    "spreadBp": 47.0,
+    "spreadBp": 47.1,
     "inverted": false
    }
   ],
   "news": [
-   {
-    "date": "2026-09-01 15:20",
-    "title": "금값 4,400달러선 붕괴, 연준 매파 발언과 미-이란 긴장 속 인플레이션 우려 확산 - InteractiveCrypto",
-    "source": "구글뉴스:gold price outlook",
-    "topics": [
-     "연준",
-     "인플레",
-     "금값"
-    ],
-    "groups": [
-     "금속",
-     "지수선물",
-     "채권금리",
-     "환율"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9YZklpQjc3NENzeEVHa3BjWkVfbEN6X3d5ZHJJRHIzdXFEZXItS3I4TDRmeWF1YmdVTzhYYVVIcDFkYVBvZTVlTVhXRGw0akpSSDI4Z1NIQmgzcDR5NFZzaw?oc=5"
-   },
    {
     "date": "2026-09-02 14:00",
     "title": "Ukraine’s Refinery Strikes Force Russia to Process Oil Abroad",
@@ -97,6 +80,14 @@
     "link": "https://www.ft.com/content/697253e0-01d3-44fe-85e5-d4d9af207a3c?syn-25a6b1a6=1"
    },
    {
+    "date": "2026-09-02 20:42",
+    "title": "HPE follows in Dell’s footsteps as it rides the AI server boom to a big earnings beat",
+    "source": "MarketWatch",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.marketwatch.com/story/hpe-follows-in-dells-footsteps-as-it-rides-the-ai-server-boom-to-a-big-earnings-beat-ec46eaea?mod=mw_rss_topstories"
+   },
+   {
     "date": "2026-09-01 06:50",
     "title": "United States Dollar Index edges up to near 99.50, supported by higher bond yields - tmgm.com",
     "source": "구글뉴스:treasury yields",
@@ -126,17 +117,17 @@
     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVy12SWlhdEJXOGpCZGloaTY0dHlfUlFYdmpZdjNFWkREblNTaFI0dkZ5MlRkWEZOTHhadVZ3U3picEkxODA1THhHdVI4UjdhT3dsX3UzcXJDbm1wMDBOMXNDWkVkMmxJVDZCZVYzOUJHdGgzeTdVbDBodTFxMGluSEVYUy1qaVFTX2lRVU5LTXdFSHRZMFRIVEpBQWZhdE42aVdnQXdTOTN2TDZ5emxOU1N5ei1ONHVwb0Z0N1hkWXhnRHFQUi1UVUdiQXBwLTZE?oc=5"
    },
    {
-    "date": "2026-09-02 03:53",
-    "title": "Oil Prices Rally as U.S. Targets Iranian Tankers in New Escalation",
+    "date": "2026-09-02 19:00",
+    "title": "U.S. Diesel Prices Close In on April War Peak",
     "source": "OilPrice",
     "topics": [
-     "oil price",
-     "barrel"
+     "inflation"
     ],
     "groups": [
-     "에너지"
+     "금속",
+     "채권금리"
     ],
-    "link": "https://oilprice.com/Energy/Energy-General/Oil-Prices-Rally-as-US-Targets-Iranian-Tankers-in-New-Escalation.html"
+    "link": "https://oilprice.com/Energy/Energy-General/US-Diesel-Prices-Close-In-on-April-War-Peak.html"
    },
    {
     "date": "2026-09-01 17:25",
@@ -150,6 +141,14 @@
      "금속"
     ],
     "link": "https://www.mining.com/gold-price-erases-2026-gains-as-fed-hike-bets-climb-to-70-silver-slides/"
+   },
+   {
+    "date": "2026-09-02 22:06",
+    "title": "Oil posts slight gain after previous session’s rally, amid high U.S.-Iran tensions",
+    "source": "Investing원자재",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.investing.com/news/commodities-news/oil-climbs-for-3rd-straight-day-brent-tops-96-on-renewed-usiran-fighting-4885235"
    },
    {
     "date": "2026-09-01 10:50",
@@ -167,15 +166,27 @@
     "link": "https://www.cnbc.com/2026/09/01/euro-zone-inflation-rate-hike.html"
    },
    {
-    "date": "2026-09-02 15:16",
-    "title": "Chevron stock on track for record high as oil giant outlines $7 billion plan to expand in Venezuela",
+    "date": "2026-09-02 21:12",
+    "title": "Palantir’s stock is slumping. Why bond yields and Google may be to blame.",
+    "source": "MarketWatch",
+    "topics": [
+     "bond yield"
+    ],
+    "groups": [
+     "채권금리"
+    ],
+    "link": "https://www.marketwatch.com/story/why-palantirs-stock-is-suffering-its-worst-slump-since-february-7fb3b289?mod=mw_rss_topstories"
+   },
+   {
+    "date": "2026-09-02 20:14",
+    "title": "Snowflake’s stock soars as the company blows away estimates with its AI-fueled forecast",
     "source": "MarketWatch",
     "topics": [],
     "groups": [],
-    "link": "https://www.marketwatch.com/story/chevron-outlines-7-billion-plan-to-expand-in-venezuela-3cc5ef7c?mod=mw_rss_topstories"
+    "link": "https://www.marketwatch.com/story/snowflakes-stock-soars-as-the-company-blows-away-estimates-with-its-ai-fueled-forecast-5b5cf36c?mod=mw_rss_topstories"
    },
    {
-    "date": "2026-09-02 13:36",
+    "date": "2026-09-02 16:50",
     "title": "Energy price surge hits bond markets as European gas reaches three-year high",
     "source": "FT마켓",
     "topics": [],
@@ -194,19 +205,6 @@
      "채권금리"
     ],
     "link": "https://www.ft.com/content/e6f5f97a-b199-444e-aaec-b8199359b08e?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-08-31 14:24",
-    "title": "Euro holds modest gains as US Dollar lacks momentum, Eurozone inflation in focus - tmgm.com",
-    "source": "구글뉴스:treasury yields",
-    "topics": [
-     "inflation"
-    ],
-    "groups": [
-     "금속",
-     "채권금리"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQNXpoUkljVE1BMC1ZalpIcXN4Q3Z4RmxBLXpZYUVPY0ExdWpSbkk2SHlWd0lDazhrdDBaMUhmSXV5LW81T21abnB1a2xJMTRLaV85aENKTlB4UGVJSFVGTkY3Um52TGY3UDViVjQyTTNGd3p3MjhlYldrdDZKQi1kNDNneGU4bG5XRll4N212emE1X01KZEc2QjNhWV9QbFc5N1AyUV85NjZUWjFFNHJFTU1RU0pBa3NVM0V1cWpHa1ppUEVoNERsMFNORm03S1FHMWpSOXdaMkNyWUpkaWc?oc=5"
    },
    {
     "date": "2026-08-31 23:36",
@@ -247,34 +245,16 @@
     "link": "https://oilprice.com/Latest-Energy-News/World-News/Ryanair-Warns-Some-Airlines-Could-Struggle-with-Jet-Fuel-Price-Spike.html"
    },
    {
-    "date": "2026-09-02 06:00",
-    "title": "U.S. Energy Secretary Says Venezuela Could More Than Double Oil Production",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "oil price"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/US-Energy-Secretary-Says-Venezuela-Could-More-Than-Double-Oil-Production.html"
+    "date": "2026-09-02 21:18",
+    "title": "Tungsten surge transforms Northcliff’s Sisson economics",
+    "source": "Mining.com",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.mining.com/tungsten-surge-transforms-northcliffs-sisson-economics/"
    },
    {
-    "date": "2026-09-02 14:53",
-    "title": "US crude oil inventories drop 4.5 million barrels last week",
-    "source": "Investing원자재",
-    "topics": [
-     "crude",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://www.investing.com/news/commodities-news/us-crude-oil-inventories-drop-45-million-barrels-last-week-93CH-4886468"
-   },
-   {
-    "date": "2026-09-02 11:36",
-    "title": "Oil prices edge lower after recent gains on renewed US-Iran tensions",
+    "date": "2026-09-02 20:58",
+    "title": "Gold rises about 1% amid weaker dollar as oil prices and yields stabilize",
     "source": "Investing원자재",
     "topics": [
      "oil price"
@@ -282,7 +262,7 @@
     "groups": [
      "에너지"
     ],
-    "link": "https://www.investing.com/news/commodities-news/oil-climbs-for-3rd-straight-day-brent-tops-96-on-renewed-usiran-fighting-4885235"
+    "link": "https://www.investing.com/news/commodities-news/gold-falls-as-oil-bond-yields-and-fed-hike-bets-climb-on-iran-escalation-4885255"
    },
    {
     "date": "2026-08-31 01:37",
@@ -299,8 +279,20 @@
     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTWViX25ZQVNWSGdiUHNEaE51OXRkMjhBdjc2Y0VBSzNnR2prRlc1bWNBay01YXktNlMtUW9lZUlHOUdtUHc1b0hGOFRncHlvd290SDNZX2gzeWNLUzVMUFp6YUFYVkY3eWMwakpFMURmWG5wVG95SmlDUnBJaC1UTmxibS1yLUhTOTAyZEZYa3ZjSGJvbU5FRk5DXzZ5cF9VMjlwLUs0eGcwdko0cTdQRHlRU3EyanRYOEUzYVUyaTQzWjNHQjlfRTFodW9yTGZr?oc=5"
    },
    {
-    "date": "2026-09-01 06:51",
-    "title": "피터 쉬프의 섬뜩한 경고 \"국채 수익률 8%·모기지 10% 시대 온다\" - Benzinga",
+    "date": "2026-09-02 21:00",
+    "title": "Global Bond Yield Surge Puts Pressure on Korea, Raising Fears Mortgage Rates Could Hit 8% - 알파경제",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "bond yield"
+    ],
+    "groups": [
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5CNVFUbHNWMjBWNnRtWnBkVkFvRXNxNGpCeFVDVWxrWHo2bi1aYTdFNFRjVDU4TjYwbWN6VXh1WDc3VW5idkFuVFEzUmRzd21CVXJzRFRsOTM4V0lMTXlCZ1FUdGh0ZWJyNXBKSnp3?oc=5"
+   },
+   {
+    "date": "2026-09-01 13:55",
+    "title": "[뉴욕증시]미국채 금리·유가 급등…나스닥 1%대 하락 - 아시아경제",
     "source": "구글뉴스:treasury yields",
     "topics": [
      "국채"
@@ -308,7 +300,7 @@
     "groups": [
      "채권금리"
     ],
-    "link": "https://news.google.com/rss/articles/CBMi2gJBVV95cUxQdXhCSFlvdEoxN21KcTc2RHJFN0Z1dHRLNjR0U1hYWVhaX1dJYTZmSnloVk0tbmpPc3VKajV0Wm1HQ09ZYlN5amxfbko1azBaSVVpS2R5bURWVnhpaFdFaDAwbkczWEJCWnFMZjVfbXYybzJ4SHVEQTRNYzMtdkRCZWVHWjJHcUFIUEQ5aGFMQWRLNWJIajdWUU5RZld1eWRMdW5MTml4b3J6NWFMZWJJTXJiMXQyeks0M2JWazJqNlc2RVFySWRpMFYwUW9zTllBeU1ZQzZHWE9TeDUwaXV3d3ZOR0NFdnYzQ2pBUTlOdkdLZmhFX2xIT3l1emdVNGZGdkNoM2F4RlJkUmp2WXJPSG1ubUR3bm1yVXNDOGw5WGtMR1R0SVJzT1ZBdDNZdXVYLXZ1QUsyNktzcERuNGl3XzRmcVdQZTN2NFRtN1ZQbDVXaERMMGs3QUVn?oc=5"
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9wZFBKYzFjbVJZV3VqRzI2WEJ5SzNHdFZwYUg4bFBGLW1Bc0diaGkwa3JaZEN6WTk2MDh5TDhhTUpjM3l2alZLa01YYTZoQ3pKX19CZUp2V2hDWjF5Z0cybA?oc=5"
    },
    {
     "date": "2026-08-31 20:32",
@@ -345,75 +337,53 @@
     "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOUER0UmxNSkVzUGxiUEZ6a2toYXJ5NF8xdXNNX1pDV0NEd3hFZTJPS21vUThxazJ3QW90V0VSZmVucV9pYkcxb2NSNTQtR2IxMGZkRG9oSnU2clo1dWNMamEzOTdQcklmOVY5cDhXb3g5ZnlIcVNObklSR0tYVHFiTVdxdjdvZW5JZy1RaGp2MnhOeGp4eXVOTjJEYks3RldxRnpWeFoyQnE5YTRsbE9MWDJiTnZ6OVFQUDNSdkZMTlNoeXAycXVPLVhsaHFFaTY4S2ZJZS1FVmxlU0ZubGxZ?oc=5"
    },
    {
-    "date": "2026-09-02 13:29",
-    "title": "Wheat futures expected to open lower after hitting multi-year high",
-    "source": "Investing원자재",
-    "topics": [
-     "wheat"
-    ],
-    "groups": [
-     "농산물"
-    ],
-    "link": "https://www.investing.com/news/commodities-news/wheat-futures-expected-to-open-lower-after-hitting-multiyear-high-93CH-4886267"
-   },
-   {
-    "date": "2026-09-02 13:30",
-    "title": "India Boosts Far East Russian Oil Imports as War Upends Trade Routes",
+    "date": "2026-09-02 23:00",
+    "title": "U.S. SPR Depletion Threatens Further Oil Price Volatility",
     "source": "OilPrice",
     "topics": [
-     "crude"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/India-Boosts-Far-East-Russian-Oil-Imports-as-War-Upends-Trade-Routes.html"
-   },
-   {
-    "date": "2026-09-02 12:30",
-    "title": "Kazakhstan to Double Oil Refining Capacity by 2040",
-    "source": "OilPrice",
-    "topics": [
-     "opec",
      "crude",
-     "refinery"
+     "oil price"
     ],
     "groups": [
      "에너지"
     ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Kazakhstan-to-Double-Oil-Refining-Capacity-by-2040.html"
+    "link": "https://oilprice.com/Energy/Crude-Oil/US-SPR-Depletion-Threatens-Further-Oil-Price-Volatility.html"
    },
    {
-    "date": "2026-09-02 09:45",
-    "title": "Diesel Cracks Hit Record Highs as Global Fuel Squeeze Deepens",
+    "date": "2026-09-02 22:00",
+    "title": "White Hydrogen Drilling Push Gains Momentum Across Three Continents",
     "source": "OilPrice",
     "topics": [],
     "groups": [],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Diesel-Cracks-Hit-Record-Highs-as-Global-Fuel-Squeeze-Deepens.html"
+    "link": "https://oilprice.com/Alternative-Energy/Renewable-Energy/White-Hydrogen-Drilling-Push-Gains-Momentum-Across-Three-Continents.html"
    },
    {
-    "date": "2026-09-02 00:00",
-    "title": "Saudi Arabia Plans To Free 1 Mb/d As it Invests in Nuclear Power",
+    "date": "2026-09-02 21:00",
+    "title": "Superhot Geothermal Just Got A $180 Million Vote Of Confidence",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Energy/Energy-General/Superhot-Geothermal-Just-Got-A-180-Million-Vote-Of-Confidence.html"
+   },
+   {
+    "date": "2026-09-02 18:31",
+    "title": "Chevron Bets $7 Billion on Venezuela Oil Expansion",
     "source": "OilPrice",
     "topics": [
-     "barrel",
-     "natural gas"
+     "barrel"
     ],
     "groups": [
      "에너지"
     ],
-    "link": "https://oilprice.com/Alternative-Energy/Nuclear-Power/Saudi-Arabia-Plans-To-Free-1-Mbd-As-it-Invests-in-Nuclear-Power.html"
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Chevron-Bets-7-Billion-on-Venezuela-Oil-Expansion.html"
    },
    {
-    "date": "2026-09-01 16:08",
-    "title": "ACG Metals produces first copper concentrate at Turkish mine",
-    "source": "Mining.com",
-    "topics": [
-     "copper"
-    ],
-    "groups": [
-     "금속"
-    ],
-    "link": "https://www.mining.com/acg-metals-produces-first-copper-concentrate-at-turkish-mine/"
+    "date": "2026-09-02 18:00",
+    "title": "Budget Airline Warns Jet Fuel Shock Could Wipe Out Rivals",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Energy/Energy-General/Budget-Airline-Warns-Jet-Fuel-Shock-Could-Wipe-Out-Rivals.html"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -421,25 +391,25 @@
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
   "usRates": {
-   "value": 0.8,
+   "value": -0.0,
    "unit": "bp",
-   "fact": "미 10년물 4.804% (전일 4.796%)",
+   "fact": "미 10년물 4.796% (전일 4.796%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-09-03T00:21:42"
+   "asof": "2026-09-03T08:23:17"
   },
   "riskAppetite": {
-   "value": -0.83,
+   "value": -1.14,
    "unit": "pt",
-   "fact": "VIX 15.51 (전일 16.34)",
+   "fact": "VIX 15.2 (전일 16.34)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-09-03T00:21:42"
+   "asof": "2026-09-03T08:23:17"
   },
   "dollar": {
-   "value": -0.16,
+   "value": -0.09,
    "unit": "%",
-   "fact": "달러인덱스 99.512 (전일 대비 -0.16%)",
+   "fact": "달러인덱스 99.577 (전일 대비 -0.09%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-09-03T00:21:42"
+   "asof": "2026-09-03T08:23:17"
   },
   "breadth": {
    "value": 63.9,
@@ -449,63 +419,63 @@
    "asof": "2026-09-03T00:21:20"
   },
   "rateDiff": {
-   "value": -0.8,
+   "value": -1.6,
    "unit": "bp",
-   "fact": "미 10년물 4.804% − 유로존 3.3552% = 145bp (전일 146bp)",
+   "fact": "미 10년물 4.796% − 유로존 3.3552% = 144bp (전일 146bp)",
    "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-09-01",
-   "asof": "2026-09-03T00:21:42"
+   "asof": "2026-09-03T08:23:17"
   }
  },
  "levels": {
   "XAUUSD_FUT": {
-   "last": 4423.5,
+   "last": 4430.0,
    "prevClose": 4348.0,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-09-03T00:21:42",
-   "note": "금 · 당일 +1.74% · 선물 Gold Dec 26"
+   "asof": "2026-09-03T08:23:17",
+   "note": "금 · 당일 +1.89% · 선물 Gold Dec 26"
   },
   "USOIL_FUT": {
-   "last": 90.62,
+   "last": 90.69,
    "prevClose": 90.22000122070312,
    "contract": "Crude Oil Oct 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-09-03T00:21:42",
-   "note": "WTI원유 · 당일 +0.44% · 선물 Crude Oil Oct 26"
+   "asof": "2026-09-03T08:23:17",
+   "note": "WTI원유 · 당일 +0.52% · 선물 Crude Oil Oct 26"
   },
   "EURUSD": {
-   "last": 1.1596,
-   "prevClose": 1.1617640256881714,
+   "last": 1.1589,
+   "prevClose": 1.1595547199249268,
    "contract": null,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-09-03T00:21:42",
-   "note": "유로달러 · 당일 -0.19%"
+   "asof": "2026-09-03T08:23:17",
+   "note": "유로달러 · 당일 -0.06%"
   },
   "NAS100": {
-   "last": 29149.75,
+   "last": 29177.0,
    "prevClose": 29125.5,
    "contract": "Nasdaq 100 Sep 26",
    "source": "Yahoo NQ=F",
-   "asof": "2026-09-03T00:21:42",
-   "note": "나스닥선물 · 당일 +0.08% · 선물 Nasdaq 100 Sep 26"
+   "asof": "2026-09-03T08:23:17",
+   "note": "나스닥선물 · 당일 +0.18% · 선물 Nasdaq 100 Sep 26"
   },
   "XAUUSD": {
-   "last": 4423.5,
+   "last": 4430.0,
    "prevClose": 4348.0,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-09-03T00:21:42",
-   "note": "금 · 당일 +1.74% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-09-03T08:23:17",
+   "note": "금 · 당일 +1.89% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "XAUUSD_FUT"
   },
   "USOIL": {
-   "last": 90.62,
+   "last": 90.69,
    "prevClose": 90.22000122070312,
    "contract": "Crude Oil Oct 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-09-03T00:21:42",
-   "note": "WTI원유 · 당일 +0.44% · 선물 Crude Oil Oct 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-09-03T08:23:17",
+   "note": "WTI원유 · 당일 +0.52% · 선물 Crude Oil Oct 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "USOIL_FUT"
   }
