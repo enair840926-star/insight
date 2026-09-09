@@ -1,10 +1,10 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-09-09T08:32:38+09:00",
+ "generatedAt": "2026-09-10T00:21:37+09:00",
  "collectedAt": {
-  "macro": "2026-09-09T08:32:29",
-  "us": "2026-09-09T00:22:22"
+  "macro": "2026-09-10T00:21:06",
+  "us": "2026-09-10T00:20:40"
  },
  "context": {
   "eiaCrudeLevel": {
@@ -14,21 +14,21 @@
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "goldSpot": {
-   "last": 4360.8,
+   "last": 4385.0,
    "source": "gold-api.com XAU",
-   "asof": "2026-09-08T23:32:21Z",
-   "vsFutures": 36.9,
+   "asof": "2026-09-09T15:20:52Z",
+   "vsFutures": 50.1,
    "note": "현물이다. levels.XAUUSD_FUT는 COMEX 선물이라 수준이 다르다. 격차는 같은 스냅샷 안에서만 비교하라 — 만기·롤오버로 흔들린다."
   },
   "fearGreed": {
-   "value": 40.8,
+   "value": 40.9,
    "rating": "fear",
-   "weekAgo": 30.9
+   "weekAgo": 33.0
   },
   "yieldCurve": [
    {
     "label": "10Y-2Y",
-    "spreadBp": 103.1,
+    "spreadBp": 103.5,
     "inverted": false
    },
    {
@@ -39,46 +39,52 @@
   ],
   "news": [
    {
-    "date": "2026-09-08 21:00",
-    "title": "Copper Surges Above $14,500 as Supply Squeeze Deepens",
+    "date": "2026-09-09 10:30",
+    "title": "India’s Refineries Run at Up to 108% as Diesel Demand Surges",
     "source": "OilPrice",
     "topics": [
-     "copper",
-     "tariff"
+     "crude",
+     "refinery"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Indias-Refineries-Run-at-Up-to-108-as-Diesel-Demand-Surges.html"
+   },
+   {
+    "date": "2026-09-09 15:14",
+    "title": "Oil’s surge back above $100 fuels fresh inflation fears at a crucial time for interest rates",
+    "source": "MarketWatch",
+    "topics": [
+     "interest rate",
+     "inflation",
+     "oil price",
+     "barrel"
     ],
     "groups": [
      "금속",
-     "농산물",
-     "지수선물"
-    ],
-    "link": "https://oilprice.com/Metals/Commodities/Copper-Surges-Above-14500-as-Supply-Squeeze-Deepens.html"
-   },
-   {
-    "date": "2026-09-08 15:04",
-    "title": "Copper prices near $15,000 as tariff uncertainty drives rally",
-    "source": "Investing원자재",
-    "topics": [
-     "copper",
-     "tariff"
-    ],
-    "groups": [
-     "금속",
-     "농산물",
-     "지수선물"
-    ],
-    "link": "https://www.investing.com/news/commodities-news/copper-prices-near-15000-as-tariff-uncertainty-drives-rally-93CH-4892024"
-   },
-   {
-    "date": "2026-09-08 01:38",
-    "title": "Yen surges to six-month high as traders stay alert for signs of intervention",
-    "source": "FT마켓",
-    "topics": [
-     "currency"
-    ],
-    "groups": [
+     "에너지",
+     "채권금리",
      "환율"
     ],
-    "link": "https://www.ft.com/content/d86643d2-c98c-4e19-b066-c97b50819b7e?syn-25a6b1a6=1"
+    "link": "https://www.marketwatch.com/story/brent-crude-reaches-100-as-war-in-iran-intensifies-b73832e2?mod=mw_rss_topstories"
+   },
+   {
+    "date": "2026-09-09 04:42",
+    "title": "United States Dollar Index weakens despite rising inflation concerns, Fed rate hike bets - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "rate hike",
+     "inflation",
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQOUFrOFdiR21jVzhWb1NWM1lZVjUyR0tVTFI3LUZIeHVoQmlwYkN1OGZOX251N1A5ZTBLcTYtR3VoQzhHODZiQUJxbmk4SGhxektWZThmbXpkZkVZRzdOT2U4UzcxU0dDWmJxaGVfQmU5MjJfLUNmdTdvRGt6a0pvcHdoaWpSN19Ka3Niam1ldXRWUzg4aW43OE9qb2xXSDhabFZvc1BuVm9sWHlIQXpaXzNTN0dxZ09GdlAzQjNCQVlKeTdKTzBtbk8yUW01LVl4Z01QM1RHRDhzRTNXYVJ1OGJNbDRtS2dw?oc=5"
    },
    {
     "date": "2026-09-07 11:35",
@@ -98,30 +104,6 @@
     "link": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxPQmVoOXVHNUJuS2R4c0pxNjB2OHRSMi1fODBjOWNUT3BZWTZsaVUxeGppalJKR0NweUJXRllvc29peFkxVXYwZjY1UGlnZUR2Zk9NamNVNkFELWd0RUhMNHdMeV9XekdHQjRvN2VyaGVWajlWcVNzNnBRVVA4N01BNFR3eFlvOUZUc2U0QkJER01YY2VFT1NGRzNMOW12cUVIejJhUWZBdl94ZHl3MFI1cHdPaEhPLVlGLXRrdUtkMWtHc3hTaVE2bHFiOXhkeUtaT041MjlBYzV4QzFKcnYxWlpyWE4tVE1sYW83WVpXZlhHazBXQ0hXQTlpQ2lIZnAwaVRxYjBHaG1rdnlXZV9SaWp4ZGdDZ00tRVJPSldFclQ4S2tKRGJzQTNjbjBXbzVzQmRyZHRtVUFrVGlBR2FaMDNmODFudExkRHA3SWhQUF93Q3U5czRhdEJVSQ?oc=5"
    },
    {
-    "date": "2026-09-08 19:05",
-    "title": "Gold prices subdued as elevated Fed rate hike bets and oil offset weaker dollar",
-    "source": "Investing원자재",
-    "topics": [
-     "rate hike",
-     "gold price"
-    ],
-    "groups": [
-     "금속",
-     "지수선물",
-     "채권금리",
-     "환율"
-    ],
-    "link": "https://www.investing.com/news/commodities-news/gold-rises-as-yen-surge-weakens-dollar-oil-and-fed-bets-cap-gains-4890770"
-   },
-   {
-    "date": "2026-09-08 04:33",
-    "title": "Offshore borrowing in renminbi hits record high of nearly $150bn",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/1de12ab6-0343-4113-a832-b0f11c3a9b7a?syn-25a6b1a6=1"
-   },
-   {
     "date": "2026-09-08 04:00",
     "title": "Why Japan Inc can brush off interest-rate hikes — and America can’t",
     "source": "FT마켓",
@@ -134,6 +116,39 @@
      "환율"
     ],
     "link": "https://www.ft.com/content/462fddd0-850d-46e0-b2e7-5804d483ab52?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-09-09 15:00",
+    "title": "Copper Hits Record Highs While Smelters Lose Money on Every Ton",
+    "source": "OilPrice",
+    "topics": [
+     "copper"
+    ],
+    "groups": [
+     "금속"
+    ],
+    "link": "https://oilprice.com/Metals/Commodities/Copper-Hits-Record-Highs-While-Smelters-Lose-Money-on-Every-Ton.html"
+   },
+   {
+    "date": "2026-09-09 11:30",
+    "title": "Diesel Crunch Set to Worsen as Refining Capacity Falls Short, Industry Warns",
+    "source": "OilPrice",
+    "topics": [
+     "inflation"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Diesel-Crunch-Set-to-Worsen-as-Refining-Capacity-Falls-Short-Industry-Warns.html"
+   },
+   {
+    "date": "2026-09-08 04:33",
+    "title": "Offshore borrowing in renminbi hits record high of nearly $150bn",
+    "source": "FT마켓",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/1de12ab6-0343-4113-a832-b0f11c3a9b7a?syn-25a6b1a6=1"
    },
    {
     "date": "2026-09-08 02:29",
@@ -160,43 +175,6 @@
     "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNLV91M0pPT3k2aHFnbEQ3UmFmZWVJYlgzM050T2ptVXJZaFdLSW4yMnJVR2ZlOHlQOW90Tm00bV9NMzk5QmVpd0YwMzh3U3FtWi12M2JyZ2ZET3h2Vi1hZlF0R1BwUkJnQThiaU1IYmlFNWtsSzdtb2tqTGc0QzZGU0VqRWJnZWYzSWk4b01zdUJnZXlEY3l5NU1pNWFCMTZtMjJ6TDNQSHBySnNCeXZudFlyWmpabkc1ZWx3NTVUZXd5WC1Lb2hscUpQU3l0NDBiNmZDUFZ4ZzQteVJONTQ0RUw5RzAtQ0ZPTFFEX0x2N0ZXeWpuS2Nr?oc=5"
    },
    {
-    "date": "2026-09-08 15:13",
-    "title": "Oil Prices Are Once Again on the Brink of $100",
-    "source": "OilPrice",
-    "topics": [
-     "oil price",
-     "natural gas"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Energy/Crude-Oil/Oil-Prices-Are-Once-Again-on-the-Brink-of-100.html"
-   },
-   {
-    "date": "2026-09-08 14:30",
-    "title": "Dutch TTF Gas Jumps 2% as Winter Storage Race Heats Up",
-    "source": "OilPrice",
-    "topics": [
-     "natural gas"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Dutch-TTF-Gas-Jumps-2-as-Winter-Storage-Race-Heats-Up.html"
-   },
-   {
-    "date": "2026-09-08 14:00",
-    "title": "$100 Brent Looms as China’s Oil Buying Rebounds",
-    "source": "OilPrice",
-    "topics": [
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Energy/Energy-General/100-Brent-Looms-as-Chinas-Oil-Buying-Rebounds.html"
-   },
-   {
     "date": "2026-09-08 17:11",
     "title": "Canada's retaliatory tariffs worth CA$27.6 billion take effect as trade rift with U.S. deepens",
     "source": "CNBC마켓",
@@ -211,20 +189,30 @@
     "link": "https://www.cnbc.com/2026/09/08/canada-retaliatory-tariffs.html"
    },
    {
-    "date": "2026-09-08 21:32",
-    "title": "Qualcomm’s stock climbs as Amazon chip deal offers investors much-needed good news",
-    "source": "MarketWatch",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.marketwatch.com/story/qualcomms-stock-climbs-as-amazon-chip-deal-offers-investors-some-much-needed-good-news-5b6a95ca?mod=mw_rss_topstories"
+    "date": "2026-09-08 12:36",
+    "title": "Gold reverses early gains as US Dollar rebounds, Oil prices rise - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
+    "topics": [
+     "oil price"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNRjFfbjJRMS1BSVBMa2s1VTl2QmZBRTE2OEZ3Vm1GQU1TSGlHd29WUU1ZcWRkdERVZENhWEZmV3gxbjJ4YkJOQThiYklIRGJQRllTckxzT0ZPX0ZWT2U5SHhwTzNkY29wUGpOVUdEUWZ6cHZfZUR5UU5CM1k3SDVINGQ2amNJSy0zcllxRnZoYlh1Zl9XQ1BkT1FCLU5qRE5YS28zUUdCenFmTzMtS01rWGNRRXlYd01OVHpKbHVraldPNUNpZUczRw?oc=5"
    },
    {
-    "date": "2026-09-07 10:00",
-    "title": "US voters reel as fuel prices hit Labor Day record high",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/da937483-cda9-4417-9257-540c680696c3?syn-25a6b1a6=1"
+    "date": "2026-09-07 02:01",
+    "title": "Gold falls below $4,400 as strong US jobs data raise the prospects for Fed rate hike - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
+    "topics": [
+     "rate hike"
+    ],
+    "groups": [
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOU3Q3T1JDbXFVTHN5OFFjZFpVbk16SF9pY20tX1o1MWNiYTVqNkhqeUVYeUttVlQzTnBCVUtiMHVSZHNuZm9FbzZSa1dEcDZudXpaWFRLZ3hNSjlYUVRKdmhjelhteE1QbGhlbFVOeTdZV2YtS0VvT0haWEVOMVR4dEk1LWI3SjI3V0l5bmNmbTJ0Um1xcmJCUFhGLVBOdHkzQlRlOWNVSnJPSURMaVRYZlNxWUJaTVF4cXdvdmJTbnZCR1dfd1JwRjEwTzdJSFZQUzZ4RUM2enZQNld3cWhWUDZWZw?oc=5"
    },
    {
     "date": "2026-09-08 05:02",
@@ -282,28 +270,140 @@
     "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOT1BJaTJicUJiVzZSLWhjNU43QjVGeFZrN25pbFduWE1QbmI4UVR4cDlnQ2hiZUw4Y3JheEJhQmw2cE1MVzdBc0ZGcWFYR3I1RkdlOVJCMUJqV1p2XzdtQUhmejFoNTZJSktGRF9MN2pNdk4wcW9XaDJzYXJKV3pnS3psRFNVcmRrTFpzYTBNLURhRTVRRV93X1RqRDhLZ0VyYXpmRkhCSEhRX3NGYUtYajIxOUJYdTdSY1g0UHlkYm1zTUh3cV9uZ1h1WEpsaWU0WE9jMS1kSjBuQnIyY3BwT0RDRlpoRTA?oc=5"
    },
    {
-    "date": "2026-09-08 17:35",
-    "title": "Euronext wheat falls as Trump-Putin call revives Ukraine hopes",
-    "source": "Investing원자재",
+    "date": "2026-09-07 18:40",
+    "title": "United States Dollar Index trades under pressure as Yen buying accelerates - tmgm.com",
+    "source": "구글뉴스:dollar index",
     "topics": [
-     "wheat"
+     "dollar index"
     ],
     "groups": [
-     "농산물"
+     "금속",
+     "환율"
     ],
-    "link": "https://www.investing.com/news/commodities-news/euronext-wheat-falls-as-trumpputin-call-revives-ukraine-hopes-93CH-4892171"
+    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOMFZKdzRWT1RETjRkR0Jua0F2My1uX29DNklqWVQ0MWM2aVozNmc2N2UyQjJsOTk4LUFOeEU3VloyQnA2UVVTSkh3QU8wU25rXzF4MmFoRE4ycTcxZmxQRFo5OF9SVGU1RzM5U2psSFk2VnpjV2lSWVp6b2x4WV9Rcl96LVpERlVWSUpxcE1QdFEycjloRnFiVzdNMV9ZWXpUaGZ1S21JWjJiX0dwWEdNbmlTVnAwNDhkSDdmSmNyTjdNNGVVdldIOWJuakhaRmoyOG9YMmhPQQ?oc=5"
    },
    {
-    "date": "2026-09-07 17:17",
-    "title": "Pricey oil is laying the groundwork for its own decline",
-    "source": "FT마켓",
+    "date": "2026-09-08 19:58",
+    "title": "Gold price wilts as Oil shock puts CPI in Fed crosshairs - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
     "topics": [
-     "crude"
+     "cpi",
+     "gold price"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMDVzeEZIalBKaDB2YzNENkM5aUdNdVNHU3hpem1tOHl1YjY5ZTJZYjVmbnhseUZkcGhpX2VGQjJ3bzdiM3hGcjBjLXZxcWR3VnkwRlJDZXloemZ2TFBxYW5GREh0Ykw2Y2pEcWNUNVFPTll4ZEJYTmx0bVRwZjBmRGx1dGt5OWRsbkMyYm5iNXMzVDVpZWEzTVRZR2x4RHRFaFFLM2l3TVJuUXpIeUg2NFVBSDZPeHd1dDBnZHdOVQ?oc=5"
+   },
+   {
+    "date": "2026-09-09 14:00",
+    "title": "California Heat Wave Tests Grid as Power Demand Surges",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Energy/Energy-General/California-Heat-Wave-Tests-Grid-as-Power-Demand-Surges.html"
+   },
+   {
+    "date": "2026-09-09 13:30",
+    "title": "Sinopec Sees China Oil Demand Falling 8.9% in 2026",
+    "source": "OilPrice",
+    "topics": [
+     "opec",
+     "crude",
+     "oil price",
+     "barrel"
     ],
     "groups": [
      "에너지"
     ],
-    "link": "https://www.ft.com/content/f7f164ea-83eb-44d6-93e5-ecec8b2648d9?syn-25a6b1a6=1"
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Sinopec-Sees-China-Oil-Demand-Falling-89-in-2026.html"
+   },
+   {
+    "date": "2026-09-09 07:05",
+    "title": "Rising Oil Prices Threaten China’s Independent Refiners",
+    "source": "OilPrice",
+    "topics": [
+     "oil price"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Rising-Oil-Prices-Threaten-Chinas-Independent-Refiners.html"
+   },
+   {
+    "date": "2026-09-09 00:00",
+    "title": "Iran’s Oil Exports Collapse as Hormuz Standoff Drags On",
+    "source": "OilPrice",
+    "topics": [
+     "oil price",
+     "barrel"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Energy/Crude-Oil/Irans-Oil-Exports-Collapse-as-Hormuz-Standoff-Drags-On.html"
+   },
+   {
+    "date": "2026-09-09 11:01",
+    "title": "Op-Ed: Chile’s copper sector faces a growing power problem",
+    "source": "Mining.com",
+    "topics": [
+     "copper"
+    ],
+    "groups": [
+     "금속"
+    ],
+    "link": "https://www.mining.com/op-ed-chiles-copper-sector-faces-a-growing-power-problem/"
+   },
+   {
+    "date": "2026-09-09 13:54",
+    "title": "Brent crude oil rises above $100 a barrel as Middle East conflict intensifies",
+    "source": "Investing원자재",
+    "topics": [
+     "crude",
+     "barrel"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/brent-crude-rises-above-100-a-barrel-as-middle-east-conflict-escalates-4892829"
+   },
+   {
+    "date": "2026-09-09 12:43",
+    "title": "Meta’s stock jumps as new personal AI agent Muse addresses a major investor concern",
+    "source": "MarketWatch",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.marketwatch.com/story/meta-stock-jumps-as-new-personal-ai-agent-muse-addresses-a-major-investor-concern-5ad0a373?mod=mw_rss_topstories"
+   },
+   {
+    "date": "2026-09-09 08:26",
+    "title": "‘I am the house now’: Bessent warns traders not to bet against yen",
+    "source": "FT마켓",
+    "topics": [
+     "currency"
+    ],
+    "groups": [
+     "환율"
+    ],
+    "link": "https://www.ft.com/content/38d718f6-110b-4822-9403-f7d12a48cfa8?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-09-09 04:40",
+    "title": "WTI surges as US strikes Iranian tankers - tmgm.com",
+    "source": "구글뉴스:oil price OPEC",
+    "topics": [],
+    "groups": [],
+    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNm93cHpsSHpNSUtMd3NQdzFSUTh6VS03NlNrWFFzOGZJSFlUYTFCOVh1VEZSZVBiUE1hWnNRWVp1MGNzbTNhQUNaUVdFaVFDZlduMWFWRkxPZW9kVDctSXN2b3RaOHFYQ2xMSVpNYzlpcl95S25DQnl1ZXd1amJHbV9BQzNrYzlINXpJWW1EWFRtcFgzd2cwRkd1aUpmckQ4OWtXSGNPc0JFUQ?oc=5"
+   },
+   {
+    "date": "2026-09-07 11:36",
+    "title": "Saudi Oil facilities hit in fresh strikes, WTI surges above $90 - tmgm.com",
+    "source": "구글뉴스:oil price OPEC",
+    "topics": [],
+    "groups": [],
+    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQRjI1RFh4VU9YYXhJdVFnSmRWOFV3b1hLNUlwMkU5WUdtbjZybUdWbXBjZTQ2aHdjaE9iMlo3THVHWWgzUzNUUU9CQTE2cUZYckRqcWlIMDhhRG1TM25yVkhzbWYxMG1EMnJQTTltQy04WlZweWRkNFhVQ3lNc0hhb0hQTVRYSWtpb0JKSkVxRkk5Q0pDY1lMdmpPZGpEZEdIbFRUWUc4QUhhM3Bkem5JMDl1NWMySlh3bXFxRW51UTEtWlVjd1E?oc=5"
    },
    {
     "date": "2026-09-07 10:18",
@@ -316,104 +416,6 @@
      "채권금리"
     ],
     "link": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxPYmVtbzhkWFJDM1BUVDFsYzJUVUNjMTZfMXJ2cnRtLThDYmdvdEZZdHR4cmRVYTFKM0NBWUtNMUhUbUZtQVpNQVNYZUNidVZXYzRkTVJUdGlBOGhuVE43cllGYmZNWnlDVGt2SXZaZGJTT19EcDcxU1ZkZjh4SDRsYl9XSXlhVlBrVHY0NG5QZFo3U3B6MGpCVExhV0tpdGV0RDZuc0pfU1ozMGNWbGlZOGFOS3BlNW9yQTlzUEhHbzNOQnF5ZmpSbDRZcm1hSVNPak9qX1Zld055V3haNllFMVhmMm9NLXdXRU9Vd0YyOGhFMGQzdUlnRVFEd2hXcGl0dFh2RlQtYjd1S21RbXJxY1ZneGp6Ui1yWl9uQVpoOWE4d053a2NTVXdJQlp2ZjlpaWNnSUlmNVVtbWM?oc=5"
-   },
-   {
-    "date": "2026-09-06 12:17",
-    "title": "US Dollar Index Hits New Highs in Recent Years, Pressuring Copper Prices—Will Year-End Consumption of Copper Cathode Benefit? [SMM Analysis] - Shanghai Metals Market",
-    "source": "구글뉴스:dollar index",
-    "topics": [
-     "dollar index",
-     "copper"
-    ],
-    "groups": [
-     "금속",
-     "환율"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxOaEhaN1U1WUFhTDJSTUdFRVpTN0ZuZmZ5ODlMNkZPZWhPX3gyMDR4SnFJXzdvRnV0VlpDeFI0Q1ExZE90UXZON283dHFuNUdQZTFobVpOZ2JZdDdaekFYSWplVUd2VUM2aGtNSUE4LVNTWXVvR2tUeUU1dWNVa0MxU1hLSmF2Q0c4YWVxYlI0emFVNElBUndEZUNoMHg2bmhYbkhKYmRzaUVTdHoxN2tmMEo4ei1OUUJxSFdZdF9OREI0MlhoZm56UmhDaE5DOTlvZmtsVUFsZG5STmNoX0JyRVZpdUtzcVZ4bXdsVGZqZVdTQ1hNTzI2WTdBVFJBNTJQTnRoanZnS21fUjlLVVdIMA?oc=5"
-   },
-   {
-    "date": "2026-09-08 19:00",
-    "title": "D.C. Gas Ban Gets Favorable Hearing in Federal Appeals Court",
-    "source": "OilPrice",
-    "topics": [
-     "natural gas"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/DC-Gas-Ban-Gets-Favorable-Hearing-in-Federal-Appeals-Court.html"
-   },
-   {
-    "date": "2026-09-08 17:59",
-    "title": "Chevron to Double Venezuela Rig Count in $7 Billion Oil Push",
-    "source": "OilPrice",
-    "topics": [
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Chevron-to-Double-Venezuela-Rig-Count-in-7-Billion-Oil-Push.html"
-   },
-   {
-    "date": "2026-09-08 16:30",
-    "title": "Canada’s Oil Pivot to Asia Is Starting to Materialize",
-    "source": "OilPrice",
-    "topics": [
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Canadas-Oil-Pivot-to-Asia-Is-Starting-to-Materialize.html"
-   },
-   {
-    "date": "2026-09-08 15:30",
-    "title": "Uganda Set to Become World's Newest Oil Exporter in Early 2027",
-    "source": "OilPrice",
-    "topics": [
-     "crude"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Uganda-Set-to-Become-Worlds-Newest-Oil-Exporter-in-Early-2027.html"
-   },
-   {
-    "date": "2026-09-08 18:55",
-    "title": "Marimaca hits thick copper-silver zone at Pampa Medina in Chile",
-    "source": "Mining.com",
-    "topics": [
-     "copper"
-    ],
-    "groups": [
-     "금속"
-    ],
-    "link": "https://www.mining.com/marimaca-hits-thick-copper-silver-zone-at-pampa-medina-in-chile/"
-   },
-   {
-    "date": "2026-09-08 14:29",
-    "title": "Op-Ed: The Lobito blind spot and Zambia’s manganese future",
-    "source": "Mining.com",
-    "topics": [
-     "copper"
-    ],
-    "groups": [
-     "금속"
-    ],
-    "link": "https://www.mining.com/op-ed-the-lobito-blind-spot-and-zambias-manganese-future/"
-   },
-   {
-    "date": "2026-09-08 13:15",
-    "title": "Ivanhoe’s giant Makoko copper find gets 30% bigger",
-    "source": "Mining.com",
-    "topics": [
-     "copper"
-    ],
-    "groups": [
-     "금속"
-    ],
-    "link": "https://www.mining.com/ivanhoes-giant-makoko-copper-find-gets-30-bigger/"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -421,91 +423,91 @@
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
   "usRates": {
-   "value": 2.2,
+   "value": 2.9,
    "unit": "bp",
-   "fact": "미 10년물 4.806% (전일 4.784%)",
+   "fact": "미 10년물 4.835% (전일 4.806%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-09-09T08:32:29"
+   "asof": "2026-09-10T00:21:06"
   },
   "riskAppetite": {
-   "value": 0.42,
+   "value": 0.57,
    "unit": "pt",
-   "fact": "VIX 15.72 (전일 15.30)",
+   "fact": "VIX 16.29 (전일 15.72)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-09-09T08:32:29"
+   "asof": "2026-09-10T00:21:06"
   },
   "dollar": {
-   "value": -0.33,
+   "value": -0.03,
    "unit": "%",
-   "fact": "달러인덱스 98.836 (전일 대비 -0.33%)",
+   "fact": "달러인덱스 98.811 (전일 대비 -0.03%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-09-09T08:32:29"
+   "asof": "2026-09-10T00:21:06"
   },
   "breadth": {
-   "value": 37.5,
+   "value": 29.9,
    "unit": "%",
-   "fact": "상승 1,873 / 하락 2,990 (37.5%)",
+   "fact": "상승 1,491 / 하락 3,324 (29.9%)",
    "source": "Nasdaq screener 전종목",
-   "asof": "2026-09-09T00:22:22"
+   "asof": "2026-09-10T00:20:40"
   },
   "rateDiff": {
-   "value": -2.1,
+   "value": 4.0,
    "unit": "bp",
-   "fact": "미 10년물 4.806% − 유로존 3.3895% = 142bp (전일 144bp)",
-   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-09-07",
-   "asof": "2026-09-09T08:32:29"
+   "fact": "미 10년물 4.835% − 유로존 3.3785% = 146bp (전일 142bp)",
+   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-09-08",
+   "asof": "2026-09-10T00:21:06"
   }
  },
  "levels": {
   "XAUUSD_FUT": {
-   "last": 4397.7,
-   "prevClose": 4429.7998046875,
+   "last": 4435.1,
+   "prevClose": 4393.89990234375,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-09-09T08:32:29",
-   "note": "금 · 당일 -0.72% · 선물 Gold Dec 26"
+   "asof": "2026-09-10T00:21:06",
+   "note": "금 · 당일 +0.94% · 선물 Gold Dec 26"
   },
   "USOIL_FUT": {
-   "last": 94.34,
-   "prevClose": 91.4800033569336,
+   "last": 96.39,
+   "prevClose": 93.02999877929688,
    "contract": "Crude Oil Oct 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-09-09T08:32:29",
-   "note": "WTI원유 · 당일 +3.13% · 선물 Crude Oil Oct 26"
+   "asof": "2026-09-10T00:21:06",
+   "note": "WTI원유 · 당일 +3.61% · 선물 Crude Oil Oct 26"
   },
   "EURUSD": {
-   "last": 1.1631,
+   "last": 1.1628,
    "prevClose": 1.1627637147903442,
    "contract": null,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-09-09T08:32:29",
-   "note": "유로달러 · 당일 +0.03%"
+   "asof": "2026-09-10T00:21:06",
+   "note": "유로달러 · 당일 +0.00%"
   },
   "NAS100": {
-   "last": 29523.25,
-   "prevClose": 29565.25,
+   "last": 29425.0,
+   "prevClose": 29538.75,
    "contract": "Nasdaq 100 Sep 26",
    "source": "Yahoo NQ=F",
-   "asof": "2026-09-09T08:32:29",
-   "note": "나스닥선물 · 당일 -0.14% · 선물 Nasdaq 100 Sep 26"
+   "asof": "2026-09-10T00:21:06",
+   "note": "나스닥선물 · 당일 -0.39% · 선물 Nasdaq 100 Sep 26"
   },
   "XAUUSD": {
-   "last": 4397.7,
-   "prevClose": 4429.7998046875,
+   "last": 4435.1,
+   "prevClose": 4393.89990234375,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-09-09T08:32:29",
-   "note": "금 · 당일 -0.72% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-09-10T00:21:06",
+   "note": "금 · 당일 +0.94% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "XAUUSD_FUT"
   },
   "USOIL": {
-   "last": 94.34,
-   "prevClose": 91.4800033569336,
+   "last": 96.39,
+   "prevClose": 93.02999877929688,
    "contract": "Crude Oil Oct 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-09-09T08:32:29",
-   "note": "WTI원유 · 당일 +3.13% · 선물 Crude Oil Oct 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-09-10T00:21:06",
+   "note": "WTI원유 · 당일 +3.61% · 선물 Crude Oil Oct 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "USOIL_FUT"
   }
