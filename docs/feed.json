@@ -1,43 +1,102 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-10-07T09:52:23+09:00",
+ "generatedAt": "2026-10-08T02:59:33+09:00",
  "collectedAt": {
-  "macro": "2026-10-07T09:52:14",
-  "us": "2026-10-07T02:25:51"
+  "macro": "2026-10-08T02:59:01",
+  "us": "2026-10-08T02:58:39"
  },
  "context": {
   "eiaCrudeLevel": {
-   "weeklyChangeKbbl": 922.0,
-   "vs5yAvgPct": 1.9,
-   "period": "2026-09-25",
+   "weeklyChangeKbbl": -3186.0,
+   "vs5yAvgPct": -0.6,
+   "period": "2026-10-02",
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "goldSpot": {
-   "last": 4159.0,
+   "last": 4110.4,
    "source": "gold-api.com XAU",
-   "asof": "2026-10-07T00:52:11Z",
-   "vsFutures": 29.9,
+   "asof": "2026-10-07T17:58:54Z",
+   "vsFutures": 28.2,
    "note": "현물이다. levels.XAUUSD_FUT는 COMEX 선물이라 수준이 다르다. 격차는 같은 스냅샷 안에서만 비교하라 — 만기·롤오버로 흔들린다."
   },
   "fearGreed": {
-   "value": 47.4,
-   "rating": "neutral",
-   "weekAgo": 28.9
+   "value": 44.8,
+   "rating": "fear",
+   "weekAgo": 30.3
   },
   "yieldCurve": [
    {
     "label": "10Y-2Y",
-    "spreadBp": 123.2,
+    "spreadBp": 124.6,
     "inverted": false
    },
    {
     "label": "30Y-10Y",
-    "spreadBp": 37.2,
+    "spreadBp": 38.2,
     "inverted": false
    }
   ],
   "news": [
+   {
+    "date": "2026-10-07 11:30",
+    "title": "Shell’s Refining Margin Jumps 75% as Fuel Supplies Dry Up",
+    "source": "OilPrice",
+    "topics": [
+     "barrel"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Shells-Refining-Margin-Jumps-75-as-Fuel-Supplies-Dry-Up.html"
+   },
+   {
+    "date": "2026-10-07 03:27",
+    "title": "Gold rises above $4,150 as bond yields turn lower, traders await FOMC Minutes - tmgm.com",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "fomc",
+     "bond yield"
+    ],
+    "groups": [
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNRTRRd2d3eE5KVEdGNWVqX3lDeGtjdTAzUHdRQVBvRmM4c0htQjNfRVZveEdYUTVPOXVwakN1MzVMT2lqN3JPTENjVlh4UGIweUtNVVRTTHB2OTM2VFQyWjdGalhhZHFFS0tGLWE2SHI2dlNzbFpzYmp4WEFwZ3BHR1JEcllNWGd0YlFtc3d6ZVB1VUpTdHU1RWJabzNBMnhDWnV1SkM3VkFZY1RTZE9Ic2xZeWZ2T1pDWlZTSXJGUGVhWTJXT01UQjlMeW1yY2V2VEIwdmR0Ykg?oc=5"
+   },
+   {
+    "date": "2026-10-07 12:37",
+    "title": "US Dollar Index Price Forecast: 101.80 remains key support zone ahead of FOMC minutes - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "fomc",
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxONFRSZS1PaTBDMTZQY3RpMXBBUVdyMHgyQUEzckRUSWdrenpJUjcwV2RSeVJldmFpX0FjYUtKSUd6MlVSZThaOHNzMFhOQWZSQ1lmSnYxM0NqYkQ3UExOU0tBSFRkMHBmTm5tYmxqUzRwakhDLUxCOW1GYzFOQTFwZlFtMDJMOWIwZ05OeXhYSm94WXpJcWpzYmF5OVYtVW45UVN3NEVhRGpjdWhIaU5XeUFSOGNJa1RrZnJRUVhURlBPSEJfZkJsWjVwR1RVMEpJekRWZDBUS1lubnpVM3pIc2J6SQ?oc=5"
+   },
+   {
+    "date": "2026-10-07 03:19",
+    "title": "United States Dollar Index retakes 102.00 as bulls eye YTD peak ahead of FOMC Minutes - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "fomc",
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "지수선물",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPd05LX0hmcDB3UVBrT0xOQ2FBVk5abVliNGc3Vng5Q3doTktzX2dQdEVkOFZ0Tmx5eHN2cjRuaUFfOTcwTWJKcTBzRjA0QmxjTE9jSGg0ZUEwdzdjRVpYSm8xQnZRcUUxUE9HN0FxZ1Y2OWJmaGI0WDRLeFJoT2pZeUtsdFlmeGJwM0FsUFpMNlJOQ3M5bGI0d1VtYnJhc2dGUS1sR2xlQkhoanBMa1ducHVvdUZRS0VHdkswSDE0VTdmYzNXR2toRXkyZWpUdFBwYWNqR0xPOENXYkFpUU9wUHktTFY?oc=5"
+   },
    {
     "date": "2026-10-06 05:26",
     "title": "United States Dollar Index holds above 102, remains supported by firm bond yields - tmgm.com",
@@ -54,6 +113,48 @@
     "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOMHlKZ1BfamxyeHVEWWp0bElhU1RvZU05NG42akw4Wk1HT3pzMmZqYm45dDR3andCb1FCSmxieC1PelhXZzZ6Ui1FT3Z0OGNIc29pendPSFROckxHbDBHYTR4YklXMEZ2ZWZuS09tdzZyNUx1Xy1Bb293ZG9fOE5MZE81V2phbHpoaU1lWXNiMGxqRDk5ZDM3WW5odjhUYVVlVWQ1QzJXQVowVXdrTGlxbTNhYm5kR2hheG8tay1jS0RST1dzd2hjRjRzVm9jOW9rQ0lic3luTGE3RlYtVFpn?oc=5"
    },
    {
+    "date": "2026-10-07 16:00",
+    "title": "Europe Moves to Curb the Flood of Chinese Hybrid Cars",
+    "source": "OilPrice",
+    "topics": [
+     "tariff"
+    ],
+    "groups": [
+     "금속",
+     "농산물",
+     "지수선물"
+    ],
+    "link": "https://oilprice.com/Energy/Energy-General/Europe-Moves-to-Curb-the-Flood-of-Chinese-Hybrid-Cars.html"
+   },
+   {
+    "date": "2026-10-07 16:18",
+    "title": "Inflation fears on the rise as one-year outlook in Fed survey hits highest level since May 2023",
+    "source": "CNBC마켓",
+    "topics": [
+     "inflation"
+    ],
+    "groups": [
+     "금속",
+     "채권금리"
+    ],
+    "link": "https://www.cnbc.com/2026/10/07/inflation-fears-on-the-rise-as-one-year-outlook-in-fed-survey-hits-highest-since-may-2023.html"
+   },
+   {
+    "date": "2026-10-07 11:55",
+    "title": "India’s central bank hikes rates for the first time since 2023 as inflation risks build",
+    "source": "CNBC마켓",
+    "topics": [
+     "interest rate",
+     "inflation"
+    ],
+    "groups": [
+     "금속",
+     "채권금리",
+     "환율"
+    ],
+    "link": "https://www.cnbc.com/2026/10/07/india-rbi-interest-rates-inflation.html"
+   },
+   {
     "date": "2026-10-06 15:52",
     "title": "Trade deficit hits $105.6 billion, widest since just before Trump tariffs enacted last year",
     "source": "CNBC마켓",
@@ -68,25 +169,20 @@
     "link": "https://www.cnbc.com/2026/10/06/trade-deficit-hits-105point6-billion-widest-since-just-before-trump-tariffs-enacted-last-year.html"
    },
    {
-    "date": "2026-10-05 19:14",
-    "title": "Dollar Index, 102.31 고점서 하락 반전 신호: 매시간 업데이트 - Investing.com 한국어",
-    "source": "구글뉴스:dollar index",
-    "topics": [
-     "dollar index"
-    ],
-    "groups": [
-     "금속",
-     "환율"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBQZEw0LUVRcWVvMzRfcWREMFVqM29PZ2U5LTEzTFdFUkdFRVRyUnZ6cHQ3dXpVUzhnYm9fNmluekhqbU9QZXJVMFdwUXY2SWliZ0otVzgxNkJmaEw5X2RzOWpJanB1eHYzR05UMktPQ1AxbE5WR2Fz?oc=5"
-   },
-   {
-    "date": "2026-10-06 16:05",
-    "title": "The Hidden Cost of Saudi Arabia’s Oil Export Recovery",
-    "source": "OilPrice",
+    "date": "2026-10-07 14:01",
+    "title": "Micron’s ridiculously cheap stock could triple from here, according to this analyst’s math",
+    "source": "MarketWatch",
     "topics": [],
     "groups": [],
-    "link": "https://oilprice.com/Energy/Crude-Oil/The-Hidden-Cost-of-Saudi-Arabias-Oil-Export-Recovery.html"
+    "link": "https://www.marketwatch.com/story/microns-ridiculously-cheap-stock-could-triple-from-here-according-to-this-analysts-math-7b9b50bc?mod=mw_rss_topstories"
+   },
+   {
+    "date": "2026-10-07 17:07",
+    "title": "SEC warns asset managers against collaborating on activist campaigns",
+    "source": "FT마켓",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/20557850-9cd1-4685-8238-f292023afc1f?syn-25a6b1a6=1"
    },
    {
     "date": "2026-10-06 20:58",
@@ -110,31 +206,44 @@
     "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNUnNic2J5TWYwNlBRUGlGWWtvdTFlMkV6dFBrc2lLalFSQkxQclBBYy1oWFhkeTJNRllVc2RwMVI3VU1oS2hRaERfRVBUMVBPNllRUUUyUi02VVRIU3lZeklRUWpFU2Z0Z19JajZkMTduSUM5MFpIb2tSLUxOM2lwNlREbHBCbzZNd0JvRHFNS2xfUUU1eThTY1gzTTdrcGdYbmFtcDhLLVZFQzdNQWlsZGF4ODhQUk4xaHdDMFJzMnVVeGFJakN1YUZXM3BKYTFqNlVCVkd6N05xdXFrU3VzSldyRndyTW8?oc=5"
    },
    {
-    "date": "2026-10-06 22:00",
-    "title": "G7’s 100 Million Barrel Release Is Mostly Already Priced In",
-    "source": "OilPrice",
+    "date": "2026-10-06 19:48",
+    "title": "Silver Price Forecast: XAG/USD rebounds to near $61.00 as US Dollar comes under pressure - tmgm.com",
+    "source": "구글뉴스:gold price outlook",
     "topics": [
-     "barrel"
+     "silver price"
     ],
     "groups": [
-     "에너지"
+     "금속"
     ],
-    "link": "https://oilprice.com/Energy/Crude-Oil/G7s-100-Million-Barrel-Release-Is-Mostly-Already-Priced-In.html"
+    "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQblpkbTNUTmx4MzYxd0VJaS1ZZDkzeXlxR3dvT0dNZGJXRmZyWjhXM1c0SlhSWkFNY3FNYnJpSm15REJzTHFuWG1peElwb3RNTTZmSGNiRW9sV24yeUc5ZVJYQWNmaENid0puNjBJa3FjZmcxZm53U3ZubzJ6bFpycTlmbDMtbHZWclgxaW50YWpfbGhiUm5HbkFWdjZOdmtkMmNkM3RIWnBUbktvZ2xZMnRHZ3ViOUVtMDAwbEFCb1hkcDBrUzBQekNUTDJMNnVHUTNtRXBqdUdLT1FJQ0ZjSE1tZkVCdw?oc=5"
    },
    {
-    "date": "2026-10-06 21:52",
-    "title": "The S&P 500 is back in record territory as the ‘Magnificent Seven’ ride to the rescue",
-    "source": "MarketWatch",
+    "date": "2026-10-07 16:33",
+    "title": "Namibia diamond mine revival draws $50M investment",
+    "source": "Mining.com",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.mining.com/namibia-diamond-mine-revival-draws-50m-investment/"
+   },
+   {
+    "date": "2026-10-07 11:52",
+    "title": "Antofagasta’s Centinela strike adds copper supply risk",
+    "source": "Mining.com",
     "topics": [
-     "bond yield",
-     "crude",
-     "oil price"
+     "copper"
     ],
     "groups": [
-     "에너지",
-     "채권금리"
+     "금속"
     ],
-    "link": "https://www.marketwatch.com/story/the-s-p-500-is-back-in-record-territory-as-the-magnificent-seven-ride-to-the-rescue-e062724d?mod=mw_rss_topstories"
+    "link": "https://www.mining.com/antofagastas-centinela-strike-adds-copper-supply-risk/"
+   },
+   {
+    "date": "2026-10-07 10:47",
+    "title": "Sigma Lithium stock jumps as Brazil court clears Grota mine restart",
+    "source": "Mining.com",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.mining.com/sigma-lithium-jumps-as-brazil-court-clears-grota-mine-restart/"
    },
    {
     "date": "2026-10-06 15:56",
@@ -161,56 +270,33 @@
     "link": "https://www.mining.com/surge-battery-boosts-returns-cuts-costs-for-nevada-lithium-project/"
    },
    {
-    "date": "2026-10-07 00:17",
-    "title": "Oil prices rise as M.East supply jitters persist",
-    "source": "Investing원자재",
+    "date": "2026-10-07 06:16",
+    "title": "Why AI is both the hope and the hazard for world leaders, according to IMF chief Georgieva",
+    "source": "CNBC마켓",
     "topics": [
-     "oil price"
+     "inflation"
     ],
     "groups": [
-     "에너지"
+     "금속",
+     "채권금리"
     ],
-    "link": "https://www.investing.com/news/commodities-news/oil-prices-rise-as-meast-supply-jitters-persist-4935465"
+    "link": "https://www.cnbc.com/2026/10/07/economy-inflation-ai-trade-imf-iran-hormuz-trump-.html"
    },
    {
-    "date": "2026-10-06 23:36",
-    "title": "US judge authorizes fund to subpoena New York Fed for documents related to Radiant World",
-    "source": "Investing원자재",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.investing.com/news/commodities-news/us-judge-authorizes-fund-to-subpoena-new-york-fed-for-documents-related-to-radiant-world-4935428"
-   },
-   {
-    "date": "2026-10-06 13:52",
-    "title": "McKesson and CD&R strike $5.8bn deal to buy infusion services provider",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/0bc54eaf-d545-4591-bb7c-ec3cbc1cb89a?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-10-06 13:39",
-    "title": "Vitol chief warns of tanker shortage and risk of $200-a-barrel oil",
+    "date": "2026-10-07 16:25",
+    "title": "Global bond sell-off resumes as 30-year Treasury yield hits highest since 2002",
     "source": "FT마켓",
     "topics": [
-     "barrel"
+     "treasury yield"
     ],
     "groups": [
-     "에너지"
+     "채권금리"
     ],
-    "link": "https://www.ft.com/content/95db1fbd-4e1f-45cf-b678-c40635f59197?syn-25a6b1a6=1"
+    "link": "https://www.ft.com/content/33c67aa0-bfdb-457b-84bb-960b4fed94b6?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-10-06 04:00",
-    "title": "Surge in borrowing costs hits corporate America",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/7c7ccb82-2973-47af-ad9b-b469c6ea0048?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-10-06 00:46",
-    "title": "Trump eases red diesel limits in attempt to quell fuel inflation",
+    "date": "2026-10-07 15:00",
+    "title": "US oil trader takes $2bn gamble on tankers as carriers steer clear of Hormuz",
     "source": "FT마켓",
     "topics": [
      "inflation"
@@ -219,15 +305,7 @@
      "금속",
      "채권금리"
     ],
-    "link": "https://www.ft.com/content/8a733f73-d506-49ae-9030-2bbf0987bc8d?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-10-05 20:22",
-    "title": "Brazil’s markets surge as investors bet on Bolsonaro win",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/47965ed4-5c40-4c91-ab1e-418aa75bb42a?syn-25a6b1a6=1"
+    "link": "https://www.ft.com/content/ff76eda4-0c63-4fcd-a5a1-2729fbbffccc?syn-25a6b1a6=1"
    },
    {
     "date": "2026-10-06 01:50",
@@ -244,6 +322,26 @@
     "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNY3RZUi1QY1FiU0xTQWhTaGJSdGRqR1JjRldSTlVTRThSOGJWSE9Oanp4LWE1dUlKM3gxeVBCd21WWUZtX0o5dnVUY2hNbzlNdnJ3VUhra2M2OWEwR29CQ0ZkZERYLUNobXBqVzR6VlpqY1dDN2ZmVWtuSFZONkZIdW5xYkUxSnN6SDQzX195bXU4SDM5X01famk3Ul9xVlhPc0N6bGRKejlyV3FWSGRnUktrdnlTeE5hOFEtRVpSZTFweHY5MEd6NWhtR1RSZw?oc=5"
    },
    {
+    "date": "2026-10-05 07:00",
+    "title": "The Pound flatlines as Treasury yields climb to another high - tmgm.com",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "treasury yield"
+    ],
+    "groups": [
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOMWVWY2FvQmNSMG12RnR0WWtGMGExYTVLNGlic0ZWeV9mRF9nM0VzaGIxNzdhckVRSHV6X3UwZFhNV2MzZGZzQU1xME5GS0s2dF9MVUZXVkpYZkNNejJBZ0lFZnQ0ZWNldWRVNVNNX2MyZkJJNG9Jdl9WbkFfTFNCREUyaGtCMjF4S2NHekxtZFFDVjNjSEwwNDNNR2oxc0xMR2RIZzRaTVZQZHZYTzZ1R3Y5WXgtUEZkZjJNa3BSbF9hSUhQ?oc=5"
+   },
+   {
+    "date": "2026-10-06 19:14",
+    "title": "달러 인덱스, 101.24 지지선 붕괴 시 추가 하락 위험: 매시간 업데이트 - Investing.com 한국어",
+    "source": "구글뉴스:dollar index",
+    "topics": [],
+    "groups": [],
+    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBQZEw0LUVRcWVvMzRfcWREMFVqM29PZ2U5LTEzTFdFUkdFRVRyUnZ6cHQ3dXpVUzhnYm9fNmluekhqbU9QZXJVMFdwUXY2SWliZ0otVzgxNkJmaEw5X2RzOWpJanB1eHYzR05UMktPQ1AxbE5WR2Fz?oc=5"
+   },
+   {
     "date": "2026-10-06 17:05",
     "title": "US Dollar Index Price Forecast: Hovers around 102.00 within overbought region - tmgm.com",
     "source": "구글뉴스:dollar index",
@@ -257,6 +355,32 @@
     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNOTV2SjZ0eHcwVm15QjlTSHdNaTloWmQxSktjdHNhYWVMSDZPcEMzR0RnQThvOWtKNDM1SklTNzExSThnZHN0OVRvSHJEaUxwal9KMVo3VnpFcFdHZWdOR3lpOGZaYzdrTWVSUDY5RUJOREMzbXV1a0dSRnBYS1Z1RE5EX3NxekRBcmxINk9GSWdOMTNxQ1lpdHBvcEtXYVdUS2hpZVd5dVA5ZHFVOEt3eUtIeVdpeWVfV3U1LWtHUHhGNk9NdjdIUXpFRlB0NVM3LWxlQkt0VDY?oc=5"
    },
    {
+    "date": "2026-10-05 16:27",
+    "title": "Dollar Index hits an 18-month high on French debt fears - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPWWtiQnBpTVpSdzVGQmpkUUlDUFl0ZDBwZWVITWFidnMxdFBiUXpDSjlwTmVlRWJvMmpPc284M2hXd0RxNGtMMW1jbUcwcE5obUN4VnhTNmZZYlBIVTBLbzJ1RHRnd0tuT1hQQlZkd3AtX0g3RVVHRXB6Um9PeG9qZ1FIb3dDWFhfNUhaSnlqMjZNaFBHS0FyM2JKMFFGdEV1VV9MQ25hSzNFdXhnZk9NY2M5M2xYM242MUR4NUtB?oc=5"
+   },
+   {
+    "date": "2026-10-05 12:54",
+    "title": "United States Dollar Index gathers strength above 102.00 on safe-haven flows - tmgm.com",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "dollar index"
+    ],
+    "groups": [
+     "금속",
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNN2dTUnNrcUYwRlJjZ05fNmEtRVhaTG1yVXlDWHFGYjVTZTBCd0tYRUhaYlhPamxBZGNmb0pSd0UyTEtlaHoya1ZMcjJSSUJCQm15OFJFWFBxWGF4cXM1N0lfb25Ra3BHaGROcl9HdVI3RXpWN2VocW9ySDcxNThFVEE5Tmpkd3MzSnc3bHZQbE0tb1B3a1ZPSHFSX0pUSjhLeHhzLWF3WkxEYmJrWnVSR1FMdmpkMElyV0ZDU2RqLW9leElJdG13Q1hrUVJlVE91VHZJMVczOWk?oc=5"
+   },
+   {
     "date": "2026-10-05 15:22",
     "title": "US Dollar Index Price Forecast: Retreats from nearly 18-month highs around 102.50 - tmgm.com",
     "source": "구글뉴스:dollar index",
@@ -268,112 +392,6 @@
      "환율"
     ],
     "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNOGZJUEpEUmo1NmhpMGZkd204TmxCaUJoaGZUUUFJWlAteUhzZVNIcEVIQmgtRzlfcVAxODljbC1NaWFDbU5HZkktc1RmT21XTnM2MlNmTlNWc0t1R1Vqdy1BdV9MOWpoVGFXaWNVYWFOcGVjbmY3bzhNenZhdnJ0cm50djVXYlJnbFB4Qzg2YXRfcGNrZmpfYldpemZHS2puaktCbjYzcFZpdEFwMm9qUlZNVThWQUNzVk5KaWJ3bkJ4WmxfWC05WGRYb2VZMlRybkNjcUpwZnJDSnFHOWc?oc=5"
-   },
-   {
-    "date": "2026-10-07 00:00",
-    "title": "Why $100 Oil Is Hard to Kill",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "oil price",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Energy/Oil-Prices/Why-100-Oil-Is-Hard-to-Kill.html"
-   },
-   {
-    "date": "2026-10-06 23:00",
-    "title": "5 Natural Gas Stocks Profiting From the Strait of Hormuz Standoff",
-    "source": "OilPrice",
-    "topics": [
-     "natural gas"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Energy/Natural-Gas/5-Natural-Gas-Stocks-Profiting-From-the-Strait-of-Hormuz-Standoff.html"
-   },
-   {
-    "date": "2026-10-06 21:15",
-    "title": "US Crude Inventories Slide",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/US-Crude-Inventories-Slide.html"
-   },
-   {
-    "date": "2026-10-06 21:00",
-    "title": "Europe's Power Grid Is Digitalizing Faster Than Regulators Can Keep Up",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/Europes-Power-Grid-Is-Digitalizing-Faster-Than-Regulators-Can-Keep-Up.html"
-   },
-   {
-    "date": "2026-10-06 20:00",
-    "title": "Halliburton Shuns Falklands Oil Project",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/Halliburton-Shuns-Falklands-Oil-Project.html"
-   },
-   {
-    "date": "2026-10-06 19:30",
-    "title": "Iraq Builds 2027 Budget on $58 Oil—and a Very Large Deficit",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Iraq-Builds-2027-Budget-on-58-Oiland-a-Very-Large-Deficit.html"
-   },
-   {
-    "date": "2026-10-06 19:00",
-    "title": "Is the West’s 100-Year Venezuela Oil Bet About To Backfire?",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Energy/Crude-Oil/Is-the-Wests-100-Year-Venezuela-Oil-Bet-About-To-Backfire.html"
-   },
-   {
-    "date": "2026-10-06 16:30",
-    "title": "Saudi East-West Pipeline Moves 5.8 Million Barrels as Red Sea Route Recovers",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-East-West-Pipeline-Moves-58-Million-Barrels-as-Red-Sea-Route-Recovers.html"
-   },
-   {
-    "date": "2026-10-06 14:30",
-    "title": "Gulf Producers Say Importers Should Share the Cost of Hormuz Workarounds",
-    "source": "OilPrice",
-    "topics": [
-     "crude"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Gulf-Producers-Say-Importers-Should-Share-the-Cost-of-Hormuz-Workarounds.html"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -381,91 +399,91 @@
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
   "usRates": {
-   "value": -4.2,
+   "value": 1.7,
    "unit": "bp",
-   "fact": "미 10년물 5.269% (전일 5.311%)",
+   "fact": "미 10년물 5.286% (전일 5.269%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-10-07T09:52:14"
+   "asof": "2026-10-08T02:59:01"
   },
   "riskAppetite": {
-   "value": -0.51,
+   "value": 0.14,
    "unit": "pt",
-   "fact": "VIX 15.01 (전일 15.52)",
+   "fact": "VIX 15.15 (전일 15.01)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-10-07T09:52:14"
+   "asof": "2026-10-08T02:59:01"
   },
   "dollar": {
-   "value": 0.11,
+   "value": 0.43,
    "unit": "%",
-   "fact": "달러인덱스 101.94 (전일 대비 +0.11%)",
+   "fact": "달러인덱스 102.272 (전일 대비 +0.43%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-10-07T09:52:14"
+   "asof": "2026-10-08T02:59:01"
   },
   "breadth": {
-   "value": 47.6,
+   "value": 47.9,
    "unit": "%",
-   "fact": "상승 2,374 / 하락 2,489 (47.6%)",
+   "fact": "상승 2,391 / 하락 2,458 (47.9%)",
    "source": "Nasdaq screener 전종목",
-   "asof": "2026-10-07T02:25:51"
+   "asof": "2026-10-08T02:58:39"
   },
   "rateDiff": {
-   "value": -8.0,
+   "value": 0.0,
    "unit": "bp",
-   "fact": "미 10년물 5.269% − 유로존 3.502% = 177bp (전일 185bp)",
-   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-10-05",
-   "asof": "2026-10-07T09:52:14"
+   "fact": "미 10년물 5.286% − 유로존 3.5188% = 177bp (전일 177bp)",
+   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-10-06",
+   "asof": "2026-10-08T02:59:01"
   }
  },
  "levels": {
   "XAUUSD_FUT": {
-   "last": 4188.9,
-   "prevClose": 4156.7998046875,
+   "last": 4138.6,
+   "prevClose": 4187.10009765625,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-10-07T09:52:14",
-   "note": "금 · 당일 +0.77% · 선물 Gold Dec 26"
+   "asof": "2026-10-08T02:59:01",
+   "note": "금 · 당일 -1.16% · 선물 Gold Dec 26"
   },
   "USOIL_FUT": {
-   "last": 90.01,
-   "prevClose": 89.43000030517578,
+   "last": 88.05,
+   "prevClose": 89.44000244140625,
    "contract": "Crude Oil Nov 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-10-07T09:52:14",
-   "note": "WTI원유 · 당일 +0.65% · 선물 Crude Oil Nov 26"
+   "asof": "2026-10-08T02:59:01",
+   "note": "WTI원유 · 당일 -1.55% · 선물 Crude Oil Nov 26"
   },
   "EURUSD": {
-   "last": 1.1254,
+   "last": 1.1202,
    "prevClose": 1.1217050552368164,
    "contract": null,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-10-07T09:52:14",
-   "note": "유로달러 · 당일 +0.33%"
+   "asof": "2026-10-08T02:59:01",
+   "note": "유로달러 · 당일 -0.13%"
   },
   "NAS100": {
-   "last": 31509.75,
-   "prevClose": 31317.75,
+   "last": 31373.75,
+   "prevClose": 31483.25,
    "contract": "Nasdaq 100 Dec 26",
    "source": "Yahoo NQ=F",
-   "asof": "2026-10-07T09:52:14",
-   "note": "나스닥선물 · 당일 +0.61% · 선물 Nasdaq 100 Dec 26"
+   "asof": "2026-10-08T02:59:01",
+   "note": "나스닥선물 · 당일 -0.35% · 선물 Nasdaq 100 Dec 26"
   },
   "XAUUSD": {
-   "last": 4188.9,
-   "prevClose": 4156.7998046875,
+   "last": 4138.6,
+   "prevClose": 4187.10009765625,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-10-07T09:52:14",
-   "note": "금 · 당일 +0.77% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-10-08T02:59:01",
+   "note": "금 · 당일 -1.16% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "XAUUSD_FUT"
   },
   "USOIL": {
-   "last": 90.01,
-   "prevClose": 89.43000030517578,
+   "last": 88.05,
+   "prevClose": 89.44000244140625,
    "contract": "Crude Oil Nov 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-10-07T09:52:14",
-   "note": "WTI원유 · 당일 +0.65% · 선물 Crude Oil Nov 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-10-08T02:59:01",
+   "note": "WTI원유 · 당일 -1.55% · 선물 Crude Oil Nov 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "USOIL_FUT"
   }
