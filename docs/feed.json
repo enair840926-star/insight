@@ -1,9 +1,9 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-10-27T02:41:47+09:00",
+ "generatedAt": "2026-10-27T09:38:13+09:00",
  "collectedAt": {
-  "macro": "2026-10-27T02:40:07",
+  "macro": "2026-10-27T09:38:00",
   "us": "2026-10-27T02:39:46"
  },
  "context": {
@@ -14,30 +14,45 @@
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "goldSpot": {
-   "last": 4022.4,
+   "last": 4011.6,
    "source": "gold-api.com XAU",
-   "asof": "2026-10-26T17:39:45Z",
-   "vsFutures": 15.4,
+   "asof": "2026-10-27T00:37:46Z",
+   "vsFutures": 15.7,
    "note": "현물이다. levels.XAUUSD_FUT는 COMEX 선물이라 수준이 다르다. 격차는 같은 스냅샷 안에서만 비교하라 — 만기·롤오버로 흔들린다."
   },
   "fearGreed": {
-   "value": 27.5,
+   "value": 27.1,
    "rating": "fear",
    "weekAgo": 20.8
   },
   "yieldCurve": [
    {
     "label": "10Y-2Y",
-    "spreadBp": 95.0,
+    "spreadBp": 96.1,
     "inverted": false
    },
    {
     "label": "30Y-10Y",
-    "spreadBp": 31.6,
+    "spreadBp": 31.5,
     "inverted": false
    }
   ],
   "news": [
+   {
+    "date": "2026-10-26 20:53",
+    "title": "Gold jumps as easing oil prices eases inflation fears",
+    "source": "Investing원자재",
+    "topics": [
+     "inflation",
+     "oil price"
+    ],
+    "groups": [
+     "금속",
+     "에너지",
+     "채권금리"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/gold-steadies-near-3mth-low-as-elevated-oil-prices-weigh-fed-meet-eyed-4971362"
+   },
    {
     "date": "2026-10-26 14:00",
     "title": "Super El Niño May Soften Winter Energy Squeeze",
@@ -54,83 +69,60 @@
     "link": "https://oilprice.com/Energy/Energy-General/Super-El-Nio-May-Soften-Winter-Energy-Squeeze.html"
    },
    {
-    "date": "2026-10-26 14:57",
-    "title": "Gold gains as easing oil prices soothe inflation jitters",
-    "source": "Investing원자재",
+    "date": "2026-10-26 23:28",
+    "title": "[모닝 리포트] \"FOMC 앞두고 달러 강보합, 중동 긴장 완화 기대\" - 뉴스핌",
+    "source": "구글뉴스:dollar index",
     "topics": [
-     "inflation",
-     "oil price"
+     "fomc"
     ],
     "groups": [
-     "금속",
-     "에너지",
-     "채권금리"
+     "지수선물",
+     "채권금리",
+     "환율"
     ],
-    "link": "https://www.investing.com/news/commodities-news/gold-steadies-near-3mth-low-as-elevated-oil-prices-weigh-fed-meet-eyed-4971362"
+    "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9jRW1UMk5FazBvcXh2SVBWb3ZaazB3MmlPZEVRSVBSSzV3YUpxYnRSNXg3RjRFMFFxalozbExRLVR0YVJsYXU5QzhUd3RDTWlheHdKMm40V2wwcm9F?oc=5"
    },
    {
-    "date": "2026-10-26 16:01",
-    "title": "Some Republicans are opposing Trump on tariffs. Maine’s Susan Collins just got him to back down on Canadian levies.",
+    "date": "2026-10-26 21:08",
+    "title": "Brazil’s currency plunges most since 1999 after Lula’s surprise victory",
+    "source": "FT마켓",
+    "topics": [
+     "currency"
+    ],
+    "groups": [
+     "환율"
+    ],
+    "link": "https://www.ft.com/content/bffe028e-838d-4e74-b05e-62f6db4978db?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-10-26 22:10",
+    "title": "Dividend stocks are having an excellent October as tech sector struggles",
     "source": "MarketWatch",
-    "topics": [
-     "tariff"
-    ],
-    "groups": [
-     "금속",
-     "농산물",
-     "지수선물"
-    ],
-    "link": "https://www.marketwatch.com/story/some-republicans-are-opposing-trump-on-tariffs-maines-susan-collins-just-got-him-to-back-down-on-canadian-levies-02b202ae?mod=mw_rss_topstories"
+    "topics": [],
+    "groups": [],
+    "link": "https://www.marketwatch.com/story/dividend-stocks-are-having-an-excellent-october-as-tech-sector-struggles-5ae40b02?mod=mw_rss_topstories"
    },
    {
-    "date": "2026-10-26 12:30",
-    "title": "Saudi Oil Output Jumps 12.2% to 8 Million Bpd in September",
-    "source": "OilPrice",
+    "date": "2026-10-26 21:01",
+    "title": "美 국채금리 '혼조' 속...달러 '절상' vs 유로·파운드·엔화 '절하' - 초이스경제",
+    "source": "구글뉴스:dollar index",
     "topics": [
-     "crude",
-     "barrel"
+     "국채",
+     "엔화"
     ],
     "groups": [
-     "에너지"
+     "채권금리",
+     "환율"
     ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Oil-Output-Jumps-122-to-8-Million-Bpd-in-September.html"
+    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5UNVlTbkJydDV5bGc2SHVFMzJHVXZjTkJQODlTS0tXb3lyOFlCNDR5bVBEWm1mX3Q5UU81dHdGMDJic2J1Z1hWcjNXV0xCQU1ZeVFKejlMaElYbU5yeWNIWFFyYTU4ckg1X0o1ZjRDNWHSAXNBVV95cUxNdFN1eGdPZnVwb3V0TFZjYnNsMnNRRHdkSTZENlhMZ3JWa1JyTFVwbDc4cnRtTkJWTW9XYkRmeWMyWk83SXg3NUowY2V2MklvOGlVT2xNSjZyc1c3UDRtR3JMUEVYUlFMc0NzeGFXY092SVFF?oc=5"
    },
    {
-    "date": "2026-10-26 09:30",
-    "title": "Europe's Natural Gas Prices Soar to Four-Year High as Winter Looms",
-    "source": "OilPrice",
-    "topics": [
-     "natural gas"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Europes-Natural-Gas-Prices-Soar-to-Four-Year-High-as-Winter-Looms.html"
-   },
-   {
-    "date": "2026-10-26 17:33",
-    "title": "European wheat prices drop on Russia grain transport talks",
+    "date": "2026-10-26 20:24",
+    "title": "US consumers paying the most for fuel price spikes from Iran war, study says",
     "source": "Investing원자재",
-    "topics": [
-     "wheat"
-    ],
-    "groups": [
-     "농산물"
-    ],
-    "link": "https://www.investing.com/news/commodities-news/european-wheat-prices-drop-on-russia-grain-transport-talks-93CH-4973364"
-   },
-   {
-    "date": "2026-10-26 17:19",
-    "title": "Is it curtains for COLA? Saving Social Security could mean changing the cost-of-living adjustment.",
-    "source": "MarketWatch",
-    "topics": [
-     "inflation"
-    ],
-    "groups": [
-     "금속",
-     "채권금리"
-    ],
-    "link": "https://www.marketwatch.com/story/is-it-curtains-for-cola-saving-social-security-could-mean-changing-the-cost-of-living-adjustment-867c6bd8?mod=mw_rss_topstories"
+    "topics": [],
+    "groups": [],
+    "link": "https://www.investing.com/news/commodities-news/us-consumers-paying-the-most-for-fuel-price-spikes-from-iran-war-study-says-4973618"
    },
    {
     "date": "2026-10-26 06:00",
@@ -139,6 +131,47 @@
     "topics": [],
     "groups": [],
     "link": "https://www.ft.com/content/cec7ecab-27fa-41ce-93f8-e6a6061599d1"
+   },
+   {
+    "date": "2026-10-27 00:00",
+    "title": "UK Weighs Scrapping Its Largest Untapped Oilfield With Oil Over $100",
+    "source": "OilPrice",
+    "topics": [
+     "barrel"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Energy/Crude-Oil/UK-Weighs-Scrapping-Its-Largest-Untapped-Oilfield-With-Oil-Over-100.html"
+   },
+   {
+    "date": "2026-10-26 23:00",
+    "title": "Beijing Pushes Domestic Oil Production as Iranian Supply Dries Up",
+    "source": "OilPrice",
+    "topics": [
+     "opec",
+     "crude"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://oilprice.com/Energy/Crude-Oil/Beijing-Pushes-Domestic-Oil-Production-as-Iranian-Supply-Dries-Up.html"
+   },
+   {
+    "date": "2026-10-26 21:00",
+    "title": "Asia Needs $1 Trillion a Year to Avoid the Next Energy Shock",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Energy/Energy-General/Asia-Needs-1-Trillion-a-Year-to-Avoid-the-Next-Energy-Shock.html"
+   },
+   {
+    "date": "2026-10-26 19:00",
+    "title": "Brussels Takes Aim at Chinese Imports as Europe's Industrial Crisis Deepens",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Energy/Energy-General/Brussels-Takes-Aim-at-Chinese-Imports-as-Europes-Industrial-Crisis-Deepens.html"
    },
    {
     "date": "2026-10-26 17:30",
@@ -177,57 +210,6 @@
     "link": "https://oilprice.com/Latest-Energy-News/World-News/Indias-BPCL-to-Cut-Russian-Oil-Imports-Due-to-Higher-Prices.html"
    },
    {
-    "date": "2026-10-26 13:30",
-    "title": "IEA’s Birol: Energy Prices Won’t Return to Pre-War Levels in 2027",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "natural gas"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/IEAs-Birol-Energy-Prices-Wont-Return-to-Pre-War-Levels-in-2027.html"
-   },
-   {
-    "date": "2026-10-26 11:30",
-    "title": "Houthis Claim Attacks on Saudi Arabia’s East-West Oil Pipeline",
-    "source": "OilPrice",
-    "topics": [
-     "crude"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Houthis-Claim-Attacks-on-Saudi-Arabias-East-West-Oil-Pipeline.html"
-   },
-   {
-    "date": "2026-10-26 10:30",
-    "title": "U.S. Army Says It Has Helped 1.5 Billion Barrels of Oil Out of Hormuz",
-    "source": "OilPrice",
-    "topics": [
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/US-Army-Says-It-Has-Helped-15-Billion-Barrels-of-Oil-Out-of-Hormuz.html"
-   },
-   {
-    "date": "2026-10-26 08:30",
-    "title": "India's Stock Market Feels the Heat From High Oil Prices",
-    "source": "OilPrice",
-    "topics": [
-     "crude",
-     "oil price",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Indias-Stock-Market-Feels-the-Heat-From-High-Oil-Prices.html"
-   },
-   {
     "date": "2026-10-26 15:19",
     "title": "Codelco, BHP launch $40M copper hunt in northern Chile",
     "source": "Mining.com",
@@ -260,15 +242,7 @@
     "link": "https://www.mining.com/lulas-brazil-win-puts-rare-earths-in-trumps-crosshairs/"
    },
    {
-    "date": "2026-10-26 16:42",
-    "title": "US strategic oil reserves drop to lowest since October 1982",
-    "source": "Investing원자재",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.investing.com/news/commodities-news/us-strategic-oil-reserves-drop-to-lowest-since-october-1982-93CH-4973313"
-   },
-   {
-    "date": "2026-10-26 14:53",
+    "date": "2026-10-26 21:46",
     "title": "Oil falls from near six-month high as Iran mediation efforts ease supply worries",
     "source": "Investing원자재",
     "topics": [],
@@ -276,12 +250,52 @@
     "link": "https://www.investing.com/news/commodities-news/oil-falls-from-6mth-highs-saudi-attacks-keep-supply-risks-in-focus-4971338"
    },
    {
-    "date": "2026-10-26 14:32",
-    "title": "Baltic dry bulk freight index falls to near one-week low",
+    "date": "2026-10-26 19:18",
+    "title": "Copper tests key resistance cluster in bear flag: Live levels",
     "source": "Investing원자재",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.investing.com/news/commodities-news/baltic-dry-bulk-freight-index-falls-to-near-oneweek-low-93CH-4973124"
+    "topics": [
+     "copper"
+    ],
+    "groups": [
+     "금속"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/copper-tests-resistance-at-50-sma-in-downtrend-live-levels-93CH-4971504"
+   },
+   {
+    "date": "2026-10-26 19:18",
+    "title": "Natural Gas tests 61.8% Fib resistance after V-bottom: Live levels",
+    "source": "Investing원자재",
+    "topics": [
+     "natural gas"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/natural-gas-rebounds-from-oversold-into-sma-resistance-live-levels-93CH-4971506"
+   },
+   {
+    "date": "2026-10-26 19:18",
+    "title": "Crude Oil WTI nears double top at $106.75 resistance: Live levels",
+    "source": "Investing원자재",
+    "topics": [
+     "crude"
+    ],
+    "groups": [
+     "에너지"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/crude-oil-wti-consolidates-below-10350-resistance-live-levels-93CH-4971501"
+   },
+   {
+    "date": "2026-10-26 18:33",
+    "title": "Analysis: Why a $2 trillion deficit and 5% Treasury yields are becoming America's biggest economic challenge",
+    "source": "CNBC마켓",
+    "topics": [
+     "treasury yield"
+    ],
+    "groups": [
+     "채권금리"
+    ],
+    "link": "https://www.cnbc.com/2026/10/15/treasury-yields-deficit-national-debt-ai.html"
    },
    {
     "date": "2026-10-26 17:14",
@@ -336,28 +350,12 @@
     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE82LUhiQ3o3MjFTMEtRaFdzRjNJUjgzZkZNenlGb1dSUkN2QklCNjRLV0k2eUllQ3BncnpVWHdwRW1CdUZBWHI1Rlh5UE11TzBJTlFrRnN3?oc=5"
    },
    {
-    "date": "2026-10-26 17:00",
-    "title": "Kazakhstan Faces $12 Billion Oil Setback as New Investment Plans Take Shape",
+    "date": "2026-10-26 22:00",
+    "title": "Alleged Russian Funding Prompts Executive Exodus at U.S. LNG Firm",
     "source": "OilPrice",
     "topics": [],
     "groups": [],
-    "link": "https://oilprice.com/Energy/Energy-General/Kazakhstan-Faces-12-Billion-Oil-Setback-as-New-Investment-Plans-Take-Shape.html"
-   },
-   {
-    "date": "2026-10-26 16:00",
-    "title": "Why Saudi Just Abandoned Its Core Oil Rule",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Energy/Crude-Oil/Why-Saudi-Just-Abandoned-Its-Core-Oil-Rule.html"
-   },
-   {
-    "date": "2026-10-26 15:30",
-    "title": "Russian Refiners Ramp Up Diesel Output to Supply Trump Deal",
-    "source": "OilPrice",
-    "topics": [],
-    "groups": [],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Russian-Refiners-Ramp-Up-Diesel-Output-to-Supply-Trump-Deal.html"
+    "link": "https://oilprice.com/Energy/Natural-Gas/Alleged-Russian-Funding-Prompts-Executive-Exodus-at-US-LNG-Firm.html"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -365,25 +363,25 @@
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
   "usRates": {
-   "value": -1.0,
+   "value": -0.2,
    "unit": "bp",
-   "fact": "미 10년물 4.978% (전일 4.988%)",
+   "fact": "미 10년물 4.986% (전일 4.988%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-10-27T02:40:07"
+   "asof": "2026-10-27T09:38:00"
   },
   "riskAppetite": {
-   "value": -1.23,
+   "value": -1.06,
    "unit": "pt",
-   "fact": "VIX 18.22 (전일 19.45)",
+   "fact": "VIX 18.39 (전일 19.45)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-10-27T02:40:07"
+   "asof": "2026-10-27T09:38:00"
   },
   "dollar": {
-   "value": 0.07,
+   "value": 0.2,
    "unit": "%",
-   "fact": "달러인덱스 101.88 (전일 대비 +0.07%)",
+   "fact": "달러인덱스 102.018 (전일 대비 +0.20%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-10-27T02:40:07"
+   "asof": "2026-10-27T09:38:00"
   },
   "breadth": {
    "value": 36.3,
@@ -393,63 +391,63 @@
    "asof": "2026-10-27T02:39:46"
   },
   "rateDiff": {
-   "value": 0.5,
+   "value": 1.3,
    "unit": "bp",
-   "fact": "미 10년물 4.978% − 유로존 3.3694% = 161bp (전일 160bp)",
+   "fact": "미 10년물 4.986% − 유로존 3.3694% = 162bp (전일 160bp)",
    "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-10-23",
-   "asof": "2026-10-27T02:40:07"
+   "asof": "2026-10-27T09:38:00"
   }
  },
  "levels": {
   "XAUUSD_FUT": {
-   "last": 4037.8,
+   "last": 4027.3,
    "prevClose": 4007.89990234375,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-10-27T02:40:07",
-   "note": "금 · 당일 +0.75% · 선물 Gold Dec 26"
+   "asof": "2026-10-27T09:38:00",
+   "note": "금 · 당일 +0.48% · 선물 Gold Dec 26"
   },
   "USOIL_FUT": {
-   "last": 102.08,
+   "last": 101.07,
    "prevClose": 103.2699966430664,
    "contract": "Crude Oil Dec 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-10-27T02:40:07",
-   "note": "WTI원유 · 당일 -1.15% · 선물 Crude Oil Dec 26"
+   "asof": "2026-10-27T09:38:00",
+   "note": "WTI원유 · 당일 -2.13% · 선물 Crude Oil Dec 26"
   },
   "EURUSD": {
-   "last": 1.1197,
-   "prevClose": 1.1221455335617065,
+   "last": 1.1177,
+   "prevClose": 1.1217553615570068,
    "contract": null,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-10-27T02:40:07",
-   "note": "유로달러 · 당일 -0.22%"
+   "asof": "2026-10-27T09:38:00",
+   "note": "유로달러 · 당일 -0.36%"
   },
   "NAS100": {
-   "last": 29495.0,
+   "last": 29575.25,
    "prevClose": 29117.75,
    "contract": "Nasdaq 100 Dec 26",
    "source": "Yahoo NQ=F",
-   "asof": "2026-10-27T02:40:07",
-   "note": "나스닥선물 · 당일 +1.30% · 선물 Nasdaq 100 Dec 26"
+   "asof": "2026-10-27T09:38:00",
+   "note": "나스닥선물 · 당일 +1.57% · 선물 Nasdaq 100 Dec 26"
   },
   "XAUUSD": {
-   "last": 4037.8,
+   "last": 4027.3,
    "prevClose": 4007.89990234375,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-10-27T02:40:07",
-   "note": "금 · 당일 +0.75% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-10-27T09:38:00",
+   "note": "금 · 당일 +0.48% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "XAUUSD_FUT"
   },
   "USOIL": {
-   "last": 102.08,
+   "last": 101.07,
    "prevClose": 103.2699966430664,
    "contract": "Crude Oil Dec 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-10-27T02:40:07",
-   "note": "WTI원유 · 당일 -1.15% · 선물 Crude Oil Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-10-27T09:38:00",
+   "note": "WTI원유 · 당일 -2.13% · 선물 Crude Oil Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "USOIL_FUT"
   }
