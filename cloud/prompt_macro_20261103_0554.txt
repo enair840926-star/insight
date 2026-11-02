@@ -1,0 +1,409 @@
+# 매크로 시장 스냅샷 (2026-11-03T05:54:03)
+원자재 / 지수선물 / 채권금리 / 환율 / 변동성 / 글로벌지수
+
+## 시세
+형식: 이름 | 현재가 | 당일 | 5일 | 20일 | 20일선대비 | 52주위치(0=최저,100=최고) | 20일변동성
+**대괄호가 붙은 것은 선물이고 그 안이 계약월이다**(금·원유가 그렇다).
+현물 시세로 읽지 마라. 계약이 롤오버되면 월이 바뀌므로, 어제와 비교할
+때는 같은 계약인지 함께 보라.
+
+### 금속
+- 금 [Gold Dec 26]: 3,954 | +1.41% | 5일 -2.09% | 20일 -4.88% | 20MA대비 -3.68% | 52주위치 4.4 | 변동성 1.22
+- 은 [Silver Dec 26]: 50.62 | +3.09% | 5일 -6.46% | 20일 -16.85% | 20MA대비 -9.92% | 52주위치 5.1 | 변동성 2.5
+- 구리 [Copper Dec 26]: 6.5410 | +1.28% | 5일 +0.51% | 20일 -0.68% | 20MA대비 -0.31% | 52주위치 84.9 | 변동성 1.22
+- 백금 [Platinum Jan 27]: 1,448 | +0.70% | 5일 -5.77% | 20일 -15.17% | 20MA대비 -9.03% | 52주위치 1.5 | 변동성 1.88
+- 팔라듐 [Palladium Dec 26]: 962.00 | -2.30% | 5일 -8.20% | 20일 -17.58% | 20MA대비 -10.67% | 52주위치 0.1 | 변동성 1.64
+- 알루미늄 [Aluminum Futures,Jan-2027]: 3,198 | -3.39% | 5일 -0.74% | 20일 -1.24% | 20MA대비 +0.15% | 52주위치 34.0 | 변동성 1.47
+
+### 에너지
+- WTI원유 [Crude Oil Dec 26]: 96.06 | -7.74% | 5일 -5.60% | 20일 +7.41% | 20MA대비 -1.75% | 52주위치 63.7 | 변동성 2.89
+- 브렌트유 [Brent Crude Oil Last Day Financ]: 104.13 | -11.48% | 5일 -10.09% | 20일 +3.80% | 20MA대비 -4.58% | 52주위치 67.4 | 변동성 3.19
+- 천연가스 [Natural Gas Dec 26]: 2.8670 | -1.07% | 5일 +10.18% | 20일 -6.49% | 20MA대비 -4.09% | 52주위치 7.2 | 변동성 3.1
+- 휘발유 [RBOB Gasoline Dec 26]: 2.8980 | -12.50% | 5일 -9.96% | 20일 -10.73% | 20MA대비 -9.55% | 52주위치 57.1 | 변동성 3.21
+- 난방유 [Heating Oil Dec 26]: 4.4093 | -7.96% | 5일 -10.23% | 20일 -2.99% | 20MA대비 -8.24% | 52주위치 69.9 | 변동성 2.9
+
+### 농산물
+- 옥수수 [Corn Futures,Dec-2026]: 447.75 | +0.00% | 5일 -1.59% | 20일 -9.95% | 20MA대비 -4.73% | 52주위치 33.7 | 변동성 1.16
+- 밀 [Chicago SRW Wheat Futures,Dec-2]: 606.00 | +0.41% | 5일 -1.62% | 20일 -12.46% | 20MA대비 -6.08% | 52주위치 38.1 | 변동성 1.09
+- 대두 [Soybean Futures,Jan-2027]: 1,216 | -0.51% | 5일 -2.03% | 20일 -5.06% | 20MA대비 -3.35% | 52주위치 62.5 | 변동성 0.65
+- 커피 [Coffee Dec 26]: 294.15 | +2.42% | 5일 -2.26% | 20일 +0.55% | 20MA대비 -1.39% | 52주위치 28.4 | 변동성 2.18
+- 설탕 [Sugar #11 Mar 27]: 19.00 | -1.86% | 5일 -0.52% | 20일 -8.35% | 20MA대비 -5.99% | 52주위치 71.6 | 변동성 1.8
+- 코코아 [Cocoa Dec 26]: 5,392 | -1.12% | 5일 -1.79% | 20일 -8.10% | 20MA대비 -4.19% | 52주위치 66.9 | 변동성 1.76
+- 면화: 77.42 | -0.53% | 5일 -2.07% | 20일 +0.38% | 20MA대비 -2.32% | 52주위치 53.1 | 변동성 1.49
+
+### 지수선물
+- S&P500선물 [E-Mini S&P 500 Dec 26]: 7,580 | -0.44% | 5일 -1.74% | 20일 -3.14% | 20MA대비 -2.34% | 52주위치 79.5 | 변동성 0.7
+- 나스닥선물 [Nasdaq 100 Dec 26]: 28,146 | -1.36% | 5일 -4.38% | 20일 -10.13% | 20MA대비 -6.10% | 52주위치 59.9 | 변동성 1.37
+- 다우선물 [Mini Dow Jones Indus.-$5 Dec 26]: 52,183 | +0.51% | 5일 -0.70% | 20일 +1.21% | 20MA대비 -0.14% | 52주위치 72.5 | 변동성 0.63
+- 러셀2000선물 [E-mini Russell 2000 Index Futur]: 2,822 | +0.02% | 5일 +0.87% | 20일 -1.60% | 20MA대비 +0.69% | 52주위치 66.9 | 변동성 0.97
+- 니케이선물 [Nikkei/USD Futures,Dec-2026]: 62,875 | +0.38% | 5일 -0.02% | 20일 -10.37% | 20MA대비 -4.34% | 52주위치 57.5 | 변동성 1.62
+
+### 채권금리
+- 미2년물: 3.982% | +0.23% | 5일 -1.07% | 20일 -0.90% | 20MA대비 -1.45% | 52주위치 74.2 | 변동성 0.46
+- 미5년물: 4.693% | -0.59% | 5일 -2.72% | 20일 -7.36% | 20MA대비 -4.26% | 52주위치 72.1 | 변동성 1.15
+- 미10년물: 4.894% | -0.71% | 5일 -1.85% | 20일 -7.85% | 20MA대비 -4.07% | 52주위치 66.6 | 변동성 1.06
+- 미30년물: 5.269% | -0.75% | 5일 -0.60% | 20일 -6.99% | 20MA대비 -3.21% | 52주위치 58.1 | 변동성 0.84
+- 미국채선물 [10-Year T-Note Futures,Dec-2026]: 106.84 | +0.19% | 5일 +0.69% | 20일 +2.52% | 20MA대비 +1.31% | 52주위치 28.2 | 변동성 0.34
+
+### 환율
+- 원달러: 1,345 | +0.54% | 5일 +1.77% | 20일 +0.20% | 20MA대비 +0.78% | 52주위치 9.6 | 변동성 0.38
+- 유로달러: 1.1199 | +0.14% | 5일 -0.17% | 20일 -0.49% | 20MA대비 -0.03% | 52주위치 9.7 | 변동성 0.25
+- 달러엔: 157.87 | +0.04% | 5일 +0.67% | 20일 +0.09% | 20MA대비 -0.04% | 52주위치 47.8 | 변동성 0.31
+- 파운드달러: 0.7455 | -0.26% | 5일 -0.27% | 20일 -1.27% | 20MA대비 -0.81% | 52주위치 50.3 | 변동성 0.28
+- 달러위안: 6.6475 | -0.20% | 5일 -0.46% | 20일 -0.85% | 20MA대비 -0.55% | 52주위치 2.5 | 변동성 0.07
+- 달러인덱스: 101.74 | -0.14% | 5일 -0.22% | 20일 -0.42% | 20MA대비 -0.29% | 52주위치 83.6 | 변동성 0.26
+
+### 변동성
+- VIX: 21.63 | +11.38% | 5일 +17.62% | 20일 +39.37% | 20MA대비 +24.99% | 52주위치 37.6 | 변동성 7.79
+- 나스닥VIX: 30.73 | +7.82% | 5일 +16.40% | 20일 +41.61% | 20MA대비 +25.15% | 52주위치 78.9 | 변동성 7.47
+
+### 글로벌지수
+- S&P500: 7,551 | -0.38% | 5일 -1.63% | 20일 -2.86% | 20MA대비 -2.17% | 52주위치 80.8 | 변동성 0.7
+- 나스닥: 25,201 | -0.93% | 5일 -3.70% | 20일 -8.28% | 20MA대비 -5.12% | 52주위치 64.1 | 변동성 1.21
+- 다우: 52,059 | +0.56% | 5일 -0.58% | 20일 +1.54% | 20MA대비 +0.05% | 52주위치 72.3 | 변동성 0.61
+- 니케이225: 63,082 | -2.44% | 5일 +0.62% | 20일 -8.52% | 20MA대비 -4.34% | 52주위치 60.4 | 변동성 1.69
+- 항셍: 23,393 | +1.89% | 5일 +1.30% | 20일 -4.96% | 20MA대비 -1.45% | 52주위치 15.8 | 변동성 1.21
+- 상하이종합: 3,638 | -0.37% | 5일 -1.42% | 20일 -6.44% | 20MA대비 -2.62% | 52주위치 9.3 | 변동성 0.81
+- 독일DAX: 25,981 | +0.63% | 5일 +2.24% | 20일 +2.88% | 20MA대비 +2.16% | 52주위치 86.6 | 변동성 0.88
+
+## 금리 커브
+장단기 스프레드는 개별 금리보다 정보량이 크다. 부호와 방향을 함께 보라.
+- 10Y-2Y: +91.2bp — 오늘 플래트닝 (-0.94%p)
+    미10년물 -0.71%, 미2년물 +0.23% / 역전 시 침체 신호로 읽힌다
+- 30Y-10Y: +37.5bp
+    미30년물 -0.75%, 미10년물 -0.71% / 확대 시 장기 인플레 우려 또는 재정 우려
+
+## 자산 간 관계 점검
+아래는 '통상적으로 이렇게 움직인다'는 경험칙과 오늘 실제 움직임의 대조다.
+[깨짐]은 통상 관계와 반대로 움직였다는 뜻이며, 그 자체가 신호다.
+- [정상] 미10년물 vs 금: -0.71% vs +1.41% (통상 역관계) — 실질금리 상승은 무이자 자산인 금에 불리
+- [정상] WTI원유 vs 미10년물: -7.74% vs -0.71% (통상 정관계) — 유가 상승은 인플레 기대를 통해 금리를 밀어올린다
+- [정상] VIX vs S&P500: +11.38% vs -0.38% (통상 역관계) — 변동성 지수와 주가는 반대로 움직인다
+- [정상] 구리 vs 글로벌경기: +1.28% vs +0.45% (통상 정관계) — 구리는 경기 선행 지표로 읽힌다(닥터 코퍼)
+
+## COT 투기 포지셔닝 (CFTC 주간 보고, 기준일 2026-10-27)
+CFTC가 매주 발표하는 실제 포지션 보고다. 추정치가 아니라 법적
+보고 의무에 따른 수치라 신뢰도가 높다.
+- 투기(noncommercial) = 헤지펀드·CTA. 방향성 베팅.
+- 상업(commercial) = 생산자·정유사. 실물 헤지라 통상 투기의 반대편.
+- 투기 롱숏비가 극단이면 반전 시 청산이 연쇄한다 (코인 펀딩비와 같은 성격).
+- 순포지션의 전주 대비 변화가 절대 수준보다 중요할 때가 많다.
+- 금 (GOLD): 투기 롱 223,724 / 숏 37,273 (비율 6.0), 순 +186,451 = 미결제약정의 47.0%, 전주 대비 -13,414 | 상업 순 -215,624, 미결제약정 -1.36%
+- 대두 (SOYBEANS): 투기 롱 271,296 / 숏 67,177 (비율 4.04), 순 +204,119 = 미결제약정의 20.8%, 전주 대비 -42,477 | 상업 순 -181,053, 미결제약정 -10.44%
+- 면화 (COTTON NO. 2): 투기 롱 121,566 / 숏 39,088 (비율 3.11), 순 +82,478 = 미결제약정의 20.7%, 전주 대비 -12,043 | 상업 순 -85,918, 미결제약정 -0.82%
+- 은 (SILVER): 투기 롱 35,633 / 숏 15,930 (비율 2.24), 순 +19,703 = 미결제약정의 17.0%, 전주 대비 -92 | 상업 순 -35,687, 미결제약정 +1.96%
+- 설탕 (SUGAR NO. 11): 투기 롱 390,794 / 숏 189,198 (비율 2.07), 순 +201,596 = 미결제약정의 16.7%, 전주 대비 -27,220 | 상업 순 -253,544, 미결제약정 -0.45%
+- 구리 (COPPER- #1): 투기 롱 91,643 / 숏 43,326 (비율 2.12), 순 +48,317 = 미결제약정의 14.3%, 전주 대비 -9,080 | 상업 순 -53,254, 미결제약정 +3.03%
+- 백금 (PLATINUM): 투기 롱 27,377 / 숏 18,083 (비율 1.51), 순 +9,294 = 미결제약정의 11.2%, 전주 대비 -3,868 | 상업 순 -11,882, 미결제약정 +18.04%
+- 옥수수 (CORN): 투기 롱 428,605 / 숏 227,333 (비율 1.89), 순 +201,272 = 미결제약정의 10.8%, 전주 대비 -85,417 | 상업 순 -189,677, 미결제약정 +1.28%
+- 밀 (WHEAT-SRW): 투기 롱 119,487 / 숏 170,249 (비율 0.7), 순 -50,762 = 미결제약정의 -9.7%, 전주 대비 -21,492 | 상업 순 +51,028, 미결제약정 +1.78%
+- 커피 (COFFEE C): 투기 롱 47,100 / 숏 30,551 (비율 1.54), 순 +16,549 = 미결제약정의 9.6%, 전주 대비 -3,583 | 상업 순 -17,821, 미결제약정 +0.46%
+- 코코아 (COCOA): 투기 롱 31,361 / 숏 39,203 (비율 0.8), 순 -7,842 = 미결제약정의 -4.3%, 전주 대비 -765 | 상업 순 +6,070, 미결제약정 +2.32%
+- WTI원유 (CRUDE OIL, LIGHT SWEET-WTI): 투기 롱 61,078 / 숏 88,273 (비율 0.69), 순 -27,195 = 미결제약정의 -3.5%, 전주 대비 -3,200 | 상업 순 +25,384, 미결제약정 +2.06%
+- 천연가스 (NAT GAS ICE LD1): 투기 롱 694,071 / 숏 930,199 (비율 0.75), 순 -236,128 = 미결제약정의 -3.0%, 전주 대비 -111,989 | 상업 순 +209,654, 미결제약정 +0.43%
+
+### 투기 포지션 극단 쏠림
+- 금: 롱 쏠림 (롱숏비 6.0, 순포지션이 미결제약정의 47.0%), 전주 대비 -13,414
+- 대두: 롱 쏠림 (롱숏비 4.04, 순포지션이 미결제약정의 20.8%), 전주 대비 -42,477
+- 면화: 롱 쏠림 (롱숏비 3.11, 순포지션이 미결제약정의 20.7%), 전주 대비 -12,043
+
+## 선물 커브
+근월이 원월보다 비싸면 백워데이션 = 현물이 급하다 = 공급 타이트.
+원월이 비싸면 콘탱고 = 보관비용 정상 또는 공급 여유.
+※ 비단조 표시가 있으면 계절성 상품이라 단순 판정이 안 된다.
+- WTI원유: 백워데이션 (-17.86%)
+    근월 96.06 → 26년12월 96.06 → 27년6월 86.02 → 27년12월 78.90
+- 구리: 콘탱고 (+4.54%) [비단조·계절성]
+    근월 6.54 → 26년12월 6.54 → 27년6월 6.85 → 27년12월 6.84
+- 금: 콘탱고 (+5.01%) [비단조·계절성]
+    근월 3,953.90 → 26년12월 3,953.50 → 27년6월 4,048.60 → 27년12월 4,151.80
+- 은: 콘탱고 (+5.92%) [비단조·계절성]
+    근월 50.62 → 26년12월 50.60 → 27년6월 50.81 → 27년12월 53.61
+- 밀: 콘탱고 (+8.54%)
+    근월 606.00 → 26년12월 606.00 → 27년12월 657.75
+- 옥수수: 콘탱고 (+9.10%)
+    근월 447.75 → 26년12월 447.75 → 27년12월 488.50
+- 천연가스: 콘탱고 (+36.41%) [비단조·계절성]
+    근월 2.87 → 26년12월 2.87 → 27년6월 2.58 → 27년12월 3.91
+
+## EIA 주간 재고 (기준 2026-10-23)
+재고는 계절성이 강해 절대값만으로는 판단할 수 없다. 겨울에 천연가스가
+줄고 여름에 휘발유가 주는 건 정상이다. **평년(5년 평균) 대비**를 보라.
+- 평년 대비 -5% 이하: 타이트 / +5% 이상: 과잉
+- 재고는 '사실', 선물커브는 '기대', COT는 '포지션'이다. 셋을 교차하라.
+- 원유: 410,625MBBL, 주간 -1,892, 4주 -16,695, 평년대비 -3.8%, 전년대비 -1.3%  → 평년수준
+- 쿠싱: 26,970MBBL, 주간 -624, 4주 +2,669, 평년대비 +8.7%, 전년대비 +19.5%  → 과잉
+- 휘발유: 209,180MBBL, 주간 +3,870, 4주 +4,818, 평년대비 -1.9%, 전년대비 -0.7%  → 평년수준
+- 중간유분: 102,824MBBL, 주간 -1,462, 4주 -2,356, 평년대비 -9.8%, 전년대비 -8.3%  → 타이트
+- 전략비축(SPR): 282,583MBBL, 주간 -100, 4주 -1,184, 평년대비 -34.5%, 전년대비 -30.9%  → 타이트
+- 천연가스: 3,724BCF, 주간 +80, 4주 +309, 평년대비 -0.0%, 전년대비 -3.8%  → 평년수준
+
+## 원자재 ETF (거래량은 자금 관심도의 대용 지표)
+- 원유ETF(USO): -7.17%, 20일 +8.85%, 거래량 20일평균의 1.49배
+- 농산물ETF(DBA): -0.33%, 20일 -5.83%, 거래량 20일평균의 1.42배
+- 은ETF(SLV): +2.19%, 20일 -17.33%, 거래량 20일평균의 1.06배
+- 구리ETF(CPER): +1.00%, 20일 -1.20%, 거래량 20일평균의 1.03배
+- 금ETF(GLD): +1.64%, 20일 -4.73%, 거래량 20일평균의 0.92배
+- 광업주ETF(XME): -0.06%, 20일 -9.28%, 거래량 20일평균의 0.91배
+- 천연가스ETF(UNG): -0.77%, 20일 -14.60%, 거래량 20일평균의 0.79배
+
+## 오늘의 이상치
+- 당일 등락 상위: 휘발유 -12.5, 브렌트유 -11.5, VIX +11.4, 난방유 -8.0, 나스닥VIX +7.8, WTI원유 -7.7
+- 20일 추세 상위: 나스닥VIX +41.6, VIX +39.4, 팔라듐 -17.6, 은 -16.9, 백금 -15.2, 밀 -12.5
+- 20일선 이격 상위: 나스닥VIX +25.1, VIX +25.0, 팔라듐 -10.7, 은 -9.9, 휘발유 -9.6, 백금 -9.0
+- 변동성 상위: VIX +7.8, 나스닥VIX +7.5, 휘발유 +3.2, 브렌트유 +3.2, 천연가스 +3.1, 난방유 +2.9
+
+## 경제지표 (오늘~내일)
+이 발표들이 금리·환율·원자재를 한꺼번에 움직인다. '예정된 이벤트'에
+반드시 반영하라 — 발표 전과 후는 같은 자산이라도 다른 국면이다.
+- 2026-11-03 [United States] S&P Global Manufacturing PMI — 실제 54.9 / 예상 56.0 / 이전 56.0
+- 2026-11-03 [United States] Construction Spending — 실제 -1.9% / 예상 0.4% / 이전 2.0%
+- 2026-11-03 [United States] ISM Manufacturing Employment — 실제 52.4 / 예상 52.0 / 이전 52.7
+- 2026-11-03 [United States] ISM Manufacturing New Orders Index — 실제 55.5 / 예상 54.5 / 이전 55.3
+- 2026-11-03 [United States] ISM Manufacturing PMI — 실제 55.5 / 예상 54.5 / 이전 54.5
+- 2026-11-03 [United States] ISM Manufacturing Prices — 실제 75.2 / 예상 77.2 / 이전 77.9
+- 2026-11-03 [United States] Fed Goolsbee Speaks — 실제 &nbsp; / 예상   / 이전 &nbsp;
+- 2026-11-03 [United States] 3-Month Bill Auction — 실제 4.040% / 예상   / 이전 4.050%
+- 2026-11-03 [United States] 6-Month Bill Auction — 실제 4.150% / 예상   / 이전 4.210%
+- 2026-11-03 [United States] Atlanta Fed GDPNow — 실제 3.7% / 예상 3.2% / 이전 3.2%
+- 2026-11-03 [United States] Loan Officer Survey — 실제 &nbsp; / 예상   / 이전 &nbsp;
+- 2026-11-03 [United States] Dallas Fed PCE — 실제 &nbsp; / 예상   / 이전 1.90%
+
+## 센티먼트
+- 미 증시 공포탐욕: 22.2 (extreme fear), 전일 26.2 / 1주 전 29.8
+- 코인 공포탐욕: 37 (Fear)
+
+## 뉴스 (최근 3일)
+전체 424건에서 기간외·중복을 제외하고 30건 선별.
+형식: (날짜) [규칙판정] x보도매체수 <영향 그룹> 제목
+- (2026-11-02) [약부정] x1 <에너지> Oil Prices Plunge 7% as U.S. and Iran Signal Room for Diplomacy
+    Oil prices plunged nearly 7% on Monday after Washington and Tehran both signaled they would give diplomacy a chance, wiping out part of the war premium that lif
+- (2026-11-02) [약긍정] x1 <에너지> Iraq's Oil Exports via Turkey Surge to 500,000 Bpd
+    Iraq has boosted its crude oil exports via the Turkish Mediterranean port Ceyhan to 500,000 barrels per day (bpd), as OPEC’s second-largest producer has started
+- (2026-11-02) [긍정] x1 Petrol prices set to hit record high under Trump on eve of US elections
+    Average fuel costs during president’s second term pass Biden-era levels as affordability issues top Tuesday’s midterm polls
+- (2026-11-02) [부정] x1 Oil tumbles on hopes for US-Iran talks
+    Prices extend decline after Iran’s president said the country’s supreme leader had given officials certain authority over talks
+- (2026-11-02) [약부정] x1 <금속> $712 billion wiped off world’s biggest mining companies since start of Iran war
+    Gold's worst October since 2008 and a turn in copper sentiment drop world's 50 most valuable mining stocks near one-year lows after losing 26% since the Februar
+- (2026-11-02) [중립] x1 <채권금리,환율> AI mania can’t survive higher interest rates
+    The price of money is the pin that deflates market bubbles
+- (2026-11-02) [약부정] x1 <에너지> Oil Prices Plunge as Draft Proposal to End U.S.-Iran War is Circulated
+    Oil prices extended losses from Asian trade into early Monday morning U.S. time as a draft proposal on a potential end to the U.S.-Iran war is now being circula
+- (2026-11-02) [약부정] x1 Endeavour halts Burkina gold underground as ramp sinks
+    The Oct. 28 incident is another setback for an operation set to miss its annual production target.
+- (2026-11-02) [약부정] x1 <금속> The top 50 biggest mining companies in the world
+    Gold's worst October since 2008 and a turn in copper sentiment drop world's 50 most valuable mining stocks near one-year lows after losing 26% since the Februar
+- (2026-11-02) [약긍정] x1 The bond-market rally is defying the typical investing playbook. Here’s why.
+    The U.S. economy expanded at its fastest clip in over five years during the third quarter, according to the Commerce Department’s initial reading on GDP. Yet de
+- (2026-11-02) [약부정] x1 Alstom shares tumble 26% after train maker cuts profit forecast
+    French group also sets out plan to cut €2bn in debt in second major profit warning under new chief Martin Sion
+- (2026-10-31) [약긍정] x1 Investors trim growth bets over fears of US economy’s AI exposure
+    Return to bonds after long sell-off comes as concern rises about over-reliance on tech spending
+- (2026-10-31) [약부정] x1 Rating agency Fitch hits France with unscheduled outlook downgrade
+    Move comes hours after data showed an unexpected contraction in third-quarter economic output
+- (2026-11-02) [중립] x1 <농산물> The 50-Year-Old Microplastics Warning That Has Come Back to Haunt the Industry
+    In June 1973, during a hearing on the Watergate scandal erupting around President Richard Nixon, Sen. Howard Baker, a Republican from Tennessee, uttered the mos
+- (2026-11-02) [중립] x1 <환율> 원·달러 환율, 9.5원 오른 1343.8원 마감 - 뉴시스
+- (2026-11-02) [중립] x1 <에너지> Sanctioned Iranian Tanker Slips Past U.S. Blockade, Delivers Cargo to China
+    A sanctioned Iranian tanker carrying about 500,000 barrels of liquefied petroleum gas slipped past the U.S. naval blockade and delivered its cargo to China, acc
+- (2026-11-02) [약부정] x1 TotalEnergies Now Sees Oil Demand Peaking Between 2035 and 2040
+    A year after forecasting that oil demand would keep rising until 2040, TotalEnergies has moved its peak forward to between 2035 and 2040, and says the Iran war 
+- (2026-11-02) [중립] x1 <에너지> How Iran Just Broke the U.S. Oil Shield In Saudi Arabia Yet Again
+    The attacks last week in Saudi Arabia’s largest oil refinery, Ras Tanura (again), by the Iran-backed Houthis (again), which pushed oil prices up (again), once m
+- (2026-11-02) [중립] x1 <에너지> Ukraine Has Hit Three Russian Refineries Since Friday
+    A major oil hub in Russia’s Volga region appears to have caught fire after an attack, Bloomberg reported on Monday, citing satellite images from NASA’s Fire Inf
+- (2026-11-02) [중립] x1 <에너지> ADNOC Chief Says World Has “Eroded Its Supply Buffers”
+    The world needs strategic storage and refining capacity closer to consumers after 1 billion barrels of oil have been drained from global inventories following t
+- (2026-11-02) [중립] x1 <금속> Hudbay leads $49.8M investment in Pecoy Copper
+    The investment provides funding for drilling and studies needed to better define the deposit and assess how to recover its metals.
+- (2026-11-02) [중립] x1 <에너지> ICE canola futures rise despite drop in soyoil and crude oil
+- (2026-11-02) [약부정] x1 Oil drops 7% as Iran signals openness to peace talks
+- (2026-11-02) [중립] x1 <금속> Copper tests range support inside Ichimoku cloud: Live levels
+- (2026-11-02) [중립] x1 <에너지> Natural Gas consolidates in bear flag near $2.866: Live levels
+- (2026-11-02) [약긍정] x1 South Korea targets 'world's highest performance' sovereign AI model in record new budget
+    The 2027 budget will rise 12.8% to 820.9 trillion won, and will include a 21.3 trillion won investment into semiconductors, physical AI and AI data centers.
+- (2026-11-02) [중립] x1 <에너지> How soon gas prices could go down now that oil is tumbling
+    Retail gas prices dropped to $4.12 a gallon on Monday, as U.S. oil prices fell below $100 a barrel.
+- (2026-11-02) [약긍정] x1 Oracle wants $20 billion to fund its AI future — and its stock is paying the price
+    Oracle debt has been trading like a “junk bond” as the company borrows money and issues stock to help finance its AI cloud growth.
+- (2026-11-01) [약부정] x1 Oil majors resist pressure to invest in new refineries as fuel prices keep rising
+    Conflicts in the Middle East and Ukraine have slashed fuel production capacity and sent margins way up
+- (2026-11-01) [약긍정] x1 Germany fails to meet winter gas storage target
+    Prices could rise for other EU countries as bloc’s biggest economy will be forced to rely on more spot market purchases
+## 장 상태 — **비우호** (신호 2개, 합계 -2)
+- (-1) S&P500·나스닥 -0.66%
+- (-1) VIX +11.38% — 변동성 확대
+
+**이 판정은 픽 점수에 들어가 있지 않다.** 픽은 종목 자체의 근거로만 뽑혔고, 이것은 그 위에 놓이는 배경이다. 장이 비우호인데 픽이 상승이면 그 사실을 함께 적어라 — 둘 중 하나를 지우지 마라.
+
+
+## 오늘의 픽 4종 (규칙으로 계산한 결과)
+**대상은 금 · WTI원유 · 나스닥 · 유로달러로 고정돼 있다.** 고른 것이 아니라
+정해진 것의 방향을 낸 것이다. 다른 종목을 끌어오지 말고,
+'팽팽'이 나왔으면 억지로 한쪽을 고르지 말고 그대로 써라 —
+양쪽 근거가 맞선다는 것도 알아야 할 상태다.
+점수는 상승 근거를 부호 있게 더한 값이다. 양수가 클수록 오를
+근거가, 음수가 클수록 내릴 근거가 두껍다. 0 근처는 근거가 없거나
+서로 맞선다는 뜻이라 애초에 픽에서 빠진다.
+
+### 1. 금 — 하락 근거 -3점
+- 근거: (-1) 뉴스 규칙 판정 악재 쪽 / (-1) 5일·20일 추세가 둘 다 하락 / (+1) 당일 +1.4% / (+1) 1년 범위에서 연저점 / (-1) 투기 포지션 롱 쏠림 — 청산 붙기 쉬움 / (-1) 빠지면서 투기 포지션도 줄었음 / (-1) 20일선 아래 -3.7%
+- **오늘 볼 선**: 오늘 오른 +1.4%를 되돌리면 (전일 종가 3,899, 지금보다 -1.4%) / 평소 하루 변동폭은 ±1.2%다 — 3,906 아래로 빠지면 평소보다 큰 하락
+- ※ 반대 근거도 함께 있다. 위 목록의 부호를 보고 양쪽을 다 적어라 — 한쪽만 옮기면 글이 데이터보다 세진다.
+- ※ 이번 장에 결판나는 재료가 있음 — 오늘 [United States] ISM Manufacturing Employment 발표
+- ※ 곧 결판나는 재료가 있음 — 내일 [United States] IBD/TIPP Economic Optimism 발표
+
+### 2. WTI원유 — 하락 근거 -2점
+- 근거: (-1) 뉴스 규칙 판정 악재 쪽 / (-1) 당일 -7.7% / (+1) 선물 커브 공급 빠듯 — 지금 물건이 나중보다 비쌈 / (-1) 빠지면서 투기 포지션도 줄었음
+- **오늘 볼 선**: 평소 하루 변동폭은 ±2.9%다 — 93.28 아래로 빠지면 평소보다 큰 하락
+- ※ 반대 근거도 함께 있다. 위 목록의 부호를 보고 양쪽을 다 적어라 — 한쪽만 옮기면 글이 데이터보다 세진다.
+- ※ 이번 장에 결판나는 재료가 있음 — EIA 주간 재고 발표일
+- ※ 곧 결판나는 재료가 있음 — 내일 [United States] IBD/TIPP Economic Optimism 발표
+
+### 3. 나스닥 — 하락 근거 -2점
+- 근거: (-1) 5일·20일 추세가 둘 다 하락 / (-1) 20일선 아래 -5.1%
+- **오늘 볼 선**: 평소 하루 변동폭은 ±1.2%다 — 24,897 아래로 빠지면 평소보다 큰 하락
+- ※ 이번 장에 결판나는 재료가 있음 — 오늘 [United States] ISM Manufacturing Employment 발표
+- ※ 곧 결판나는 재료가 있음 — 내일 [United States] IBD/TIPP Economic Optimism 발표
+- ※ 근거가 2개뿐임
+
+### 4. 유로달러 — **팽팽** — 양쪽 근거가 정확히 맞섬 +0점
+- 근거: (-1) 5일·20일 추세가 둘 다 하락 / (+1) 1년 범위에서 저점권
+- **오늘 볼 선**: 평소 하루 변동폭은 ±0.2%다 — 1.12 아래로 빠지면 평소보다 큰 하락
+- ※ 반대 근거도 함께 있다. 위 목록의 부호를 보고 양쪽을 다 적어라 — 한쪽만 옮기면 글이 데이터보다 세진다.
+- ※ 이번 장에 결판나는 재료가 있음 — 오늘 [United States] ISM Manufacturing Employment 발표
+- ※ 곧 결판나는 재료가 있음 — 내일 [United States] IBD/TIPP Economic Optimism 발표
+- ※ 근거가 2개뿐임
+
+---
+## 요청
+
+현재 2026-11-03 05:54 (한국시간). 국내 증시는 장마감, 미국 증시는 장중. 지금은 미장이 열려 있다. 다음 개장은 국내 증시이며 약 3.1시간 뒤(11-03 09:00)다. 매크로는 두 시장 모두의 배경이므로 양쪽 관점을 함께 다뤄라.
+
+**이미 지나간 장을 복기하지 마라.** 무슨 일이 있었는지 나열하는 글은
+쓸모가 없다. 위 데이터를 근거로 **다가올 장에서 무엇을 볼 것인지**를 써라.
+과거 수치는 그 판단의 근거로만 인용하라.
+
+### 1. 개장 전 브리핑
+3~4문장. 직전 세션 이후 바뀐 것 중 이번 장에 영향을 줄 것만.
+숫자 나열이 아니라 "그래서 이번 장은 어떤 상태에서 시작하는가"를 써라.
+
+**첫 문장은 위 '장 상태' 블록의 판정으로 시작한다.** 종목 근거가 두꺼워도
+장이 비우호면 읽는 쪽이 다르게 받아들여야 하는데, 그 말이 픽 뒤에 나오면
+이미 늦다. 판정과 신호 개수를 그대로 옮기고 **바꾸지 마라** — 그것도
+규칙이 계산한 값이다. 블록이 '알 수 없음'이면 "판정할 재료가 없었다"고
+쓰고, 그것을 "장이 잠잠하다"로 바꿔 쓰지 마라.
+
+### 2. 오늘의 픽
+**위 '오늘의 픽' 블록에 계산된 것을 그대로 쓴다.** 순서를 바꾸거나 다른
+대상으로 갈아치우지 마라. 고르는 일은 이미 규칙이 했다 — 여기서 할 일은
+그 결과를 사람 말로 옮기는 것이다. **각 픽은 `###` 제목으로 시작한다**
+(화면이 이 제목을 맨 위 칩으로 끌어올린다).
+
+### 1. [대상] — [상승 근거 / 하락 근거 / 피할 것]
+- 왜 이것인가: 계산된 근거를 숫자와 함께 한두 문장
+- 확인할 것: 이번 장에서 무엇을 보면 이 판단이 맞았는지 알 수 있는가
+- 오늘 볼 선: 블록의 '오늘 볼 선'을 **그대로 옮겨라** (가격까지)
+- (뒤에 깨지는 것이 있으면 한 줄로 덧붙이되, **한 장에 닿을 자리가
+  아니라는 사실을 반드시 함께 적어라**)
+
+지켜야 할 것:
+
+- **'피할 것'을 상승 픽처럼 쓰지 마라.** 그건 오를 종목이 아니라 내릴
+  근거가 두꺼운 종목이고, 상승 후보가 모자라 채운 자리다. 제목에서부터
+  구분되게 쓰고 상승 픽과 섞어서 나열하지 마라.
+- **반대 근거가 함께 있으면 양쪽을 다 적어라.** 블록의 근거 목록에는
+  부호가 붙어 있다. 플러스만 옮기면 글이 데이터보다 세진다.
+- **`※`로 붙은 경고를 빠뜨리지 마라.** 거래량이 한산하다·근거가 두어
+  개뿐이다·곧 실적이 나온다 같은 것들이고, 그게 빠지면 얇은 근거가
+  두꺼운 근거처럼 읽힌다.
+- **점수는 상승 확률이 아니라 근거의 두께다.** "오를 확률이 높다"가 아니라
+  "오를 근거가 이만큼 쌓였다"로 쓴다. 이 데이터는 설명치지 예측치가 아니다.
+- **'오늘 볼 선'은 손절선이 아니다.** 그 값이 무너지면 이 픽을 세운
+  근거 하나가 사라진다는 뜻이지, 팔라는 신호가 아니다. "159.40 아래로
+  빠지면 평소 하루 변동폭을 벗어난 하락입니다"까지 쓰고, 그때 무엇을
+  할지는 읽는 분 몫으로 남겨라. 손절가·목표가·비중은 쓰지 않는다.
+- **이동평균선을 오늘 볼 선처럼 쓰지 마라.** 많이 올라온 종목은 20일선까지
+  -20%가 남는데 그건 하루 변동폭의 서너 배라 한 장에 닿지 않는다. 블록이
+  '한 장에는 멀다'로 표시해 두었으니 그 말을 빼먹지 마라. 이건 오늘의
+  픽이고, 오늘 볼 선이 따로 있다.
+
+**블록에 나온 만큼만, 나온 전부를 써라.** 개수는 자산군마다 다르고 날마다
+바뀐다 — 주식은 후보에서 3종을 고르지만 선물은 고정 대상을 그대로 내므로
+코인 2종, 매크로 4종(금·WTI원유·나스닥·유로달러)이다. 블록 제목에 몇 종인지
+찍혀 있으니 그 수를 따르고, **하나라도 빼먹지 마라.** 적게 나왔으면 그만큼만
+쓰고 이유를 한 줄로 적어라 — 자리를 채우려고 없는 근거를 만들지 마라.
+
+### 3. 오늘 주목할 것 (3~5개)
+**이것이 이 글의 핵심이다.** 각 항목을 아래 형식으로 써라.
+
+- **[대상]** — 왜 봐야 하는가 (데이터 근거 1~2개 숫자 인용)
+  · 확인할 것: 이번 장에서 구체적으로 무엇을 보면 되는가
+  · 갈림길: 어떻게 되면 어떻게 읽을 것인가
+
+대상은 종목·자산·지표 무엇이든 되지만, **반드시 위 데이터에 있는 것**이어야
+한다. 데이터에 없는 종목을 지어내지 마라. 선별 사유(급등/급락/거래대금상위/
+관심종목 등)와 포지셔닝 지표를 우선 근거로 삼아라.
+
+### 4. 시나리오
+"A가 나오면 B로 읽는다" 형태로 2~3개. 조건은 이번 장에서 실제로 관찰
+가능한 것이어야 한다(가격대·거래량·수급 방향 등).
+
+### 5. 예정된 이벤트
+실적 발표·경제지표 등 이번 장에 영향을 줄 일정. 데이터에 없으면 "데이터 없음".
+
+### 6. 경계할 것
+포지션 쏠림, 과열 구간, 관계가 깨진 지점 등 틀어질 수 있는 부분.
+
+### 참고 — 이 데이터에서만 보이는 것
+**개별 자산의 등락률 나열은 하지 마라.** 그건 어디서나 볼 수 있다.
+43개 자산을 나란히 놓았을 때만 보이는 것을 써라.
+
+- **깨진 관계**([깨짐] 표시)를 최우선으로 다뤄라. 통상 관계가 깨졌다면
+  (a) 일시적 노이즈인지 (b) 국면 전환인지 판단하고 근거를 대라.
+  깨진 관계가 없으면 "없음"이라고 명시하라 — 그것도 정보다.
+- **원자재 3축을 교차하라.** COT는 포지션, 선물커브는 기대, 재고는 사실이다.
+  · 재고가 평년 대비 타이트한데 커브도 백워데이션이면 실물 수급 문제다.
+    이 경우 가격 하락은 되돌려질 여지가 있다.
+  · 재고는 평년 수준인데 커브만 백워데이션이면 지정학·심리 프리미엄이고,
+    그 요인이 풀리면 커브가 먼저 무너진다.
+  · COT 순포지션의 **전주 대비 변화**를 보라. 절대 수준보다 방향 전환이 빠르다.
+- **금리 커브**의 부호와 오늘 방향(스티프닝/플래트닝)을 함께 읽어라.
+- **원자재 내부 분화** — 금속·에너지·농산물이 갈렸다면 무엇이 그 차이를
+  만드는지 짚어라. 한 덩어리로 보면 안 된다.
+- 계절성 표시([비단조])가 붙은 커브는 단순 판정을 하지 마라.
+---
+
+**작성 규칙**
+- 각 주장에 위 데이터의 구체적 숫자를 인용하라.
+- 데이터에 없는 내용은 추측하지 말고 "데이터 없음"이라고 명시하라.
+- 규칙 기반 뉴스 판정은 단순 키워드 매칭이니 숫자와 배치되면 숫자를 따르라.
+- **방향은 '오늘의 픽'에 계산된 것만 쓴다.** 그 블록에 없는 대상에
+  방향을 붙이지 마라. 나머지 항목은 여전히 "무엇을 보라"까지가 범위다.
+- **사라·팔라·비중을 쓰지 마라.** 진입가·목표가·손절가·비중도 쓰지 마라.
+  방향 판정은 "이 데이터가 어느 쪽을 가리키는가"이지 매매 지시가 아니다.
+  '상승 우세'는 써도 되고 '지금 사십시오'는 안 된다.
+- 방향에는 반드시 **틀렸다고 볼 조건**을 함께 적어라. 조건 없는 방향은
+  나중에 맞았는지 틀렸는지 아무도 못 재고, 그러면 다음 판정이 나아지지 않는다.
+- 문체는 존댓말(~습니다)로 쓴다. 폰에서 읽으므로 문단은 짧게,
+  숫자 대조는 표로 정리하라.
+
+**용어 규칙 — 전문용어를 그대로 쓰지 마라**
+폰에서 훑어보는 글이다. 용어를 떠올려야 읽히는 문장은 실패한 문장이다.
+아래는 뜻으로 바꿔 쓴다. 굳이 용어를 남기려면 괄호에 넣어라.
+
+| 쓰지 마라 | 이렇게 |
+|---|---|
+| 플래트닝 | 장단기 금리차 축소 |
+| 스티프닝 | 장단기 금리차 확대 |
+| 백워데이션 | 지금 물건이 나중보다 비쌈 (공급 빠듯) |
+| 콘탱고 | 나중이 더 비쌈 (공급 여유) |
+| 재고가 타이트 | 재고 부족 |
+| 롱숏비 5.85 | 롱이 숏의 5.85배 |
+| 미결제약정(OI) | 미결제약정(=열려 있는 포지션 총량) 첫 등장 때만 풀어 쓴다 |
+| 52주위치 71 | 1년 범위에서 상단 (또는 고점권/저점권) |
+
+**숫자를 쓸 때는 그 숫자가 좋은지 나쁜지도 함께 적어라.**
+"ISM 55.6 (예상 54.0)"으로 끝내지 말고 "예상을 넘겨 경기가 강하다는
+뜻이고, 그만큼 금리 인하 기대는 뒤로 밀립니다"까지 쓴다.

@@ -1,0 +1,592 @@
+# 미국 증시 데이터 스냅샷 (2026-11-03T05:53:42)
+
+## 지수
+- S&P500: 7,551.92 (-0.37%), 20일 -2.86%, 52주위치 80.8
+- 나스닥: 25,203.18 (-0.92%), 20일 -8.28%, 52주위치 64.2
+- 다우: 52,060.45 (+0.56%), 20일 +1.55%, 52주위치 72.3
+- 러셀2000: 2,812.00 (+0.01%), 20일 -1.23%, 52주위치 66.4
+- 필라델피아반도체: 10,360.55 (-3.07%), 20일 -21.35%, 52주위치 49.4
+- VIX: 21.60 (+11.23%), 20일 +39.18%, 52주위치 37.5
+
+## 시장 폭
+- 상승 1,293 / 하락 3,595 / 보합 101 (상승비율 25.9%, 집계 4,989개)
+- 시총가중 등락률 -1.77%  ← 지수와 상승비율이 어긋나면 대형주 편중이라는 뜻이다
+
+### 섹터별 (시총가중 등락률)
+- Consumer Staples: +1.67%, 상승비율 78.8%, 거래대금 $14.9B (66개)
+- Energy: +1.66%, 상승비율 68.8%, 거래대금 $26.2B (96개)
+- Health Care: +0.76%, 상승비율 25.3%, 거래대금 $74.8B (324개)
+- Utilities: +0.33%, 상승비율 60.4%, 거래대금 $23.2B (91개)
+- Consumer Discretionary: +0.05%, 상승비율 40.6%, 거래대금 $124.2B (471개)
+- 기타: -0.12%, 상승비율 28.6%, 거래대금 $2.9B (14개)
+- Real Estate: -0.15%, 상승비율 33.9%, 거래대금 $14.1B (109개)
+- Telecommunications: -1.10%, 상승비율 44.2%, 거래대금 $18.4B (43개)
+- Industrials: -1.40%, 상승비율 26.3%, 거래대금 $88.7B (315개)
+- Finance: -1.44%, 상승비율 24.2%, 거래대금 $67.4B (429개)
+- Miscellaneous: -2.19%, 상승비율 16.7%, 거래대금 $1.1B (18개)
+- Basic Materials: -3.51%, 상승비율 10.8%, 거래대금 $12.3B (65개)
+- Technology: -3.79%, 상승비율 19.3%, 거래대금 $432.8B (321개)
+
+## 선별 종목 30개
+전종목 6,974개에서 파생증권 1,486개·시총미상 499개를 제외한 4,989개 중에서 골랐다.
+선별 사유: 관심종목(항상 포함) / 거래대금상위 / 급등 / 급락 / 섹터대표
+**사유를 보고 판단하라** — '급등'으로 뽑힌 종목과 '거래대금상위'로
+뽑힌 종목은 의미가 다르다. 전자는 이벤트, 후자는 자금 집중이다.
+
+**프리마켓 값에는 거래량이 없다.** 야후가 프리마켓 5분봉에 거래량을
+채우지 않아(실측: 55개 봉 전부 0) 그 등락이 실제 수급인지 얇은 호가에
+한 번 튄 것인지 구분할 수가 없다. 대신 **체결된 5분 구간 수**를 함께
+냈다 — 같은 시간인데 55개인 종목이 있고 20개인 종목이 있다. 구간이
+적으면 띄엄띄엄 거래된 것이므로 그 등락률을 얇게 읽어라. 이 값은
+'오늘의 픽' 점수에 들어가 있지 않다.
+
+### NVDA — NVIDIA Corporation
+- 사유: 관심종목, 거래대금상위 | 섹터: Technology | 업종: Semiconductors
+- 주가 $204.64 (-4.22%), 시총 $4.93T, 거래대금 $34.46B
+- 프리마켓 +1.83% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -6.26%, 20일 -15.25%, 20일선대비 -7.82%, 60일선대비 -8.51%
+- 위치: 52주위치 48.3, 52주고점 대비 -16.8%, 거래량 20일평균의 0.84배, 20일 변동성 1.87%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Jul 2026 +6.2%, Apr 2026 +10.0%, Jan 2026 +8.3%, Oct 2025 +5.1%)
+- 밸류: PER 29.7배 (후행 12개월 EPS $6.9)
+
+### AMZN — Amazon.com Inc.
+- 사유: 관심종목, 거래대금상위 | 섹터: Consumer Discretionary | 업종: Catalog/Specialty Distribution
+- 주가 $240.35 (-1.41%), 시총 $2.59T, 거래대금 $25.21B
+- 프리마켓 -2.13% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -1.07%, 20일 -1.98%, 20일선대비 -3.04%, 60일선대비 -3.69%
+- 위치: 52주위치 55.3, 52주고점 대비 -14.2%, 거래량 20일평균의 1.09배, 20일 변동성 2.3%
+- 실적 서프라이즈: 최근 4분기 중 1번 컨센서스 상회 (Sep 2026 -6.0%, Jun 2026 +2.7%, Mar 2026 -2.5%, Dec 2025 -1.5%)
+- 밸류: PER 33.0배 (후행 12개월 EPS $7.28)
+
+### AAPL — Apple Inc.
+- 사유: 관심종목, 거래대금상위 | 섹터: Technology | 업종: Computer Manufacturing
+- 주가 $344.63 (-1.23%), 시총 $5.03T, 거래대금 $23.38B
+- 프리마켓 +1.76% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -1.56%, 20일 +1.70%, 20일선대비 -1.11%, 60일선대비 +2.80%
+- 위치: 52주위치 87.8, 52주고점 대비 -3.7%, 거래량 20일평균의 0.96배, 20일 변동성 0.99%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Jun 2026 +1.6%, Mar 2026 +4.7%, Dec 2025 +7.2%, Sep 2025 +6.9%)
+- 밸류: PER 40.0배 (후행 12개월 EPS $8.61)
+
+### MSFT — Microsoft Corporation
+- 사유: 관심종목, 거래대금상위 | 섹터: Technology | 업종: Computer Software: Prepackaged Software
+- 주가 $521.91 (-1.55%), 시총 $3.88T, 거래대금 $18.61B
+- 프리마켓 +3.53% (직전 정규장 종가 대비, 체결 구간 51개)
+- 추세: 5일 -4.69%, 20일 -3.35%, 20일선대비 -4.24%, 60일선대비 -0.39%
+- 위치: 52주위치 78.4, 52주고점 대비 -7.9%, 거래량 20일평균의 1.11배, 20일 변동성 1.34%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +3.8%, Jun 2026 +12.6%, Mar 2026 +4.9%, Dec 2025 +6.7%)
+- 밸류: PER 28.9배 (후행 12개월 EPS $18.04)
+
+### GOOGL — Alphabet Inc.
+- 사유: 관심종목, 거래대금상위 | 섹터: Technology | 업종: Computer Software: Programming Data Processing
+- 주가 $279.84 (-1.40%), 시총 $3.44T, 거래대금 $18.38B
+- 프리마켓 +0.82% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -11.80%, 20일 -19.35%, 20일선대비 -15.47%, 60일선대비 -17.59%
+- 위치: 52주위치 6.3, 52주고점 대비 -31.6%, 거래량 20일평균의 1.05배, 20일 변동성 2.94%
+- 실적 서프라이즈: 최근 4분기 중 3번 컨센서스 상회 (Sep 2026 -27.9%, Jun 2026 +216.3%, Mar 2026 +93.6%, Dec 2025 +9.7%)
+- 밸류: PER 14.6배 (후행 12개월 EPS $19.16)
+
+### META — Meta Platforms Inc.
+- 사유: 관심종목, 거래대금상위 | 섹터: Technology | 업종: Computer Software: Programming Data Processing
+- 주가 $614.99 (-1.53%), 시총 $1.57T, 거래대금 $15.60B
+- 프리마켓 +1.08% (직전 정규장 종가 대비, 체결 구간 52개)
+- 추세: 5일 -3.67%, 20일 -18.12%, 20일선대비 -11.24%, 60일선대비 -7.19%
+- 위치: 52주위치 33.6, 52주고점 대비 -22.1%, 거래량 20일평균의 0.6배, 20일 변동성 2.21%
+- 실적 서프라이즈: 최근 4분기 중 3번 컨센서스 상회 (Sep 2026 +13.5%, Jun 2026 -13.0%, Mar 2026 +8.9%, Dec 2025 +8.2%)
+- 밸류: PER 20.7배 (후행 12개월 EPS $29.77)
+
+### TSLA — Tesla Inc.
+- 사유: 관심종목, 거래대금상위 | 섹터: Industrials | 업종: Auto Manufacturing
+- 주가 $399.81 (-0.86%), 시총 $1.58T, 거래대금 $16.69B
+- 프리마켓 -0.15% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 +2.89%, 20일 +6.40%, 20일선대비 +5.51%, 60일선대비 +10.25%
+- 위치: 52주위치 52.4, 52주고점 대비 -19.2%, 거래량 20일평균의 1.07배, 20일 변동성 2.23%
+- 실적 서프라이즈: 최근 4분기 중 0번 컨센서스 상회 (Sep 2026 -9.1%, Jun 2026 -87.5%, Mar 2026 -14.3%, Dec 2025 -8.8%)
+- 밸류: PER 547.7배 (후행 12개월 EPS $0.73)
+
+### AVGO — Broadcom Inc.
+- 사유: 관심종목 | 섹터: Technology | 업종: Semiconductors
+- 주가 $326.08 (-5.48%), 시총 $1.56T, 거래대금 $11.91B
+- 프리마켓 +1.12% (직전 정규장 종가 대비, 체결 구간 53개)
+- 추세: 5일 -1.59%, 20일 -10.64%, 20일선대비 -5.77%, 60일선대비 -9.72%
+- 위치: 52주위치 16.6, 52주고점 대비 -34.6%, 거래량 20일평균의 0.59배, 20일 변동성 2.72%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Jul 2026 +7.1%, Apr 2026 +7.4%, Jan 2026 +5.4%, Oct 2025 +8.1%)
+- 밸류: PER 38.0배 (후행 12개월 EPS $8.57)
+
+### INTC — Intel Corporation
+- 사유: 거래대금상위, 급락 | 섹터: Technology | 업종: Semiconductors
+- 주가 $65.76 (-28.58%), 시총 $348B, 거래대금 $29.96B
+- 프리마켓 +8.06% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -33.64%, 20일 -48.33%, 20일선대비 -35.84%, 60일선대비 -40.00%
+- 위치: 52주위치 24.8, 52주고점 대비 -57.8%, 거래량 20일평균의 1.63배, 20일 변동성 6.91%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +46.4%, Jun 2026 +200.0%, Mar 2026 +270.0%, Dec 2025 +300.0%)
+- 밸류: PER 71.5배 (후행 12개월 EPS $0.92)
+
+### RDDT — Reddit Inc.
+- 사유: 급락, 섹터대표:Technology | 섹터: Technology | 업종: EDP Services
+- 주가 $91.73 (-29.22%), 시총 $18B, 거래대금 $3.06B
+- 프리마켓 +0.07% (직전 정규장 종가 대비, 체결 구간 42개)
+- 추세: 5일 -34.15%, 20일 -39.39%, 20일선대비 -36.64%, 60일선대비 -39.48%
+- 위치: 52주위치 1.1, 52주고점 대비 -65.4%, 거래량 20일평균의 1.54배, 20일 변동성 6.77%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +6.9%, Jun 2026 +26.3%, Mar 2026 +62.9%, Dec 2025 +29.2%)
+- 밸류: PER 18.7배 (후행 12개월 EPS $4.9)
+
+### ILMN — Illumina Inc.
+- 사유: 급락, 섹터대표:Health Care | 섹터: Health Care | 업종: Medical Specialities
+- 주가 $235.99 (-18.64%), 시총 $36B, 거래대금 $1.27B
+- 프리마켓 +5.11% (직전 정규장 종가 대비, 체결 구간 2개)
+- 추세: 5일 -16.29%, 20일 -22.75%, 20일선대비 -15.64%, 60일선대비 -5.81%
+- 위치: 52주위치 58.1, 52주고점 대비 -26.7%, 거래량 20일평균의 1.0배, 20일 변동성 5.02%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +5.9%, Jun 2026 +6.5%, Mar 2026 +9.5%, Dec 2025 +7.1%)
+- 밸류: PER 45.0배 (후행 12개월 EPS $5.25)
+
+### TFII — TFI International Inc. Common Shares
+- 사유: 급락, 섹터대표:Industrials | 섹터: Industrials | 업종: Trucking Freight/Courier Services
+- 주가 $93.32 (-17.08%), 시총 $8B, 거래대금 $0.11B
+- 프리마켓 -2.92% (직전 정규장 종가 대비, 체결 구간 1개)
+- 추세: 5일 -14.13%, 20일 -16.37%, 20일선대비 -13.74%, 60일선대비 -23.14%
+- 위치: 52주위치 17.7, 52주고점 대비 -42.7%, 거래량 20일평균의 1.73배, 20일 변동성 4.05%
+- 실적 서프라이즈: 최근 4분기 중 3번 컨센서스 상회 (Sep 2026 -4.6%, Jun 2026 +16.4%, Mar 2026 +16.9%, Dec 2025 +28.2%)
+- 밸류: PER 17.6배 (후행 12개월 EPS $5.3)
+
+### SNDK — Sandisk Corporation
+- 사유: 거래대금상위, 급락 | 섹터: Technology | 업종: Electronic Components
+- 주가 $1,150.89 (-13.47%), 시총 $167B, 거래대금 $20.11B
+- 프리마켓 +7.84% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -14.57%, 20일 -37.06%, 20일선대비 -22.68%, 60일선대비 -30.48%
+- 위치: 52주위치 41.0, 52주고점 대비 -54.4%, 거래량 20일평균의 1.04배, 20일 변동성 4.97%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +5.9%, Jun 2026 +16.6%, Mar 2026 +63.9%, Dec 2025 +76.1%)
+- 밸류: PER 9.9배 (후행 12개월 EPS $116.79)
+
+### AUGO — Aura Minerals Inc. Common Shares
+- 사유: 급락, 섹터대표:Basic Materials | 섹터: Basic Materials | 업종: Metal Mining
+- 주가 $66.22 (-15.43%), 시총 $6B, 거래대금 $0.11B
+- 프리마켓 +2.71% (직전 정규장 종가 대비, 체결 구간 6개)
+- 추세: 5일 -14.17%, 20일 -22.27%, 20일선대비 -19.28%, 60일선대비 -20.40%
+- 위치: 52주위치 44.3, 52주고점 대비 -40.0%, 거래량 20일평균의 0.71배, 20일 변동성 5.27%
+- 실적 서프라이즈: 최근 4분기 중 0번 컨센서스 상회 (Jun 2026 -10.2%, Mar 2026 -40.4%, Dec 2025 -42.5%, Sep 2025 -13.4%)
+- 밸류: PER 15.6배 (후행 12개월 EPS $4.25)
+
+### FDXF — FedEx Freight Holding Company Inc.
+- 사유: 급등, 섹터대표:Consumer Discretionary | 섹터: Consumer Discretionary | 업종: Air Freight/Delivery Services
+- 주가 $126.04 (+14.91%), 시총 $19B, 거래대금 $0.45B
+- 프리마켓 -4.62% (직전 정규장 종가 대비, 체결 구간 4개)
+- 추세: 5일 +20.75%, 20일 +18.44%, 20일선대비 +17.20%, 60일선대비 +7.80%
+- 위치: 52주위치 29.7, 52주고점 대비 -33.9%, 거래량 20일평균의 1.11배, 20일 변동성 3.72%
+- 실적 서프라이즈: 최근 1분기 중 1번 컨센서스 상회 (Sep 2026 +8.0%)
+
+### RBLX — Roblox Corporation
+- 사유: 급락 | 섹터: Technology | 업종: Computer Software: Prepackaged Software
+- 주가 $42.99 (-18.05%), 시총 $31B, 거래대금 $1.26B
+- 프리마켓 +0.30% (직전 정규장 종가 대비, 체결 구간 41개)
+- 추세: 5일 -21.26%, 20일 -3.97%, 20일선대비 -14.02%, 60일선대비 -4.82%
+- 위치: 52주위치 11.2, 52주고점 대비 -62.3%, 거래량 20일평균의 1.12배, 20일 변동성 5.02%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +21.9%, Jun 2026 +21.2%, Mar 2026 +32.6%, Dec 2025 +8.2%)
+- 밸류: 후행 12개월 EPS $-1.32 — 적자라 PER 없음
+
+### TWLO — Twilio Inc.
+- 사유: 급락 | 섹터: Technology | 업종: Computer Software: Prepackaged Software
+- 주가 $205.03 (-15.24%), 시총 $31B, 거래대금 $1.51B
+- 프리마켓 -0.19% (직전 정규장 종가 대비, 체결 구간 17개)
+- 추세: 5일 -21.82%, 20일 -31.50%, 20일선대비 -20.64%, 60일선대비 -18.52%
+- 위치: 52주위치 49.7, 52주고점 대비 -33.2%, 거래량 20일평균의 1.33배, 20일 변동성 4.95%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +21.6%, Jun 2026 +22.0%, Mar 2026 +44.6%, Dec 2025 +6.5%)
+- 밸류: PER 70.2배 (후행 12개월 EPS $2.92)
+
+### TXG — 10x Genomics Inc.
+- 사유: 급락 | 섹터: Industrials | 업종: Biotechnology: Laboratory Analytical Instruments
+- 주가 $70.11 (-14.03%), 시총 $9B, 거래대금 $0.37B
+- 프리마켓 +15.70% (직전 정규장 종가 대비, 체결 구간 8개)
+- 추세: 5일 -15.69%, 20일 -37.07%, 20일선대비 -17.05%, 60일선대비 -14.15%
+- 위치: 52주위치 54.1, 52주고점 대비 -40.2%, 거래량 20일평균의 1.01배, 20일 변동성 6.78%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Jun 2026 +39.1%, Mar 2026 +65.5%, Dec 2025 +31.6%, Sep 2025 +18.5%)
+- 밸류: 후행 12개월 EPS $-0.59 — 적자라 PER 없음
+
+### MEOH — Methanex Corporation
+- 사유: 급등 | 섹터: Industrials | 업종: Major Chemicals
+- 주가 $71.57 (+14.04%), 시총 $6B, 거래대금 $0.20B
+- 프리마켓 +4.00% (직전 정규장 종가 대비, 체결 구간 2개)
+- 추세: 5일 +6.66%, 20일 +13.15%, 20일선대비 +7.95%, 60일선대비 +13.40%
+- 위치: 52주위치 90.4, 52주고점 대비 -5.1%, 거래량 20일평균의 1.44배, 20일 변동성 3.63%
+- 실적 서프라이즈: 최근 4분기 중 1번 컨센서스 상회 (Sep 2026 +16.4%, Jun 2026 -3.2%, Mar 2026 -36.2%, Dec 2025 -116.7%)
+- 밸류: PER 9.3배 (후행 12개월 EPS $7.72)
+
+### REGN — Regeneron Pharmaceuticals Inc.
+- 사유: 급등 | 섹터: Health Care | 업종: Biotechnology: Pharmaceutical Preparations
+- 주가 $927.89 (+13.33%), 시총 $96B, 거래대금 $2.66B
+- 프리마켓 -3.91% (직전 정규장 종가 대비, 체결 구간 4개)
+- 추세: 5일 +19.31%, 20일 +32.65%, 20일선대비 +20.35%, 60일선대비 +20.65%
+- 위치: 52주위치 97.3, 52주고점 대비 -1.1%, 거래량 20일평균의 1.78배, 20일 변동성 3.13%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +33.9%, Jun 2026 +56.6%, Mar 2026 +19.4%, Dec 2025 +12.3%)
+- 밸류: PER 19.4배 (후행 12개월 EPS $47.76)
+
+### GPN — Global Payments Inc.
+- 사유: 급등 | 섹터: Consumer Discretionary | 업종: Business Services
+- 주가 $96.84 (+12.97%), 시총 $26B, 거래대금 $1.62B
+- 프리마켓 -2.38% (직전 정규장 종가 대비, 체결 구간 9개)
+- 추세: 5일 +21.20%, 20일 +20.73%, 20일선대비 +17.36%, 60일선대비 +13.89%
+- 위치: 52주위치 94.8, 52주고점 대비 -2.1%, 거래량 20일평균의 1.61배, 20일 변동성 3.3%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Jun 2026 +0.3%, Mar 2026 +5.0%, Dec 2025 +3.6%, Sep 2025 +6.9%)
+- 밸류: PER 7.5배 (후행 12개월 EPS $12.86)
+
+### AAOI — Applied Optoelectronics Inc.
+- 사유: 급락 | 섹터: Technology | 업종: Semiconductors
+- 주가 $69.05 (-12.80%), 시총 $6B, 거래대금 $1.18B
+- 프리마켓 +10.69% (직전 정규장 종가 대비, 체결 구간 46개)
+- 추세: 5일 -13.22%, 20일 -48.65%, 20일선대비 -27.48%, 60일선대비 -39.81%
+- 위치: 52주위치 20.4, 52주고점 대비 -73.3%, 거래량 20일평균의 1.03배, 20일 변동성 7.02%
+- 실적 서프라이즈: 최근 4분기 중 2번 컨센서스 상회 (Jun 2026 +100.0%, Mar 2026 -20.0%, Dec 2025 +75.0%, Sep 2025 +0.0%)
+- 밸류: 후행 12개월 EPS $-0.3 — 적자라 PER 없음
+
+### AMD — Advanced Micro Devices Inc.
+- 사유: 거래대금상위 | 섹터: Technology | 업종: Semiconductors
+- 주가 $504.80 (-10.88%), 시총 $824B, 거래대금 $20.04B
+- 프리마켓 +8.71% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -11.62%, 20일 -25.68%, 20일선대비 -16.50%, 60일선대비 -12.60%
+- 위치: 52주위치 59.8, 52주고점 대비 -28.7%, 거래량 20일평균의 1.24배, 20일 변동성 4.31%
+- 실적 서프라이즈: 최근 4분기 중 3번 컨센서스 상회 (Jun 2026 +6.7%, Mar 2026 +4.7%, Dec 2025 +11.7%, Sep 2025 +0.0%)
+- 밸류: PER 106.1배 (후행 12개월 EPS $4.76)
+
+### GLXY — Galaxy Digital Inc.
+- 사유: 섹터대표:Finance | 섹터: Finance | 업종: Investment Bankers/Brokers/Service
+- 주가 $16.00 (-11.75%), 시총 $6B, 거래대금 $0.13B
+- 프리마켓 +11.75% (직전 정규장 종가 대비, 체결 구간 11개)
+- 추세: 5일 -7.24%, 20일 -35.78%, 20일선대비 -18.03%, 60일선대비 -32.76%
+- 위치: 52주위치 1.6, 52주고점 대비 -60.6%, 거래량 20일평균의 0.99배, 20일 변동성 6.64%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +186.2%, Jun 2026 +75.0%, Mar 2026 +16.9%, Dec 2025 +12.9%)
+- 밸류: 후행 12개월 EPS $-0.83 — 적자라 PER 없음
+
+### GDDY — GoDaddy Inc.
+- 사유: 급등 | 섹터: Technology | 업종: EDP Services
+- 주가 $117.24 (+10.72%), 시총 $15B, 거래대금 $0.42B
+- 프리마켓 -0.02% (직전 정규장 종가 대비, 체결 구간 8개)
+- 추세: 5일 +6.78%, 20일 +17.57%, 20일선대비 +9.64%, 60일선대비 +16.46%
+- 위치: 52주위치 70.6, 52주고점 대비 -14.0%, 거래량 20일평균의 0.8배, 20일 변동성 3.35%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Sep 2026 +14.3%, Jun 2026 +6.4%, Mar 2026 +4.6%, Dec 2025 +13.9%)
+- 밸류: PER 16.0배 (후행 12개월 EPS $7.31)
+
+### LITE — Lumentum Holdings Inc.
+- 사유: 섹터대표:Telecommunications | 섹터: Telecommunications | 업종: Telecommunications Equipment
+- 주가 $840.70 (-8.57%), 시총 $76B, 거래대금 $6.50B
+- 프리마켓 +15.23% (직전 정규장 종가 대비, 체결 구간 38개)
+- 추세: 5일 -16.38%, 20일 -37.34%, 20일선대비 -24.12%, 60일선대비 -25.04%
+- 위치: 52주위치 52.1, 52주고점 대비 -40.2%, 거래량 20일평균의 2.39배, 20일 변동성 6.75%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Jun 2026 +0.8%, Mar 2026 +3.9%, Dec 2025 +27.8%, Sep 2025 +1.7%)
+- 밸류: PER 132.2배 (후행 12개월 EPS $6.36)
+
+### FPS — Forgent Power Solutions Inc.
+- 사유: 섹터대표:Energy | 섹터: Energy | 업종: Industrial Machinery/Components
+- 주가 $25.81 (-8.96%), 시총 $8B, 거래대금 $0.17B
+- 프리마켓 +6.21% (직전 정규장 종가 대비, 체결 구간 27개)
+- 추세: 5일 -2.51%, 20일 -37.16%, 20일선대비 -22.81%, 60일선대비 -27.61%
+- 위치: 52주위치 3.1, 52주고점 대비 -62.9%, 거래량 20일평균의 0.68배, 20일 변동성 6.67%
+- 실적 서프라이즈: 최근 2분기 중 2번 컨센서스 상회 (Jun 2026 +9.1%, Dec 2025 +25.0%)
+
+### CIEN — Ciena Corporation
+- 사유: 섹터대표:Utilities | 섹터: Utilities | 업종: Telecommunications Equipment
+- 주가 $320.72 (-8.22%), 시총 $45B, 거래대금 $1.00B
+- 프리마켓 +11.87% (직전 정규장 종가 대비, 체결 구간 22개)
+- 추세: 5일 -15.36%, 20일 -27.03%, 20일선대비 -22.26%, 60일선대비 -23.07%
+- 위치: 52주위치 24.7, 52주고점 대비 -55.4%, 거래량 20일평균의 1.11배, 20일 변동성 6.65%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Jul 2026 +30.8%, Apr 2026 +11.7%, Jan 2026 +21.4%, Oct 2025 +23.1%)
+- 밸류: PER 64.5배 (후행 12개월 EPS $4.97)
+
+### MU — Micron Technology Inc.
+- 사유: 거래대금상위 | 섹터: Technology | 업종: Semiconductors
+- 주가 $884.74 (-5.30%), 시총 $1.00T, 거래대금 $27.32B
+- 프리마켓 +7.35% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -7.78%, 20일 -21.67%, 20일선대비 -11.25%, 60일선대비 -14.07%
+- 위치: 52주위치 60.3, 52주고점 대비 -33.6%, 거래량 20일평균의 0.93배, 20일 변동성 3.83%
+- 실적 서프라이즈: 최근 4분기 중 4번 컨센서스 상회 (Aug 2026 +5.7%, May 2026 +18.6%, Feb 2026 +39.8%, Nov 2025 +25.6%)
+- 밸류: PER 11.8배 (후행 12개월 EPS $74.77)
+
+### SPCX — Space Exploration Technologies Corp.
+- 사유: 거래대금상위 | 섹터: Technology | 업종: Computer Software: Programming Data Processing
+- 주가 $134.72 (-6.37%), 시총 $1.83T, 거래대금 $16.52B
+- 프리마켓 -0.14% (직전 정규장 종가 대비, 체결 구간 54개)
+- 추세: 5일 -6.94%, 20일 -20.10%, 20일선대비 -9.85%, 60일선대비 -7.61%
+- 위치: 52주위치 26.4, 52주고점 대비 -39.4%, 거래량 20일평균의 0.78배, 20일 변동성 3.45%
+- 실적 서프라이즈: 최근 2분기 중 2번 컨센서스 상회 (Sep 2026 +250.0%, Jun 2026 +65.4%)
+
+## 실적 발표 예정 (오늘~내일)
+- 2026-11-03 AMD (Advanced Micro Devices, Inc.) after-hours, 예상EPS $1.68, 시총 $824B
+- 2026-11-04 TM (Toyota Motor Corp Ltd Ord) not-supplied, 예상EPS , 시총 $255B
+- 2026-11-03 AMGN (Amgen Inc.) after-hours, 예상EPS $5.74, 시총 $252B
+- 2026-11-04 ARM (Arm Holdings plc) after-hours, 예상EPS $0.22, 시총 $219B
+- 2026-11-03 ANET (Arista Networks, Inc.) after-hours, 예상EPS $0.99, 시총 $213B
+- 2026-11-03 SHOP (Shopify Inc.) pre-market, 예상EPS $0.33, 시총 $204B
+- 2026-11-04 MCD (McDonald's Corporation) pre-market, 예상EPS $3.36, 시총 $183B
+- 2026-11-04 NVO (Novo Nordisk A/S) pre-market, 예상EPS $0.81, 시총 $177B
+- 2026-11-03 PFE (Pfizer, Inc.) pre-market, 예상EPS $0.72, 시총 $174B
+- 2026-11-04 QCOM (QUALCOMM Incorporated) after-hours, 예상EPS $1.46, 시총 $173B
+- 2026-11-03 ETN (Eaton Corporation, PLC) pre-market, 예상EPS $3.54, 시총 $144B
+- 2026-11-04 UBER (Uber Technologies, Inc.) pre-market, 예상EPS $0.94, 시총 $133B
+- 2026-11-03 MPC (Marathon Petroleum Corporation) pre-market, 예상EPS $25.74, 시총 $125B
+- 2026-11-04 MCK (McKesson Corporation) after-hours, 예상EPS $10.69, 시총 $116B
+- 2026-11-04 CVS (CVS Health Corporation) pre-market, 예상EPS $1.62, 시총 $115B
+
+## 경제지표 (오늘~내일)
+- 2026-11-03 [United States] S&P Global Manufacturing PMI — 실제 54.9 / 예상 56.0 / 이전 56.0
+- 2026-11-03 [United States] Construction Spending — 실제 -1.9% / 예상 0.4% / 이전 2.0%
+- 2026-11-03 [United States] ISM Manufacturing Employment — 실제 52.4 / 예상 52.0 / 이전 52.7
+- 2026-11-03 [United States] ISM Manufacturing New Orders Index — 실제 55.5 / 예상 54.5 / 이전 55.3
+- 2026-11-03 [United States] ISM Manufacturing PMI — 실제 55.5 / 예상 54.5 / 이전 54.5
+- 2026-11-03 [United States] ISM Manufacturing Prices — 실제 75.2 / 예상 77.2 / 이전 77.9
+- 2026-11-03 [United States] Fed Goolsbee Speaks — 실제 &nbsp; / 예상   / 이전 &nbsp;
+- 2026-11-03 [United States] 3-Month Bill Auction — 실제 4.040% / 예상   / 이전 4.050%
+- 2026-11-03 [United States] 6-Month Bill Auction — 실제 4.150% / 예상   / 이전 4.210%
+- 2026-11-03 [United States] Atlanta Fed GDPNow — 실제 3.7% / 예상 3.2% / 이전 3.2%
+- 2026-11-03 [United States] Loan Officer Survey — 실제 &nbsp; / 예상   / 이전 &nbsp;
+- 2026-11-03 [United States] Dallas Fed PCE — 실제 &nbsp; / 예상   / 이전 1.90%
+
+## 센티먼트
+- 공포탐욕 지수: 22.2 (extreme fear), 전일 26.2 / 1주 전 29.8
+
+## 뉴스 (최근 3일)
+전체 359건에서 기간외·중복 제외 후 40건 선별 (티커 태깅 27건 포함).
+**뉴스 근거를 못 찾은 종목: AAOI, AUGO, FPS, GLXY, TXG**
+이 종목들은 아래 뉴스 목록에 관련 기사가 없다. 움직임의 이유를
+추측하지 말고 '뉴스에 근거 없음'이라고 명시하라.
+형식: (날짜) [규칙판정] x보도매체수 <티커 또는 섹터> 제목
+- (2026-11-02) [긍정] x1 <SNDK> SanDisk Is Back in the Spotlight. Here’s Where I See SNDK Stock Heading Next
+    SanDisk just posted six straight earnings beats and a 372% revenue surge, yet the stock sits 41% below its 52-week high. Whether that gap is a warning sign or a
+- (2026-11-02) [부정] x1 <INTC> Intel’s 29% Plunge Its Worst In Decades
+    Intel stock is plummeting and its recent 29% plunge marked its worst in decades. Our 24/7 Wall St. Analysts discuss the reasons for the drop as well as whether 
+- (2026-11-02) [부정] x2 <GOOGL> Meta Settles Another Lawsuit Over Being Addictive As Legal Reckoning Continues. Its Stock Edged Down.
+    The settlement involving an 18-year-old plaintiff comes as Meta and other social media companies face mounting legal pressure over alleged harms to children and
+- (2026-10-31) [긍정] x1 <MEOH> Is Methanex (TSX:MX) Trading Below Fair Value After Its Buyback?
+    Methanex has been on a strong multi year run, and the rally is pushing investors to ask whether the current share price is still grounded in the cash the busine
+- (2026-10-31) [긍정] x1 <GDDY> Is GoDaddy (GDDY) Expensive After Its Q3 Earnings Beat?
+    Why Q3 2026 earnings matter for GoDaddy stock GoDaddy (GDDY) just put fresh numbers on the table. Third quarter 2026 results showed revenue of US$1.34b and net 
+- (2026-10-31) [긍정] x1 <CIEN> Is Ciena (CIEN) Undervalued Following Strong Q3 Results And Raised Guidance?
+    Ciena (CIEN) is back in focus after reporting Q3 revenue growth of 37% year over year, raising its full year outlook, and launching a US$200 million Ciena Ventu
+- (2026-11-02) [부정] x2 <MU,SNDK> Micron Falls 4% as Kioxia’s Cautious Outlook Hits Memory Stocks; Western Digital Drops 5%, SanDisk Slides 3%
+    Kioxia's cautious December-quarter forecast rattled memory stocks and raised a question the entire sector is now wrestling with: does soft guidance from Japan's
+- (2026-10-31) [긍정] x1 <GDDY> GoDaddy Stock Gains Airo Momentum After Earnings Beat
+    GoDaddy reported third quarter 2026 revenue of US$1.34b and net income of US$261.8m, with basic EPS from continuing operations at US$2.09. The AI powered Airo p
+- (2026-11-02) [긍정] x1 <FDXF> Top Trucking LTLs See Q3 Revenue Surge on Fuel, Tighter Capacity, Higher Rates
+    Sales soared at XPO, Saia, Old Dominion and FedEx Freight, with XPO crediting spillover from truckload carriers and Saia posting record tonnage growth.
+- (2026-11-02) [긍정] x1 <GPN> Global Payments (GPN) Surges 13.0%: Is This an Indication of Further Gains?
+    Global Payments (GPN) was a big mover last session on higher-than-average trading volume. The latest trend in earnings estimate revisions might not help the sto
+- (2026-11-02) [긍정] x1 <AMD> Buy, Sell or Hold AMD Stock? Key Tips Ahead of Q3 Earnings
+    AMD heads into Q3 earnings with strong AI demand, rising EPYC adoption and a 135.7% stock rally, but stiff competition and stretched valuation warrant caution.
+- (2026-10-31) [긍정] x1 <GPN> Global Payments (GPN) Stock Looks Fully Priced After Its 28% Rise
+    Global Payments has delivered a sharp rebound this year, and the stock’s recent climb puts fresh attention on what investors are paying for its earnings stream.
+- (2026-11-02) [약긍정] x3 <AAPL,LITE,MU> Stock Market Today: Nasdaq Falls As Micron, Seagate Sink; These Stocks Clear Entries (Live Coverage)
+    Stock Market Today: The Dow Jones index rallies Monday as oil prices dive. Amazon jumps but Lumentum and Marvell Technology plunge.
+- (2026-11-01) [긍정] x1 <TFII> TFI International Inc (TFII) (Q3 2026) Earnings Call Highlights: Adjusted EPS Jumps 40% as ...
+    TFI International Inc (TFII) posted strong Q3 2026 results with adjusted diluted EPS of $1.67 and a sub-90 operating ratio, while management pledged to fix its 
+- (2026-11-01) [부정] x1 <RBLX> Is Roblox (RBLX) Undervalued After Its Q3 Update And Weak Holiday Outlook?
+    Roblox (RBLX) is back in focus after its third quarter update and a sharp share-price slide of about 19% over the past week following a weaker holiday-quarter b
+- (2026-11-02) [중립] x4 <NVDA> Why Free Cash Flow Matters More Than Ever: 5 Tech Stocks to Watch
+    Free cash flow (FCF) is becoming one of the most important metrics for evaluating technology stocks heading into 2027.
+- (2026-11-02) [약긍정] x1 <MSFT> Microsoft Corporation (MSFT) Delivers Strong Azure Growth as AI Demand Exceeds Supply
+    Janus Henderson, an investment management company, released its “Global Sustainable Equity Fund ” Q3 2026 investor letter. A copy of the letter can be downloade
+- (2026-11-02) [약긍정] x1 <TSLA> Tesla Robotaxi Adds This New City, Stock Continues Rally
+    Tesla stock rose about 2% on Monday.
+- (2026-11-02) [약긍정] x1 <AVGO> Anthropic Reports Revenue Surge in First Nine Months, Net Loss Widens
+    Anthropic said Monday in an amended initial public offering prospectus that revenue for the first ni
+- (2026-11-02) [약긍정] x1 <RDDT> 5 must-read analyst questions from Reddit’s Q3 earnings call
+    Reddit’s third quarter results prompted a significant negative market reaction, despite year-on-year revenue growth and margin expansion. Management attributed 
+- (2026-11-02) [약부정] x1 <REGN> Earnings roundup: AstraZeneca’s cost cuts, Alnylam’s slump and Regeneron’s resilience
+    AstraZeneca will “redeploy resources” through a new restructuring program. Meanwhile, Alnylam shares sold off on fears surrounding a top drug and investors rewa
+- (2026-11-02) [약부정] x1 <INTC> Intel foundry push faces critical test after stock's 45% plunge in October
+    Intel’s turnaround now hinges on proving its foundry strategy can deliver, as customers look for signs the company will add fab capacity and catch TSMC
+- (2026-11-02) [약긍정] x2 <ILMN> The top 5 analyst questions from Illumina’s Q3 earnings call
+    Illumina's third quarter was met with a negative market reaction. Management attributed the quarter's performance to strong clinical sequencing demand and robus
+- (2026-11-02) [약긍정] x1 <AMZN> Why Wall Street Is Coming Back Around on Amazon Stock
+    Amazon stock rises after booking a modest decline last week on earnings. Wall Street is focusing on AWS growth.
+- (2026-11-02) [약긍정] x1 <TWLO> TWLO Q3 Earnings Call Highlights AI Demand and Higher Outlook
+    Twilio raises its 2026 outlook after strong Q3 earnings, fueled by accelerating Voice AI adoption, enterprise demand and operating gains despite margin pressure
+- (2026-11-02) [약부정] x1 <SPCX> AST SpaceMobile Sinks 10% as SpaceX Rises 2% on Reported Talks to Buy Boost Mobile
+    Key TakeawaysAST SpaceMobile fell 10% today on a report that SpaceX is in talks to buy EchoStar’s Boost Mobile. Boost would let SpaceX sell phone service direct
+- (2026-11-02) [중립] x1 <META> Attorney Mark Lanier Calls for Social Media Companies to Make Meaningful Changes in Wake of Meta, Snap Settlements
+    LOS ANGELES, November 02, 2026--While settlements have been reached with Meta Platforms Inc. and Snap Inc. in advance of the second bellwether trial over allege
+- (2026-11-02) [약긍정] x2 <Technology> South Korea targets 'world's highest performance' sovereign AI model in record new budget
+    The 2027 budget will rise 12.8% to 820.9 trillion won, and will include a 21.3 trillion won investment into semiconductors, physical AI and AI data centers.
+- (2026-11-02) [중립] x1 <Energy> Crude oil prices sell off more than 7% on Iran peace talk hopes ahead of U.S. midterms
+    Oil fell Monday, amid news that both the U.S. and Iran are pursuing diplomacy amid ongoing Mideast tensions
+- (2026-11-02) [중립] x1 <Technology> Chip stocks are suffering from a ‘crisis of confidence’ — but things aren’t as gloomy as they seem
+    Investors are worried about whether there will be sustained demand for chips, but one analyst notes that large tech companies are still spending heavily.
+- (2026-11-02) [중립] x1 <Energy> How soon gas prices could go down now that oil is tumbling
+    Retail gas prices dropped to $4.12 a gallon on Monday, as U.S. oil prices fell below $100 a barrel.
+- (2026-11-02) [중립] x1 <Technology> These tech stocks got unfairly swept up in last week’s selloff, analysts say
+    One analyst notes “a meaningful gap between price and fundamentals” in some corners of the chip sector.
+- (2026-11-02) [중립] x1 <Finance> AI mania can’t survive higher interest rates
+    The price of money is the pin that deflates market bubbles
+- (2026-11-02) [중립] x1 <Technology> S&P 500’s perfect midterm record faces a test in 2026
+    Wall Street’s blue-chip index has risen in the six months following every midterm Congressional election since 1950
+- (2026-11-02) [긍정] x1 Petrol prices set to hit record high under Trump on eve of US elections
+    Average fuel costs during president’s second term pass Biden-era levels as affordability issues top Tuesday’s midterm polls
+- (2026-11-02) [부정] x1 Oil tumbles on hopes for US-Iran talks
+    Prices extend decline after Iran’s president said the country’s supreme leader had given officials certain authority over talks
+- (2026-11-02) [부정] x1 Children’s Place weighs bankruptcy sale or liquidation, Bloomberg reports
+- (2026-11-02) [약부정] x1 DOJ asks Supreme Court to block California counting disputed mail-in ballots
+    The Department of Justice's request to the Supreme Court in the California case comes as it appeals dismissal of a lawsuit over Alaska's Senate election.
+- (2026-11-02) [약부정] x1 Judge tosses DOJ case against ex-FBI officials accused of lying about Hunter Biden probe
+    Judge Zia Faruqui suggested the prosecution of ex-officials Nikki Floris and Bradley Benavides was rushed to come out ahead of the midterm election.
+- (2026-11-02) [약긍정] x1 The bond-market rally is defying the typical investing playbook. Here’s why.
+    The U.S. economy expanded at its fastest clip in over five years during the third quarter, according to the Commerce Department’s initial reading on GDP. Yet de
+## 장 상태 — **비우호** (신호 4개, 합계 -2)
+- (-1) 시총가중 등락 -1.77%
+- (-1) 상승비율 25.9% (1,293/4,989)
+- (-1) VIX +11.23% — 변동성 확대
+- (+1) 프리마켓 중간 등락 (30종목) +1.83%
+
+**이 판정은 픽 점수에 들어가 있지 않다.** 픽은 종목 자체의 근거로만 뽑혔고, 이것은 그 위에 놓이는 배경이다. 장이 비우호인데 픽이 상승이면 그 사실을 함께 적어라 — 둘 중 하나를 지우지 마라.
+
+
+## 오늘의 픽 3종 (규칙으로 계산한 결과)
+이 스냅샷의 후보 전체를 같은 잣대로 재서 **오를 근거가 두꺼운** 순으로 골랐다.
+**순서를 바꾸거나 다른 대상으로 갈아치우지 마라.** 근거가 약하다고
+판단되면 그 사실을 글에 적어라 — 조용히 바꾸는 것이 제일 나쁘다.
+점수는 상승 근거를 부호 있게 더한 값이다. 양수가 클수록 오를
+근거가, 음수가 클수록 내릴 근거가 두껍다. 0 근처는 근거가 없거나
+서로 맞선다는 뜻이라 애초에 픽에서 빠진다.
+
+### 1. GDDY — GoDaddy Inc. — 상승 근거 +7점
+- 선별 사유: 급등
+- 근거: (+1) 뉴스 규칙 판정 호재 쪽 / (+1) 5일·20일 추세가 둘 다 상승 / (+1) 20일선·60일선 위 / (+2) 최근 4분기 모두 컨센서스 상회 / (+1) 직전 분기 실적이 예상을 +14.3% 넘김 / (+1) PER 16.0배 — 이 스냅샷 중간값의 0.55배로 싼 축 / (+1) 20일 기준 S&P500보다 +20.4%p 앞섬 / (-1) 섹터가 통째로 -3.79% / (-1) 52주 고점 대비가 중간값보다 +19.8%p — 덜 내려옴 / (+1) 20일선 위 +9.6%
+- **오늘 볼 선**: 오늘 오른 +10.7%를 되돌리면 (전일 종가 105.87, 지금보다 -9.7%) / 평소 하루 변동폭은 ±3.4%다 — 113.31 아래로 빠지면 평소보다 큰 하락
+- 그보다 뒤에 깨지는 것: 20일선 106.92(-8.8%)이 무너지면 — 하루 변동폭의 2.6배라 한 장에는 멀다 / 60일선 100.71(-14.1%)이 무너지면 — 하루 변동폭의 4.2배라 한 장에는 멀다 / 20일 기준 S&P500 대비 앞선 폭이 5.0%p 밑으로 좁혀지면 (지금 +20.4%p)
+- ※ 반대 근거도 함께 있다. 위 목록의 부호를 보고 양쪽을 다 적어라 — 한쪽만 옮기면 글이 데이터보다 세진다.
+
+### 2. GPN — Global Payments Inc. — 상승 근거 +6점
+- 선별 사유: 급등
+- 근거: (+1) 뉴스 규칙 판정 호재 쪽 / (+2) 거래량이 평소의 1.5배 넘게 붙으며 올랐음 / (+1) 5일·20일 추세가 둘 다 상승 / (+1) 20일선·60일선 위 / (+2) 최근 4분기 모두 컨센서스 상회 / (+1) PER 7.5배 — 이 스냅샷 중간값의 0.26배로 싼 축 / (+1) 20일 기준 S&P500보다 +23.6%p 앞섬 / (-1) 20일선 위 +17.4% — 되돌릴 자리 / (-1) 1년 범위에서 고점권 / (-1) 52주 고점 대비가 중간값보다 +31.6%p — 덜 내려옴
+- **오늘 볼 선**: 오늘 오른 +13.0%를 되돌리면 (전일 종가 85.70, 지금보다 -11.5%) / 평소 하루 변동폭은 ±3.3%다 — 93.64 아래로 빠지면 평소보다 큰 하락 / 다음 장 거래량이 20일 평균 아래로 내려가면 '거래량 동반' 근거가 바로 사라진다 (지금 1.61배)
+- 그보다 뒤에 깨지는 것: 20일선 82.51(-14.8%)이 무너지면 — 하루 변동폭의 4.5배라 한 장에는 멀다 / 60일선 85.03(-12.2%)이 무너지면 — 하루 변동폭의 3.7배라 한 장에는 멀다 / 20일 기준 S&P500 대비 앞선 폭이 5.0%p 밑으로 좁혀지면 (지금 +23.6%p)
+- ※ 반대 근거도 함께 있다. 위 목록의 부호를 보고 양쪽을 다 적어라 — 한쪽만 옮기면 글이 데이터보다 세진다.
+
+### 3. REGN — Regeneron Pharmaceuticals Inc. — 상승 근거 +4점
+- 선별 사유: 급등
+- 근거: (-1) 뉴스 규칙 판정 악재 쪽 / (+2) 거래량이 평소의 1.5배 넘게 붙으며 올랐음 / (+1) 5일·20일 추세가 둘 다 상승 / (+1) 20일선·60일선 위 / (+2) 최근 4분기 모두 컨센서스 상회 / (+1) 직전 분기 실적이 예상을 +33.9% 넘김 / (+1) 20일 기준 S&P500보다 +35.5%p 앞섬 / (-1) 20일선 위 +20.4% — 되돌릴 자리 / (-1) 1년 범위에서 연고점 / (-1) 52주 고점 대비가 중간값보다 +32.6%p — 덜 내려옴
+- **오늘 볼 선**: 오늘 오른 +13.3%를 되돌리면 (전일 종가 818.40, 지금보다 -11.8%) / 평소 하루 변동폭은 ±3.1%다 — 898.85 아래로 빠지면 평소보다 큰 하락 / 다음 장 거래량이 20일 평균 아래로 내려가면 '거래량 동반' 근거가 바로 사라진다 (지금 1.78배)
+- 그보다 뒤에 깨지는 것: 20일선 771.08(-16.9%)이 무너지면 — 하루 변동폭의 5.4배라 한 장에는 멀다 / 60일선 769.22(-17.1%)이 무너지면 — 하루 변동폭의 5.5배라 한 장에는 멀다 / 20일 기준 S&P500 대비 앞선 폭이 5.0%p 밑으로 좁혀지면 (지금 +35.5%p)
+- ※ 반대 근거도 함께 있다. 위 목록의 부호를 보고 양쪽을 다 적어라 — 한쪽만 옮기면 글이 데이터보다 세진다.
+
+※ 게이트에서 걸러진 후보 3개: META — Meta Platforms Inc.(장중 수집이라 거래량이 20일 평균의 0.6배까지만 찼다 — 0.7배 미만은 판정을 접는다), AVGO — Broadcom Inc.(장중 수집이라 거래량이 20일 평균의 0.59배까지만 찼다 — 0.7배 미만은 판정을 접는다), FPS — Forgent Power Solutions Inc.(장중 수집이라 거래량이 20일 평균의 0.68배까지만 찼다 — 0.7배 미만은 판정을 접는다)
+  이들은 데이터가 모자라 뺀 것이지 볼 것이 없다는 뜻이 아니다.
+
+---
+## 요청
+
+현재 2026-11-03 05:54 (한국시간). 미국 증시는 **장중**이며 약 0.1시간 뒤 마감된다. 남은 장에서 확인할 것을 중심으로 써라.
+
+**이미 지나간 장을 복기하지 마라.** 무슨 일이 있었는지 나열하는 글은
+쓸모가 없다. 위 데이터를 근거로 **다가올 장에서 무엇을 볼 것인지**를 써라.
+과거 수치는 그 판단의 근거로만 인용하라.
+
+### 1. 개장 전 브리핑
+3~4문장. 직전 세션 이후 바뀐 것 중 이번 장에 영향을 줄 것만.
+숫자 나열이 아니라 "그래서 이번 장은 어떤 상태에서 시작하는가"를 써라.
+
+**첫 문장은 위 '장 상태' 블록의 판정으로 시작한다.** 종목 근거가 두꺼워도
+장이 비우호면 읽는 쪽이 다르게 받아들여야 하는데, 그 말이 픽 뒤에 나오면
+이미 늦다. 판정과 신호 개수를 그대로 옮기고 **바꾸지 마라** — 그것도
+규칙이 계산한 값이다. 블록이 '알 수 없음'이면 "판정할 재료가 없었다"고
+쓰고, 그것을 "장이 잠잠하다"로 바꿔 쓰지 마라.
+
+### 2. 오늘의 픽
+**위 '오늘의 픽' 블록에 계산된 것을 그대로 쓴다.** 순서를 바꾸거나 다른
+대상으로 갈아치우지 마라. 고르는 일은 이미 규칙이 했다 — 여기서 할 일은
+그 결과를 사람 말로 옮기는 것이다. **각 픽은 `###` 제목으로 시작한다**
+(화면이 이 제목을 맨 위 칩으로 끌어올린다).
+
+### 1. [대상] — [상승 근거 / 하락 근거 / 피할 것]
+- 왜 이것인가: 계산된 근거를 숫자와 함께 한두 문장
+- 확인할 것: 이번 장에서 무엇을 보면 이 판단이 맞았는지 알 수 있는가
+- 오늘 볼 선: 블록의 '오늘 볼 선'을 **그대로 옮겨라** (가격까지)
+- (뒤에 깨지는 것이 있으면 한 줄로 덧붙이되, **한 장에 닿을 자리가
+  아니라는 사실을 반드시 함께 적어라**)
+
+지켜야 할 것:
+
+- **'피할 것'을 상승 픽처럼 쓰지 마라.** 그건 오를 종목이 아니라 내릴
+  근거가 두꺼운 종목이고, 상승 후보가 모자라 채운 자리다. 제목에서부터
+  구분되게 쓰고 상승 픽과 섞어서 나열하지 마라.
+- **반대 근거가 함께 있으면 양쪽을 다 적어라.** 블록의 근거 목록에는
+  부호가 붙어 있다. 플러스만 옮기면 글이 데이터보다 세진다.
+- **`※`로 붙은 경고를 빠뜨리지 마라.** 거래량이 한산하다·근거가 두어
+  개뿐이다·곧 실적이 나온다 같은 것들이고, 그게 빠지면 얇은 근거가
+  두꺼운 근거처럼 읽힌다.
+- **점수는 상승 확률이 아니라 근거의 두께다.** "오를 확률이 높다"가 아니라
+  "오를 근거가 이만큼 쌓였다"로 쓴다. 이 데이터는 설명치지 예측치가 아니다.
+- **'오늘 볼 선'은 손절선이 아니다.** 그 값이 무너지면 이 픽을 세운
+  근거 하나가 사라진다는 뜻이지, 팔라는 신호가 아니다. "159.40 아래로
+  빠지면 평소 하루 변동폭을 벗어난 하락입니다"까지 쓰고, 그때 무엇을
+  할지는 읽는 분 몫으로 남겨라. 손절가·목표가·비중은 쓰지 않는다.
+- **이동평균선을 오늘 볼 선처럼 쓰지 마라.** 많이 올라온 종목은 20일선까지
+  -20%가 남는데 그건 하루 변동폭의 서너 배라 한 장에 닿지 않는다. 블록이
+  '한 장에는 멀다'로 표시해 두었으니 그 말을 빼먹지 마라. 이건 오늘의
+  픽이고, 오늘 볼 선이 따로 있다.
+
+**블록에 나온 만큼만, 나온 전부를 써라.** 개수는 자산군마다 다르고 날마다
+바뀐다 — 주식은 후보에서 3종을 고르지만 선물은 고정 대상을 그대로 내므로
+코인 2종, 매크로 4종(금·WTI원유·나스닥·유로달러)이다. 블록 제목에 몇 종인지
+찍혀 있으니 그 수를 따르고, **하나라도 빼먹지 마라.** 적게 나왔으면 그만큼만
+쓰고 이유를 한 줄로 적어라 — 자리를 채우려고 없는 근거를 만들지 마라.
+
+### 3. 오늘 주목할 것 (3~5개)
+**이것이 이 글의 핵심이다.** 각 항목을 아래 형식으로 써라.
+
+- **[대상]** — 왜 봐야 하는가 (데이터 근거 1~2개 숫자 인용)
+  · 확인할 것: 이번 장에서 구체적으로 무엇을 보면 되는가
+  · 갈림길: 어떻게 되면 어떻게 읽을 것인가
+
+대상은 종목·자산·지표 무엇이든 되지만, **반드시 위 데이터에 있는 것**이어야
+한다. 데이터에 없는 종목을 지어내지 마라. 선별 사유(급등/급락/거래대금상위/
+관심종목 등)와 포지셔닝 지표를 우선 근거로 삼아라.
+
+### 4. 시나리오
+"A가 나오면 B로 읽는다" 형태로 2~3개. 조건은 이번 장에서 실제로 관찰
+가능한 것이어야 한다(가격대·거래량·수급 방향 등).
+
+### 5. 예정된 이벤트
+실적 발표·경제지표 등 이번 장에 영향을 줄 일정. 데이터에 없으면 "데이터 없음".
+
+### 6. 경계할 것
+포지션 쏠림, 과열 구간, 관계가 깨진 지점 등 틀어질 수 있는 부분.
+
+### 참고 — 이 시장에서만 볼 수 있는 것
+- **선별 사유별로 다르게 읽어라.** '급등'/'급락'은 이벤트이므로 뉴스에서
+  근거를 찾되, 못 찾으면 "뉴스에 근거 없음"이라고 명시하라 — 그것도 정보다.
+  '거래대금상위'는 방향과 무관하게 자금이 몰렸다는 뜻이다.
+  '관심종목'은 조용해도 상태를 확인해 보고하라.
+- **섹터 로테이션**을 거래대금과 시총가중 등락률로 함께 보라. 거래대금이
+  큰데 등락이 마이너스면 자금은 도는데 성과가 안 나오는 것이다.
+- **실적·경제지표 캘린더**가 위에 있다. 이번 장에 발표되는 것을
+  '예정된 이벤트'에 반드시 반영하라.
+---
+
+**작성 규칙**
+- 각 주장에 위 데이터의 구체적 숫자를 인용하라.
+- 데이터에 없는 내용은 추측하지 말고 "데이터 없음"이라고 명시하라.
+- 규칙 기반 뉴스 판정은 단순 키워드 매칭이니 숫자와 배치되면 숫자를 따르라.
+- **방향은 '오늘의 픽'에 계산된 것만 쓴다.** 그 블록에 없는 대상에
+  방향을 붙이지 마라. 나머지 항목은 여전히 "무엇을 보라"까지가 범위다.
+- **사라·팔라·비중을 쓰지 마라.** 진입가·목표가·손절가·비중도 쓰지 마라.
+  방향 판정은 "이 데이터가 어느 쪽을 가리키는가"이지 매매 지시가 아니다.
+  '상승 우세'는 써도 되고 '지금 사십시오'는 안 된다.
+- 방향에는 반드시 **틀렸다고 볼 조건**을 함께 적어라. 조건 없는 방향은
+  나중에 맞았는지 틀렸는지 아무도 못 재고, 그러면 다음 판정이 나아지지 않는다.
+- 문체는 존댓말(~습니다)로 쓴다. 폰에서 읽으므로 문단은 짧게,
+  숫자 대조는 표로 정리하라.
+
+**용어 규칙 — 전문용어를 그대로 쓰지 마라**
+폰에서 훑어보는 글이다. 용어를 떠올려야 읽히는 문장은 실패한 문장이다.
+아래는 뜻으로 바꿔 쓴다. 굳이 용어를 남기려면 괄호에 넣어라.
+
+| 쓰지 마라 | 이렇게 |
+|---|---|
+| 플래트닝 | 장단기 금리차 축소 |
+| 스티프닝 | 장단기 금리차 확대 |
+| 백워데이션 | 지금 물건이 나중보다 비쌈 (공급 빠듯) |
+| 콘탱고 | 나중이 더 비쌈 (공급 여유) |
+| 재고가 타이트 | 재고 부족 |
+| 롱숏비 5.85 | 롱이 숏의 5.85배 |
+| 미결제약정(OI) | 미결제약정(=열려 있는 포지션 총량) 첫 등장 때만 풀어 쓴다 |
+| 52주위치 71 | 1년 범위에서 상단 (또는 고점권/저점권) |
+
+**숫자를 쓸 때는 그 숫자가 좋은지 나쁜지도 함께 적어라.**
+"ISM 55.6 (예상 54.0)"으로 끝내지 말고 "예상을 넘겨 경기가 강하다는
+뜻이고, 그만큼 금리 인하 기대는 뒤로 밀립니다"까지 쓴다.
