@@ -1,0 +1,5234 @@
+{
+ "collected_at": "2026-11-11T03:54:00",
+ "market": "CRYPTO",
+ "derivatives_source": "okx",
+ "usdkrw": 1343.16,
+ "global": {
+  "total_market_cap_usd": 2465758990558.148,
+  "total_volume_usd": 78085783726.37611,
+  "market_cap_change_24h_pct": -4.502587174714268,
+  "btc_dominance": 59.71,
+  "eth_dominance": 10.09,
+  "active_coins": 22794
+ },
+ "fear_greed": {
+  "value": 32,
+  "rating": "Fear",
+  "prev": 29,
+  "week_ago": 26
+ },
+ "selected": [
+  {
+   "symbol": "ETH",
+   "name": "Ethereum",
+   "rank": 2,
+   "price": 2039.51,
+   "market_cap": 249244014293,
+   "volume_24h": 13560332849,
+   "change_1h": 0.5796,
+   "change_pct": -4.03613,
+   "change_7d": -11.6584,
+   "ath_change_pct": -58.76491,
+   "reasons": [
+    "관심코인",
+    "거래대금상위"
+   ],
+   "fut_symbol": "ETH-USDT-SWAP",
+   "fut_change_pct": -3.7,
+   "turnover": 7406637872.589801,
+   "mark_price": 2046.2,
+   "open_interest": 690224.4750000011,
+   "funding_rate": -6.60773053002e-05,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 3.8015,
+   "long_account_pct": 79.17,
+   "long_short_top": 2.3637,
+   "long_top_pct": 70.27,
+   "taker_buy_sell": 1.207,
+   "oi_change_7d_pct": -3.81,
+   "kimchi": {
+    "upbit_krw": 2788000.0,
+    "global_krw": 2748374,
+    "premium_pct": 1.44,
+    "upbit_change_pct": -3.8,
+    "upbit_turnover_krw": 78718226085.76074,
+    "high_52w": 5350000.0,
+    "low_52w": 2300000.0
+   }
+  },
+  {
+   "symbol": "BTC",
+   "name": "Bitcoin",
+   "rank": 1,
+   "price": 73392,
+   "market_cap": 1475901266711,
+   "volume_24h": 29928181313,
+   "change_1h": 0.5534,
+   "change_pct": -1.6101,
+   "change_7d": -5.7336,
+   "ath_change_pct": -41.78964,
+   "reasons": [
+    "관심코인",
+    "거래대금상위"
+   ],
+   "fut_symbol": "BTC-USDT-SWAP",
+   "fut_change_pct": -1.4,
+   "turnover": 6817074193.65671,
+   "mark_price": 73549.9,
+   "open_interest": 36107.177100000146,
+   "funding_rate": 8.97883675328e-05,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 2.9937,
+   "long_account_pct": 74.96,
+   "long_short_top": 2.0713,
+   "long_top_pct": 67.44,
+   "taker_buy_sell": 1.2733,
+   "oi_change_7d_pct": 5.21,
+   "kimchi": {
+    "upbit_krw": 100060000.0,
+    "global_krw": 98789284,
+    "premium_pct": 1.29,
+    "upbit_change_pct": -2.15,
+    "upbit_turnover_krw": 111443640422.82407,
+    "high_52w": 157200000.0,
+    "low_52w": 88342000.0
+   }
+  },
+  {
+   "symbol": "SOL",
+   "name": "Solana",
+   "rank": 7,
+   "price": 82.82,
+   "market_cap": 48961204230,
+   "volume_24h": 2955987516,
+   "change_1h": 0.6122,
+   "change_pct": -4.24983,
+   "change_7d": -11.9166,
+   "ath_change_pct": -71.76374,
+   "reasons": [
+    "관심코인",
+    "거래대금상위"
+   ],
+   "fut_symbol": "SOL-USDT-SWAP",
+   "fut_change_pct": -3.93,
+   "turnover": 952254743.6400001,
+   "mark_price": 83.04,
+   "open_interest": 3671367.03,
+   "funding_rate": -6.73655887277e-05,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 3.7634,
+   "long_account_pct": 79.01,
+   "long_short_top": 1.4644,
+   "long_top_pct": 59.42,
+   "taker_buy_sell": 0.9044,
+   "oi_change_7d_pct": -9.35,
+   "kimchi": {
+    "upbit_krw": 113100.0,
+    "global_krw": 111536,
+    "premium_pct": 1.4,
+    "upbit_change_pct": -3.91,
+    "upbit_turnover_krw": 31066578352.341415,
+    "high_52w": 240900.0,
+    "low_52w": 91800.0
+   }
+  },
+  {
+   "symbol": "DOGE",
+   "name": "Dogecoin",
+   "rank": 12,
+   "price": 0.06723,
+   "market_cap": 10533044205,
+   "volume_24h": 454608250,
+   "change_1h": 0.0551,
+   "change_pct": -3.75925,
+   "change_7d": -10.8233,
+   "ath_change_pct": -90.81022,
+   "reasons": [
+    "관심코인",
+    "거래대금상위"
+   ],
+   "fut_symbol": "DOGE-USDT-SWAP",
+   "fut_change_pct": -3.45,
+   "turnover": 174393933.748,
+   "mark_price": 0.06745,
+   "open_interest": 1273028760.0,
+   "funding_rate": -4.76219743354e-05,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 5.0261,
+   "long_account_pct": 83.41,
+   "long_short_top": 2.1667,
+   "long_top_pct": 68.42,
+   "taker_buy_sell": 1.032,
+   "oi_change_7d_pct": -8.89,
+   "kimchi": {
+    "upbit_krw": 91.9,
+    "global_krw": 91,
+    "premium_pct": 1.44,
+    "upbit_change_pct": -3.26,
+    "upbit_turnover_krw": 13974958402.793535,
+    "high_52w": 266.0,
+    "low_52w": 90.7
+   }
+  },
+  {
+   "symbol": "XRP",
+   "name": "XRP",
+   "rank": 6,
+   "price": 1.067,
+   "market_cap": 67789189886,
+   "volume_24h": 2298657310,
+   "change_1h": 0.9692,
+   "change_pct": -2.32158,
+   "change_7d": -17.6967,
+   "ath_change_pct": -70.74027,
+   "reasons": [
+    "관심코인",
+    "거래대금상위"
+   ],
+   "fut_symbol": "XRP-USDT-SWAP",
+   "fut_change_pct": -1.76,
+   "turnover": 347451052.1625,
+   "mark_price": 1.0725,
+   "open_interest": 77170918.99999996,
+   "funding_rate": 9.09697539711e-05,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 3.4312,
+   "long_account_pct": 77.43,
+   "long_short_top": 1.4043,
+   "long_top_pct": 58.41,
+   "taker_buy_sell": 1.1025,
+   "oi_change_7d_pct": -19.66,
+   "kimchi": {
+    "upbit_krw": 1460.0,
+    "global_krw": 1441,
+    "premium_pct": 1.35,
+    "upbit_change_pct": -2.14,
+    "upbit_turnover_krw": 168342039563.7014,
+    "high_52w": 3769.0,
+    "low_52w": 1392.0
+   }
+  },
+  {
+   "symbol": "ZEC",
+   "name": "Zcash",
+   "rank": 10,
+   "price": 1035.15,
+   "market_cap": 17628696764,
+   "volume_24h": 1165287588,
+   "change_1h": 2.6453,
+   "change_pct": -11.30186,
+   "change_7d": -14.1912,
+   "ath_change_pct": -67.5698,
+   "reasons": [
+    "급락",
+    "거래대금상위"
+   ],
+   "fut_symbol": "ZEC-USDT-SWAP",
+   "fut_change_pct": -10.94,
+   "turnover": 1619722837.0274,
+   "mark_price": 1039.78,
+   "open_interest": 124151.56,
+   "funding_rate": 9.8363069766e-06,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 1.5837,
+   "long_account_pct": 61.3,
+   "long_short_top": 0.8251,
+   "long_top_pct": 45.21,
+   "taker_buy_sell": 1.0493,
+   "oi_change_7d_pct": -4.69
+  },
+  {
+   "symbol": "PEPE",
+   "name": "Pepe",
+   "rank": 42,
+   "price": 5.31e-06,
+   "market_cap": 2235240663,
+   "volume_24h": 615659273,
+   "change_1h": 2.0144,
+   "change_pct": 3.08279,
+   "change_7d": 8.5438,
+   "ath_change_pct": -81.04889,
+   "reasons": [
+    "급등",
+    "거래대금상위"
+   ],
+   "fut_symbol": "PEPE-USDT-SWAP",
+   "fut_change_pct": 4.02,
+   "turnover": 373491101.328,
+   "mark_price": 5.3652e-06,
+   "open_interest": 7861266000000.0,
+   "funding_rate": 0.0001,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 1.6181,
+   "long_account_pct": 61.8,
+   "long_short_top": 0.8224,
+   "long_top_pct": 45.13,
+   "taker_buy_sell": 1.3898,
+   "oi_change_7d_pct": 11.13,
+   "kimchi": {
+    "upbit_krw": 0.0073,
+    "global_krw": 0,
+    "premium_pct": 1.3,
+    "upbit_change_pct": 5.04,
+    "upbit_turnover_krw": 16573611804.470484,
+    "high_52w": 0.0105,
+    "low_52w": 0.0034
+   }
+  },
+  {
+   "symbol": "BTW",
+   "name": "Bitway",
+   "rank": 48,
+   "price": 1.25,
+   "market_cap": 1882070037,
+   "volume_24h": 9769152,
+   "change_1h": 5.8796,
+   "change_pct": 19.93269,
+   "change_7d": 19.3868,
+   "ath_change_pct": -54.78808,
+   "reasons": [
+    "급등"
+   ],
+   "fut_symbol": "BTW-USDT-SWAP",
+   "fut_change_pct": 19.92,
+   "turnover": 12614330.47,
+   "mark_price": 1.2502,
+   "open_interest": 1710043.0,
+   "has_perp": true,
+   "long_short_account": 0.6109,
+   "long_account_pct": 37.92,
+   "long_short_top": 0.6889,
+   "long_top_pct": 40.79,
+   "taker_buy_sell": 1.2079,
+   "oi_change_7d_pct": 47.96,
+   "funding_rate": -7.26682179663e-05,
+   "next_funding": "1794355200000"
+  },
+  {
+   "symbol": "RAIN",
+   "name": "Rain",
+   "rank": 33,
+   "price": 0.00391192,
+   "market_cap": 2791406083,
+   "volume_24h": 12142987,
+   "change_1h": -0.7866,
+   "change_pct": -15.626,
+   "change_7d": -37.4777,
+   "ath_change_pct": -79.90178,
+   "reasons": [
+    "급락"
+   ],
+   "has_perp": false
+  },
+  {
+   "symbol": "VVV",
+   "name": "Venice Token",
+   "rank": 74,
+   "price": 19.18,
+   "market_cap": 938740475,
+   "volume_24h": 56413631,
+   "change_1h": -1.7762,
+   "change_pct": -11.42879,
+   "change_7d": -16.494,
+   "ath_change_pct": -44.44748,
+   "reasons": [
+    "급락"
+   ],
+   "fut_symbol": "VVV-USDT-SWAP",
+   "fut_change_pct": -11.08,
+   "turnover": 10874844.54,
+   "mark_price": 19.276,
+   "open_interest": 233201.2,
+   "has_perp": true,
+   "long_short_account": 0.6134,
+   "long_account_pct": 38.02,
+   "long_short_top": 0.6053,
+   "long_top_pct": 37.7,
+   "taker_buy_sell": 0.8051,
+   "oi_change_7d_pct": 29.33,
+   "funding_rate": -9.5656491061e-06,
+   "next_funding": "1794355200000",
+   "kimchi": {
+    "upbit_krw": 26130.0,
+    "global_krw": 25891,
+    "premium_pct": 0.92,
+    "upbit_change_pct": -11.24,
+    "upbit_turnover_krw": 1435995859.0308132,
+    "high_52w": 47090.0,
+    "low_52w": 14540.0
+   }
+  },
+  {
+   "symbol": "ARB",
+   "name": "Arbitrum",
+   "rank": 69,
+   "price": 0.159064,
+   "market_cap": 1096136515,
+   "volume_24h": 187368827,
+   "change_1h": -0.1967,
+   "change_pct": -10.29676,
+   "change_7d": -1.4008,
+   "ath_change_pct": -93.34541,
+   "reasons": [
+    "급락"
+   ],
+   "fut_symbol": "ARB-USDT-SWAP",
+   "fut_change_pct": -9.73,
+   "turnover": 55922059.871360004,
+   "mark_price": 0.16006,
+   "open_interest": 100347183.0,
+   "has_perp": true,
+   "long_short_account": 1.8162,
+   "long_account_pct": 64.49,
+   "long_short_top": 1.4684,
+   "long_top_pct": 59.49,
+   "taker_buy_sell": 0.9156,
+   "oi_change_7d_pct": 18.09,
+   "funding_rate": -0.0001870102334743,
+   "next_funding": "1794384000000",
+   "kimchi": {
+    "upbit_krw": 218.0,
+    "global_krw": 215,
+    "premium_pct": 1.4,
+    "upbit_change_pct": -8.4,
+    "upbit_turnover_krw": 7245788712.114723,
+    "high_52w": 420.0,
+    "low_52w": 102.0
+   }
+  },
+  {
+   "symbol": "DASH",
+   "name": "Dash",
+   "rank": 97,
+   "price": 43.38,
+   "market_cap": 559334247,
+   "volume_24h": 47756304,
+   "change_1h": 1.3701,
+   "change_pct": -8.0283,
+   "change_7d": -5.268,
+   "ath_change_pct": -97.09555,
+   "reasons": [
+    "급락"
+   ],
+   "fut_symbol": "DASH-USDT-SWAP",
+   "fut_change_pct": -7.78,
+   "turnover": 9352483.7252,
+   "mark_price": 43.61,
+   "open_interest": 66651.25,
+   "has_perp": true,
+   "long_short_account": 1.339,
+   "long_account_pct": 57.25,
+   "long_short_top": 1.2105,
+   "long_top_pct": 54.76,
+   "taker_buy_sell": 1.4373,
+   "oi_change_7d_pct": -5.28,
+   "funding_rate": 5e-05,
+   "next_funding": "1794355200000"
+  },
+  {
+   "symbol": "QNT",
+   "name": "Quant",
+   "rank": 37,
+   "price": 181.91,
+   "market_cap": 2646769090,
+   "volume_24h": 68373050,
+   "change_1h": 1.9914,
+   "change_pct": -7.64819,
+   "change_7d": -6.4294,
+   "ath_change_pct": -57.44023,
+   "reasons": [
+    "급락"
+   ],
+   "fut_symbol": "QNT-USDT-SWAP",
+   "fut_change_pct": 8.2,
+   "turnover": 613791.606,
+   "mark_price": 43.14,
+   "open_interest": 6371.900000000001,
+   "funding_rate": 0.0,
+   "next_funding": "1794384000000",
+   "has_perp": true,
+   "long_short_account": 1.8,
+   "long_account_pct": 64.29,
+   "long_short_top": 1.7778,
+   "long_top_pct": 64.0,
+   "taker_buy_sell": 1.2969,
+   "oi_change_7d_pct": -11.62
+  },
+  {
+   "symbol": "GRAM",
+   "name": "Gram (prev. Toncoin)",
+   "rank": 31,
+   "price": 1.11,
+   "market_cap": 3165762053,
+   "volume_24h": 110645324,
+   "change_1h": 1.1134,
+   "change_pct": 7.50255,
+   "change_7d": -4.6017,
+   "ath_change_pct": -86.5614,
+   "reasons": [
+    "급등"
+   ],
+   "fut_symbol": "GRAM-USDT-SWAP",
+   "fut_change_pct": 8.06,
+   "turnover": 17883816.447,
+   "mark_price": 1.113,
+   "open_interest": 6413877.0,
+   "funding_rate": -0.000217613873542,
+   "next_funding": "1794355200000",
+   "has_perp": true,
+   "long_short_account": 2.026,
+   "long_account_pct": 66.95,
+   "long_short_top": 1.6452,
+   "long_top_pct": 62.2,
+   "taker_buy_sell": 1.0712,
+   "oi_change_7d_pct": -15.94
+  },
+  {
+   "symbol": "AAVE",
+   "name": "Aave",
+   "rank": 47,
+   "price": 123.5,
+   "market_cap": 1906666243,
+   "volume_24h": 237284122,
+   "change_1h": 0.5299,
+   "change_pct": -7.40057,
+   "change_7d": -4.1498,
+   "ath_change_pct": -81.33635,
+   "reasons": [
+    "급락"
+   ],
+   "fut_symbol": "AAVE-USDT-SWAP",
+   "fut_change_pct": -7.12,
+   "turnover": 44880829.87899999,
+   "mark_price": 123.85,
+   "open_interest": 113104.26000000001,
+   "has_perp": true,
+   "long_short_account": 1.8995,
+   "long_account_pct": 65.51,
+   "long_short_top": 1.4051,
+   "long_top_pct": 58.42,
+   "taker_buy_sell": 0.9465,
+   "oi_change_7d_pct": -9.64,
+   "funding_rate": -6.96353992064e-05,
+   "next_funding": "1794384000000",
+   "kimchi": {
+    "upbit_krw": 168500.0,
+    "global_krw": 166350,
+    "premium_pct": 1.29,
+    "upbit_change_pct": -5.71,
+    "upbit_turnover_krw": 2888184193.202689,
+    "high_52w": 327100.0,
+    "low_52w": 88100.0
+   }
+  },
+  {
+   "symbol": "XMR",
+   "name": "Monero",
+   "rank": 13,
+   "price": 554.72,
+   "market_cap": 10441917680,
+   "volume_24h": 160999585,
+   "change_1h": -0.4821,
+   "change_pct": -6.69249,
+   "change_7d": -11.4377,
+   "ath_change_pct": -30.46303,
+   "reasons": [
+    "급락"
+   ],
+   "has_perp": false
+  },
+  {
+   "symbol": "PI",
+   "name": "Pi Network",
+   "rank": 83,
+   "price": 0.070259,
+   "market_cap": 798530463,
+   "volume_24h": 8966004,
+   "change_1h": 0.1308,
+   "change_pct": 6.47539,
+   "change_7d": -8.0807,
+   "ath_change_pct": -97.64831,
+   "reasons": [
+    "급등"
+   ],
+   "fut_symbol": "PI-USDT-SWAP",
+   "fut_change_pct": 6.21,
+   "turnover": 7701576.984239999,
+   "mark_price": 0.07032,
+   "open_interest": 20642643.0,
+   "has_perp": true,
+   "long_short_account": 2.2456,
+   "long_account_pct": 69.19,
+   "long_short_top": 1.2,
+   "long_top_pct": 54.55,
+   "taker_buy_sell": 1.3659,
+   "oi_change_7d_pct": -22.81,
+   "funding_rate": 5e-05,
+   "next_funding": "1794355200000"
+  },
+  {
+   "symbol": "NIGHT",
+   "name": "Midnight",
+   "rank": 87,
+   "price": 0.04187317,
+   "market_cap": 695208723,
+   "volume_24h": 20161026,
+   "change_1h": 1.3232,
+   "change_pct": 5.84549,
+   "change_7d": -2.7861,
+   "ath_change_pct": -64.67264,
+   "reasons": [
+    "급등"
+   ],
+   "fut_symbol": "NIGHT-USDT-SWAP",
+   "fut_change_pct": 6.16,
+   "turnover": 7523285.335999999,
+   "mark_price": 0.04196,
+   "open_interest": 61839900.0,
+   "has_perp": true,
+   "long_short_account": 0.7953,
+   "long_account_pct": 44.3,
+   "long_short_top": 1.7,
+   "long_top_pct": 62.96,
+   "taker_buy_sell": 0.9454,
+   "oi_change_7d_pct": -3.75,
+   "funding_rate": 7.2968896227e-06,
+   "next_funding": "1794355200000"
+  }
+ ],
+ "aggregate": {
+  "counted": 94,
+  "up": 24,
+  "down": 70,
+  "up_ratio": 25.5,
+  "median_change_pct": -1.7,
+  "avg_funding_bp": -0.252,
+  "positive_funding_ratio": 42.9,
+  "not_selected": 76
+ },
+ "kimchi": {
+  "ETH": {
+   "upbit_krw": 2788000.0,
+   "global_krw": 2748374,
+   "premium_pct": 1.44,
+   "upbit_change_pct": -3.8,
+   "upbit_turnover_krw": 78718226085.76074,
+   "high_52w": 5350000.0,
+   "low_52w": 2300000.0
+  },
+  "BTC": {
+   "upbit_krw": 100060000.0,
+   "global_krw": 98789284,
+   "premium_pct": 1.29,
+   "upbit_change_pct": -2.15,
+   "upbit_turnover_krw": 111443640422.82407,
+   "high_52w": 157200000.0,
+   "low_52w": 88342000.0
+  },
+  "SOL": {
+   "upbit_krw": 113100.0,
+   "global_krw": 111536,
+   "premium_pct": 1.4,
+   "upbit_change_pct": -3.91,
+   "upbit_turnover_krw": 31066578352.341415,
+   "high_52w": 240900.0,
+   "low_52w": 91800.0
+  },
+  "DOGE": {
+   "upbit_krw": 91.9,
+   "global_krw": 91,
+   "premium_pct": 1.44,
+   "upbit_change_pct": -3.26,
+   "upbit_turnover_krw": 13974958402.793535,
+   "high_52w": 266.0,
+   "low_52w": 90.7
+  },
+  "XRP": {
+   "upbit_krw": 1460.0,
+   "global_krw": 1441,
+   "premium_pct": 1.35,
+   "upbit_change_pct": -2.14,
+   "upbit_turnover_krw": 168342039563.7014,
+   "high_52w": 3769.0,
+   "low_52w": 1392.0
+  },
+  "PEPE": {
+   "upbit_krw": 0.0073,
+   "global_krw": 0,
+   "premium_pct": 1.3,
+   "upbit_change_pct": 5.04,
+   "upbit_turnover_krw": 16573611804.470484,
+   "high_52w": 0.0105,
+   "low_52w": 0.0034
+  },
+  "VVV": {
+   "upbit_krw": 26130.0,
+   "global_krw": 25891,
+   "premium_pct": 0.92,
+   "upbit_change_pct": -11.24,
+   "upbit_turnover_krw": 1435995859.0308132,
+   "high_52w": 47090.0,
+   "low_52w": 14540.0
+  },
+  "ARB": {
+   "upbit_krw": 218.0,
+   "global_krw": 215,
+   "premium_pct": 1.4,
+   "upbit_change_pct": -8.4,
+   "upbit_turnover_krw": 7245788712.114723,
+   "high_52w": 420.0,
+   "low_52w": 102.0
+  },
+  "AAVE": {
+   "upbit_krw": 168500.0,
+   "global_krw": 166350,
+   "premium_pct": 1.29,
+   "upbit_change_pct": -5.71,
+   "upbit_turnover_krw": 2888184193.202689,
+   "high_52w": 327100.0,
+   "low_52w": 88100.0
+  }
+ },
+ "news_stats": {
+  "collected": 407,
+  "stale_removed": 180,
+  "undated": 0,
+  "duplicates_removed": 13,
+  "after_dedupe": 214,
+  "coin_tagged": 148,
+  "selected_for_llm": 35,
+  "selected_coin": 20,
+  "covered": [
+   "AAVE",
+   "ARB",
+   "BTC",
+   "BTW",
+   "DASH",
+   "DOGE",
+   "ETH",
+   "GRAM",
+   "NIGHT",
+   "PEPE",
+   "PI",
+   "QNT",
+   "RAIN",
+   "SOL",
+   "XMR",
+   "XRP",
+   "ZEC"
+  ],
+  "uncovered": [
+   "VVV"
+  ],
+  "label_dist": {
+   "중립": 146,
+   "약부정": 34,
+   "약긍정": 26,
+   "긍정": 4,
+   "부정": 4
+  }
+ },
+ "news_selected": [
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "이더리움 하락은 조급함 탓…톰 리의 강세 근거 4가지",
+   "summary": "[멕시코=심영재 특파원] 이더리움(ETH)이 2100달러 아래로 하락한 가운데 톰 리 비트마인 회장이 향후 24~36개월간 강세 전망을 유지했다. 상장지수펀드(ETF) 자금 유출과 매도 압력이 이어지고 있지만 토큰화 확대, 스테이킹 증가, 탈중앙화 금융(DeFi) 성장 등을 상승 근거로 제시했다. 코인게이프는 10일(현지시각) 이더리움이 2094달러에 거래되며 하루 동안 1.3%, 최근 한 달간 16% 하락했다고 보도했다. 톰 리 회장은 이날 X(옛 트위터)를 통해 [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1164045?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 16:34",
+   "score": 4,
+   "score_hits": [
+    "+상승",
+    "+강세",
+    "+성장",
+    "+확대",
+    "+증가",
+    "-하락"
+   ],
+   "label": "긍정",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:NIGHT",
+   "source_type": "google",
+   "title": "Midnight (NIGHT) Surges 15% on Ledger 9 Upgrade and Narrative Push - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBpZ19iRzZtTVJNc1lqQ1VNNGl6TXpfMjF2bF96TWNRaFlXUzRocVdaOUZ0M2lWeERYdDczUG9jYVJyTXNNcFJBeGNWZFlqZXF2M3Y5MFkxU0JqbTgtYmoxY3JqTjhMWTR3cTk3cHYtR0I?oc=5",
+   "published": "2026-11-10 05:04",
+   "coins": [
+    "NIGHT"
+   ],
+   "score": 4,
+   "score_hits": [
+    "+upgrade",
+    "+surges"
+   ],
+   "label": "긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Bitcoin’s ‘best buying opportunity ever’ has arrived: Mark Moss",
+   "summary": "Bitcoin Opportunity Fund co-founder Mark Moss says that with banks and ETFs widening access to Bitcoin he expects a new record high in 2027.",
+   "link": "https://cointelegraph.com/magazine/bitcoins-best-buying-opportunity-ever-has-arrived-mark-moss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 13:30",
+   "score": 3,
+   "score_hits": [
+    "+record high"
+   ],
+   "label": "긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PEPE",
+   "source_type": "google",
+   "title": "Pepe (PEPE) Surges 7% on Speculative Rotation and Social Buzz - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5tdU9SemhjYndIazVLclZPdjR1WnRQb3lEU2Z5MWtJN0M1MDBhYVlHMHVNWWZVNWY5c2RrRWVfNmNTQkJFYWxyMjd0M3VMazJDTl9MRU5GM3ZmSWRvdTV2b2RHWXJ3VGtnRmxSRk1FRGo?oc=5",
+   "published": "2026-11-10 09:04",
+   "coins": [
+    "PEPE"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+surges"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ZEC",
+   "source_type": "google",
+   "title": "Zcash Falls Below $1,100 as Daily Loss Reaches 10.5% - The Defiant",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQeUtWemNuQXVpZkxIU1NQUVVQNllfcXFHV2MxMnNoQXNib013S3NDUXNaVl9LeEZPY3d4czJsVWVyMVpWS2x1NXZVS3JzbUU3dnhHX0JkOWhhTTY4Q3VhZjV1d1EtT0NCMUtQVXVldzNZYnc0NC1haWRYWGo1NVNvV25ZZTl4VWdHN0w0OE1R?oc=5",
+   "published": "2026-11-10 16:52",
+   "coins": [
+    "ZEC"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글:SOL",
+   "source_type": "google",
+   "title": "Chinese central bank pledge to probe Solana shows crypto crackdown is continuing - South China Morning Post",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOem5YNFJrRjgyb3ZBSXgxc29wOWdqZ2JBY0dPZllybWlEV0JVQms3ZW5zU1lFa25ld0tKOWl4a0FWQkJmUTFyZGNNUTlSenFMSDBWNEllSXF0OWxDLUUzbzE2T3QzTkxDLUVvYzNjRC04RE9XYm12WGdXcVVXdFlYVHVqZFljZUgtbVlyc1FQWGFCZG11ckt3TzhaZmlJemw3bUJhbzlMQkNlM2xKeWxHMGt0Mm51QXFxWU5kVnRVeWtveW9PdDdHUlZ1a3ZDZGd2VUJHU2YtRF9oaWM?oc=5",
+   "published": "2026-11-09 06:00",
+   "coins": [
+    "SOL"
+   ],
+   "score": -2,
+   "score_hits": [
+    "-probe"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:BTW",
+   "source_type": "google",
+   "title": "Bitway leads crypto gains with 17.7% rise, whil... - Pluang",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPem9IQjF0dDJWYjNSZGhPT1ZFQ3V6S2ZmV19xM29PdXY2eFRtNlB1bEthanhXMDAwam5rNnBscVRTYkpwVmhYVERhdFRPX2VLTlRiZXgyMGVtakN2aEF4QmNZN0Rsb2lxeTBNbmtvbHlTWUdJODd0MmxmZ0hvbnh6SGcwVE00MXJy?oc=5",
+   "published": "2026-11-09 01:35",
+   "coins": [
+    "BTW"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+gains",
+    "+rise"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ZEC",
+   "source_type": "google",
+   "title": "Zcash developers want 20-second blocks just days after major speed upgrade - CoinDesk",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNeWhqQk9ScDFrR2xzRkxXNnNzYVgxc3dYRUlkdE5oWUtUQkhzZV9OWW8xSWhSbm1kcjBvY2Q2UzJlQkdmdUNqZ3d0U0JJdlVvOTlqbjdKY3Rla0k3VVJQZGJncTMzUlFmZ2FscnA3OGtWTExqek4xRlRSbGxYcmxXRExnTktaS3hFY3dPQ3hsa0JuZ0xGeE5oLXdXQ0V2Qm9TRW9ScDdRMWlncUxpeFl6cldpeTZWZw?oc=5",
+   "published": "2026-11-09 11:35",
+   "coins": [
+    "ZEC"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+upgrade"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ETH",
+   "source_type": "google",
+   "title": "CPI Inflation Beats Projections, Bitcoin Holds at $74,000 as ETH, XRP Stay Flat - TradingView",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOdFA0eFFjSEpvNnVsaU5LanRjek1qZ3AxaTFtcmM4aU5XelJRT3VjSmRXWjVwZ2pFMFNvN1l1RTNlQjMzel9QTnBYc21HY1lJVzh1UUNKNXZhOThuVDVlQmRKMDdSS3d3cDRMbUEyU1BJV2U1QTZQZFFUS1NuWmw5aWFpMW1sWkFKR1FmR3RpNEJqaU94dEUySFQzWUFQX1BsbGVMRkVBNnY1ZWlUZE1ETFNCdVhZMGJHeWtvWmRzVHhiV1R2Z1VDR01vcXpHVE1M?oc=5",
+   "published": "2026-11-10 15:24",
+   "coins": [
+    "BTC",
+    "ETH",
+    "XRP"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+beats"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ARB",
+   "source_type": "google",
+   "title": "Arbitrum’s rebound faces $0.1663 hourly resistance despite improving momentum - Cryptonews.net",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xdG9tdkdzTHlQYkpnV092TmdpR1F5aVgyN2t4a1B4SmdUZEFvMHVpdjY3U05OTXRONmFiRl8yS0hrTW40Vl9UTkVCeUM2N3hkTHF0cElsLWNacW8?oc=5",
+   "published": "2026-11-10 18:15",
+   "coins": [
+    "ARB"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+rebound"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:QNT",
+   "source_type": "google",
+   "title": "Quant (QNT) Drops 3.1% Amid Broad Market Selloff - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBxM2VCdXAxVXR3cXZGNFZHamEwTEh3eEk2bDk1QXJxTHdtc1NrVklqcEpScGl5RnNoaE12LV9qdWROTUtiZFZhU2VnWERZWFY4Q3NMSlk1LWtUeUZGRzVOcUQ4elJMTkFTVXQ2SjJfN08?oc=5",
+   "published": "2026-11-10 04:04",
+   "coins": [
+    "QNT"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-drops"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XMR",
+   "source_type": "google",
+   "title": "Monero falls to $568 as THORChain XMR swaps wait for churn - CryptoTicker.io",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5HMFZiX0l4QzJLdWJZZi1rSllZdW9SLUZ6ZUUyWFZLelg3YmxXSFJfQkZKc2Yyek5fZnVwdkhMUlZoTkt0OGdRNEJMd3JmandzWXF2TmM3ekdEeFRGRGlEQzI3SG93aFRhQXM0TEsyMHY?oc=5",
+   "published": "2026-11-10 05:13",
+   "coins": [
+    "XMR"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "도지코인(DOGE), 선물 거래 203% 늘고 ETF 자금은 '뚝'...8월 저점 재시험 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5SYWJ2OXVEQ29TTFdwMFZacmV4ZTV3UFY0TndPOXlrNV9rZGhGRTBIYUhZZDd1RTNTdnAtLUdwYnB0a0tDdVV1dDRR?oc=5",
+   "published": "2026-11-10 12:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "DOGE"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:RAIN",
+   "source_type": "google",
+   "title": "Stablecoin Firm Rain Seeks OCC Charter for National Trust Bank - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOaW43MFFsLTZiQTZOMHd5WUwzR0RPa3BqNmdGT3liNm8yUkpoNVVaU0U4a2s3YlhmTzNOWWRGU2RvSVpBSlNwb0o0MXRrWVNLSEpqODZrSWNmandycEZta1lOOTNGZUNHTktyOHlqYmxhSDV5UUFRYXlCcE1DTmJpS0JGc25jYnFNQmROSlE2VXc2WWc?oc=5",
+   "published": "2026-11-10 09:35",
+   "coins": [
+    "RAIN"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PI",
+   "source_type": "google",
+   "title": "Pi Network price under pressure – Can PI defend $0.065 support? - AMBCrypto",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdE9kS3VJTEdlME9hSlpQeUQ1b0lNNGkzQlFlMmh1QWZWcU9YVzJJaTE1MmpidzlUbHRLMHZKNjdxNVduaEtfVU9sU1JzN1R1ajF2aTZiNHVOaVlxNWRMYUE5XzNyeGxMUzdSVWtteHlGSTVJV0MwSEdRalhxZFpxeGU4SzBueGRKRUE?oc=5",
+   "published": "2026-11-09 16:00",
+   "coins": [
+    "PI"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-pressure"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PEPE",
+   "source_type": "google",
+   "title": "Pepe Coin News: PEPE Gains as Bitcoin Slips Below $75K and Remittix Earn Makes Weekly Payouts Available to the Public - StreetInsider",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxPS1JQM2hWWG1RSjYtdUhMUWQ2NUdlWDdfbmlTcUVlUGc5UUIwbThLanQzb25sci1zQlZhaUMzMHMzYjliY1I4NHktdExKY0JIaVFBYnF2elhXSXo5RU00WGxqOW1MZEV4anFyMXBUSEFHWFNLXzFDZDRoRnM0NFZiR0JmRF9kOVVNY3ZLZVBrdUlNQ1Q0RUZGbnZDbWxkNTBxTjdYTlhRbjFlV2F6T0FYazJwYWxmVUdJTU9CMUxpSVF0ZWZZWU5va3BWSDFESERNRmZMXy1VV3JlQzUzUDh3VTFnT19LRjQyUWxENEZIa0RZdDlpZFhJUEVCU2U5TGMxOG9vWFVVTmM2SGU2YkE?oc=5",
+   "published": "2026-11-09 21:52",
+   "coins": [
+    "BTC",
+    "PEPE"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "TON Strategy earns $13.1 million from GRAM staking in Q3 as Telegram rolls out native wallet",
+   "summary": "TON Strategy reported $13.1M in Q3 revenue, mostly from GRAM staking, and a $24M net loss as Telegram rolled out its native Gram Wallet.",
+   "link": "https://www.theblock.co/news/markets/2026-11-10-ton-strategy-tonx-q3-2026-earnings-gram-staking-437278",
+   "published": "2026-11-10 17:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "GRAM"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:AAVE",
+   "source_type": "google",
+   "title": "Aave Price Tests $124.64 Support - The Cryptonomist",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSmppYUZwOXpna3FxZ3hTQWlCdldoZm84cjBXbEpVQWctYjg4M3p1d2MwLVFpVE9adFNQUERYQU9HZHZzcTVVRmtIMFlYT1FpeC01TWxrSk1pTE9VbWt3SFMwWDVlV1pWX1RfVTgzZXNHNkJNZnFVR2VRYXRjUUVCUE91Z0ZzWlAtQ2MtazNPVXc0TW04THdvZG95OGY?oc=5",
+   "published": "2026-11-10 14:57",
+   "coins": [
+    "AAVE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:NIGHT",
+   "source_type": "google",
+   "title": "Hoskinson Says Every NIGHT Holder Is Already a Cardano User as Midnight Is What Cardano Was Built For - Cryptonews.net",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBldjFBM3lld2N4Wkt2YXZBZWNGbHJvaWV6Y2dSaldSbXZpR3VvanRwNm02aWx6NWVGTm5qblFyNjVYZU8xZEcyeWo4ZDZQb1JrZ1h2VXVoQjJVZw?oc=5",
+   "published": "2026-11-10 12:14",
+   "coins": [
+    "NIGHT"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:DASH",
+   "source_type": "google",
+   "title": "Dash Bounces 3.79% From Support Amid Market Volatility - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9EWHpJWllKUWdyNkZZS3FsdjZYcmxQUkhzMzFDUy1OZ3U4c3dIZzQ2S0lGcXN1Q2tuVEQ5Z0N5QjV6Q2EzQktMUWhMZzh2Vl9pbVVXNlFUNmJqMU41alhTalR5WFoyRl9maGNNWnFfckM?oc=5",
+   "published": "2026-11-09 13:06",
+   "coins": [
+    "DASH"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "미 10월 CPI 충격에 써클 주가 5% 하락…65달러 하회",
+   "summary": "[멕시코=심영재 특파원] 미국의 10월 소비자물가가 시장 예상치를 웃돌면서 스테이블코인 발행사 써클(CRCL) 주가가 5% 가까이 급락했다. 미국 연방준비제도(Fed·연준)의 12월 금리 인상 전망이 강화된 가운데 써클 주가는 65달러 지지선 아래로 내려갔다. 10일(현지시각) 야후파이낸스에 따르면 써클 인터넷 그룹 주가는 미국 동부시각 오전 11시53분 기준 64.25달러로 전 거래일 대비 4.91% 하락했다. 하락액은 3.31달러다. 장중 최고가는 67.57달러, 최저가는 63.94달러를 기록했다. [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1164059?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 17:16",
+   "score": -3,
+   "score_hits": [
+    "-급락",
+    "-하락"
+   ],
+   "label": "부정",
+   "coins": [],
+   "topics": [
+    "매크로",
+    "스테이블코인"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "The $2.85B Binance hackers lost shows why the UK needs stablecoin freeze rules",
+   "summary": "The Binance hack proved stablecoin freezes work. Now the UK should make clear freeze rules a condition of listing coins.",
+   "link": "https://cointelegraph.com/opinion/285b-binance-hackers-lost-shows-why-uk-needs-stablecoin-freeze-rules?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 13:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "보안사고",
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Goldman Sachs, Citi among banks said to commit $270 million to stablecoin venture",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/10/goldman-sachs-citi-among-banks-said-to-commit-usd270-million-to-stablecoin-venture",
+   "published": "2026-11-10 17:32",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Will stablecoins survive once the banks catch up?",
+   "summary": "",
+   "link": "https://www.coindesk.com/opinion/2026/11/10/will-stablecoins-survive-once-the-banks-catch-up",
+   "published": "2026-11-10 14:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Securitize agrees to buy River One to expand into asset-backed lending",
+   "summary": "Securitize agreed to buy River One to bring stablecoin funding to asset-backed lending and expects the deal to close in the fourth quarter of 2026.",
+   "link": "https://cointelegraph.com/news/securitize-river-one-asset-backed-lending?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 07:49",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Goldman, Citi and Global Banks Commit $270 Million to Challenge Crypto’s Stablecoin Giants",
+   "summary": "The funding, backing a U.S.-incorporated issuer codenamed “Project Faro,” covers five years of operations as traditional lenders move to challenge crypto-native giants Tether and Circle.",
+   "link": "https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants",
+   "published": "2026-11-10 18:33",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Visa adds Monad to stablecoin settlement network options",
+   "summary": "Visa has added Monad as a stablecoin settlement option for participating issuers and acquirers, the Monad Foundation said.",
+   "link": "https://www.theblock.co/news/ecosystems/2026-11-10-visa-monad-stablecoin-settlement-network-437201",
+   "published": "2026-11-10 14:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "BitGo revenue falls 51% in Q3 as trading slows; net income rises on treasury gains",
+   "summary": "The revenue decline was driven by continued soft crypto trading environment and a higher mix of lower-margin stablecoin transactions.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-bitgo-revenue-falls-q3-436986",
+   "published": "2026-11-10 08:20",
+   "score": 0,
+   "score_hits": [
+    "+gains",
+    "+rises",
+    "-falls",
+    "-decline"
+   ],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "리버리지 셰어즈, 유럽에 3배 인트로픽 ETF 출시 - Coinfomania",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTk1JY3B4bV9ZcWxYSExzRDdjcG5DUW9CVWpEc3RsZ3k2a2JfYmVWTXVCdEVEZzkzYWpsOUZwOG1yV2p3OGpMTzVFN1dEbnQzdGZWX1VUaVp5eEM5U0VjeVV2YTdabkpTQ19ZOXhSc3Y0YW5LUmEzWF9rUWM2Q3lFLWJnQVlXYjdUSndBX3dhUXBZZw?oc=5",
+   "published": "2026-11-10 17:39",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "North Korean hackers are creating memecoins to wash loot from $6.3 billion Binance hack",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/09/north-korean-hackers-are-creating-memecoins-to-wash-loot-from-usd6-3-billion-binance-hack",
+   "published": "2026-11-09 15:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "보안사고"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Securitize shares surge 12% in after-hours trading on Q3 results and River One acquisition agreement",
+   "summary": "The acquisition is expected to add a new layer of financing to Securitize, enabling the platform to offer asset-backed lending.",
+   "link": "https://www.theblock.co/news/business/2026-11-09-securitize-shares-surge-river-one-436955",
+   "published": "2026-11-10 02:13",
+   "score": 4,
+   "score_hits": [
+    "+surge",
+    "+acquisition"
+   ],
+   "label": "긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "eToro’s Q3 profit plunges 74% as weaker crypto trading weighs on earnings",
+   "summary": "eToro reported a 74% decline in Q3 profit to $15 million, with weaker crypto activity weighing on earnings.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-etoros-q3-profit-plunges-74-as-weaker-crypto-trading-weighs-on-earnings-437192",
+   "published": "2026-11-10 13:44",
+   "score": -3,
+   "score_hits": [
+    "-plunges",
+    "-decline"
+   ],
+   "label": "부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Polymarket US trading volume jumps 266% despite regulatory battles",
+   "summary": "Trading volume on Polymarket’s US exchange surged from June to October, fueled by sports betting, even as the platform faces mounting regulatory scrutiny.",
+   "link": "https://cointelegraph.com/news/polymarket-us-trading-volume-jumps-regulatory-battles?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 17:07",
+   "score": 2,
+   "score_hits": [
+    "+jumps"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Coinbase, Kalshi join lawsuit backing CFTC over US stock perp futures",
+   "summary": "Coinbase, Kalshi and four other companies backed the CFTC in a lawsuit over whether US exchanges can list perpetual futures tied to individual stocks.",
+   "link": "https://cointelegraph.com/news/coinbase-kalshi-cftc-stock-perpetual-futures-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 11:44",
+   "score": -2,
+   "score_hits": [
+    "-lawsuit"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Exodus shares rise 10% ahead of Q3 earnings showing 7% revenue growth, $8.3 million loss",
+   "summary": "Exodus shares rose 10% as the company reported third-quarter revenue of $32.5 million and a net loss of $8.3 million.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-exodus-shares-rise-10-ahead-of-q3-earnings-showing-7-revenue-growth-8-3-million-loss-437012",
+   "published": "2026-11-10 10:53",
+   "score": 2,
+   "score_hits": [
+    "+rise",
+    "+growth"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  }
+ ],
+ "news_all": [
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Goldman Sachs, Citi among banks said to commit $270 million to stablecoin venture",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/10/goldman-sachs-citi-among-banks-said-to-commit-usd270-million-to-stablecoin-venture",
+   "published": "2026-11-10 17:32",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Crypto is now teamed up with U.S. government in two legal battles over perps",
+   "summary": "",
+   "link": "https://www.coindesk.com/news-analysis/2026/11/10/crypto-teams-up-with-u-s-government-to-defend-stock-perps-in-legal-fight",
+   "published": "2026-11-10 17:07",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Plume affiliate lands broker-dealer license to bring real U.S. assets onchain",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/10/emb-10-am-et-plume-affiliate-gets-the-legal-green-light-to-trade-regulated-security-entitlements-onchain",
+   "published": "2026-11-10 15:51",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Will stablecoins survive once the banks catch up?",
+   "summary": "",
+   "link": "https://www.coindesk.com/opinion/2026/11/10/will-stablecoins-survive-once-the-banks-catch-up",
+   "published": "2026-11-10 14:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "U.S. CPI rose stronger than expected 0.4% in October; core rate rose 0.3%",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/10/u-s-cpi-rose-stronger-than-expected-0-4-in-october-core-rate-rose-0-3",
+   "published": "2026-11-10 13:32",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Ripple Prime head Marc Asch to step down, Noel Kimmel named successor",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/09/ripple-prime-head-marc-asch-to-step-down-noel-kimmel-named-successor",
+   "published": "2026-11-10 12:38",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "XRP"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Bitcoin breaks with stocks, declines as ETF outflows mount, MARA reduces holdings",
+   "summary": "",
+   "link": "https://www.coindesk.com/daybook-us/2026/11/10/bitcoin-breaks-with-stocks-declines-as-etf-outflows-mount-mara-sells-holdings",
+   "published": "2026-11-10 12:15",
+   "score": -1,
+   "score_hits": [
+    "-declines"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Bitcoin lags stock rebound in advance of U.S. inflation report",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/10/bitcoin-lags-stock-rebound-in-advance-of-u-s-inflation-report",
+   "published": "2026-11-10 11:24",
+   "score": 1,
+   "score_hits": [
+    "+rebound"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Bitcoin slips before U.S. inflation report as traders price in Fed rate increase",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/10/bitcoin-slips-before-u-s-inflation-report-as-traders-price-in-fed-rate-increase",
+   "published": "2026-11-10 10:48",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Live news: Bitcoin falls to nearly three-month low after disappointing inflation data",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/10/live-news-traders-price-in-fed-rate-hike-for-december-as-bitcoin-and-gold-retreat",
+   "published": "2026-11-10 10:41",
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "The crypto wallet that grew up inside Telegram is striking out on its own",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/10/the-crypto-wallet-that-grew-up-inside-telegram-is-striking-out-on-its-own",
+   "published": "2026-11-10 09:59",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Coinbase, Kalshi, Kraken parent back CFTC in legal fight over stock perpetual futures",
+   "summary": "",
+   "link": "https://www.coindesk.com/policy/2026/11/10/coinbase-kalshi-kraken-parent-back-cftc-in-legal-fight-over-stock-perpetual-futures",
+   "published": "2026-11-10 09:14",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "An 11-year-old Ethereum wallet moved $4.6 million and dodged a scam set up in minutes",
+   "summary": "",
+   "link": "https://www.coindesk.com/tech/2026/11/10/an-11-year-old-ethereum-wallet-moved-usd4-6-million-and-dodged-a-scam-set-up-in-minutes",
+   "published": "2026-11-10 07:01",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Bitcoin miner MARA sold 13,597 BTC for $1.1 billion in six weeks, plans to sell more",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/10/bitcoin-miner-mara-sold-13-597-btc-for-usd1-1-billion-in-six-weeks-plans-to-sell-more",
+   "published": "2026-11-10 05:18",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "XRP Ledger maps out quantum-proof accounts, with no extra fees for users",
+   "summary": "",
+   "link": "https://www.coindesk.com/tech/2026/11/10/xrp-ledger-maps-out-quantum-proof-accounts-with-no-extra-fees-for-users",
+   "published": "2026-11-10 04:51",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "QNT",
+    "XRP"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Bitcoin faces U.S. CPI test as analysts warn inflation relief may not be enough",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/10/bitcoin-faces-u-s-cpi-test-as-analysts-warn-inflation-relief-may-not-be-enough",
+   "published": "2026-11-10 03:22",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Securitize pushes into $6 trillion asset-backed finance market with River One acquisition",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/09/securitize-pushes-into-usd6-trillion-asset-backed-finance-market-with-river-one-acquisition",
+   "published": "2026-11-09 22:56",
+   "score": 2,
+   "score_hits": [
+    "+acquisition"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Robinhood backs tokenization of its stock on OKX–ICE platform even as most companies opt out",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/09/robinhood-backs-tokenization-of-its-stock-on-okx-ice-platform-even-as-most-companies-opt-out",
+   "published": "2026-11-09 19:36",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "A Bitcoin block just neared a 2015 transaction record, but paid only $180 in fees",
+   "summary": "",
+   "link": "https://www.coindesk.com/tech/2026/11/09/a-bitcoin-block-just-neared-a-2015-transaction-record-but-paid-only-usd180-in-fees",
+   "published": "2026-11-09 16:19",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Google’s AI chip push adds more pressure on Nvidia",
+   "summary": "",
+   "link": "https://www.coindesk.com/markets/2026/11/09/google-s-ai-chip-push-adds-more-pressure-on-nvidia",
+   "published": "2026-11-09 15:20",
+   "score": -1,
+   "score_hits": [
+    "-pressure"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "North Korean hackers are creating memecoins to wash loot from $6.3 billion Binance hack",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/09/north-korean-hackers-are-creating-memecoins-to-wash-loot-from-usd6-3-billion-binance-hack",
+   "published": "2026-11-09 15:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "보안사고"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "NYSE picks Avalanche to settle tokenized stocks amid Wall Street's blockchain race",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/09/nyse-picks-avalanche-to-settle-tokenized-stocks-amid-wall-street-s-blockchain-race",
+   "published": "2026-11-09 13:40",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Solana set for its first tokenized stock venue under SEC framework, listing Galaxy",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/06/solana-lset-for-its-first-tokenized-stock-venue-under-sec-framework-listing-galaxy",
+   "published": "2026-11-09 12:41",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "SOL"
+   ],
+   "topics": [
+    "규제"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Trump says he knows ‘nothing’ about World Liberty’s UAE ties as Justin Sun challenges filings",
+   "summary": "",
+   "link": "https://www.coindesk.com/business/2026/11/09/trump-says-he-knows-nothing-about-world-liberty-s-uae-ties-as-justin-sun-challenges-filings",
+   "published": "2026-11-09 12:37",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "CoinDesk",
+   "source_type": "rss",
+   "title": "Bitcoin bulls can't rely on ETF flows",
+   "summary": "",
+   "link": "https://www.coindesk.com/daybook-us/2026/11/09/bitcoin-bulls-can-t-rely-on-etf-flows",
+   "published": "2026-11-09 12:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Mercado Bitcoin to resume cash withdrawals after $49M hack",
+   "summary": "Starting next week, customers can deposit and withdraw money through Brazil’s instant payment system. Crypto transfers remain suspended.",
+   "link": "https://cointelegraph.com/news/pix-withdrawals-resume-mercado-bitcoin-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 18:12",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "보안사고"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Hot US inflation raises odds of half-point Fed hike in December",
+   "summary": "US inflation came in above forecasts in October, increasing expectations of a bigger rate hike in December and raising concerns for crypto investors.",
+   "link": "https://cointelegraph.com/news/hot-us-inflation-raises-rate-hike-crypto?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 17:31",
+   "score": -1,
+   "score_hits": [
+    "-concerns"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Polymarket US trading volume jumps 266% despite regulatory battles",
+   "summary": "Trading volume on Polymarket’s US exchange surged from June to October, fueled by sports betting, even as the platform faces mounting regulatory scrutiny.",
+   "link": "https://cointelegraph.com/news/polymarket-us-trading-volume-jumps-regulatory-battles?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 17:07",
+   "score": 2,
+   "score_hits": [
+    "+jumps"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Bitcoin nears 11-week low after ‘discouraging’ US CPI inflation beat",
+   "summary": "Bitcoin and US stocks initially fall after October inflation tops forecasts, with traders expecting a quarter-point Fed rate hike in December.",
+   "link": "https://cointelegraph.com/markets/bitcoin-11-week-low-discouraging-us-cpi-inflation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 16:25",
+   "score": 1,
+   "score_hits": [
+    "+beat"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Poland’s lower house backs sanctions bill covering crypto freezes",
+   "summary": "The bill is now before the Senate and would broaden the grounds for adding people and companies to Poland’s national sanctions list.",
+   "link": "https://cointelegraph.com/news/poland-bill-freeze-sanctions-crypto-assets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 13:40",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Here’s what happened in crypto today",
+   "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
+   "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 13:34",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "규제"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Bitcoin’s ‘best buying opportunity ever’ has arrived: Mark Moss",
+   "summary": "Bitcoin Opportunity Fund co-founder Mark Moss says that with banks and ETFs widening access to Bitcoin he expects a new record high in 2027.",
+   "link": "https://cointelegraph.com/magazine/bitcoins-best-buying-opportunity-ever-has-arrived-mark-moss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 13:30",
+   "score": 3,
+   "score_hits": [
+    "+record high"
+   ],
+   "label": "긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Bitcoin may benefit as global tightening slows, Binance Research says",
+   "summary": "Binance Research says Bitcoin could find support as global monetary tightening slows, even as markets price in a December Fed rate hike.",
+   "link": "https://cointelegraph.com/markets/bitcoin-price-global-tightening-binance-research?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 13:15",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Coinbase, Kalshi join lawsuit backing CFTC over US stock perp futures",
+   "summary": "Coinbase, Kalshi and four other companies backed the CFTC in a lawsuit over whether US exchanges can list perpetual futures tied to individual stocks.",
+   "link": "https://cointelegraph.com/news/coinbase-kalshi-cftc-stock-perpetual-futures-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 11:44",
+   "score": -2,
+   "score_hits": [
+    "-lawsuit"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Binance warns iOS flaw could expose crypto wallet keys",
+   "summary": "The exchange urged iPhone users to remove apps installed from untrusted sources, and it is unclear whether Apple’s latest iOS updates fix the flaw.",
+   "link": "https://cointelegraph.com/news/binance-warns-ios-flaw-could-expose-crypto-wallet-keys?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 11:25",
+   "score": -1,
+   "score_hits": [
+    "-warns"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Ex-employee sues Ethereum Foundation and Vitalik Buterin over firing",
+   "summary": "Kayleen Fulton alleges she was fired less than two weeks after disclosing a cancer diagnosis and helping organize a staff letter challenging a requirement to endorse the foundation’s new mandate.",
+   "link": "https://cointelegraph.com/news/ex-employee-sues-ethereum-foundation-vitalik-buterin-over-firing?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 10:56",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Bitcoin price eyes $74K as Fed rate-hike bets hit 96% after Waller speech",
+   "summary": "Bitcoin price action and stock futures trended lower after Fed governor Christopher Waller said that he would vote to raise interest rates by 0.25% at the December FOMC meeting.",
+   "link": "https://cointelegraph.com/markets/bitcoin-price-eyes-74k-fed-rate-hike-expected-after-waller-speech?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 10:08",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "매크로"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "BitGo Q3 profit nearly doubles on crypto gains as revenue falls 51%",
+   "summary": "BitGo’s $71 million unrealized gain on its crypto holdings helped nearly double its net income, but revenue and earnings came in below preliminary analyst expectations.",
+   "link": "https://cointelegraph.com/news/bitgo-q3-2026-earnings-crypto-treasury-gains?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 09:05",
+   "score": 1,
+   "score_hits": [
+    "+gain",
+    "+gains",
+    "-falls"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "BlackRock Bitcoin ETF outflows hit $1.66B over seven trading sessions",
+   "summary": "US spot Bitcoin ETFs shed $201 million Monday, with seven straight sessions of net withdrawals from BlackRock’s IBIT totaling $1.66 billion.",
+   "link": "https://cointelegraph.com/markets/blackrock-ibit-bitcoin-etf-outflows?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 08:02",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Securitize agrees to buy River One to expand into asset-backed lending",
+   "summary": "Securitize agreed to buy River One to bring stablecoin funding to asset-backed lending and expects the deal to close in the fourth quarter of 2026.",
+   "link": "https://cointelegraph.com/news/securitize-river-one-asset-backed-lending?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 07:49",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Crypto exchanges need hard dollar caps on hot wallets, CertiK says",
+   "summary": "“Cold storage is a useful measure of online exposure, but it is not a standalone security score,” the cybersecurity firm told Cointelegraph.",
+   "link": "https://cointelegraph.com/news/crypto-exchanges-need-dollar-caps-on-hot-wallets-certik?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 05:05",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "OpenAI builds kill switch to stop rogue agents within 35 seconds",
+   "summary": "Control Room cuts off model output for internal research jobs when people or automated monitors flag safety or security concerns.",
+   "link": "https://cointelegraph.com/news/openai-builds-kill-switch-stop-rogue-agents?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 03:04",
+   "score": -1,
+   "score_hits": [
+    "-concerns"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "HIVE, MARA mine more Bitcoin but earn less as crypto prices fall",
+   "summary": "Both miners reported higher Bitcoin production but lower mining revenue and rising electricity costs as they expanded their AI infrastructure businesses.",
+   "link": "https://cointelegraph.com/markets/hives-bitcoin-output-jumps-49-but-mining-revenue-falls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-10 00:42",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Should you leave Australia to avoid paying 47% tax on crypto gains?",
+   "summary": "Some Australian crypto investors are moving overseas to avoid the huge CGT increase from July 2027. But there are also less drastic ways you can pay less tax.",
+   "link": "https://cointelegraph.com/magazine/should-you-leave-australia-to-avoid-47-tax-on-crypto-gains?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 21:00",
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "North Korean hackers create memecoins to launder funds from Binance hack: Elliptic",
+   "summary": "The blockchain firm traced stolen funds through six new tokens on NEAR, where hackers used liquidity pools to obscure transfers between wallets.",
+   "link": "https://cointelegraph.com/news/north-korean-hackers-memecoins-launder-binance-hack-elliptic?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 20:26",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "보안사고"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Formation Securities plans Solana stock trading venue under SEC exemption",
+   "summary": "The proposed venue would offer 24/7 trading of tokenized shares from Galaxy Digital, Exodus and Forward Industries, with a launch planned for early 2027.",
+   "link": "https://cointelegraph.com/news/formation-securities-solana-stock-trading-venue-sec-exemption?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 19:52",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "SOL"
+   ],
+   "topics": [
+    "규제"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Mercado Bitcoin begins post-hack reopening without a timeline for withdrawals",
+   "summary": "Customers can view their pre-hack balances as access returns in phases. The exchange has yet to say when withdrawals will resume.",
+   "link": "https://cointelegraph.com/news/mercado-bitcoin-reopening-withdrawals-hack-suspended?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 18:25",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "보안사고"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "PNC Bank tests turning USDC payments into dollar deposits",
+   "summary": "The pilot lets eligible corporate and institutional clients accept USDC on Ethereum, with each token converted to one US dollar before deposit.",
+   "link": "https://cointelegraph.com/news/pnc-bank-launches-usdc-payment-pilot-coinbase?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 17:48",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "기관자금"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Avalanche’s AVAX leads crypto gains following NYSE tokenization deal",
+   "summary": "Avalanche’s AVAX token rose as much as 10% after the NYSE selected its blockchain to support settlement on a planned tokenized stock trading platform.",
+   "link": "https://cointelegraph.com/news/avalanche-avax-crypto-nyse-tokenization-deal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 17:41",
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Bitcoin, tech stocks brush off Nvidia nerves as analyst mulls $68K target",
+   "summary": "Bitcoin rebounded from an 11-week low near $73,500 as the Nasdaq Composite rallied despite sell-off in Nvidia shares.",
+   "link": "https://cointelegraph.com/markets/bitcoin-stocks-nvidia-analyst-68k-target?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 17:13",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Analysts see no broader ‘contagion’ from $6.3B Binance hack",
+   "summary": "Binance’s pledge to cover all user losses helped contain the fallout from the $6.3 billion hack, analysts said.",
+   "link": "https://cointelegraph.com/markets/analysts-no-contagion-effect-63b-binance-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 13:52",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "보안사고"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "The $2.85B Binance hackers lost shows why the UK needs stablecoin freeze rules",
+   "summary": "The Binance hack proved stablecoin freezes work. Now the UK should make clear freeze rules a condition of listing coins.",
+   "link": "https://cointelegraph.com/opinion/285b-binance-hackers-lost-shows-why-uk-needs-stablecoin-freeze-rules?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 13:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "보안사고",
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Strategy buys 1,036 Bitcoin as BTC holdings climb to 850,364",
+   "summary": "Strategy bought $81.9 million in Bitcoin last week while spending $188.3 million repurchasing STRC preferred shares, according to its latest SEC filing.",
+   "link": "https://cointelegraph.com/news/strategy-buy-1036-bitcoin-holdings-850364-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 13:29",
+   "score": 1,
+   "score_hits": [
+    "+climb"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "규제"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "EU taps industry to set standards for tokenized securities",
+   "summary": "Applications close Nov. 27 for an industry group that aims to draft initial standards for holding and settling tokenized securities by early 2028.",
+   "link": "https://cointelegraph.com/news/eu-nominations-tokenization-standards-group?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 12:27",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Cointelegraph",
+   "source_type": "rss",
+   "title": "Coinbase’s US national trust bank charter takes effect",
+   "summary": "Coinbase plans to expand its institutional crypto custody business under the federal charter and is exploring digital asset payment products.",
+   "link": "https://cointelegraph.com/news/coinbase-occ-approval-national-trust-bank-charter?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "published": "2026-11-09 11:38",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "기관자금"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Goldman, Citi and Global Banks Commit $270 Million to Challenge Crypto’s Stablecoin Giants",
+   "summary": "The funding, backing a U.S.-incorporated issuer codenamed “Project Faro,” covers five years of operations as traditional lenders move to challenge crypto-native giants Tether and Circle.",
+   "link": "https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants",
+   "published": "2026-11-10 18:33",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Bitcoin Falls as Hot US Inflation Fuels Fears of Bigger Fed Rate Hike",
+   "summary": "Bitcoin fell below $74,000 after October inflation beat forecasts, increasing pressure on the Federal Reserve to raise rates again at its December meeting.",
+   "link": "https://decrypt.co/382950/bitcoin-falls-hot-us-inflation-fears-bigger-fed-rate-hike",
+   "published": "2026-11-10 16:27",
+   "score": -1,
+   "score_hits": [
+    "+beat",
+    "-falls",
+    "-pressure"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "매크로"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Solana's Jupiter Expands Beyond Trading With Token Baskets, Yield Vaults and New Portfolio",
+   "summary": "The trading platform, which says it has routed more than $1.3 trillion in trades, is launching four products ahead of Solana Breakpoint.",
+   "link": "https://decrypt.co/382836/solanas-jupiter-expands-beyond-trading-with-token-baskets-yield-vaults-and-new-portfolio",
+   "published": "2026-11-10 15:01",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "SOL"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Decrypt Money Account Gets Confidential Transfers With Solana Privacy Firm Helius",
+   "summary": "Helius' Solana Privacy Rings will let Decrypt users send funds without broadcasting amounts, as it grows out The Information Exchange.",
+   "link": "https://decrypt.co/382806/decrypt-money-account-gets-confidential-transfers-with-solana-privacy-firm-helius",
+   "published": "2026-11-10 14:32",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "SOL"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Anthropic Sets IPO Price Range at $70 to $78, Valuing Company at Up to $1.4 Trillion",
+   "summary": "The Claude developer is also lining up $26 billion from Nvidia, Google and other tech giants in a private placement alongside the listing.",
+   "link": "https://decrypt.co/382939/anthropic-sets-ipo-price-range-at-70-to-78-valuing-company-at-up-to-1-4-trillion",
+   "published": "2026-11-10 14:06",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Moody’s Taps Chainlink to Send Credit Ratings Across Multiple Blockchains",
+   "summary": "The testnet pilot used Chainlink’s CCIP to distribute Moody’s ratings simultaneously across permissioned and permissionless blockchains, while preserving the firm’s existing publication and governance processes.",
+   "link": "https://decrypt.co/382888/moodys-chainlink-credit-ratings-across-multiple-blockchains",
+   "published": "2026-11-10 14:01",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Morning Minute: Vitalik Recasts ETH as a Store of Value",
+   "summary": "It’s a big shift for Ethereum from the “ultrasound money” days. But can ETH compete as a store-of-value play?",
+   "link": "https://decrypt.co/382931/morning-minute-vitalik-recasts-eth-as-a-store-of-value",
+   "published": "2026-11-10 13:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Binance Warns of Apple iOS Flaw That Could Expose iPhone Users' Private Keys",
+   "summary": "Apple has not publicly confirmed the \"worse_query\" bug, which a researcher published days before its latest iOS security update.",
+   "link": "https://decrypt.co/382928/binance-warns-of-apple-ios-flaw-that-could-expose-iphone-users-private-keys",
+   "published": "2026-11-10 12:45",
+   "score": -1,
+   "score_hits": [
+    "-warns"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Binance Halts MEXC Transfers as FinCEN Cuts Exchange Off From US Financial System",
+   "summary": "The exchange will reject withdrawals to MEXC and hold deposits from it for review, after FinCEN tied it to $16 billion in suspicious flows.",
+   "link": "https://decrypt.co/382926/binance-halts-mexc-transfers-as-fincen-cuts-exchange-off-from-us-financial-system",
+   "published": "2026-11-10 12:13",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Nvidia, Jensen Huang Sued by Shareholders Over Alleged Ties to Suspected Chinese Spy",
+   "summary": "A proposed class action claims the chipmaker misled investors about the CEO's alleged affair and the national security risks it posed.",
+   "link": "https://decrypt.co/382913/nvidia-jensen-huang-sued-by-shareholders-over-alleged-ties-to-suspected-chinese-spy",
+   "published": "2026-11-10 11:26",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "'Tough Questions' Ahead: Warren Targets Prediction Markets, Trump Crypto as Banking Chair",
+   "summary": "An aide said Trump family crypto businesses should \"preserve their documents\" as Warren prepares to take over the Senate Banking Committee.",
+   "link": "https://decrypt.co/382910/tough-questions-ahead-warren-targets-prediction-markets-trump-crypto-as-banking-chair",
+   "published": "2026-11-10 10:41",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Anthropic's Claude Fable 5.2 and Mythos 5.0 Are Impressive, But Be Prepared to Sell a Kidney to Afford Them",
+   "summary": "Anthropic's latest AI can build complex software and even design physical objects. Users are producing impressive results, and estimated bills large enough to make developers wince.",
+   "link": "https://decrypt.co/382897/anthropic-claude-fable-5-2-and-mythos-5-2-impressive-and-expensive",
+   "published": "2026-11-09 22:36",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "AI Data Centers Are Buying Used Jet Engines as New Power Turbines Take Six Years",
+   "summary": "A shortage of new gas turbines is pushing AI developers toward refurbished power equipment and jet-engine-based generators, even as high prices, pollution concerns, and permitting delays threaten their expansion plans.",
+   "link": "https://decrypt.co/382890/ai-data-centers-used-jet-engines-power-turbines",
+   "published": "2026-11-09 21:16",
+   "score": -1,
+   "score_hits": [
+    "-concerns"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Google Takes Aim at Nvidia With New AI Chips Built for Privacy and Massive Memory",
+   "summary": "Google’s TPU 8tx protects sensitive AI workloads, while the dual-chip TPU 8i Max targets memory-hungry AI agents.",
+   "link": "https://decrypt.co/382874/google-nvidia-new-ai-chips-privacy-massive-memory-ai",
+   "published": "2026-11-09 20:16",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Binance Hack Launderers Mint Elon Musk and Animal Meme Coins to Move Stolen Crypto",
+   "summary": "Elliptic says the hackers are minting their own worthless tokens—complete with cartoon animal and Elon Musk logos—and routing stolen funds through liquidity pools to break the trail.",
+   "link": "https://decrypt.co/382873/binance-hack-elon-musk-animal-meme-coins-launder-stolen-crypto",
+   "published": "2026-11-09 19:36",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "보안사고"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Bitcoin in Limbo as Stocks Rebound Ahead of US Inflation Report",
+   "summary": "U.S. stocks rallied as oil fell, but Bitcoin hovered near $75,000 after a wave of liquidations, with Tuesday’s inflation report set to test bets on a December Fed rate hike.",
+   "link": "https://decrypt.co/382861/bitcoin-limbo-stocks-rebound-us-inflation",
+   "published": "2026-11-09 19:06",
+   "score": 1,
+   "score_hits": [
+    "+rebound"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "청산"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Nvidia's $350 Billion Scare: What Happens If Jensen Huang Leaves?",
+   "summary": "Nvidia shares slid as much as 8% amid spy allegations. The stock was already weakening, and investors now face a bigger question: Who replaces Jensen Huang if he suddenly leaves?",
+   "link": "https://decrypt.co/382838/nvidias-350-billion-scare-what-happens-if-jensen-huang-leaves",
+   "published": "2026-11-09 18:31",
+   "score": -1,
+   "score_hits": [
+    "-slid"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Solana Set for Another Tokenized Stock Venue as Formation Notifies the SEC",
+   "summary": "Operating under the SEC’s “Innovation Exemption,” the firm plans to list tokenized shares of Exodus, Forward Industries, and Galaxy Digital in early 2027, with the same voting and dividend rights as real stock.",
+   "link": "https://decrypt.co/382859/solana-tokenized-stock-venue-formation-sec",
+   "published": "2026-11-09 17:46",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "SOL"
+   ],
+   "topics": [
+    "규제"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Vitalik Buterin Moves On From ‘Ultrasound Money,’ Says ETH’s Value Is Stability",
+   "summary": "The Ethereum co-founder says ETH's value comes from stability, not fee burns, citing its decentralization, censorship resistance and security.",
+   "link": "https://decrypt.co/382837/vitalik-buterin-moves-on-from-ultrasound-money-says-eths-value-is-stability",
+   "published": "2026-11-09 17:14",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Tom Lee’s Bitmine Adds $20M in Ethereum, Seizing on Vitalik’s 'ETH Is Money' Declaration",
+   "summary": "The firm’s stash reached 6.07 million ETH—4.97% of supply and 99% of the way to its “Alchemy of 5%” goal—as chairman Tom Lee called Vitalik Buterin’s “ETH is money” comments a “seismic shift.”",
+   "link": "https://decrypt.co/382854/tom-lee-bitmine-adds-20m-ethereum-vitalik-eth-money",
+   "published": "2026-11-09 17:08",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "NYSE Taps Avalanche to Settle Its Planned Tokenized Stock Platform",
+   "summary": "Ava Labs said Avalanche will serve as the “core ledger technology” for the clearing firm behind the NYSE-affiliated venue, which aims to bring 24/7 trading, clearing and settlement of tokenized securities onchain.",
+   "link": "https://decrypt.co/382833/nyse-avalanche-settle-tokenized-stock-platform",
+   "published": "2026-11-09 15:49",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Strategy Buys $82M in Bitcoin, Buys Back $188M of STRC",
+   "summary": "The Bitcoin treasury firm sold $284 million of MSTR stock to fund the moves, days before MSCI names companies facing index removal.",
+   "link": "https://decrypt.co/382820/strategy-buys-82m-in-bitcoin-buys-back-188m-of-strc",
+   "published": "2026-11-09 13:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Microsoft-Backed Space and Time Launches Platform to Let AI Agents Verify Private Data",
+   "summary": "Space and Time Enterprise uses Proof of SQL to prove calculations on private business data without exposing the records to AI agents.",
+   "link": "https://decrypt.co/382697/microsoft-backed-space-and-time-launches-platform-to-let-ai-agents-verify-private-data",
+   "published": "2026-11-09 13:01",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Coinbase Joins Circle, Ripple With Final OCC Approval for Federal Trust Bank Charter",
+   "summary": "The exchange will move its institutional crypto custody business under federal oversight, building on its 2018 New York trust charter.",
+   "link": "https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter",
+   "published": "2026-11-09 11:50",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "XRP"
+   ],
+   "topics": [
+    "기관자금"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Trump Says He Knows 'Nothing' About World Liberty Financial as He Defends UAE Ties",
+   "summary": "Pressed on why he doesn't divest from the family's crypto venture, Trump said his sons run the business and every president faces conflicts.",
+   "link": "https://decrypt.co/382813/trump-says-he-knows-nothing-about-world-liberty-financial-as-he-defends-uae-ties",
+   "published": "2026-11-09 11:26",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "Nvidia Board Investigates Jensen Huang After Report He Was Target of Chinese Spy Effort",
+   "summary": "Huang told staff he had been \"unfaithful\" to his wife, as Nvidia shares fell nearly 5% in premarket trading on Monday.",
+   "link": "https://decrypt.co/382793/nvidia-board-investigates-jensen-huang-after-report-he-was-target-of-chinese-spy-effort",
+   "published": "2026-11-09 09:50",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "Decrypt",
+   "source_type": "rss",
+   "title": "This Bitcoin Developer’s Idea Would Make Quantum Attacks a Losing Bet",
+   "summary": "Cory Fields wants future quantum attackers to post Bitcoin as collateral before touching vulnerable wallets, giving prepared owners a chance to recover their coins and collect a potentially costly penalty.",
+   "link": "https://decrypt.co/382761/bitcoin-developer-quantum-landmines-losing-bet",
+   "published": "2026-11-08 14:01",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC",
+    "QNT"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Grayscale pledges $1 million alongside Zcash ad blitz as token and ETF fall 12%",
+   "summary": "Grayscale’s Zcash push comes as its ETF faces continued withdrawals, extending October’s net outflows.",
+   "link": "https://www.theblock.co/news/markets/2026-11-10-grayscale-pledges-1-million-alongside-zcash-ad-blitz-as-token-and-etf-fall-12-437277",
+   "published": "2026-11-10 17:52",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ZEC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "TON Strategy earns $13.1 million from GRAM staking in Q3 as Telegram rolls out native wallet",
+   "summary": "TON Strategy reported $13.1M in Q3 revenue, mostly from GRAM staking, and a $24M net loss as Telegram rolled out its native Gram Wallet.",
+   "link": "https://www.theblock.co/news/markets/2026-11-10-ton-strategy-tonx-q3-2026-earnings-gram-staking-437278",
+   "published": "2026-11-10 17:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "GRAM"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Alta raises $47.5 million Series A to build a blockchain for financial institutions",
+   "summary": "Alta’s blockchain will combine privacy and compliance controls for banks and other financial firms.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-alta-raises-80-million-build-blockchain-banks-payment-firms-437244",
+   "published": "2026-11-10 16:19",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Canaan’s Q3 revenue plunges 90% to $14.5 million as bitcoin mining hardware sales slump",
+   "summary": "Canaan's Q3 revenue fell 90% to $14.5 million, though cryptocurrency and derivatives gains supported an $8 million profit.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-canaans-q3-revenue-plunges-90-to-14-5-million-as-bitcoin-mining-hardware-sales-slump-437252",
+   "published": "2026-11-10 16:02",
+   "score": -3,
+   "score_hits": [
+    "+gains",
+    "-plunges",
+    "-slump"
+   ],
+   "label": "부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "MEGA commits $30 million to new products, starting with AI inference",
+   "summary": "The MegaETH Foundation has rebranded as MEGA and committed $30 million to new products, starting with AI inference.",
+   "link": "https://www.theblock.co/news/ecosystems/2026-11-10-megaeth-rebrand-30-million-new-products-ai-inference-437249",
+   "published": "2026-11-10 15:56",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Moody’s and Chainlink test cross-chain credit ratings distribution",
+   "summary": "Moody's Ratings and Chainlink ran a testnet pilot using CCIP to distribute credit ratings data across permissioned and public blockchains.",
+   "link": "https://www.theblock.co/news/ecosystems/2026-11-10-moodys-chainlink-ccip-cross-chain-credit-ratings-pilot-437245",
+   "published": "2026-11-10 15:49",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Bitdeer reports record Q3 revenue as net loss widens to $125.5 million",
+   "summary": "Bitdeer reported record third-quarter revenue of $320.7 million as bitcoin production surged 248% to 3,855 BTC.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-bitdeer-reports-record-q3-revenue-as-net-loss-widens-to-125-5-million-437217",
+   "published": "2026-11-10 14:26",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Visa adds Monad to stablecoin settlement network options",
+   "summary": "Visa has added Monad as a stablecoin settlement option for participating issuers and acquirers, the Monad Foundation said.",
+   "link": "https://www.theblock.co/news/ecosystems/2026-11-10-visa-monad-stablecoin-settlement-network-437201",
+   "published": "2026-11-10 14:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "eToro’s Q3 profit plunges 74% as weaker crypto trading weighs on earnings",
+   "summary": "eToro reported a 74% decline in Q3 profit to $15 million, with weaker crypto activity weighing on earnings.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-etoros-q3-profit-plunges-74-as-weaker-crypto-trading-weighs-on-earnings-437192",
+   "published": "2026-11-10 13:44",
+   "score": -3,
+   "score_hits": [
+    "-plunges",
+    "-decline"
+   ],
+   "label": "부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "HIVE reports $79 million quarterly net loss as bitcoin mining revenue falls and AI business grows",
+   "summary": "HIVE reported a $78.7 million quarterly net loss and $84.9 million in revenue, including $8.8 million from its AI business.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-hive-reports-79-million-quarterly-net-loss-as-bitcoin-mining-revenue-falls-and-ai-business-grows-437177",
+   "published": "2026-11-10 11:52",
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Exodus shares rise 10% ahead of Q3 earnings showing 7% revenue growth, $8.3 million loss",
+   "summary": "Exodus shares rose 10% as the company reported third-quarter revenue of $32.5 million and a net loss of $8.3 million.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-exodus-shares-rise-10-ahead-of-q3-earnings-showing-7-revenue-growth-8-3-million-loss-437012",
+   "published": "2026-11-10 10:53",
+   "score": 2,
+   "score_hits": [
+    "+rise",
+    "+growth"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Ark Invest trims Block, Bullish and its own bitcoin ETF holdings while buying Nvidia, SoFi",
+   "summary": "Cathie Wood's Ark Invest sold $6.1 million worth of Block shares and $1.13 million worth of Bullish shares through its ETFs on Monday.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-ark-invest-trims-block-bullish-holdings-437003",
+   "published": "2026-11-10 10:36",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "NEAR AI says SGLang vulnerability exposed user account details in security breach",
+   "summary": "NEAR AI explained that it found no indication that stored Private Chat conversations or uploaded files were accessed.",
+   "link": "https://www.theblock.co/news/defi/2026-11-10-near-ai-security-breach-437002",
+   "published": "2026-11-10 10:17",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Walt launches standalone crypto trading app following Wallet in Telegram rebrand",
+   "summary": "Walt launched a standalone app, expanding its crypto investment platform beyond Telegram for the first time.",
+   "link": "https://www.theblock.co/news/ecosystems/2026-11-10-walt-standalone-crypto-trading-app-436981",
+   "published": "2026-11-10 09:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "BitGo revenue falls 51% in Q3 as trading slows; net income rises on treasury gains",
+   "summary": "The revenue decline was driven by continued soft crypto trading environment and a higher mix of lower-margin stablecoin transactions.",
+   "link": "https://www.theblock.co/news/business/2026-11-10-bitgo-revenue-falls-q3-436986",
+   "published": "2026-11-10 08:20",
+   "score": 0,
+   "score_hits": [
+    "+gains",
+    "+rises",
+    "-falls",
+    "-decline"
+   ],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Coinbase, Kalshi and Payward backs CFTC in lawsuit over single-stock perp futures",
+   "summary": "The crypto firms moved for leave to file an amicus brief defending the CFTC's authority to regulate single-stock perpetual futures in the US.",
+   "link": "https://www.theblock.co/news/regulation/2026-11-10-coinbase-kalshi-payward-back-cftc-perps-436971",
+   "published": "2026-11-10 06:19",
+   "score": -2,
+   "score_hits": [
+    "-lawsuit"
+   ],
+   "label": "약부정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Trump Media swings to $410 million profit in Q3, driven by crypto gains",
+   "summary": "Trump Media and Technology Group reported a net income of $409.7 million in Q3, compared with a net loss of $54.8 million a year earlier.",
+   "link": "https://www.theblock.co/news/business/2026-11-09-trump-media-q3-profit-436964",
+   "published": "2026-11-10 03:36",
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Securitize shares surge 12% in after-hours trading on Q3 results and River One acquisition agreement",
+   "summary": "The acquisition is expected to add a new layer of financing to Securitize, enabling the platform to offer asset-backed lending.",
+   "link": "https://www.theblock.co/news/business/2026-11-09-securitize-shares-surge-river-one-436955",
+   "published": "2026-11-10 02:13",
+   "score": 4,
+   "score_hits": [
+    "+surge",
+    "+acquisition"
+   ],
+   "label": "긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "MARA posts $634 million Q3 net profit on bitcoin gains, sells 13,597 BTC to pay off loans",
+   "summary": "MARA posted a $634.4 million Q3 net profit, then sold 13,597 BTC to repay $750 million in loans as it pivots to AI.",
+   "link": "https://www.theblock.co/news/business/2026-11-09-mara-q3-earnings-net-profit-bitcoin-sale-ai-pivot-436950",
+   "published": "2026-11-09 22:07",
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "TheBlock",
+   "source_type": "rss",
+   "title": "Elizabeth Warren vows scrutiny of prediction markets, Trump family crypto ventures as Senate Banking chair",
+   "summary": "Sen. Elizabeth Warren is setting her sights on prediction market oversight and the Trump family's burgeoning crypto businesses.",
+   "link": "https://www.theblock.co/news/regulation/2026-11-09-senate-banking-elizabeth-warren-scrutiny-prediction-markets-trump-crypto-ventures-436898",
+   "published": "2026-11-09 20:04",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "미 10월 CPI 예상치 상회…비트코인 7.2만달러대·나스닥 1%대 하락",
+   "summary": "[멕시코=심영재 특파원] 미국의 10월 소비자물가지수(CPI)가 시장 예상치를 웃돌면서 뉴욕증시와 디지털자산(가상자산) 시장이 동반 하락하고 있다. 인플레이션 장기화 우려에 연방준비제도(Fed·연준)의 금리 인상 가능성이 부각되면서 비트코인은 7만3000달러 아래로 밀렸고 기술주 중심의 나스닥지수도 1% 넘게 하락했다. 뉴욕증시 일제히 하락…물가 충격에 기술주 매도 확대 미 동부시간으로 10일(현지시각) 낮 12시19분 기준 뉴욕증시에서 스탠더드앤드푸어스(S&P)500지수는 52.49포인트(0.70%) 하락한 7497.45를 기록했다. 나스닥종합지수는 285.08포인트(1.13%) 내린 2만4968.10을 [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1164093?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 17:49",
+   "score": -1,
+   "score_hits": [
+    "+확대",
+    "-하락",
+    "-우려"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "매크로"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "미 10월 CPI 충격에 써클 주가 5% 하락…65달러 하회",
+   "summary": "[멕시코=심영재 특파원] 미국의 10월 소비자물가가 시장 예상치를 웃돌면서 스테이블코인 발행사 써클(CRCL) 주가가 5% 가까이 급락했다. 미국 연방준비제도(Fed·연준)의 12월 금리 인상 전망이 강화된 가운데 써클 주가는 65달러 지지선 아래로 내려갔다. 10일(현지시각) 야후파이낸스에 따르면 써클 인터넷 그룹 주가는 미국 동부시각 오전 11시53분 기준 64.25달러로 전 거래일 대비 4.91% 하락했다. 하락액은 3.31달러다. 장중 최고가는 67.57달러, 최저가는 63.94달러를 기록했다. [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1164059?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 17:16",
+   "score": -3,
+   "score_hits": [
+    "-급락",
+    "-하락"
+   ],
+   "label": "부정",
+   "coins": [],
+   "topics": [
+    "매크로",
+    "스테이블코인"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "이더리움 하락은 조급함 탓…톰 리의 강세 근거 4가지",
+   "summary": "[멕시코=심영재 특파원] 이더리움(ETH)이 2100달러 아래로 하락한 가운데 톰 리 비트마인 회장이 향후 24~36개월간 강세 전망을 유지했다. 상장지수펀드(ETF) 자금 유출과 매도 압력이 이어지고 있지만 토큰화 확대, 스테이킹 증가, 탈중앙화 금융(DeFi) 성장 등을 상승 근거로 제시했다. 코인게이프는 10일(현지시각) 이더리움이 2094달러에 거래되며 하루 동안 1.3%, 최근 한 달간 16% 하락했다고 보도했다. 톰 리 회장은 이날 X(옛 트위터)를 통해 [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1164045?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 16:34",
+   "score": 4,
+   "score_hits": [
+    "+상승",
+    "+강세",
+    "+성장",
+    "+확대",
+    "+증가",
+    "-하락"
+   ],
+   "label": "긍정",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "[속보] 비트코인 7만3000달러대 재하락",
+   "summary": "[멕시코=심영재 특파원] 비트코인(BTC)이 7만3000달러대로 다시 하락했다. 기사작성 시점으로 7만3257.72달러에 거래되고 있다. 최근 1시간 동안 0.88%, 전일 대비 2.88% 하락했다. 최근 7일간 하락률은 5.60%에 달한다.",
+   "link": "https://www.blockmedia.co.kr/archives/1164009?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 15:52",
+   "score": -1,
+   "score_hits": [
+    "-하락"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "미 10월 CPI 예상치 상회…국채금리 급등 속 뉴욕증시·비트코인 ‘약세'(종합)",
+   "summary": "[멕시코=심영재 특파원] 미국의 10월 소비자물가지수(CPI)가 시장 예상치를 웃돌면서 뉴욕증시와 디지털자산(가상자산) 시장이 동반 약세를 보이고 있다. 인플레이션 압력이 지속되는 가운데 미국 연방준비제도(Fed·연준)의 12월 기준금리 인상 가능성이 높아지면서 위험자산 전반에 매도세가 확산하는 모습이다. 뉴욕증시 일제 하락…미 국채금리 4.969% 급등 10일(현지시각) 뉴욕증시 개장 직후 다우존스30산업평균지수는 전장 대비 155.61포인트(0.30%) 하락한 5만2234.1을 기록했다. 스탠더드앤드푸어스(S&P)500지수는 40.98포인트(0.54%) 내린 7508.96을 나타냈으며 나스닥종합지수는 165.41포인트(0.66%) [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1163984?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 15:01",
+   "score": -1,
+   "score_hits": [
+    "+급등",
+    "-하락",
+    "-약세",
+    "-위험"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "매크로"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "[속보] 비트코인 7만4000달러 회복",
+   "summary": "[멕시코=심영재 특파원] 비트코인(BTC)이 7만4000달러대에서 거래되고 있다. 비트코인은 7만4067.38달러를 기록하고 있다. 최근 1시간 동안 0.25% 상승했지만, 24시간 기준으로는 0.61%, 최근 7일 동안은 4.14% 하락했다. 비트코인 시가총액은 1조4800억달러, 24시간 거래대금은 233억1000만달러다. 유통량은 2011만BTC로 집계됐다.",
+   "link": "https://www.blockmedia.co.kr/archives/1163972?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 14:38",
+   "score": 1,
+   "score_hits": [
+    "+상승",
+    "+회복",
+    "-하락"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "미국 10월 CPI 전월 대비 0.4% 상승…시장 예상 웃돌아(상보)",
+   "summary": "[멕시코=심영재 특파원] 미국의 10월 소비자물가지수(CPI)가 전월 대비 0.4% 상승했다. 9월보다 상승폭은 줄었지만 시장 예상치인 0.3%를 웃돌았다. 식품과 에너지를 제외한 근원 CPI도 0.3% 올라 예상치 0.2%를 상회했다. 미국 노동통계국(BLS)은 10일(현지시각) 10월 CPI가 계절조정 기준 전월 대비 0.4% 상승했다고 발표했다. 9월 상승률 0.6%보다 0.2%포인트 낮아졌다. 근원 CPI는 8월부터 3개월 연속 0.3% 상승했다. 주거비·식품값 상승…에너지는 오름폭 축소 10월 [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1163949?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 14:03",
+   "score": 0,
+   "score_hits": [
+    "+상승",
+    "-축소"
+   ],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "[속보] 미국 CPI 전월 대비 0.4% 상승",
+   "summary": "[멕시코=심영재 특파원] 10월 미국 CPI(소비자물가지수)가 전월 대비 0.4%로 집계됐다. 예상치 보다 0.1%p 상승했다. 근원 물가지수는 0.3%로 예상치보다는 0.2%p 상승했다. 지난해 10월 셧다운으로 전년 대비 상승률은 집계되지 않았다.",
+   "link": "https://www.blockmedia.co.kr/archives/1163935?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 13:33",
+   "score": 1,
+   "score_hits": [
+    "+상승"
+   ],
+   "label": "약긍정",
+   "coins": [],
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "블록미디어",
+   "source_type": "rss",
+   "title": "비트코인 CPI 시험대…연준 빅스텝 가능성까지 거론",
+   "summary": "[멕시코=심영재 특파원] 비트코인이 미국 소비자물가지수(CPI) 발표를 앞두고 7만4000달러대로 하락했다. 미국 연방준비제도(Fed·연준)의 12월 기준금리 인상 전망이 강화되면서 디지털자산(가상자산)과 금, 미국 주가지수 선물이 동반 약세를 보였다. 코인데스크는 10일(현지시각) 비트코인이 세계협정시(UTC) 기준 이날 0시 이후 1.4% 하락한 7만4200달러 안팎에서 거래됐다고 보도했다. 주요 디지털자산을 추종하는 코인데스크20지수(CD20)는 같은 기간 1.2% 떨어졌다. 다만 24시간 기준으로는 큰 변동이 없었다. 연준 12월 0.25%P [...]",
+   "link": "https://www.blockmedia.co.kr/archives/1163929?utm_source=general&utm_medium=rss",
+   "published": "2026-11-10 13:12",
+   "score": -2,
+   "score_hits": [
+    "-하락",
+    "-약세"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "매크로"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:bitcoin price",
+   "source_type": "google",
+   "title": "미국 소비자물가지수(CPI) 발표를 앞두고 연준 금리 인상 기대감이 커지면서 비트코인(BTC) 가격 하락 - CoinDesk",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQbVZrYmItTmtRNnFmWGM1aDVMLUZSQjdsLU5WNkYxOWcxU2I2MW1kYmpKNUtibHdFa3VOS2Vkb21WRkh0eUdsZjZhU2FQbDM4UEZrQ1o5N3JQdGhqdkMxUERwMFoxM1V4QkpLT053NVZLZVFZb0U1N3ZqYVUtNzE0Z09FX19OcjYyeUpTUXJXT3pNSlZod25zX1dKSVg3ZEMzR3QtNjZJamJfOHlRdkYxYXpnTzVzZ2lLMWdSTldpRVV2bVBf?oc=5",
+   "published": "2026-11-10 10:48",
+   "score": 0,
+   "score_hits": [
+    "+기대",
+    "-하락"
+   ],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "매크로"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:bitcoin price",
+   "source_type": "google",
+   "title": "오늘 비트코인(BTC) 가격: 글래스노드, BTC가 50주 이동평균선 아래로 하락하면서 유동성이 높은 고래들의 공매도 움직임 증가 경고 - Brave New Coin",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOUFBOUEF6YTI0RjFWRkZTM0lJa2RybUE5RkMxSk5jY1c4Sm1oSVduWkpxZ21QR0tacVpYcER6Zy1nZHF2Z2ZZY3FITDFHQUVnM0M3b0NWMGtLT3h1Z1ZnUGFLcE9tUnpUcm5ZQkpXdTNYd1hKSFFIM3h2SHlrMlNNUU8xakpqbF9YWlNGNzhYZzBXdHhwY3hveTN6TXN4T1Rma2tKRkNlQzEzQ2JRc1c0dWlmeFl0RGFGaGpKVEdnUnc3bTUtcmpoaW0zUVo1RDk3V09iZk9R?oc=5",
+   "published": "2026-11-09 17:32",
+   "score": -3,
+   "score_hits": [
+    "+증가",
+    "-공매도",
+    "-하락",
+    "-경고"
+   ],
+   "label": "부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:bitcoin price",
+   "source_type": "google",
+   "title": "비트코인 지갑 감소, 텔레그램 지갑 증가, 둘 다 별것 아니다 - Bitcoin News",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxONVptX1ZMdHlwV3U2OUt5ZTRDZnBsWTdiQXRYaUd2MEJxUEZXOXJESnFWekxtY08xRl9GUENIZGZneVJCeFFOUHZKeUhlZDYxZ3V2MHd5ZkxvX0xRVkNhdVk2UHhQMGhsbzIxVWxaTXJLNXdvMVZiX2R1QU5PY1diV1dTWkxHWmtWLVFXM3NEYUNQUERJbjM2TmRjS1NHZEJoY05qczk5X0ZNRTIxd21fcjFQT2t2RHZoNm00aHo4MA?oc=5",
+   "published": "2026-11-10 15:34",
+   "score": 0,
+   "score_hits": [
+    "+증가",
+    "-감소"
+   ],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:bitcoin price",
+   "source_type": "google",
+   "title": "금 가격 전망: 즉각적인 저항선 아래에서 박스권 장세가 이어지며 보합세 - Traders Union",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTldfTW1rUzdwbVJQeS1rbmNxVGhsTWpBWUdxdUxhN0lMM0hiYnIxYVRfWE5YT0dPUE9qYVBXWEY0RmJzUERJTGxKMUNQVDBvS0NnODlLQW96M0JVbnViY0poS1VOT2tiRVF5VVlQZlZRdmdIdHJoZE5vTVBELTJ5akx1TVZSX2hUUjVTSXR0TUZLUUc3bWc?oc=5",
+   "published": "2026-11-10 09:07",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:bitcoin price",
+   "source_type": "google",
+   "title": "ZEC 가격 오늘 1,092.19달러로 30분 만에 7.89% 하락 - Coinfomania",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQUW5wc3pWTU9vcU55dnFMY1JuZk5pcWVLUjEtOF90VDVuUmw0UUduSHRUc051QkJDRjVwd08zTVdvckNGMDZOaVA5ZjllZkVOTkJsVi1BSWV1Nmo0d3Y2T1dFOGVPSGZIUUpPQmF3OWpFWFlmWWFlWDdmU2NBbG11TF96MjFxVm5tRENYVQ?oc=5",
+   "published": "2026-11-10 17:03",
+   "score": -1,
+   "score_hits": [
+    "-하락"
+   ],
+   "label": "약부정",
+   "coins": [
+    "ZEC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:bitcoin price",
+   "source_type": "google",
+   "title": "BTC, 8월 중순 이후 최저…7만3000달러 선 접근 - 토큰포스트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5RTjlqRERjajdCN0xqZkQxSnk0N1QxYXhRQzZMZUFnR0Q2YkU3aFFaWHdmSHAzUGpSMG54U2ZJOXpIV0pCNFE4cXN5dGdsUWFKUno5dS02ZW3SAV5BVV95cUxOQkpKbWZwZHpDenhWY05vbEVKNlhmRVM2T1l1cXFjb2l5bHAteVpwcmkxWjdyQ1B3M3Ryb1E1ZW5KdTBYcThQRDdxQnY2eGtYeG9COWRWUzdXUUJSZFJB?oc=5",
+   "published": "2026-11-09 10:13",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH) 2,100달러 지지선 지킬까…대규모 롱 청산에 5.07% 급락 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBNYnAtUC05eFdiRHY0WVRESmloQXV3REtiYkUtVGRzX0VIMGdYQzVhRVhOdElibm5ZdG5SQ2RVNVZiVkNPMlc2S3Zn?oc=5",
+   "published": "2026-11-09 13:03",
+   "score": -2,
+   "score_hits": [
+    "-급락"
+   ],
+   "label": "약부정",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "청산"
+   ],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH), ETF는 자금 이탈 행렬...고래들은 '줍줍' - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5sdzZ1akVGcG9HQm9KQzhGNmVDbm94a0lnalYyd0hXeVF3Rnc2NG12UzRVT1Nlb2phWDhVWEY4bkhHSkdQX0lzWklR?oc=5",
+   "published": "2026-11-09 21:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "비트코인(BTC), 6월 후 ETF 자금 이탈 최대...이더리움(ETH)은 6주 연속 '순유출' - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9Kd0pULTN6YURMVUg2NGxaWVJRcDVWaFlIcjdwc0FTRlZrNXJxV29JcldDbTRLNUZ4OXNHemFQbUF3cHlLOENEdndR?oc=5",
+   "published": "2026-11-09 05:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH) 대형 지갑, ETF 자금 빠질 때 매수...'여기' 넘기면 반등 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5MdFlEV1NXZEZmRVV5aDkycmhiUmg0MlFwRmlOVlA2VnJ3ZWxGa3QzRVBGT0Z5d2NPejdDR09ySUxpdFhhRFVmZ093?oc=5",
+   "published": "2026-11-08 23:50",
+   "score": 1,
+   "score_hits": [
+    "+반등"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH) 2,100달러 지지선 지킬까…ETF 자금 유출 부담 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE0zS2szbjdlbVZPcWhpalJNaE9DUnRWQi15S3h2SnE4SW5TdWs4Z09YMnVMb3RTVlJTNExTZWgxaGE3YmNtOGRpOXNn?oc=5",
+   "published": "2026-11-10 00:09",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 4
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH) 2,200달러 회복할까…ETF 자금 이탈에 5% 급락 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBlS2hUMjc1LVlHQlJoLWtVSmNwbUo5WEtOUWxQSWlTbHluT0hmeUxnVGZ3clU2dUhpWV9GM1FNR3ZDTFJ4YjQ4NlZB?oc=5",
+   "published": "2026-11-09 00:01",
+   "score": -1,
+   "score_hits": [
+    "+회복",
+    "-급락"
+   ],
+   "label": "약부정",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH) 2,100달러 회복할까…롱 청산에 ETF 자금 이탈 겹쳐 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9pSGQxa3BwUTlUYVN5MVBNQTVFVnVOZUpoM3lkX3BSVkNDU3NTbkFWa2w3MWRjZzFZYnozSXpxU3NJWG9MNHNVSl93?oc=5",
+   "published": "2026-11-10 13:05",
+   "score": 1,
+   "score_hits": [
+    "+회복"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권",
+    "청산"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "월가, 이더리움 매도…고래 매수 - BeInCrypto",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE82RGZJMVR6NVNJbC1jb09yRkNoc18zc0pjNkJMcmRDZHQ3Z0sycW9RZS10OUMtdlhtcXBtb2h6RjlDUVpXWEZyZDJVSEhhd25TVXFiY1dZbnFwTU1rZXg2bFNWTE9MX2dKMTgw?oc=5",
+   "published": "2026-11-09 05:33",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "비트코인(BTC) ETF, 16.5억 달러 탈출...\"새 자금 돌아와야 반등 가능\" - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5PRFZzNnlUTDdqeW1MVmRibm41TUZVcmhzbW9FN2k2T0wtdk9hZjUtb3dNNjFYZXV3TVBxSG1MeUMtVlJtdU1ic3Bn?oc=5",
+   "published": "2026-11-09 22:45",
+   "score": 1,
+   "score_hits": [
+    "+반등"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "도지코인(DOGE), 선물 거래 203% 늘고 ETF 자금은 '뚝'...8월 저점 재시험 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5SYWJ2OXVEQ29TTFdwMFZacmV4ZTV3UFY0TndPOXlrNV9rZGhGRTBIYUhZZDd1RTNTdnAtLUdwYnB0a0tDdVV1dDRR?oc=5",
+   "published": "2026-11-10 12:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "DOGE"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH) 2,220달러 지지선 지킬까…CPI 앞두고 ETF 자금 이탈 부담 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9WdnQtWmNKem5UbGl2eTlENFlRbHBoMXI3cmljS09nVzVVRFNnQWxVeEJfMEF4ZVNMNWV1SERtNWJjaXZxcmhEdE13?oc=5",
+   "published": "2026-11-08 13:08",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "이더리움(ETH), 증시 반등에도 2,084.63달러…8월 이후 최저, ETF 6주 연속 순유출 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBNM19rbjFFbjJtaV9TbHMyYmtEd0VWZDhzYVo4S0hfUm9Ed2VncVMzOENDQnctaGJhTE5ZTWg0cW9yRktOLXNZNlVB?oc=5",
+   "published": "2026-11-09 17:53",
+   "score": 1,
+   "score_hits": [
+    "+반등"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "비트코인·이더리움·솔라나 ETF 자금 유출 급증···미 중간선거 후 암호화폐 투자 심리 약세 - Benzinga",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMitAJBVV95cUxPb2pwY1gyZThCR2swaUZuQmRzTFdDa1lJMURUMHdKY25DdGpRc2Z2VDBGNHdIbVRvSlFGcFM0d3pfa2JBcjZtTm5NM0liZ1E0bGE1cThsWUxYelFHUmRSZ3BTYk90TGNUMjJFMDQ2YnlYNnMzNDJseTFUSHZDb1hnbkM4eG4zNkZZM1lKNE1DTUZpeHRVTW5teFllRFVxbGYtaXhjSElOUS1CSk1CanJmcW9kU1dmdmpQcWt2TnQ3MDJfa1o0RGF0ZzgxbXhKX2VGTjFJeDh5aGpWYncyS0hMRVU0aGp1SFVUUW1CeDVFeGVmM001WmczV1dYR3dHODJUOEhzaE01dG9kWHhTMDBxUE83ZlJtb3NPRkwtRUZYclF2aXQwT3JoSTlfX0N3REdMSFFNQg?oc=5",
+   "published": "2026-11-09 02:33",
+   "score": -1,
+   "score_hits": [
+    "-약세"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC",
+    "ETH",
+    "SOL"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "Glamsterdam 업그레이드 지연과 미국 ETF 순유출 속 이더리움 횡보 - Traders Union",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPS1ExeTFha0NtY2FnajBBRU9wNmQwcGRobW5oNTNTeWZjZjFScjJMOTZpM2RKTm4xNXBPSmVPNVlkSWlVbHpZVUNtbDlsa3FfekQ4T0hSS1V1aWRCR3oyM0Q1aVJ4SWpQLUt0MkF4R2ZWZXNvbWJQa09yMkc4MGVadnljc1VLVWFhdVlacjFVNzFhay1sY3BxTWNMZlV4OU1QY3A4Q2d3?oc=5",
+   "published": "2026-11-10 08:04",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "폼플리아노 “비트코인 ETF, 하드웨어 지갑보다 보안 우수” - Bitcoin News",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPR2p6MmRMTVR6MUc1bnFZUXhJanZ6SXpvR2VnVkxHdGV1V2FYZFAxQUtEM3hlaG9TejVqeFpzUXJRQk1sT2w0cEJIaUdHcWRsZVkwOENWaTN0aDFNUXNmT3B6UXhneTZ2WWJuUXIwMWdjbmRkeTFIeURzRjBNZ0Y1WWMtRlh5bjI1bzM4Z0c3UnZpbTdG?oc=5",
+   "published": "2026-11-10 15:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "미국 이더리움 현물 ETF, 2481억원 규모 순유출 - 이코노미블록",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE83b09KMzMzV1AweVdEd2JicENqa21Uc0RIUU93YWR1eUt6RkM4TzU3STJVNkctajNWVHF4N0p4bnRoWXNBSTJPSEYyVFlPN05S?oc=5",
+   "published": "2026-11-10 05:06",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "ETF 순유출 이틀째 이어져…이더리움, 계속 압박받아 - Traders Union",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPQnhPUG90UTEwWWlkOXhfbGVDcDdZSGNCelRRZGQ4elZJWndMcDVuelhMdTlvOGJCYWZ0OFJuUWFsWlA0XzVKbklObEV1bzhwdGJXYktMb1U2OUFCYUt0S3YzOHdPckx1ZmdtNm50Qk1qTEREbWFuUWIwSDhvVngyRXhGdnR0aU41UFZEaEFTc3NSbDdCRGZkSjBYRVJVbHZlTVVyQWU2RW8?oc=5",
+   "published": "2026-11-09 08:04",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "리버리지 셰어즈, 유럽에 3배 인트로픽 ETF 출시 - Coinfomania",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTk1JY3B4bV9ZcWxYSExzRDdjcG5DUW9CVWpEc3RsZ3k2a2JfYmVWTXVCdEVEZzkzYWpsOUZwOG1yV2p3OGpMTzVFN1dEbnQzdGZWX1VUaVp5eEM5U0VjeVV2YTdabkpTQ19ZOXhSc3Y0YW5LUmEzWF9rUWM2Q3lFLWJnQVlXYjdUSndBX3dhUXBZZw?oc=5",
+   "published": "2026-11-10 17:39",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "미국 이더리움 현물 ETF, 지난주 4950억원 규모 순유출 - 이코노미블록",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9Ebk9RM2k4LWNvZXlxZnhPUUx6YmhMWVZGZWpQNlozaWQtM21xWkhjYUxrNW9LOXRvUnNFWG1XUGlDcndGejJhRzYydk8?oc=5",
+   "published": "2026-11-09 04:47",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "ETH"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:ethereum ETF",
+   "source_type": "google",
+   "title": "폴로니엑스, 미국 주식 및 ETF를 제로로 토큰화 출시 - Coinfomania",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPb2pwdTdKaE5jSkpyeHYtODVlZlZUcThPRjlsaXFqMUpNVVJxUGRYWkdKbEF4QVNLRzczNkU0RmZ6UjZ3M1M0NHdOMVZPV2czUWJidFBpcDlRNER4RHM4OVpYOGtiNzdicXNrbU1qNExMVVhEUDg5MjNfc1hPVWRfZl9NS0FTSlM0RjJRRDJkR20?oc=5",
+   "published": "2026-11-09 07:57",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "2026년11월10일(화) 비트코인 시황 - 네이버 프리미엄콘텐츠",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONTJRNW81VlBLazBFTEtEd2NTMEs2dDBzRFU4YWV3WU8wOUNpbmpzeHB1RHBSM20waEV4Q083cUFzZWNwMG5VSi1TY0lwSTBDMlFqMG5mTWpxZXlUMVpNQThOV3hHUU04R1gwdUE4QW84Y0Z2ay1RVkhLZTRvQ3hubHF3?oc=5",
+   "published": "2026-11-09 20:40",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[11월 10일 코인 가격] 비트코인 0.37%↓, 파이버스 42.61% 급등 - IT타임스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE82X0E3Q2F5clZRem8wUmN6eWJ5eDZiczJBcDdTUkpoUkNnbjkwd0U0Z0lleXRQS2NOamxaeHFmNkhJdXdES2pQZFNrbFhLVV9GSTEtWF9xQjFJczlWeWZwQXFvcDEzS1BW?oc=5",
+   "published": "2026-11-10 01:17",
+   "score": 2,
+   "score_hits": [
+    "+급등"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "비트코인(BTC) 7만 4,400달러 지지선 지킬까…ETF 자금 이탈·CPI 부담 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE4wblNqWTY0Xy04T2ZsanlTaVF4eDJuMzJWdGphbW0xVjhkUmxFN0J2NndWT19uam5Rd29OTXhDRGVHaUhEeE11Z3NR?oc=5",
+   "published": "2026-11-10 06:05",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[XRP/USDT] 시세 급하락 (바이낸스) - 블루밍비트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5abV8tcHpWYzgxU2xhZHZWdDQ0NmtpWW1Tc2tkRGE5bXB1UFoydXF3eVYyOTJadkIycWllcUVQWDY2YXlFbWRfYkpKbUwyeWtC?oc=5",
+   "published": "2026-11-08 21:56",
+   "score": -1,
+   "score_hits": [
+    "-하락"
+   ],
+   "label": "약부정",
+   "coins": [
+    "XRP"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "미국 중간선거 흔들린 비트코인 ‘반등 조건은’ - 경향게임스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA1Qm42Wm8wVXpTdXJNS05NbjJ0U2FLTXNGLXBNREgyRE5GSnp3STcyR2h6R19NOXpIblEzbVVQR1E4eVFOc21BUDQxRXJOdHdjY0VmQnRlMlNiOTFCUi1iVFpHU1VuRVlYazFLRw?oc=5",
+   "published": "2026-11-10 02:31",
+   "score": 1,
+   "score_hits": [
+    "+반등"
+   ],
+   "label": "약긍정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "오늘 美 CPI 공개…비트코인 7만5천달러대[코인 모닝콜] - 이데일리",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZEJ3Nkl4d0d3Y3R5U19haENpMkpmRG1ySXdCREE0b0JoMWVTRk9JM1JQZkNaZ2VRbkxUYS0zb21DOHc0WUFwR0dscjBQc01NaW9FeXMtV25tN2RnbzU1bkhmTTFoaVhCeXBoeHE0SHBHS19sdC1VSVYtLXE4NnhaUg?oc=5",
+   "published": "2026-11-09 23:00",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "비트코인 가격 전망: 주간 ETF 순유출액 12억 8,000만 달러 기록하며 BTC 하방 압력 직면 - www.tmgm.com",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOUzBLRTVrV1VJRm1IU2JOOUp0cnROZWktSDVjUHE4S2xSYmpzRmY0SWNQZXdxWmlWRTczY2FXTVpSUWRQdEhaQ3NFakhNemNfTHRBb0hHWU1BTUN3aHh2UHM5amtUOWpVN3A0VmpTb285UHVWZ2VGMlkwclNIeUF4U1dMbFZWTlZncldEc2tqdU9ubDhhN05XOHVYQ3NHX0x5dFV2b1NVYXpZaHBsZlJhR1Q3WVVzZEw2SVJJNVFlSnZMV08xVWxFaHZpNEJJRHk4ZzlMSzNsd2djSnZ2bzI0?oc=5",
+   "published": "2026-11-09 07:53",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[코인뉴스] 7만 5000달러 내준 비트코인…ETF 이탈 - 자본시장뉴스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5oa2NoRzRjaFc0eXQybFo1dU9PN3Z1RWdzVFE5VWozXy14U0J4bXFCekhybmVLNEI2YWJNNHZWZWNDS19wSWdxLVlZcExuWEk1U0QzSGNMNXFtaFBJdmdkb0dmNmtDbUU?oc=5",
+   "published": "2026-11-08 23:30",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[오전 브리핑] 비트코인 1억156만원…7만4,968달러 지지선 이탈 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE50Y2QzeFhlVjEwSmZCcUs0ME1TV2VXd3NrNGlnR0pNX0FUVGVmQk1BZzJRSXhVdGVjb0FSeVRFNWRJX0RnY0JOSWNn?oc=5",
+   "published": "2026-11-09 21:25",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[11월 9일 코인 가격] 비트코인 1.03%↓, 페페 4.43%↑ - IT타임스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5ZM01MeWtTdGRreHVWY0owNWp1YTFpWG5Vb29na1JmNHN0ZjcxUk5HUktXb2tOX0hlMzF2MDU1VkJaYzRaR3NQUk5wUjVLRUU3MlNsRnRDUGUzWjNkTjBhZTM1VlJDcGh6?oc=5",
+   "published": "2026-11-09 00:59",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "업비트, 하이퍼리퀴드(HYPE) 상장…10일 오후 3시 거래 개시 - 코인리더스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1xcWNRSXd0OU5lM19CTlM0RHhEQk1ZdWx6LU5RdkRYY3E2RlF3X2lBTHJqOExyMVNfRWFLWUEzdWZBemhjbGZwQkFR?oc=5",
+   "published": "2026-11-10 04:53",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "스트래티지, 평균 매입가 7만 5,456달러 밑에서도 비트코인 1,036개 추가 매수 - 위키트리",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5YaEhMY2NKbC0tdDdGSzF1TE9yV3FVZ3JSdEZkSEdBeGxRZEw1a1k2ckhPTkZ5YUtNQUNhQmFydHJ4bkNzOEtqRzlJOXBPbWpCekNhWTdn?oc=5",
+   "published": "2026-11-09 14:03",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "마이크로스트래티지, 스트라이브 비트코인 1065개 매수…세일러 저가 매집 계속되나? - BeInCrypto",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0xa0VZcTgxaU1VRWFiaHRwNjJOM2lNS2tpQkJpcWp2ZlowaEdIZzF2WllBRGVYUGdvNER6QlZvcWFqdnoyOFhidzVNeHJqTzBEejV0bGRCakNjZUE5RzJNTHZ0NkMxOW1sbWxTbXdWeU14MnZKX1lTUmhn?oc=5",
+   "published": "2026-11-09 13:24",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "유가와 비트코인 ​​가격이 모두 하락했습니다. - Vietnam.vn",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9KcnRRY01GelNiU2g3NXRGNVpfSHlTQVA3YWV6akw5eWZQMUJ3dC1KWl90RS1mNnctOENETWJRVnRMbVk5V0oteDI4enN2VnVFTUlVVjNsWnlSbXU3YndOMXktRkVWUzg?oc=5",
+   "published": "2026-11-09 03:13",
+   "score": -1,
+   "score_hits": [
+    "-하락"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "비트코인 투자심리 급격히 악화 ‘7만 6천 달러 지지선 주목’ - 경향게임스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5KaFdOeEx3M0t4bDVDcGZXek1hc1pIcGtsSG04S1g3U3ZfcEdqWl9EMDJDZXRwZVhYV2xycXVtMWt2enVZT2lubHpfWDBfMUZpSGZpZzBsZlFuZXB5ZmhSQXE3N0M1WkdVZkFNdg?oc=5",
+   "published": "2026-11-09 16:37",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "체인링크(LINK) 10.73달러 약세…비트코인·이더리움 흐름 속 10달러 지지 여부 주목 - CBC뉴스",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1zVklWamVpRmZTenVCVnBKVFh5SVVJcldtYWlVQnlSdHFPUmZYNXlObVJKRHMzVlktRG9yQmxzLWZKNkM0Unk1MEt1QVdDd3B3LTFwd3I4VzJUTzZvRHMwMmQ3YkpRNHp6?oc=5",
+   "published": "2026-11-08 21:10",
+   "score": -1,
+   "score_hits": [
+    "-약세"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[자정 시세브리핑] 암호화폐 시장 약세… 비트코인 74,536달러, 이더리움 2,085달러 - 토큰포스트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE4yNklXaHlfZk5qbFNwVzNDOW9HY21uRUdjYUNzS3RmMUhMSzlEMjg4bU42amxQSEJRRFRoTWxhSkdCRlR3QUxONFFxcTRBMWV5OW5LYnVIemTSAV5BVV95cUxNZjMzOHY3TjRiem16cEtmdHlHTzBYVDZRZV9qaEMtaXItemFabGZMcFJDNDZyczJGR2FUdHFndXZSTFBPRmlmVjZpTXB6R0NzV2xqaW5vTV8yOVJIeEJ3?oc=5",
+   "published": "2026-11-10 15:04",
+   "score": -1,
+   "score_hits": [
+    "-약세"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[오후 시세브리핑] 암호화폐 시장 약세… 비트코인 74,785달러, 이더리움 2,121달러 - 토큰포스트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAyS1VvRG9hSDJtZEdBV256TU9jcUFOQW1jNTlVcll1eWVJaWwxZmhCSlJ1VVJYMlQ1T3BxaWw1Tkl5VlZRTUM3VnowY284dlNwTDdKTmY3dlDSAV5BVV95cUxOaVVROVhTTlpKNm8wSjdmLVZ1NjBhZ3J6TGU2OXRHS08tQzA5OUI4bmttY05OcU9yZFNNZmtscnQ4S3d3M1FDYUE3MjZiV194cmN1Q1oxQU5tVmNEeWln?oc=5",
+   "published": "2026-11-10 03:02",
+   "score": -1,
+   "score_hits": [
+    "-약세"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[저녁 시세브리핑] 암호화폐 시장 하락세… 비트코인 74,185달러, 이더리움 2,108달러 - 토큰포스트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBjMHRMWHpBR29nTkpTb2NFRVNaQjQ5VFRCeUZiWWpsT01BRTBMWng2TmVMeHVjUzFyYWt4ZmVkZmhMTkZWTVBwZkYyNW05Wk1xd1cxZzlWaHXSAV5BVV95cUxQY2hQaDN2Qkl2aEZ4SkRRZEpUOEZMV3FVaXpxLTR6dEllYkVfR252VW92UnBqc1JJOXJWMF9mNGtnLWpBUE1QWXJuVWZJUy15ZEp5N21WdHk2cVBqUXF3?oc=5",
+   "published": "2026-11-09 07:02",
+   "score": -1,
+   "score_hits": [
+    "-하락"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[자정 시세브리핑] 암호화폐 시장 혼조세… 비트코인 75,960달러, 이더리움 2,238달러 - 토큰포스트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0zYlg1VDJ4eHhyeFotdXdNVnNCRHlWb3FiRGlxcXE0ZUtkaUppLWFlUGY1eHlsaFZZU1hiankzNExXM2pJOHFNN0kwZ3ZJM1JQeDc1QXhXZ0zSAV5BVV95cUxNQVVoaFlrQkpLVS1hYzl5dWxRY2ljMl9WdTVSTVU1SDhZV0xoOUEwNTVHVE45S0VhN3VqVkhwMGhUTVV2SGxrMk0tMnU3Zlo2cU5GM0FiTjZibG9Uem9n?oc=5",
+   "published": "2026-11-08 15:04",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "[저녁 시세브리핑] 암호화폐 시장 약세… 비트코인 75,745달러, 이더리움 2,231달러 - 토큰포스트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1BV2FhaEE1bFUzVHdWRTJLU05RQjBLdjZtNHY2YnBHeFB0MGh5d3NvS3JfcGlOX0Y1Zm9yajRoajV3SFF3OV93M0ZlWjNSaFZhLWlGR05YNXnSAV5BVV95cUxOVTNocWY2YXRUVjVtYlNpTDNCWEtaRW9aTk10bTlpSjNjcG5vbVF4N05DeEtVSmtYQWNlbVVSSzAxT3RqaDZVbTNpbWdmLXZRTjJ2N2hTWkFZalNVN3FR?oc=5",
+   "published": "2026-11-08 07:02",
+   "score": -1,
+   "score_hits": [
+    "-약세"
+   ],
+   "label": "약부정",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글뉴스:비트코인 시세",
+   "source_type": "google",
+   "title": "비트코인 7만4000달러 하회, 바이낸스서 7만3982달러 - 토큰포스트",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBBRWk3SVVvaWpjN0lEOWgwdFFFb2xIQVpwT093ZUQ4UnNRY0NWa1RjVmI4c0RNcFhFZ3hNNllJSmI4QThDUno3cHJKd1pNR0Q0eEpkYUttbW_SAV5BVV95cUxQaGttVFFCY2NTZ1B5NTlmYTJuM3A1aHhoZGgtTFBmZDh4S2dmRUJoRmhDQml6YkJSV1dYMHJoTURMVFY5VHNraUFtZWhLUG14bHkzVG1DdTBQeHZzdVV3?oc=5",
+   "published": "2026-11-09 07:22",
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "coins": [
+    "BTC"
+   ],
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ETH",
+   "source_type": "google",
+   "title": "Digital Asset Treasury Firms Continue to Buy Bitcoin and Ethereum. That's Why I'm Bullish on These Two Cryptocurrencies. - Yahoo Finance",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQeWtJOVpYTjgtUmloSVZkdVBLMHA2bXFNNVVfQkMxRHExQnZVdUM2ODdualhwVEFmOXlhdnVvWlprTlVKcXhqYUdjTGxId2o4dmJoRkdfTmREZXBhY0VhNzl1cUVQU0FYdF91QVlldEdZTmhmeHpPeTBTbUM3aWVzNGoxNEFiTlRZODBTT1ZvSGtCWkUzd0NfRVVUYV9YTjN1aEVIZg?oc=5",
+   "published": "2026-11-09 10:42",
+   "coins": [
+    "BTC",
+    "ETH"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ETH",
+   "source_type": "google",
+   "title": "CPI Inflation Beats Projections, Bitcoin Holds at $74,000 as ETH, XRP Stay Flat - TradingView",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOdFA0eFFjSEpvNnVsaU5LanRjek1qZ3AxaTFtcmM4aU5XelJRT3VjSmRXWjVwZ2pFMFNvN1l1RTNlQjMzel9QTnBYc21HY1lJVzh1UUNKNXZhOThuVDVlQmRKMDdSS3d3cDRMbUEyU1BJV2U1QTZQZFFUS1NuWmw5aWFpMW1sWkFKR1FmR3RpNEJqaU94dEUySFQzWUFQX1BsbGVMRkVBNnY1ZWlUZE1ETFNCdVhZMGJHeWtvWmRzVHhiV1R2Z1VDR01vcXpHVE1M?oc=5",
+   "published": "2026-11-10 15:24",
+   "coins": [
+    "BTC",
+    "ETH",
+    "XRP"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+beats"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": true,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ETH",
+   "source_type": "google",
+   "title": "Ethereum Foundation, Vitalik Buterin sued over firing after 'suicide pledge' dispute - The Block",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZWptdTgycC1ydi1RZUEwTUNrNlNGaHV3LTZJSXpSbHQxSXg2S0xwU19RZlJSd19wQzdid2FiMmt5VHNGdEZCQWFnUk9WSG9pVk8teE5rSzhyQUhCYjVsY05rY08zbEs3alNfZ2l5WU50SzFZYWk1cnp1QVdzSGZ1VldVNUg4TXBJWklxYlBCUWRiSDBvZmg1TTltZkh5Vm4xRGRHZXFacEI3Ny1OenEwdnBMakZic0w4QUVQZjdvOUdFeW02bjBuX1RFQWpkdw?oc=5",
+   "published": "2026-11-09 18:30",
+   "coins": [
+    "ETH"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ETH",
+   "source_type": "google",
+   "title": "Ethereum Foundation sued after firing employee over mandatory 'Source Seppuku' suicide pact — non-profit crypto firm demanded employees pledge to take their own lives with a sword to protect open-source code, founder Vitalik Buterin claims bizarre 1,000- - Tom's Hardware",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiswNBVV95cUxOMVc2QUNJeF9lT1NuUDdPR3FhYndaa2wxTWhzeGVNLWV4dGZqTUY0Y2RyYTRSeHlKbjVfNHY5ejg3MUtNd0hkQllqVW9hX3p0X0FQXzRkM0YtMjZnSjFRZHlrblIxRmZZc0s4NkRCZDZJdTZwUFJIelZYQmpZYUhsaTNlSmRYbDJBUjRIOVNucmhfRzZvMjM4UnFXWElHVEpHQk1nVWhhekFDS3NoMGhVRjk5MnBSLWd3N1pDY2NacFotMUNmSXBZS1g3ejR0Sk80RE9aSDd1eXVCZUhacEk1TWZ4ZW5WVm5zVWFzbnNZTWE1NjhDTWp5OHVQeTNTaHlBODJuOTBMeGw4RS1kUmt4cWc0TFhuTjRyVmIzRVNIb0JkeVF3Sl9OZVVzbVhpSlU3YUZjeFZnQUV6MlJzRGl4SHJSc1hxckNFdGFmcDg2RzFqWU9hVFJGSGc4bl9uZFdfMHVTdHpTZ1ZmZ2Q1eXVSME1vNTVEZVJqcTBNZU9sTkZwSnk5dm5EbGhMVUduSWRtLVFldHU5VnBfUm9uclZEVjZFbHV3d1hrQnRrSWpDLUY5LW8?oc=5",
+   "published": "2026-11-09 18:43",
+   "coins": [
+    "ETH"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:BTC",
+   "source_type": "google",
+   "title": "Prediction: This Will Be the Price of Bitcoin by the End of 2030 - Yahoo Finance",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYXZjV19MRkwzeW52WWhRb1lxNnJEQjVhQi1VZ2kxSFlId1Q0T3BFZGFVSTNydTZYdWF6OTIwRnpjWnJlakMtMjBoeGs5djBGSjFESl9hTThPVE5mLWFXandROEhjRU53THNLQWRLZTc0XzdhTHVMcDhUOFh2eXE5Z3R5V3RHSC1Hb3dLT0FzR1g5V09wS0hOUTVLdmw4djA?oc=5",
+   "published": "2026-11-09 23:13",
+   "coins": [
+    "BTC"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:BTC",
+   "source_type": "google",
+   "title": "Bitcoin Drops to Almost Three-Month Low as US Inflation Dims Risk Appetite - Bloomberg.com",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZ0FLMWZvR0pfNmNSdVFyODBWRG9FT21PSEd4RHBuOVpXVVJid21RQmx5Tjh3MFR5OGNud2NfX0ZhSEMyX3FRT0EwekhVMUpITFVheE5oQ2NWQXNZbFIxTkxTNVFJNDZQR0F3ZmthY0hBc2lYR2lnOVVoRHQtRWY1ci03LWZobjNzT0NMUVVleVJMcFRPWnFRRnNrZDhXNGhST2MzN2ZoMkJJRWFXTlZ6TVhiNXg2aF9KUGpEaUdZb0JiZW8?oc=5",
+   "published": "2026-11-10 17:24",
+   "coins": [
+    "BTC"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-drops"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:BTC",
+   "source_type": "google",
+   "title": "Bitcoin Just Did Something Completely Unexpected. History Says This Will Happen Next. - The Motley Fool",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUUVGUlFLU1Zvb0MtX1hpSzI2QjctZUVzX21rMUo0emFhLXRSNzFEcEYySW1XVE0yZFBZcHBibGpyRDdLVWVobWJkOGlJdUxWbWRtY0VBTkpYVERkQmhBcnpHQ09PYUo0MEd4WkZYTW1jOTJEc3M0SnlyRlBVZlRVMnl4ODE3Y1ZUMDQ3amxndGRQRFZXYlE?oc=5",
+   "published": "2026-11-10 15:30",
+   "coins": [
+    "BTC"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:BTC",
+   "source_type": "google",
+   "title": "Over $10 billion in leveraged Bitcoin shorts stack up near $83K, raising squeeze risk - TradingView",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPWEZseHNabC04Nk83YmRZNTBGaHdROW1QZjhiOVlRY0JhUjJtTGtiMEF2UmpPb1VQb3R0RGhhQ1JTYnp1cTBLSHE5Nmd5SEwtTFlreHpPM21uZjBqY3VXT2lhTmtYcUx1ZGlwRkJqSm53MlR5RXVFNS11czlQbGFfcUxGWGlyM0NwdXMtWk1kVUpsVERKN0NkYlczdEVtY0VYUjhsSDZlWGNNc292QUhQNTJ3RENlbVRtMnpqQWZtVU5LelNCRW1Uc0FBdDNya0lCVHdzWDFRdUdtaTg4TXZFYg?oc=5",
+   "published": "2026-11-10 13:23",
+   "coins": [
+    "BTC"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:SOL",
+   "source_type": "google",
+   "title": "XRP and Solana Both Hit 30-Day Lows This Week. Is It Better to Buy XRP or SOL Right Now? - Yahoo Finance",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQYkxXWTlrMENIUnNoWVdBOGhxRkQ5OUdOOG1WeG1JY05EY0xEQXBRX0pmZkZRVzNNV2trUFN3bUlJcWotQUVIQUZZS0RlSS1DNWV5VmQ3RHlDUk1zb09xczB4WmVzMVJhb2JxYVhpUHRXOEk3WFdBVjhrNTFTTklpelg5clVBTWN2OVNMbVlXVng?oc=5",
+   "published": "2026-11-08 21:53",
+   "coins": [
+    "SOL",
+    "XRP"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글:SOL",
+   "source_type": "google",
+   "title": "Charles Schwab Makes Solana, Avalanche and Chainlink Available to Trade Through Schwab Crypto™ Accounts - Business Wire",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOSWppTWtDOUlEODc2SHZQLXJoQklQTlIzZzNyVEpNTUV6emFTcTZkSjFNVG5MSmNLSHdqd3U4bzRfay05dE1YSFdwdUNfTjBqZmJ4SnNPRFd2d0M0VUMzSnlvOG1nOFo1ZllpSGtmZnRXdUU2R3pZb3JQdDhkQzhIanRvSmotRGhtVVNOcHFzS3puQUV0S1JETlFFUE9CM05jNTBrYTNmQkJaQThVWXRncF9WY2luOFdXSkZYUVFXbFN3anZlZThockFKbFBCRGtEWGZkSlVGNFJpcjNGcGlxRU1TbFAydE16TjVZR0FLRQ?oc=5",
+   "published": "2026-11-09 14:00",
+   "coins": [
+    "SOL"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:SOL",
+   "source_type": "google",
+   "title": "Solana (SOL) gets tokenized stock venue under SEC framework, trading Galaxy (GLXY), Forward (FWDI) - CoinDesk",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQU01tWUFMQXNEeGJvek9hU0tKWkJJaHpUbF9pMlVrOTRpUWk4Q2kzc09wMkd3Y1kwcm1GNG82ZHc2YmlSekN2aVFrOUg4TzFRZlJWOVNEVUJ1RXFZNjI5T0pCVmRBMEhIaXp2eENJZEhEYzVTRnRxS054TnNYYzV1TmZwMEtvX2VBUXhnbEtzT25lRkVpMGVRRHB6ZmJMd3R1d2l1eHkyOS1lMTJyTkNJQjV2VUxHREVoSUpuX0tfeWt4VUpMRXc?oc=5",
+   "published": "2026-11-09 12:41",
+   "coins": [
+    "SOL"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [
+    "규제"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:SOL",
+   "source_type": "google",
+   "title": "Chinese central bank pledge to probe Solana shows crypto crackdown is continuing - South China Morning Post",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOem5YNFJrRjgyb3ZBSXgxc29wOWdqZ2JBY0dPZllybWlEV0JVQms3ZW5zU1lFa25ld0tKOWl4a0FWQkJmUTFyZGNNUTlSenFMSDBWNEllSXF0OWxDLUUzbzE2T3QzTkxDLUVvYzNjRC04RE9XYm12WGdXcVVXdFlYVHVqZFljZUgtbVlyc1FQWGFCZG11ckt3TzhaZmlJemw3bUJhbzlMQkNlM2xKeWxHMGt0Mm51QXFxWU5kVnRVeWtveW9PdDdHUlZ1a3ZDZGd2VUJHU2YtRF9oaWM?oc=5",
+   "published": "2026-11-09 06:00",
+   "coins": [
+    "SOL"
+   ],
+   "score": -2,
+   "score_hits": [
+    "-probe"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:SOL",
+   "source_type": "google",
+   "title": "Better Buy Right Now: Cardano vs. Solana - The Motley Fool",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMmdHdDlNaks2aGdCM0dub3hPbld2dGZQV1J5ZWpOME1iYkh4T3dnSzRZbmRjdGxjVDJfbkVDS2lOWVBWaWhUZmFSSXpxa1lJWl9xS2R2SmR1OFItWWtSZklzUExmNnFlQm9NdmNaZU80a2txTUlDb0NmZjh3Z202VHNyMEg5NWFr?oc=5",
+   "published": "2026-11-10 10:42",
+   "coins": [
+    "SOL"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:DOGE",
+   "source_type": "google",
+   "title": "Dogecoin price at a three-year low: back to November 2023 - CryptoTicker.io",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8wLVNjR0dMLVBfWE9rcDhoNGd4Y1dfZEhDYklmTEtzdVZ0TF85QjB2dEdTTmFOT0hrcld5aGh3N2I1XzM3WExvS2E2TzhjdzI0NEszZXdfQThqc1p5NXhUanVCaVVCcnNGWERHZ3lYTGlqbWhSMGhDYg?oc=5",
+   "published": "2026-11-10 17:24",
+   "coins": [
+    "DOGE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:DOGE",
+   "source_type": "google",
+   "title": "Peter Schiff Calls Dogecoin, Other Memecoins a 'Litmus Test' for Popularity, but Questions Future Demand: 'People Might Want to Wear It on Their Back' - Yahoo Finance",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxObHhXMUFjbFBFMXZGVEJGWUNJbVV3Y3dCZTRGN2Y3Szh0bFA1Z0pnVkJLZ0pDZ0VJVkNQS3hBZFI2Zno5VWtQRjQ0dkRVTkRXNUViLVUxcWwzT2ZpOWJ2c0s5dDNhd0tNVzV5bWd4QVcyTXpFdklBSE5zYlZlcUVWY0RVaXZsdzV0bUxjYWNUY0hZZkRMcnBlOHlQRVFTUDQ?oc=5",
+   "published": "2026-11-10 03:30",
+   "coins": [
+    "DOGE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:DOGE",
+   "source_type": "google",
+   "title": "AI Price Prediction: Dogecoin Is in a Death Cross at $0.07. We Asked Grok Where DOGE Could End 2026 - 24/7 Wall St.",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQUFlaS2JYNHp0c2dfaExvYVo5YXZ1QXBHVFlBQkRtQkk2WXN5RVU0dmdKb3NVQU8xNV9hRy1QTjRxNE8yRHcwN3UyelNDUjlDajZTcFZDcFJKLU1ibEhKVk16R2J5T19XdDJzWFlFdG9HbnJ4dDlRN3FYZ2p0a1k3RTYzbzFrU25wMzlBdzR1ZzY0cXR3LTZIZzNraWhSbWxvV3FvX2d4bV9xd2NrVHNBeE9OdkdGYkxlNklENHpFd3NSQlBXbm05OXppaWRfMVVCcFNZRjN0TENaa0FYTkZuMTZ3QnFVeWgyVDNZ?oc=5",
+   "published": "2026-11-09 22:49",
+   "coins": [
+    "DOGE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:DOGE",
+   "source_type": "google",
+   "title": "How Dogecoin Turned an Internet Joke Into a Cryptocurrency - Record Searchlight",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdWN5MXJYeUJlR3ZTQjJCUEZVWnM1OEk5TGNXRk1zUFcta3l4a0FwbzRtSTRIQzlEMHp0akJVRUNzUDRwU205RE9QdU5vUHN3THdtczJEWEJfYll6M2lGSHJRYzVWS3NsVzN2X3NMTVBqc0VBMlBaRzhCVkgxMVpCOFZCVHJkN25IWUt2R21hYXVyUTdKaF83VUpDWWFJVWN2aFAtR3hqcjh3YnliQXBjY1VOTXlqdTU1dk5iQUVxSm02Q01EeFdZamFhalNQUk1obXhKVW5sRQ?oc=5",
+   "published": "2026-11-09 23:06",
+   "coins": [
+    "DOGE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:DOGE",
+   "source_type": "google",
+   "title": "Bitcoin, Dogecoin Steady, While Ethereum, XRP Dip: Analyst Calls BTC Accumulation by Major Cohorts During - Benzinga",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOQmR4amFlSXlpSHhTZ1dFaEhVV1RnbjhsZWpoRHJ3em1VMlhzQ0hHMll6NXVEc0tESFAwb196aFBqbndvSEMyQTY0dE5ybVByeHpQX242czNKV1o2VkcwVmR2X0xYb3p0TWhXQXNuczdNZVNsbHg4X1VpSWNkQUkxSXRGZVlKazN0M29lY0RmMXBsV3VRWUphN2xKVnpVTTB1dEF4eVRlZXRua2c?oc=5",
+   "published": "2026-11-10 02:21",
+   "coins": [
+    "BTC",
+    "DOGE",
+    "ETH",
+    "XRP"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XRP",
+   "source_type": "google",
+   "title": "Ripple Prime head Marc Asch is stepping down from company formerly known as Hidden Road - CoinDesk",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNa3QtYWg4d0gtamdHY0dVWEs3YXJHRjJVUG5UaG1xcVBNbk4xc0k3U016eDJhMV94Z21EczJuQ3RfcmU2dS1DM3FJUUcyRldRTDNVeXg3UXBXVmFZa3VWU2tSQmtlWjZ3cUhObTZNSVNzM2xDZEY1RnZYZ2szRWRob3FnTk1KbERuYzNMenRmYi1nUlRsSkVjanN5OVA2Vmc5SlFVemFCaXV6LWRhcGRHbWlncw?oc=5",
+   "published": "2026-11-10 12:38",
+   "coins": [
+    "XRP"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XRP",
+   "source_type": "google",
+   "title": "XRP Is Down 22% in 30 Days. Will XRP Go Back Up Before the End of November? - 24/7 Wall St.",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPZzVuU0tGVUpoOGtlXzBRbEdJOEFNTUxLMXF4Xy1GT01Ya0Z3aExQRkpWQlpHekRlVURwQTJDQ012RndYaS1HSkVWMDB4azFLSG5UYTdMRFg4UU5KX2dNQzVMR3RRdDgxMVRfazkzYWdtSnV6LWVNbVB4UWphNFNJOUg4RjN0VEl2bmktM1ludDRBTlBybmFQU0NtdUw2elFrRzRRdzBKSjBnOTh5RVlrVjE1WXJPX3lVQ1hQS3U5T1BOaWtRRUtEaENVbw?oc=5",
+   "published": "2026-11-09 23:13",
+   "coins": [
+    "XRP"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XRP",
+   "source_type": "google",
+   "title": "Can XRP Reach $2? Meta AI Predicts an Interesting Outcome - TradingView",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNmZ3Z2VBaEx4aTdtVVkyTnV2aWZnSkh3TTY4V0FRc0RqZGZIS3NtYlV4VkIyWURNMk51Q09kaVZ6QmczMTR4ejdNb1BLZFZ2X3VhWW16VEo5OFBpd0YwR1FKckdwMkV1bDRjaTlIN2o2ckVjOU5UTG8tdG9RSVZyS19DcV81UU85MXdzRFVUTURHQnRtYUFHOXlIY2xSRUZHcFd5R01idnFhQ19JQWRpNlRCY3VfOW8?oc=5",
+   "published": "2026-11-10 15:42",
+   "coins": [
+    "XRP"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XRP",
+   "source_type": "google",
+   "title": "Why are Bitcoin, Ethereum, and XRP falling today? - FXStreet",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQNzQ1TUpVcWpJeUhiZmtjWkRnXzJDa0EwVmVvR09Md053RHRtdmN4T0tyb294ZDg3dS1iQXNhUXdtQmhVanVyOFZlemhIeHk2alBJd0VEMHQ3UkVhcUpDby1CMmVaT1ZRcksteW9kdlgtR2hISFZBXzd3N3dCbG5aT0Y2M0k3by1KT3BEcDl6NFpVMk42b2pHdDlodWxiWndrdkJHY1R3SHVHRjE2X0hUR0JNVWd6ejgxTTFKNXlpUXRQM184c01ieS03d1otYUtHdDdUTC1aWUlWU3lv?oc=5",
+   "published": "2026-11-09 10:36",
+   "coins": [
+    "BTC",
+    "ETH",
+    "XRP"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ZEC",
+   "source_type": "google",
+   "title": "Zcash developers want 20-second blocks just days after major speed upgrade - CoinDesk",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNeWhqQk9ScDFrR2xzRkxXNnNzYVgxc3dYRUlkdE5oWUtUQkhzZV9OWW8xSWhSbm1kcjBvY2Q2UzJlQkdmdUNqZ3d0U0JJdlVvOTlqbjdKY3Rla0k3VVJQZGJncTMzUlFmZ2FscnA3OGtWTExqek4xRlRSbGxYcmxXRExnTktaS3hFY3dPQ3hsa0JuZ0xGeE5oLXdXQ0V2Qm9TRW9ScDdRMWlncUxpeFl6cldpeTZWZw?oc=5",
+   "published": "2026-11-09 11:35",
+   "coins": [
+    "ZEC"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+upgrade"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ZEC",
+   "source_type": "google",
+   "title": "Zcash Falls Below $1,100 as Daily Loss Reaches 10.5% - The Defiant",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQeUtWemNuQXVpZkxIU1NQUVVQNllfcXFHV2MxMnNoQXNib013S3NDUXNaVl9LeEZPY3d4czJsVWVyMVpWS2x1NXZVS3JzbUU3dnhHX0JkOWhhTTY4Q3VhZjV1d1EtT0NCMUtQVXVldzNZYnc0NC1haWRYWGo1NVNvV25ZZTl4VWdHN0w0OE1R?oc=5",
+   "published": "2026-11-10 16:52",
+   "coins": [
+    "ZEC"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 2
+  },
+  {
+   "source": "구글:ZEC",
+   "source_type": "google",
+   "title": "Grayscale: Zcash ETF Holds 373.81K ZEC - Blockchain News",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAyWE9FcDdYWF9VRUJ2X2o5N254RWtzWDJNeVhZbGVONjZBNXZ4WHNMM1AyMTJMamFaNWxMbHFJMGsxWF9pT2lsclEyUW10RjJ5aEllMS1OSlFxV3VhNTltcFgxU0pnMnRMTVlvRHFfTkotSVFFaVR0X1lqdw?oc=5",
+   "published": "2026-11-10 06:20",
+   "coins": [
+    "ZEC"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [
+    "ETF/제도권"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ZEC",
+   "source_type": "google",
+   "title": "Zcash Just Turned 10. Here's What Could Be Coming for ZEC Investors Over the Next 10 Years. - The Motley Fool",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdUkzLTJJZ2plTjRVRnRLVExiVUtxLXFwcTJxSUowaTFDWTB5Z2ttLWdrSEx6VTlpdVBMWGgxZWZDM0ZVZG1TQUJRbnFpMXBwY2ZXd1VEcjJXbWxMQTFObTlJUTRnWGkyTlFXYzF1dmtTSVVCcFJrZkJ0SkRDS2ZDc09SOENSMW4zNS01ZGVEMWdlamU2THJLeQ?oc=5",
+   "published": "2026-11-09 14:26",
+   "coins": [
+    "ZEC"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PEPE",
+   "source_type": "google",
+   "title": "Pepe Rose 32% in 30 Days as Bitcoin Fell 11%. What Could 100 Million Pepe Be Worth by 2030? - 24/7 Wall St.",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxObUNPZ3doRFQ0SmFnX05ZcmVEVFpmS2UycTJ6TmdHTk8zS2MyaWFhYmJkR0dROEN5cEhJUTUyek1BcXFrTHhmVWppSzRWQnFfOW56di1XbERIWGU5S095ZTFIUl9Fdk5Fd04tSmlRa2VhMzhaSXFod2Yydi13YjdjWlhHbjBseFREbXJDOTZDX1F4bzllcG5WbHZhaUxpdnRlSVZpSEx5amkxWmdFVmNXb2pmUjh4RkpLSUdIOUVmVG5ReW92OGJRbEhkYS01aUZQN1hPSnVQMGxVdFliSGxV?oc=5",
+   "published": "2026-11-10 18:49",
+   "coins": [
+    "BTC",
+    "PEPE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PEPE",
+   "source_type": "google",
+   "title": "PepeCoin Cryptocurrency (pepecoin) Price Prediction 2026 2027 2028 - 2040 - Changelly",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOQmt3REpXcXZNTnlqXzFHSDlldXprZDdjWWdNdUxlRkdEUGpLX0pQc21rZXJxM0FtYTk5aUdFSXl1cFNfeEM5R1V4N2trZVVDTms3amU3V2dXRlU4a0ZXc3lVR05yZmZWb2pfdTlaZ2Q3RXBFM2pydmU4anlYUkt3Nmdycw?oc=5",
+   "published": "2026-11-10 05:28",
+   "coins": [
+    "PEPE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PEPE",
+   "source_type": "google",
+   "title": "Pepe Coin Price Prediction: Can PEPE Keep Its Bounce Going as Remittix Earn Brings Weekly Payouts to Crypto Holders? - TechBullion",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQUjVINzJ0bUF3VkZoS1lZVlVQSWljaXU2ZWphMU1VOGo3SkJiOVFIcGMxcEdRZEROdlJ0M29uUDhFVHNqUE45bTBjbXNna3FseDhfSGVFaDlqMmJrMnBadTNUNjU2RFRjZ2NWV2YtMzdNQ2dZaFd0VmxvblRleXItZmctUVhPczI2SmZfQWxwUEx6ckNwdE5pek40X2pka3FzZ3Q0YXN1aDFHSHA0ejl6am96ODczMmNxZWlObHR5WEFmNmt1Q2VLeG5HNGVWdTU5akZzZTdR?oc=5",
+   "published": "2026-11-10 17:45",
+   "coins": [
+    "PEPE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PEPE",
+   "source_type": "google",
+   "title": "Pepe (PEPE) Surges 7% on Speculative Rotation and Social Buzz - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5tdU9SemhjYndIazVLclZPdjR1WnRQb3lEU2Z5MWtJN0M1MDBhYVlHMHVNWWZVNWY5c2RrRWVfNmNTQkJFYWxyMjd0M3VMazJDTl9MRU5GM3ZmSWRvdTV2b2RHWXJ3VGtnRmxSRk1FRGo?oc=5",
+   "published": "2026-11-10 09:04",
+   "coins": [
+    "PEPE"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+surges"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PEPE",
+   "source_type": "google",
+   "title": "Pepe Coin News: PEPE Gains as Bitcoin Slips Below $75K and Remittix Earn Makes Weekly Payouts Available to the Public - StreetInsider",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxPS1JQM2hWWG1RSjYtdUhMUWQ2NUdlWDdfbmlTcUVlUGc5UUIwbThLanQzb25sci1zQlZhaUMzMHMzYjliY1I4NHktdExKY0JIaVFBYnF2elhXSXo5RU00WGxqOW1MZEV4anFyMXBUSEFHWFNLXzFDZDRoRnM0NFZiR0JmRF9kOVVNY3ZLZVBrdUlNQ1Q0RUZGbnZDbWxkNTBxTjdYTlhRbjFlV2F6T0FYazJwYWxmVUdJTU9CMUxpSVF0ZWZZWU5va3BWSDFESERNRmZMXy1VV3JlQzUzUDh3VTFnT19LRjQyUWxENEZIa0RZdDlpZFhJUEVCU2U5TGMxOG9vWFVVTmM2SGU2YkE?oc=5",
+   "published": "2026-11-09 21:52",
+   "coins": [
+    "BTC",
+    "PEPE"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+gains"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:BTW",
+   "source_type": "google",
+   "title": "Bitway leads crypto gains with 17.7% rise, whil... - Pluang",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPem9IQjF0dDJWYjNSZGhPT1ZFQ3V6S2ZmV19xM29PdXY2eFRtNlB1bEthanhXMDAwam5rNnBscVRTYkpwVmhYVERhdFRPX2VLTlRiZXgyMGVtakN2aEF4QmNZN0Rsb2lxeTBNbmtvbHlTWUdJODd0MmxmZ0hvbnh6SGcwVE00MXJy?oc=5",
+   "published": "2026-11-09 01:35",
+   "coins": [
+    "BTW"
+   ],
+   "score": 2,
+   "score_hits": [
+    "+gains",
+    "+rise"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:RAIN",
+   "source_type": "google",
+   "title": "Stablecoin Firm Rain Seeks OCC Charter for National Trust Bank - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOaW43MFFsLTZiQTZOMHd5WUwzR0RPa3BqNmdGT3liNm8yUkpoNVVaU0U4a2s3YlhmTzNOWWRGU2RvSVpBSlNwb0o0MXRrWVNLSEpqODZrSWNmandycEZta1lOOTNGZUNHTktyOHlqYmxhSDV5UUFRYXlCcE1DTmJpS0JGc25jYnFNQmROSlE2VXc2WWc?oc=5",
+   "published": "2026-11-10 09:35",
+   "coins": [
+    "RAIN"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ARB",
+   "source_type": "google",
+   "title": "Arbitrum’s rebound faces $0.1663 hourly resistance despite improving momentum - Cryptonews.net",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xdG9tdkdzTHlQYkpnV092TmdpR1F5aVgyN2t4a1B4SmdUZEFvMHVpdjY3U05OTXRONmFiRl8yS0hrTW40Vl9UTkVCeUM2N3hkTHF0cElsLWNacW8?oc=5",
+   "published": "2026-11-10 18:15",
+   "coins": [
+    "ARB"
+   ],
+   "score": 1,
+   "score_hits": [
+    "+rebound"
+   ],
+   "label": "약긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ARB",
+   "source_type": "google",
+   "title": "Arbitrum added $64.2M in stablecoin trading in a week, but what does this mean for ARB? - AMBCrypto",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNV3JSSUdsVEdTSC1VdjdxRVdLSUNzOUdjeUJFS0M0cXFydUY5TmZ4WGFBQXgzaG9hZ3BpYW5TTFBveDRsX2FXblN0bmdCNFk2QXJyZzdDY1RVZmZKVjNjNXM4WDFCemR3MlpsVTB6RHBlejBfb2pvcXhvUWdTc2Z4WGtkU25HNEktd1JtM1kzRWFpR2xjZk5BZ1dITE80WGhQbHM3eko4Z2Z1RjA?oc=5",
+   "published": "2026-11-10 08:00",
+   "coins": [
+    "ARB"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [
+    "스테이블코인"
+   ],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:ARB",
+   "source_type": "google",
+   "title": "Can you still withdraw from Base or Arbitrum if the sequencer goes down? - Crypto News",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPektWa3pyR3M0SGVlUFRVUmlQUlVZX241b0RVRG1TeFB1bVViZGFILWdCR0NNX3pGNG5rUllUYTE2cG1pV21wNC1IOUh6YXM3YXVZcVNOU21MbHZJZzc3VDdRNDhxTmxHeFhyR1JySG1MT0dsbmd4VzdfWE9VR3owUXpycExjS3J4ZFU3Q2V3UWFjVldfVGxj?oc=5",
+   "published": "2026-11-10 08:07",
+   "coins": [
+    "ARB"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:DASH",
+   "source_type": "google",
+   "title": "Dash Bounces 3.79% From Support Amid Market Volatility - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9EWHpJWllKUWdyNkZZS3FsdjZYcmxQUkhzMzFDUy1OZ3U4c3dIZzQ2S0lGcXN1Q2tuVEQ5Z0N5QjV6Q2EzQktMUWhMZzh2Vl9pbVVXNlFUNmJqMU41alhTalR5WFoyRl9maGNNWnFfckM?oc=5",
+   "published": "2026-11-09 13:06",
+   "coins": [
+    "DASH"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:QNT",
+   "source_type": "google",
+   "title": "Quant (QNT) Drops 3.1% Amid Broad Market Selloff - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBxM2VCdXAxVXR3cXZGNFZHamEwTEh3eEk2bDk1QXJxTHdtc1NrVklqcEpScGl5RnNoaE12LV9qdWROTUtiZFZhU2VnWERZWFY4Q3NMSlk1LWtUeUZGRzVOcUQ4elJMTkFTVXQ2SjJfN08?oc=5",
+   "published": "2026-11-10 04:04",
+   "coins": [
+    "QNT"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-drops"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:GRAM",
+   "source_type": "google",
+   "title": "Gram (prev. Toncoin) Price Prediction 2026, 2027 – 2030: Will TON Price Reach $10? - Coinpedia",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE44TzVIc2I4aG5sU1VGeE01bVZ3SzB1elRaREJaNjhLbEY1eFVBQkRabTdaYVlxeVM2Yk5KeElFeHNzYnFGcHFFU0N6Z2d0VWxCaWRhMXlCeGpBUTlxN3IyR2tOTmRfajV5MXowa2tKOXhQOHFZaXhB0gF8QVVfeXFMT2ZIQU02T2kyNExJSDFKSDR1empGY1RFRVB4enppZTc4YjZ6YXRKNlUtWmlCdFZaTWRxLTV5V1F3RHI1eHZBZ3lJYlVITlZoWmNOdGowU2FsTmJyWXB3Nkd2SExpcUJnZTZfQWp5YWM5T2ZmUFdOODN5MlE0Mw?oc=5",
+   "published": "2026-11-09 20:45",
+   "coins": [
+    "GRAM"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:AAVE",
+   "source_type": "google",
+   "title": "Aave Price Tests $124.64 Support - The Cryptonomist",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSmppYUZwOXpna3FxZ3hTQWlCdldoZm84cjBXbEpVQWctYjg4M3p1d2MwLVFpVE9adFNQUERYQU9HZHZzcTVVRmtIMFlYT1FpeC01TWxrSk1pTE9VbWt3SFMwWDVlV1pWX1RfVTgzZXNHNkJNZnFVR2VRYXRjUUVCUE91Z0ZzWlAtQ2MtazNPVXc0TW04THdvZG95OGY?oc=5",
+   "published": "2026-11-10 14:57",
+   "coins": [
+    "AAVE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:AAVE",
+   "source_type": "google",
+   "title": "Next Crypto Yield Story: AAVE and TEL in Focus as Remittix Earn Opens ETH, USDT and USDC Deposits to the Public - StreetInsider",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPMHRadzlWNGI2cVB3S1pYSi1TWFNUbkdzY1JxUVZsb3BDNnRGVTVweEJnVHJPbk9nN0ZsMVNxYUNMdDY3UW5PQlJ3YjZ5R3VkZWpKOGlYaHN2R1lyWGFOQ2EyakV0S2xQR1hjektocC1FUUF6ZHJ5cWZxbU1VbWNULUVkeVJ1eFdHWmZZbUpRZ2l3QWFFY01HNHJUSWlxOVNzV3FiVkxoV1U1NFhuYzFOMFY4WFBtbUhQTWkxRm01UElOeE5ISUtkUlg1S1pGX1RFTWFiUU9aOEwyNjllRExySmc4cW5JVGJnaEdXQ0R2MjlYR2tpRnE3SnJwU0o5aVJGN2Uzejdn?oc=5",
+   "published": "2026-11-10 05:34",
+   "coins": [
+    "AAVE",
+    "ETH"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:AAVE",
+   "source_type": "google",
+   "title": "Aave DAO Approves Plan to Add Native Bitcoin Collateral to V4 - TOKENPOST",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9CTnBHRHZvc1FqMzlWNGJzNlB2QmFUY3Y2aVZQaHpzRFNJOVBmSkxRNktfSjRMUGZ4TjZlQ0J5ZWtMbDJjVHJGY0p4dk81TGtwb19Jc1p0UlBjQU0?oc=5",
+   "published": "2026-11-10 12:31",
+   "coins": [
+    "AAVE",
+    "BTC"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:AAVE",
+   "source_type": "google",
+   "title": "What is Aave? DeFi lending, the AAVE token and risks - CryptoTicker.io",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5JdFZvemo0ck9hdUZxTmNYNFVjUEJQek1hTTdIeE5rUlBXd0k5TzVGZkdHMlQzekZ6NUZ5NmFqZnZnb2NVMUNjcVhyZ01hMDJPcTZPaXRIT1ZsWmFs?oc=5",
+   "published": "2026-11-09 13:31",
+   "coins": [
+    "AAVE"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:AAVE",
+   "source_type": "google",
+   "title": "Aave: Babylon targets native BTC collateral launch on V4 - Q4 2026 - TradingView",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMzgyYXEwdWRpek5kamxISlh5ZWZLbXRFcWd4dWxKMENHWXIxQXBsMDU5cUtGNS1JeTJGQnVidzVUdDh6b1BGWWw1RHh2eWpuSUV6RlREVnpBRkN2YUVyS1EwbUJ1X3VDcHIta1Z3U1o1UlZzSzlEZXY3ZDVna1ptRTJhVlo5ZzlNdzZRQUZjSk9jRlFLV2YtV3FDVU1YZ0RlVi1CZkh4UTBSVXhDM204WEtxLVpQbnlDRUxrbmFvRTNlZTQ2QUE?oc=5",
+   "published": "2026-11-09 21:00",
+   "coins": [
+    "AAVE",
+    "BTC"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XMR",
+   "source_type": "google",
+   "title": "Monero falls to $568 as THORChain XMR swaps wait for churn - CryptoTicker.io",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5HMFZiX0l4QzJLdWJZZi1rSllZdW9SLUZ6ZUUyWFZLelg3YmxXSFJfQkZKc2Yyek5fZnVwdkhMUlZoTkt0OGdRNEJMd3JmandzWXF2TmM3ekdEeFRGRGlEQzI3SG93aFRhQXM0TEsyMHY?oc=5",
+   "published": "2026-11-10 05:13",
+   "coins": [
+    "XMR"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-falls"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XMR",
+   "source_type": "google",
+   "title": "This Under-the-Radar Cryptocurrency Is Up Big So Far in 2026. But Is It a Buy? - Yahoo Finance",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPWEM1dlBZMTV1LTdjZXFyR2pjdDRLSkR6SlZXTjZUeTBmN291QWI2NUQ2ZVpYX2Q2UV9VRWpfNDBQWFdSLTA1WlJtUldfZHdGLVhBR1lfamVlVjVOb1M1NzhVR081OFdBVkRJd2kwSmNodWxzaGxuWkhCLUhCTlpUU3NoSEhpek42TElHNkdGVm85TzE5WVZiSmxfZ3dzYkJU?oc=5",
+   "published": "2026-11-09 18:16",
+   "coins": [],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XMR",
+   "source_type": "google",
+   "title": "Nocturne Card Review 2026 — Monero Funding, No Routine KYC - CryptoSlate",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9SN0poLTF3ZzdhWE1GZjFFRW5pV0pZVi04b1RnckI4MGYzdllYTk0tenVJZmhXbTNKVmV3NFVPVzJxRDMwNEd0bDFMXzZra3N3VmJxcVRhSEdWeFJHdUtmVGtQTVNnbzkySHc?oc=5",
+   "published": "2026-11-10 12:30",
+   "coins": [
+    "XMR"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:XMR",
+   "source_type": "google",
+   "title": "Monero's 3.58% Volatility Explained: No Specific Catalyst Found - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA1blNJY2pQWlR4SXZWUmJ3RTBmTGdoMnBsWm1qcWlYWlRpTU40bzhZd2FUWS1qRjk5ZGo0S3FTZzhGbzVsbGJsLW96LWU3Y1VYWDJtR09TUmhvQXdxZXNsX3JsU1R2dEYyRTByak1rRjE?oc=5",
+   "published": "2026-11-10 03:04",
+   "coins": [
+    "XMR"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PI",
+   "source_type": "google",
+   "title": "Where is Pi Network price heading? - FXStreet",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNSHZEX2pTQkNaSGZNOEh2bGE3SVAwOXdtdm1vYnFfbG41WVF3Zk5lXzdSRURTbGRrZ2FlcV9BUnhhLWVxSXI3YjJvVmFEMmRpU1FwcjJKTnoxay1iaUxFeHJxMDVHOG8zNFpGUjVaSm1wWF9sMndTZVhyRFhOdEstLTQ0ZFFQU29zeFNKUU84aHA2S2tsa2JJalZnV1lmTEZFM2dfb3o3SXRRTkpyNmR1OWRISHpUU0ROeldXeUNQZWU5Rmx1VE5SZlhoQmtQMGZyaXJDS0p4bVBubmN1NW83U0RDYlZxaW45dGpUWkhUWEhZUQ?oc=5",
+   "published": "2026-11-10 10:55",
+   "coins": [
+    "PI"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PI",
+   "source_type": "google",
+   "title": "Pi Network price under pressure – Can PI defend $0.065 support? - AMBCrypto",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdE9kS3VJTEdlME9hSlpQeUQ1b0lNNGkzQlFlMmh1QWZWcU9YVzJJaTE1MmpidzlUbHRLMHZKNjdxNVduaEtfVU9sU1JzN1R1ajF2aTZiNHVOaVlxNWRMYUE5XzNyeGxMUzdSVWtteHlGSTVJV0MwSEdRalhxZFpxeGU4SzBueGRKRUE?oc=5",
+   "published": "2026-11-09 16:00",
+   "coins": [
+    "PI"
+   ],
+   "score": -1,
+   "score_hits": [
+    "-pressure"
+   ],
+   "label": "약부정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PI",
+   "source_type": "google",
+   "title": "Pi Network’s PI Rockets 8% From ATL as Bitcoin Struggles to Hold $74K: Market Watch - CryptoPotato",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPcWotcTRLVXNBdUVVSlJMM0kwQWdUMmJHeGYtcTcwa0I3MHpRMW45eUZwbTR4S2t0akFXMzltNUtKbGNuSjBaeTNGY3ZRcmtHSHZPZlV4NUVxTF9ob1lBaHVfNEh3WjlINW1FdktxZ2d5c0prcW40RUN6b1J6MlRoaFpJcVFQbWZONzRuQkY0dlRYbWJoM0ktMWxJVHo3U2JKRzJnaV9PWVY?oc=5",
+   "published": "2026-11-10 09:47",
+   "coins": [
+    "BTC",
+    "PI"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:PI",
+   "source_type": "google",
+   "title": "Why Is Pi Network Price Up by 10% Today? - CoinGape",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBfbGgxT3VzMjRUUDZCTTJVUkNRNjVjeTlpcllBQXlDSlVxcWg3MUNmMlZ2YnRLVnpnMnpYTzhHTkhmbEpQTWRyLTdNZzFzUmlnQmJsdnFlSEhxUVM2b01UemoyeVdKMjVrMmdOME5BMnh5RlVWUVRn?oc=5",
+   "published": "2026-11-10 09:58",
+   "coins": [
+    "PI"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:NIGHT",
+   "source_type": "google",
+   "title": "Hoskinson Says Every NIGHT Holder Is Already a Cardano User as Midnight Is What Cardano Was Built For - Cryptonews.net",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBldjFBM3lld2N4Wkt2YXZBZWNGbHJvaWV6Y2dSaldSbXZpR3VvanRwNm02aWx6NWVGTm5qblFyNjVYZU8xZEcyeWo4ZDZQb1JrZ1h2VXVoQjJVZw?oc=5",
+   "published": "2026-11-10 12:14",
+   "coins": [
+    "NIGHT"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:NIGHT",
+   "source_type": "google",
+   "title": "Midnight (NIGHT) Surges 15% on Ledger 9 Upgrade and Narrative Push - CoinMarketCap",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBpZ19iRzZtTVJNc1lqQ1VNNGl6TXpfMjF2bF96TWNRaFlXUzRocVdaOUZ0M2lWeERYdDczUG9jYVJyTXNNcFJBeGNWZFlqZXF2M3Y5MFkxU0JqbTgtYmoxY3JqTjhMWTR3cTk3cHYtR0I?oc=5",
+   "published": "2026-11-10 05:04",
+   "coins": [
+    "NIGHT"
+   ],
+   "score": 4,
+   "score_hits": [
+    "+upgrade",
+    "+surges"
+   ],
+   "label": "긍정",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  },
+  {
+   "source": "구글:NIGHT",
+   "source_type": "google",
+   "title": "Midnight needs an hourly close above R1 at $0.04277 to confirm its advance - The Cryptonomist",
+   "summary": "",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQdEtmazdlVkZhb3hYRVpLOVE5dVM1UHlZTC1zb29PV0Z1WnJpanJHUlB2b0kwN04tdDlWNE00OUJwYW5BWnVxS05NbFBMeDlnZnlfWXRqVmFWVHcyOWNmcTZHYlc3anU4WkdLM0MwcHh5Rk85OHpIbW5vZjZCWDhSVVZ6b3pjWGw2ZEotNjFfenhrUml3bXZnSmFwVnBON28?oc=5",
+   "published": "2026-11-10 14:47",
+   "coins": [
+    "NIGHT"
+   ],
+   "score": 0,
+   "score_hits": [],
+   "label": "중립",
+   "topics": [],
+   "is_macro": false,
+   "dup_count": 1
+  }
+ ]
+}
