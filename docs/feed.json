@@ -1,9 +1,9 @@
 {
  "schema": 1,
  "producer": "asset-insight",
- "generatedAt": "2026-11-16T10:07:50+09:00",
+ "generatedAt": "2026-11-17T06:21:44+09:00",
  "collectedAt": {
-  "macro": "2026-11-16T10:07:30",
+  "macro": "2026-11-17T06:21:26",
   "us": "2026-11-14T03:48:08"
  },
  "context": {
@@ -14,43 +14,37 @@
    "note": "재고 수준. inventory 팩터(서프라이즈)와 다른 값이다."
   },
   "goldSpot": {
-   "last": 3872.45,
+   "last": 3854.0,
    "source": "gold-api.com XAU",
-   "asof": "2026-11-16T01:07:27Z",
-   "vsFutures": 24.85,
+   "asof": "2026-11-16T21:21:27Z",
+   "vsFutures": -0.9,
    "note": "현물이다. levels.XAUUSD_FUT는 COMEX 선물이라 수준이 다르다. 격차는 같은 스냅샷 안에서만 비교하라 — 만기·롤오버로 흔들린다."
   },
   "fearGreed": {
-   "value": 38.6,
+   "value": 30.7,
    "rating": "fear",
-   "weekAgo": 24.4
+   "weekAgo": 31.5
   },
   "yieldCurve": [
    {
     "label": "10Y-2Y",
-    "spreadBp": 103.2,
+    "spreadBp": 99.6,
     "inverted": false
    },
    {
     "label": "30Y-10Y",
-    "spreadBp": 32.7,
+    "spreadBp": 34.6,
     "inverted": false
    }
   ],
   "news": [
    {
-    "date": "2026-11-13 17:30",
-    "title": "Iraq’s Oil Production Soars to 2019 High as Hormuz Flows Surge",
+    "date": "2026-11-16 12:30",
+    "title": "U.S. LNG Flows Hit Record High as Global Gas Supply Crisis Deepens",
     "source": "OilPrice",
-    "topics": [
-     "opec",
-     "crude",
-     "barrel"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://oilprice.com/Latest-Energy-News/World-News/Iraqs-Oil-Production-Soars-to-2019-High-as-Hormuz-Flows-Surge.html"
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/US-LNG-Flows-Hit-Record-High-as-Global-Gas-Supply-Crisis-Deepens.html"
    },
    {
     "date": "2026-11-14 01:47",
@@ -68,11 +62,34 @@
     "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1qYUZzRFlzdHNfSkI4MlduanF0ajlTdlo4QWIxNFdYc0ZJMnNvWU9QX01tR1FhNk1vY0R6SzliUzdGcVVqYkJvMTM2Q1Y1UlhkRnfSAVNBVV95cUxNV2hvSDMzeWNRNy1LalFRNXZrWUdJMmRZRXpqN1o4SDluMkJZU05ENGlpYVNEN2hrc0NmY1lLV3FSNm9lVmp4cUgtaWxRZ1Z5YjJDbw?oc=5"
    },
    {
-    "date": "2026-11-13 14:40",
-    "title": "Copper shortage or surplus? Banks split on 2027 outlook",
-    "source": "Mining.com",
+    "date": "2026-11-16 07:23",
+    "title": "원/달러 환율, 강달러·증시 급락에도 하락…1,330원대 중반 - 연합뉴스",
+    "source": "구글뉴스:dollar index",
     "topics": [
-     "copper",
+     "환율"
+    ],
+    "groups": [
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE52dkFMLXpXYVpXdHl1S3g0TFJGYXgtb0dMbmxsV1ZjUjhqTTlEeG5PbUZjZklVTFNJVFBSSEs0RjNjNnFUQVhZWnJfQXVLY0ZjeDJiaTFkay1oRjTSAWBBVV95cUxNdTU0azJkU1ZEcWJCNV9qUVBEWXZwMnJCeXF4QVNCUkNkNGQ2WlRSdi1tMF8wRzJ3NTJ6T09OQUVDOWE5OVJNVmNnVEtReWRKZW9ueGlwTkJaWDJNSUtVMy0?oc=5"
+   },
+   {
+    "date": "2026-11-16 15:00",
+    "title": "[환율마감] 강달러에 증시 급락까지 겹쳤는데… 원/달러 환율이 오히려 하락한 이유는? - CBC뉴스",
+    "source": "구글뉴스:dollar index",
+    "topics": [
+     "환율"
+    ],
+    "groups": [
+     "환율"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9YMGNNLW41QVdqX2dzVHVDU2NRY01hbGxnczlQLUtOZTZvT21WV3N5b2VwMWlINm1ZaEhVQkQySWFRSmJ1VHEzenFsVWMtcnlkdl9PSnJoQnRHaVA3ZTFoWFlsU2cydV9L?oc=5"
+   },
+   {
+    "date": "2026-11-16 21:00",
+    "title": "Can Economic Populism Survive an Age of Scarcity?",
+    "source": "OilPrice",
+    "topics": [
      "tariff"
     ],
     "groups": [
@@ -80,27 +97,35 @@
      "농산물",
      "지수선물"
     ],
-    "link": "https://www.mining.com/copper-shortage-or-surplus-banks-split-on-2027-outlook/"
+    "link": "https://oilprice.com/Geopolitics/North-America/Can-Economic-Populism-Survive-an-Age-of-Scarcity.html"
    },
    {
-    "date": "2026-11-14 13:00",
-    "title": "Trump Media group stares down $1bn debt crunch as bitcoin bet fades",
-    "source": "FT마켓",
+    "date": "2026-11-16 14:30",
+    "title": "European Gas Slumps on Milder Weather and Record U.S. LNG Flows",
+    "source": "OilPrice",
     "topics": [
-     "currency"
+     "natural gas"
     ],
     "groups": [
-     "환율"
+     "에너지"
     ],
-    "link": "https://www.ft.com/content/ada459c4-5f43-4a4a-bc6c-90de8897a4f0?syn-25a6b1a6=1"
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/European-Gas-Slumps-on-Milder-Weather-and-Record-US-LNG-Flows.html"
    },
    {
-    "date": "2026-11-13 20:22",
-    "title": "Komatsu to acquire Roadtec and Carlson construction equipment brands",
-    "source": "Mining.com",
+    "date": "2026-11-16 21:02",
+    "title": "Nasdaq 100 sinks 2.7% in gloomy start to pivotal week for AI trade",
+    "source": "FT마켓",
     "topics": [],
     "groups": [],
-    "link": "https://www.mining.com/komatsu-to-acquire-roadtec-and-carlson-construction-equipment-brands/"
+    "link": "https://www.ft.com/content/12d927a9-98b1-40b9-8f75-01fb56a693d1?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-11-16 17:49",
+    "title": "UK SFO charges eight over alleged £251mn London Capital & Finance fraud",
+    "source": "FT마켓",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/a81eebb0-237a-4b0f-ace5-cab71cb9a326?syn-25a6b1a6=1"
    },
    {
     "date": "2026-11-15 02:00",
@@ -115,182 +140,131 @@
     "link": "https://www.ft.com/content/921b3589-6f88-44a6-b162-a13f5cc7e5e9?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-11-13 22:12",
-    "title": "US Treasuries record worst week since Trump’s ‘liberation day’",
+    "date": "2026-11-14 13:00",
+    "title": "Trump Media group stares down $1bn debt crunch as bitcoin bet fades",
     "source": "FT마켓",
     "topics": [
-     "inflation"
+     "currency"
     ],
     "groups": [
-     "금속",
-     "채권금리"
-    ],
-    "link": "https://www.ft.com/content/7bebace2-dc87-410a-ae29-ffd9f3176def?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-11-14 22:00",
-    "title": "Nvidia Without Huang: What a Pause in AI Deals Means for Metals",
-    "source": "OilPrice",
-    "topics": [
-     "copper"
-    ],
-    "groups": [
-     "금속"
-    ],
-    "link": "https://oilprice.com/Metals/Commodities/Nvidia-Without-Huang-What-a-Pause-in-AI-Deals-Means-for-Metals.html"
-   },
-   {
-    "date": "2026-11-14 18:00",
-    "title": "Singapore Makes a $65 Billion Bet on the Future of Gold",
-    "source": "OilPrice",
-    "topics": [
-     "currency",
-     "bullion"
-    ],
-    "groups": [
-     "금속",
      "환율"
     ],
-    "link": "https://oilprice.com/Metals/Gold/Singapore-Makes-a-65-Billion-Bet-on-the-Future-of-Gold.html"
+    "link": "https://www.ft.com/content/ada459c4-5f43-4a4a-bc6c-90de8897a4f0?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-11-15 18:27",
-    "title": "Diamondback nears $5bn deal to expand drilling in oil-rich Permian Basin",
+    "date": "2026-11-16 08:47",
+    "title": "U.S. Treasury yields and oil prices, which plunged after the ‘Blue Tsunami’, are creeping back up again - 경향신문",
+    "source": "구글뉴스:treasury yields",
+    "topics": [
+     "treasury yield",
+     "oil price"
+    ],
+    "groups": [
+     "에너지",
+     "채권금리"
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE85UkhrQlFYRjFrSWFRa0RGcm1JUWdaejRZZ280SUtfbC1Eeldib2hjYkJ2SWktdDluMkFNbkFtZFdFUHNlYVJNQTNqZWgzcnBXUFdmbE9aT2RQdGI3VUE?oc=5"
+   },
+   {
+    "date": "2026-11-16 15:30",
+    "title": "China’s Coal Power Generation Slumps as Wind and Solar Surge",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Chinas-Coal-Power-Generation-Slumps-as-Wind-and-Solar-Surge.html"
+   },
+   {
+    "date": "2026-11-16 16:50",
+    "title": "China’s rare earth giants double profits as prices soar",
+    "source": "Mining.com",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.mining.com/chinas-rare-earth-giants-double-profits-as-prices-soar/"
+   },
+   {
+    "date": "2026-11-16 18:47",
+    "title": "Euronext wheat climbs on euro weakness and Black Sea disruption",
+    "source": "Investing원자재",
+    "topics": [
+     "wheat"
+    ],
+    "groups": [
+     "농산물"
+    ],
+    "link": "https://www.investing.com/news/commodities-news/euronext-wheat-climbs-on-euro-weakness-and-black-sea-disruption-93CH-5030710"
+   },
+   {
+    "date": "2026-11-16 13:12",
+    "title": "Diamondback strikes $5bn deal to expand drilling in oil-rich Permian Basin",
     "source": "FT마켓",
     "topics": [],
     "groups": [],
     "link": "https://www.ft.com/content/a56fc76f-af32-45b2-8ae1-d5e211cb9643?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-11-13 00:34",
-    "title": "[외환] 美 긴축 기대에 달러 연동으로 추가 상승…1,330원대 후반 - KB Think",
-    "source": "구글뉴스:dollar index",
+    "date": "2026-11-16 08:59",
+    "title": "Hong Kong developer New World’s shares tumble 40% on $3.2bn rights issue plan",
+    "source": "FT마켓",
     "topics": [],
     "groups": [],
-    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE8tejBNSWIyRG12aktZRnR0V0pwSzdtbzhGZC1FSkExb05XeTRhSHQ5OFB0M3lJTUpQVTI3SjQ1Y1J3UzhYTVpOU29SMUhvUFdKT1BjUlJyaUVxNFlBN1kxdWRxempFTDh1MDZWQWRianYtUQ?oc=5"
+    "link": "https://www.ft.com/content/9daa3a26-c49c-4c94-91af-0d4c2116d2e4?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-11-13 07:52",
-    "title": "[외환+] 유가 상승·기술주 투심 악화···원·달러 환율, 1330원대 중반 마감 - 서울파이낸스",
-    "source": "구글뉴스:dollar index",
-    "topics": [
-     "환율"
-    ],
-    "groups": [
-     "환율"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1Gekt2Vnc1RkpBNVh4T185bVZzS3M0a2oxbDJrZ3JvX21mVTVRREx0aE90RUJKTm5CNEhZam9HcFBuS1pTMkYwRGxSOXRfTHBxSThZb01Zelo3eXU3VmVGaVhpYW9FV3c4dFE?oc=5"
+    "date": "2026-11-16 20:00",
+    "title": "Libya Has Africa's Biggest Oil Reserves, but Western Majors Aren't Biting",
+    "source": "OilPrice",
+    "topics": [],
+    "groups": [],
+    "link": "https://oilprice.com/Energy/Crude-Oil/Libya-Has-Africas-Biggest-Oil-Reserves-but-Western-Majors-Arent-Biting.html"
    },
    {
-    "date": "2026-11-13 00:12",
-    "title": "[외환+] 유가·금리 공포 재개···원·달러 환율, 1336원대 상승 출발 - 서울파이낸스",
-    "source": "구글뉴스:dollar index",
-    "topics": [
-     "환율"
-    ],
-    "groups": [
-     "환율"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBSU3pTc0JCM3dPbjZVY0lja1Z2cnk0cV9ycUJYaTNtVDU1RE1ZMlB3c3Jpc1ZGM24wM0NBc1NzTS03b3ZlM1hmdmZ6bnU5UWhENEJYaGVnb1FxZUhZRllIVmZzWTZHQWY5NkE?oc=5"
-   },
-   {
-    "date": "2026-11-13 15:05",
-    "title": "[환율마감] 원/달러 환율, 5거래일 만에 6.0원 오른 1,336.7원 마감… 달러인덱스 1년 7개월 만에 최고 - CBC뉴스",
-    "source": "구글뉴스:dollar index",
-    "topics": [
-     "환율",
-     "달러인덱스"
-    ],
-    "groups": [
-     "금속",
-     "환율"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9kVG15Y2R4SnUxTUxGdW5rU0RobDhmcjVjTWpWQVptYTdsSXJRenpTUDhsVkhPZlhQa1IxcGdHNGMwSE9fYldSNElldkJqYWFycElxWHpTM1VXRWpiNTBpX0xScC1VOWhl?oc=5"
-   },
-   {
-    "date": "2026-11-13 03:53",
-    "title": "비트코인 7만 달러 이탈에 13억 달러 청산…달러인덱스 19개월 최고 - 코인리더스",
-    "source": "구글뉴스:dollar index",
-    "topics": [
-     "달러인덱스"
-    ],
-    "groups": [
-     "금속",
-     "환율"
-    ],
-    "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBuQVlIMkdDRU1mcW51Z1Rob2lKLXBuYU9KQWVrU2pUZHlndWhPVkxJakJqU2NCangzUWpyVmM5MDRXYnhDSW9kZXFR?oc=5"
-   },
-   {
-    "date": "2026-11-15 00:00",
-    "title": "Electrifying Ambitions Meet Tough Reality in Europe",
+    "date": "2026-11-16 16:30",
+    "title": "Europe Has Already Drained 10% of Its Summer Gas Injections",
     "source": "OilPrice",
     "topics": [
-     "drought"
-    ],
-    "groups": [
-     "농산물"
-    ],
-    "link": "https://oilprice.com/Energy/Energy-General/Electrifying-Ambitions-Meet-Tough-Reality-in-Europe.html"
-   },
-   {
-    "date": "2026-11-13 23:00",
-    "title": "Iran Braces for a Budget Without Oil Revenue",
-    "source": "OilPrice",
-    "topics": [
-     "crude"
+     "natural gas"
     ],
     "groups": [
      "에너지"
     ],
-    "link": "https://oilprice.com/Energy/Energy-General/Iran-Braces-for-a-Budget-Without-Oil-Revenue.html"
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/Europe-Has-Already-Drained-10-of-Its-Summer-Gas-Injections.html"
    },
    {
-    "date": "2026-11-13 18:11",
-    "title": "U.S. Oil Rig Count Holds at 463 as Crude Output Hits Another Record",
+    "date": "2026-11-16 16:00",
+    "title": "Houthi Advance Puts Saudi Crude Exports at Risk",
     "source": "OilPrice",
     "topics": [
-     "crude"
+     "crude",
+     "barrel"
     ],
     "groups": [
      "에너지"
     ],
-    "link": "https://oilprice.com/Energy/Crude-Oil/US-Oil-Rigs-Hold-at-463-as-Crude-Output-Hits-Another-Record.html"
+    "link": "https://oilprice.com/Energy/Energy-General/Houthi-Advance-Puts-Saudi-Crude-Exports-at-Risk.html"
    },
    {
-    "date": "2026-11-13 23:00",
-    "title": "Freeport strikes $77M deal for BC copper stake",
-    "source": "Mining.com",
+    "date": "2026-11-16 11:15",
+    "title": "New North Sea Gas Supply Comes Online Amid Growing Political Backlash",
+    "source": "OilPrice",
     "topics": [
-     "copper"
+     "natural gas"
     ],
     "groups": [
-     "금속"
+     "에너지"
     ],
-    "link": "https://www.mining.com/freeport-strikes-110m-deal-for-bc-copper-stake/"
+    "link": "https://oilprice.com/Latest-Energy-News/World-News/New-North-Sea-Gas-Supply-Comes-Online-Amid-Growing-Political-Backlash.html"
    },
    {
-    "date": "2026-11-13 22:36",
-    "title": "Capstone cuts copper outlook as restart slips",
-    "source": "Mining.com",
-    "topics": [
-     "copper"
-    ],
-    "groups": [
-     "금속"
-    ],
-    "link": "https://www.mining.com/capstone-cuts-copper-outlook-as-restart-slips/"
-   },
-   {
-    "date": "2026-11-13 10:53",
-    "title": "Guinea gold mining crackdown leaves 10 dead, sparks exodus",
+    "date": "2026-11-16 16:14",
+    "title": "Scotia Metals targets hidden lithium in Brazil’s Bahia",
     "source": "Mining.com",
     "topics": [],
     "groups": [],
-    "link": "https://www.mining.com/guinea-gold-mining-crackdown-leaves-10-dead-sparks-exodus/"
+    "link": "https://www.mining.com/scotia-metals-targets-hidden-lithium-in-brazils-bahia/"
    },
    {
-    "date": "2026-11-15 23:45",
-    "title": "Oil prices dip as markets look to recovering supplies, M.East tensions",
+    "date": "2026-11-16 19:03",
+    "title": "Oil prices dives as improving supplies outweigh ongoing Mideast tensions",
     "source": "Investing원자재",
     "topics": [
      "oil price"
@@ -301,84 +275,76 @@
     "link": "https://www.investing.com/news/commodities-news/oil-prices-dip-as-markets-look-to-recovering-supplies-meast-tensions-5028198"
    },
    {
-    "date": "2026-11-13 22:43",
-    "title": "Oil prices fall over 2% for the week amid easing fears of fresh U.S.-Iran fighting",
+    "date": "2026-11-16 18:50",
+    "title": "Northwest European diesel margins drop over 5% on Monday",
     "source": "Investing원자재",
-    "topics": [
-     "oil price"
-    ],
-    "groups": [
-     "에너지"
-    ],
-    "link": "https://www.investing.com/news/commodities-news/oil-prices-hold-gains-as-trump-sidelines-vance-from-iran-diplomacy-5023781"
+    "topics": [],
+    "groups": [],
+    "link": "https://www.investing.com/news/commodities-news/northwest-european-diesel-margins-drop-over-5-on-monday-93CH-5030716"
    },
    {
-    "date": "2026-11-15 15:00",
-    "title": "‘I’m sick of flying’: I paid for priority boarding, but the overhead bins were full. Was I duped?",
+    "date": "2026-11-16 18:40",
+    "title": "Gold slides to lowest level in more than a year on dollar strength, Fed hike bets",
+    "source": "Investing원자재",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.investing.com/news/commodities-news/gold-falls-below-3900-as-december-fed-hike-bets-build-warsh-in-focus-5028296"
+   },
+   {
+    "date": "2026-11-16 21:18",
+    "title": "Rare-earth stocks sink deeper into the red. Here’s the latest catalyst.",
     "source": "MarketWatch",
     "topics": [],
     "groups": [],
-    "link": "https://www.marketwatch.com/story/im-sick-of-flying-i-paid-for-priority-boarding-but-the-overhead-bins-were-full-was-i-duped-0badcc80?mod=mw_rss_topstories"
+    "link": "https://www.marketwatch.com/story/rare-earth-stocks-sinks-deeper-into-the-red-heres-the-latest-catalyst-3033c8d0?mod=mw_rss_topstories"
    },
    {
-    "date": "2026-11-15 15:13",
-    "title": "Gold rush turns deadly in Guinea",
+    "date": "2026-11-16 17:27",
+    "title": "UK short-term borrowing costs hit three-year high",
+    "source": "FT마켓",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/aad29fc8-1b1b-4b7a-9e60-99989887ad89?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-11-16 16:53",
+    "title": "Eurasian Resources Group to split its Kazakh and African assets",
     "source": "FT마켓",
     "topics": [
-     "gold price"
+     "copper"
     ],
     "groups": [
      "금속"
     ],
-    "link": "https://www.ft.com/content/0d0d8fae-14f4-410f-8597-8e58f1172ad7?syn-25a6b1a6=1"
+    "link": "https://www.ft.com/content/9187b8bf-5dab-4bde-9815-a9042851c558?syn-25a6b1a6=1"
    },
    {
-    "date": "2026-11-15 05:00",
-    "title": "Brookfield and KKR vie over $700mn deal for Gulf retailer Eyewa",
+    "date": "2026-11-16 16:08",
+    "title": "Greece becomes unlikely haven for European investors",
+    "source": "FT마켓",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/e2bfe9ca-b0a2-439c-8ee3-4108c9955ecd?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-11-16 11:47",
+    "title": "Biggest IPOs this year lose investors money as AI frenzy fades",
+    "source": "FT마켓",
+    "topics": [],
+    "groups": [],
+    "link": "https://www.ft.com/content/7974acec-e378-4298-a1a7-2b16b00d8b32?syn-25a6b1a6=1"
+   },
+   {
+    "date": "2026-11-16 06:00",
+    "title": "Tiny quant fund joins UK tax giants",
     "source": "FT마켓",
     "topics": [
-     "drought"
+     "crude"
     ],
     "groups": [
-     "농산물"
+     "에너지"
     ],
-    "link": "https://www.ft.com/content/a240f6b7-724c-4ad5-a4b1-2e04897e2fe8?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-11-14 05:00",
-    "title": "Hedge fund woes expose the dangers of hot money once again",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/7c60b026-23ff-4b50-8a2b-7e9614ef7970"
-   },
-   {
-    "date": "2026-11-13 23:39",
-    "title": "Sam Bankman-Fried would have made nearly $40bn in Anthropic IPO",
-    "source": "FT마켓",
-    "topics": [
-     "currency"
-    ],
-    "groups": [
-     "환율"
-    ],
-    "link": "https://www.ft.com/content/0ef40ac9-6d01-428f-98c8-a52bf5b9a787?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-11-13 19:45",
-    "title": "Global oil markets swing to surplus as Gulf shipments rebound",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/20b68fe2-9d60-4c0c-b714-1f3e03015823?syn-25a6b1a6=1"
-   },
-   {
-    "date": "2026-11-13 16:55",
-    "title": "AI believers hold the line after Nvidia ructions",
-    "source": "FT마켓",
-    "topics": [],
-    "groups": [],
-    "link": "https://www.ft.com/content/750e4304-7287-432a-8ac1-36db40d0d968?syn-25a6b1a6=1"
+    "link": "https://www.ft.com/content/8919e96e-df3d-41b8-99fa-b8ebcab5e99a?syn-25a6b1a6=1"
    }
   ],
   "newsNote": "서수형 팩터(fedPolicy·safeHaven·opec·geopolitics·ecbPolicy 등) 판단용 원재료다. 400여 건에서 추린 것이며 호재·악재 판정은 붙이지 않았다 — 읽고 판단하는 것은 매크로 데스크 몫이다."
@@ -386,25 +352,25 @@
  "contract": "숫자만 제공한다. stance·direction 같은 판정은 넣지 않는다. 매크로 데스크 엔진이 자기 밴드로 판정해야 스코어보드가 자기 룰셋을 채점한다.",
  "factors": {
   "usRates": {
-   "value": 5.1,
+   "value": -3.3,
    "unit": "bp",
-   "fact": "미 10년물 5.154% (전일 5.103%)",
+   "fact": "미 10년물 5.121% (전일 5.154%)",
    "source": "Yahoo ^TNX",
-   "asof": "2026-11-16T10:07:30"
+   "asof": "2026-11-17T06:21:26"
   },
   "riskAppetite": {
-   "value": 0.6,
+   "value": 3.83,
    "unit": "pt",
-   "fact": "VIX 19.3 (전일 18.70)",
+   "fact": "VIX 23.13 (전일 19.30)",
    "source": "Yahoo ^VIX",
-   "asof": "2026-11-16T10:07:30"
+   "asof": "2026-11-17T06:21:26"
   },
   "dollar": {
-   "value": 0.01,
+   "value": 0.2,
    "unit": "%",
-   "fact": "달러인덱스 103.417 (전일 대비 +0.01%)",
+   "fact": "달러인덱스 103.614 (전일 대비 +0.20%)",
    "source": "Yahoo DX-Y.NYB",
-   "asof": "2026-11-16T10:07:30"
+   "asof": "2026-11-17T06:21:26"
   },
   "breadth": {
    "value": 23.2,
@@ -414,63 +380,63 @@
    "asof": "2026-11-14T03:48:08"
   },
   "rateDiff": {
-   "value": 2.4,
+   "value": -7.7,
    "unit": "bp",
-   "fact": "미 10년물 5.154% − 유로존 3.3672% = 179bp (전일 176bp)",
-   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-11-12",
-   "asof": "2026-11-16T10:07:30"
+   "fact": "미 10년물 5.121% − 유로존 3.4116% = 171bp (전일 179bp)",
+   "source": "Yahoo ^TNX / ECB Data Portal YC B.U2.EUR SR_10Y 2026-11-13",
+   "asof": "2026-11-17T06:21:26"
   }
  },
  "levels": {
   "XAUUSD_FUT": {
-   "last": 3897.3,
+   "last": 3853.1,
    "prevClose": 3886.300048828125,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-11-16T10:07:30",
-   "note": "금 · 당일 +0.28% · 선물 Gold Dec 26"
+   "asof": "2026-11-17T06:21:26",
+   "note": "금 · 당일 -0.85% · 선물 Gold Dec 26"
   },
   "USOIL_FUT": {
-   "last": 88.19,
+   "last": 85.36,
    "prevClose": 88.55999755859375,
    "contract": "Crude Oil Dec 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-11-16T10:07:30",
-   "note": "WTI원유 · 당일 -0.42% · 선물 Crude Oil Dec 26"
+   "asof": "2026-11-17T06:21:26",
+   "note": "WTI원유 · 당일 -3.61% · 선물 Crude Oil Dec 26"
   },
   "EURUSD": {
-   "last": 1.1025,
+   "last": 1.0999,
    "prevClose": 1.1050212383270264,
    "contract": null,
    "source": "Yahoo EURUSD=X",
-   "asof": "2026-11-16T10:07:30",
-   "note": "유로달러 · 당일 -0.23%"
+   "asof": "2026-11-17T06:21:26",
+   "note": "유로달러 · 당일 -0.46%"
   },
   "NAS100": {
-   "last": 28178.75,
+   "last": 27300.75,
    "prevClose": 28034.75,
    "contract": "Nasdaq 100 Dec 26",
    "source": "Yahoo NQ=F",
-   "asof": "2026-11-16T10:07:30",
-   "note": "나스닥선물 · 당일 +0.51% · 선물 Nasdaq 100 Dec 26"
+   "asof": "2026-11-17T06:21:26",
+   "note": "나스닥선물 · 당일 -2.62% · 선물 Nasdaq 100 Dec 26"
   },
   "XAUUSD": {
-   "last": 3897.3,
+   "last": 3853.1,
    "prevClose": 3886.300048828125,
    "contract": "Gold Dec 26",
    "source": "Yahoo GC=F",
-   "asof": "2026-11-16T10:07:30",
-   "note": "금 · 당일 +0.28% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-11-17T06:21:26",
+   "note": "금 · 당일 -0.85% · 선물 Gold Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `XAUUSD_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "XAUUSD_FUT"
   },
   "USOIL": {
-   "last": 88.19,
+   "last": 85.36,
    "prevClose": 88.55999755859375,
    "contract": "Crude Oil Dec 26",
    "source": "Yahoo CL=F",
-   "asof": "2026-11-16T10:07:30",
-   "note": "WTI원유 · 당일 -0.42% · 선물 Crude Oil Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
+   "asof": "2026-11-17T06:21:26",
+   "note": "WTI원유 · 당일 -3.61% · 선물 Crude Oil Dec 26 — **이 키는 현물이 아니다.** 이름이 현물 표기라 오해를 부르므로 `USOIL_FUT`로 옮겨라. 이 키는 옮길 시간을 준 뒤 뺀다.",
    "deprecated": true,
    "replacedBy": "USOIL_FUT"
   }
